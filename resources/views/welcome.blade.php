@@ -35,7 +35,7 @@
                     @endauth
                 </div>
             @endif
-            <h1>Logixs-Academy</h1>
+            <h1 class="mb-3">Logixs-Academy</h1>
         </div>
     </body>
 </html>
