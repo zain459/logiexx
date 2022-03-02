@@ -1,11 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Logixs\Controllers\AdminDashboardController;
+use Logixs\Controllers\Auth\LoginController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+
+    Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
+
+});
