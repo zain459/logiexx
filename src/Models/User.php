@@ -60,6 +60,11 @@ class User extends Authenticatable
         return $this->name;
     }
 
+    public function email(): string
+    {
+        return $this->email;
+    }
+
     public function setPassword(string $password): void
     {
         $this->password = Hash::make($password);
@@ -67,7 +72,6 @@ class User extends Authenticatable
 
     public function afterLoginPath(): string
     {
-
         return route('user.dashboard');
     }
 }

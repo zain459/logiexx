@@ -8,5 +8,4 @@ class AdminDashboardController
     {
         return view('dashboard');
     }
-
 }
