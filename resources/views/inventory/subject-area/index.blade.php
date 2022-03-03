@@ -19,18 +19,18 @@
             </tr>
             </thead>
             <tbody>
-{{--            @foreach($categories as $item)--}}
-{{--                <tr>--}}
-{{--                    <td>{{ $item->name() }}</td>--}}
-{{--                    <td>--}}
-{{--                        <div class='d-flex align-items-center justify-content-end'>--}}
-{{--                            @include('inventory.category.edit', [--}}
-{{--                                'category' => $item--}}
-{{--                            ])--}}
-{{--                        </div>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+            @foreach($subjectArea as $area)
+                <tr>
+                    <td>{{ $area->name() }}</td>
+                    <td>
+                        <div class='d-flex align-items-center justify-content-end'>
+                            @include('inventory.subject-area.edit', [
+                                'area' => $area
+                            ])
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

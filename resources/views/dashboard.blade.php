@@ -19,10 +19,10 @@
                             </svg>
                         </div>
                         <h4>Inventory</h4>
-                        <p class="text-muted">Manage courses, courses category.</p>
+                        <p class="text-muted">Manage courses, courses category, subject areas.</p>
                     </a>
                 </div>
 
-        </div>
+            </div>
     </div>
 @endsection

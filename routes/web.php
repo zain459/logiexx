@@ -3,12 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Logixs\Controllers\Auth\LoginController;
 use Logixs\Controllers\AdminDashboardController;
-use Logixs\Controllers\Modules\Inventory\InventoryDashboardController;
-use Logixs\Controllers\Modules\Inventory\Category\CategoryIndexController;
-use Logixs\Controllers\Modules\Inventory\Category\CategoryStoreController;
-use Logixs\Controllers\Modules\Inventory\Category\CategoryUpdateController;
-use Logixs\Controllers\Modules\Inventory\SubjectArea\SubjectAreaIndexController;
-use Logixs\Controllers\Modules\Inventory\SubjectArea\SubjectAreaStoreController;
+use Logixs\Controllers\Modules\Inventory\Controllers\InventoryDashboardController;
+use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryIndexController;
+use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryStoreController;
+use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryUpdateController;
+use Logixs\Controllers\Modules\Inventory\Controllers\SubjectArea\SubjectAreaIndexController;
+use Logixs\Controllers\Modules\Inventory\Controllers\SubjectArea\SubjectAreaStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -19,7 +19,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
-    Route::get('inventory', InventoryDashboardController::class)->name('inventory.dashboard');
+
+    Route::get('inventory/dashboard', InventoryDashboardController::class)->name('inventory.dashboard');
     //category
     Route::get('inventory/category', CategoryIndexController::class)->name('inventory.category-index');
     Route::post('inventory/category/store', CategoryStoreController::class)->name('inventory.category-store');
@@ -27,5 +28,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     //subject area
     Route::get('inventory/subject-area', SubjectAreaIndexController::class)->name('inventory.subject-index');
-    Route::get('inventory/subject-area/store', SubjectAreaStoreController::class)->name('inventory.subject-store');
+    Route::post('inventory/subject-area/store', SubjectAreaStoreController::class)->name('inventory.subject-store');
+    Route::post('inventory/subject-area/{id}/update', SubjectAreaStoreController::class)->name('inventory.subject-update');
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory\Category;
+namespace Logixs\Controllers\Modules\Inventory\Controllers\Category;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;

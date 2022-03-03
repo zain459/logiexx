@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory;
+namespace Logixs\Controllers\Modules\Inventory\Controllers;
 
 use App\Http\Controllers\Controller;
 
