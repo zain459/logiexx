@@ -8,7 +8,7 @@
                     Configurations
                 </div>
                 <a href="{{route('inventory.category-index')}}" class="list-group-item list-group-item-action">Categories</a>
-                <a href="#" class="list-group-item list-group-item-action">Subject Area </a>
+                <a href="{{ route('inventory.subject-index') }}" class="list-group-item list-group-item-action">Subject Area </a>
 
             </div>
         </div>
