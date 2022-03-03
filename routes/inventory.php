@@ -9,7 +9,7 @@ use Logixs\Modules\Inventory\Controllers\SubjectArea\SubjectAreaIndexController;
 use Logixs\Modules\Inventory\Controllers\SubjectArea\SubjectAreaStoreController;
 use Logixs\Modules\Inventory\Controllers\SubjectArea\SubjectAreaUpdateController;
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('inventory/dashboard', InventoryDashboardController::class)->name('inventory.dashboard');
 
     //category

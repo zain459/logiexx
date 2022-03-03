@@ -11,8 +11,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
 });
 
 require __DIR__.'/inventory.php';
+require __DIR__.'/course.php';

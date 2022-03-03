@@ -6,6 +6,6 @@ class CourseIndexController
 {
     public function __invoke()
     {
-        return view('');
+        return view('course.index');
     }
 }
