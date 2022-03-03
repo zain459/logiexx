@@ -27,6 +27,6 @@ class SubjectAreaUpdateController extends Controller
 
         flash('category updated')->success();
 
-        return redirect()->route('inventory.category-index');
+        return redirect()->route('inventory.subject-index');
     }
 }
