@@ -19,7 +19,7 @@
                             </svg>
                         </div>
                         <h4>Inventory</h4>
-                        <p class="text-muted">Manage courses, courses category, subject areas.</p>
+                        <p class="text-muted">Manage category, subject areas.</p>
                     </a>
                 </div>
 
@@ -31,7 +31,7 @@
                             </svg>
                         </div>
                         <h4>Courses</h4>
-                        <p class="text-muted">Manage courses, courses category, subject areas.</p>
+                        <p class="text-muted">Manage courses.</p>
                     </a>
                 </div>
 
