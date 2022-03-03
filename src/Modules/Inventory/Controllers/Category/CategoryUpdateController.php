@@ -1,11 +1,11 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory\Controllers\Category;
+namespace Logixs\Modules\Inventory\Controllers\Category;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use Logixs\Controllers\Modules\Inventory\Model\Category;
+use Logixs\Modules\Inventory\Model\Category;
 
 class CategoryUpdateController extends Controller
 {

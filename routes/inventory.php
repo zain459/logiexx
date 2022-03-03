@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Logixs\Controllers\Modules\Inventory\Controllers\InventoryDashboardController;
-use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryIndexController;
-use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryStoreController;
-use Logixs\Controllers\Modules\Inventory\Controllers\Category\CategoryUpdateController;
-use Logixs\Controllers\Modules\Inventory\Controllers\SubjectArea\SubjectAreaIndexController;
-use Logixs\Controllers\Modules\Inventory\Controllers\SubjectArea\SubjectAreaStoreController;
+use Logixs\Modules\Inventory\Controllers\InventoryDashboardController;
+use Logixs\Modules\Inventory\Controllers\Category\CategoryIndexController;
+use Logixs\Modules\Inventory\Controllers\Category\CategoryStoreController;
+use Logixs\Modules\Inventory\Controllers\Category\CategoryUpdateController;
+use Logixs\Modules\Inventory\Controllers\SubjectArea\SubjectAreaIndexController;
+use Logixs\Modules\Inventory\Controllers\SubjectArea\SubjectAreaStoreController;
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('inventory/dashboard', InventoryDashboardController::class)->name('inventory.dashboard');

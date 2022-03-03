@@ -1,16 +1,18 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory\Model;
+namespace Logixs\Modules\Inventory\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Logixs\Modules\Course\Models\Course;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int    $id
  * @property string $name
  */
-class SubjectArea extends Model
+class Category extends Model
 {
-    protected $table = 'subject_areas';
+    protected $table = 'categories';
     protected $dateFormat = 'Y-m-d H:i:s';
 
     public function id(): int
@@ -21,5 +23,10 @@ class SubjectArea extends Model
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function course(): HasMany
+    {
+        return $this->hasMany(Course::class);
     }
 }

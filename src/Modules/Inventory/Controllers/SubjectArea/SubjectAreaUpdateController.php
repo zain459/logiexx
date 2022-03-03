@@ -1,11 +1,11 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory\Controllers\SubjectArea;
+namespace Logixs\Modules\Inventory\Controllers\SubjectArea;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use Logixs\Controllers\Modules\Inventory\Model\SubjectArea;
+use Logixs\Modules\Inventory\Model\SubjectArea;
 
 class SubjectAreaUpdateController extends Controller
 {

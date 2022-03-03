@@ -1,10 +1,10 @@
 <?php
 
-namespace Logixs\Controllers\Modules\Inventory\Controllers\Category;
+namespace Logixs\Modules\Inventory\Controllers\Category;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Logixs\Controllers\Modules\Inventory\Model\Category;
+use Logixs\Modules\Inventory\Model\Category;
 
 class CategoryStoreController extends Controller
 {
