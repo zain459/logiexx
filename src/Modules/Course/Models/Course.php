@@ -9,21 +9,21 @@ use Logixs\Modules\Inventory\Model\SubjectArea;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property int    $id
+ * @property int $id
  * @property string $name
- * @property int    $category_id
- * @property int    $subject_area_id
- * @property int    $language
- * @property int    $difficulty_level
- * @property int    $start_date_status
- * @property int    $duration
- * @property int    $modality
- * @property int    $pace
- * @property int    $fee_type
- * @property ?float $fee_amount
+ * @property int $category_id
+ * @property int $subject_area_id
+ * @property int $language
+ * @property int $difficulty_level
+ * @property int $start_date_status
+ * @property int $duration_interval
+ * @property int $modality
+ * @property int $pace
+ * @property int $fee_type
+ * @property float|null $fee_amount
  * @property string $title
  * @property string $overview
- * @property int    $class_size
+ * @property int $class_size
  * @property Carbon $time_commitment
  * @property Carbon $course_start_date
  * @property string $course_code
@@ -55,34 +55,39 @@ class Course extends Model
         return $this->subject_area_id;
     }
 
-    public function language(): int
+    public function language(): Language
     {
-        return $this->language;
+        return Language::fromId((int)$this->language);
     }
 
-    public function difficultyLevel(): int
+    public function durationInterval(): DurationInterval
     {
-        return $this->difficulty_level;
+        return DurationInterval::fromId((int)$this->duration_interval);
     }
 
-    public function startDateStatus(): int
+    public function difficultyLevel(): DifficultyLevel
     {
-        return $this->start_date_status;
+        return DifficultyLevel::fromId((int)$this->difficulty_level);
     }
 
-    public function modality(): int
+    public function startDateStatus(): StartDateStatus
     {
-        return $this->modality;
+        return StartDateStatus::fromId((int)$this->start_date_status);
     }
 
-    public function pace(): int
+    public function modality(): Modality
     {
-        return $this->pace;
+        return Modality::fromId((int)$this->modality);
     }
 
-    public function feeType(): int
+    public function pace(): Pace
     {
-        return $this->fee_type;
+        return Pace::fromId((int)$this->pace);
+    }
+
+    public function feeType(): CourseFee
+    {
+        return CourseFee::fromId((int)$this->fee_type);
     }
 
     public function feeAmount(): ?float
