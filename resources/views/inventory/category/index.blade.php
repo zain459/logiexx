@@ -4,7 +4,8 @@
     <div class="mb-3 d-flex justify-content-between align-items-center">
         <h3>Categories</h3>
 
-        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#createCategoryModal">
+        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                data-bs-target="#createCategoryModal">
             New Category
         </button>
     </div>
@@ -18,14 +19,25 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($categories as $item)
-                @endforeach
+            @foreach($categories as $item)
+                <tr>
+                    <td>{{ $item->name() }}</td>
+                    <td>
+                        <div class='d-flex align-items-center justify-content-end'>
+                            @include('inventory.category.edit', [
+                                'category' => $item
+                            ])
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="createCategoryModal" tabindex="-1" role="dialog" aria-labelledby="createCategoryModal" aria-hidden="true">
+    <div class="modal fade" id="createCategoryModal" tabindex="-1" role="dialog" aria-labelledby="createCategoryModal"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="card">

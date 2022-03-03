@@ -10,9 +10,8 @@ class CategoryIndexController
     {
         $categories = Category::all();
 
-        return view('inventory.category.index',[
+        return view('inventory.category.index', [
             'categories' => $categories,
         ]);
     }
-
 }

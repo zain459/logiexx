@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Logixs\Controllers\Auth\LoginController;
 use Logixs\Controllers\AdminDashboardController;
+use Logixs\Controllers\Modules\Inventory\InventoryDashboardController;
 use Logixs\Controllers\Modules\Inventory\Category\CategoryIndexController;
 use Logixs\Controllers\Modules\Inventory\Category\CategoryStoreController;
-use Logixs\Controllers\Modules\Inventory\InventoryDashboardController;
+use Logixs\Controllers\Modules\Inventory\Category\CategoryUpdateController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -20,4 +21,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     //category
     Route::get('inventory/category', CategoryIndexController::class)->name('inventory.category-index');
     Route::post('inventory/category/store', CategoryStoreController::class)->name('inventory.category-store');
+    Route::post('inventory/category/{id}/update', CategoryUpdateController::class)->name('inventory.category-update');
 });

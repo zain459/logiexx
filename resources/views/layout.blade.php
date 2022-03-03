@@ -17,6 +17,17 @@
 
     <main class="content">
         <div class="container-fluid p-0">
+            @if ($errors->any())
+                <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @include('flash::message')
+
             @yield('content')
 
         </div>
