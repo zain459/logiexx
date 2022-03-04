@@ -85,6 +85,11 @@ class Course extends Model
         return $this->fee_type;
     }
 
+    public function duration(): string
+    {
+        return $this->duration;
+    }
+
     public function feeAmount(): ?float
     {
         return $this->fee_amount;
@@ -112,7 +117,7 @@ class Course extends Model
 
     public function courseStartDate(): Carbon
     {
-        return $this->course_start_date;
+        return Carbon::parse($this->course_start_date);
     }
 
     public function courseCode(): string

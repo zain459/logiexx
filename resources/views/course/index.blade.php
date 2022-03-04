@@ -20,7 +20,7 @@
             <tbody>
             @forelse($courses as $course)
                 <tr>
-                    <td><a href="#">{{ $course->courseCode() }}</a></td>
+                    <td><a href="{{ route('course-edit', $course->id()) }}">{{ $course->courseCode() }}</a></td>
                     <td>{{ $course->title() }}</td>
                     <td>{{ $course->category->name() }}</td>
                     <td>{{ $course->subjectArea->name() }}</td>

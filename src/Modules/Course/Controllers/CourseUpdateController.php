@@ -3,13 +3,12 @@
 namespace Logixs\Modules\Course\Controllers;
 
 use Illuminate\Http\Request;
-use Logixs\Modules\SaveImage;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Course\Query\GetCourse;
 
-class CourseStoreController extends Controller
+class CourseUpdateController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, int $id)
     {
         $data = $this->validate($request, [
             'title' => ['required', 'string', 'max:100'],
@@ -29,17 +28,13 @@ class CourseStoreController extends Controller
             'feeType' => ['required', 'string'],
             'duration' => ['required', 'string'],
             'feeAmount' => ['nullable'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $path = SaveImage::save($file);
+        GetCourse::update($data, $id, $request);
 
-        $course = GetCourse::store($data, $path);
+        flash('Course Updated')->success();
 
-        flash('Course added');
-
-        return redirect()->route('course-edit', $course->id());
+        return redirect()->back();
     }
 }
