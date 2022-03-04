@@ -10,7 +10,7 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('course-edit', $course->id()) }}">Details</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Other Details</a>
+                    <a class="nav-link" href="{{ route('course.other-info', $course->id()) }}">Other Details</a>
                 </li>
             </ul>
         </div>
