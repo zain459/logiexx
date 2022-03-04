@@ -27,7 +27,7 @@ return new class() extends Migration {
             $table->string('title');
             $table->string('overview');
             $table->integer('class_size');
-            $table->time('time_commitment');
+            $table->string('time_commitment');
             $table->date('course_start_date');
             $table->string('course_code');
             $table->string('duration');

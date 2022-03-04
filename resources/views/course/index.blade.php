@@ -3,34 +3,35 @@
 @section('content')
     <div class="mb-3 d-flex justify-content-between align-items-center">
         <h3>Courses</h3>
-
-        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                data-bs-target="#createCategoryModal">
-            New Course
-        </button>
+        <a href="{{ route('course-create') }}" class="btn btn-sm btn-primary">New Course</a>
     </div>
 
     <div class="card">
         <table class="table table-hover">
             <thead>
             <tr>
+                <th>#Code</th>
                 <th>Name</th>
-                <th></th>
+                <th>Category</th>
+                <th>Subject Area</th>
+                <th>Fee Type</th>
             </tr>
             </thead>
             <tbody>
-{{--            @foreach($categories as $item)--}}
-{{--                <tr>--}}
-{{--                    <td>{{ $item->name() }}</td>--}}
-{{--                    <td>--}}
-{{--                        <div class='d-flex align-items-center justify-content-end'>--}}
-{{--                            @include('inventory.category.edit', [--}}
-{{--                                'category' => $item--}}
-{{--                            ])--}}
-{{--                        </div>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+            @forelse($courses as $course)
+                <tr>
+                    <td><a href="#">{{ $course->courseCode() }}</a></td>
+                    <td>{{ $course->title() }}</td>
+                    <td>{{ $course->category->name() }}</td>
+                    <td>{{ $course->subjectArea->name() }}</td>
+                    <td>{{ $course->feeType() }}</td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center"> No record found</td>
+                </tr>
+
+            @endforelse
             </tbody>
         </table>
     </div>
