@@ -9,7 +9,9 @@ final class SaveImage
     public static function save(UploadedFile $file): string
     {
         /** @var string * */
-        $path = $file->store('public');
+        $path = $file->store('public/images');
+
+        $path= str_replace("public/","",$path);
 
         return $path;
     }

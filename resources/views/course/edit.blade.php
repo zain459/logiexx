@@ -15,7 +15,7 @@
             </ul>
         </div>
     </div>
-    <form action="{{ route('course-update', $course->id()) }}" method="post">
+    <form action="{{ route('course-update', $course->id()) }}" method="post" enctype="multipart/form-data" >
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -78,9 +78,23 @@
                                 </div>
                             </div>
 
-                            <div class="col" id="show" style="visibility:hidden">
+                            <div class="col mb-3" id="show" style="visibility:hidden">
                                 <input type="number" class="form-control" min="0" name="feeAmount" value="{{ $course->feeAmount() }}"/>
                             </div>
+
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <img src="{{ asset('storage/'.$course->image()) }}" class="rounded" width="150">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label class="form-label" for="overview">Image</label>
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
