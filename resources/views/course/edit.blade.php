@@ -2,19 +2,8 @@
 @section('title', sprintf('%s Edit' , ucfirst($course->courseCode())))
 @section('content')
 
-    <div class="card">
-        <div class="card-header fw-bold text-uppercase">{{$course->courseCode()}}</div>
-        <div class="card-body">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('course-edit', $course->id()) }}">Details</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('course.other-info', $course->id()) }}">Other Details</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <x-course-navbar :course="$course" />
+
     <form action="{{ route('course-update', $course->id()) }}" method="post" enctype="multipart/form-data" >
         @csrf
         <div class="row">

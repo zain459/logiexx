@@ -6,6 +6,8 @@ use Logixs\Modules\Course\Controllers\CourseIndexController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
 use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
+use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
+use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
@@ -27,4 +29,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('course/{id}/other-details/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
 
     Route::post('course/{id}/other-details/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
+
+    //Affiliated Partners
+    Route::get('course/{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');
+    Route::post('course/partner/assign/courses', CoursePartnerStoreController::class)->name('course.partner.assign-course');
 });
