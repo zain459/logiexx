@@ -7,7 +7,7 @@
                 <div class="list-group-item list-group-item-action bg-light fw-bold" aria-current="true">
                     Configurations
                 </div>
-                <a href="{{route('inventory.category-index')}}" class="list-group-item list-group-item-action">Categories</a>
+                <a href="{{ route('inventory.category-index') }}" class="list-group-item list-group-item-action">Categories</a>
                 <a href="{{ route('inventory.subject-index') }}" class="list-group-item list-group-item-action">Subject Area </a>
 
             </div>
@@ -18,8 +18,8 @@
                 <div class="list-group-item list-group-item-action bg-light fw-bold" aria-current="true">
                     Affiliated Partners
                 </div>
-                <a href="{{route('inventory.partner-index')}}" class="list-group-item list-group-item-action">Create New Partner</a>
-                <a href="" class="list-group-item list-group-item-action">View All Partners </a>
+                <a href="{{ route('inventory.partner-index') }}" class="list-group-item list-group-item-action">Create New Partner</a>
+                <a href="{{ route('inventory.partner-index') }}" class="list-group-item list-group-item-action">View All Partners </a>
 
             </div>
         </div>

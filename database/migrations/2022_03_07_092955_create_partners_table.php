@@ -16,7 +16,7 @@ return new class() extends Migration {
             $table->id();
             $table->string('link');
             $table->string('image');
-            $table->boolean('active')->default(true);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

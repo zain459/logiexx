@@ -14,23 +14,25 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Name</th>
+                <th>Link</th>
+                <th>Image</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-{{--            @foreach($categories as $item)--}}
-{{--                <tr>--}}
-{{--                    <td>{{ $item->name() }}</td>--}}
-{{--                    <td>--}}
-{{--                        <div class='d-flex align-items-center justify-content-end'>--}}
-{{--                            @include('inventory.category.edit', [--}}
-{{--                                'category' => $item--}}
-{{--                            ])--}}
-{{--                        </div>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+            @foreach($partners as $item)
+                <tr>
+                    <td><a href="#">{{ $item->link() }}</a></td>
+                    <td><img src="{{ asset('storage/'.$item->image()) }}" width="50"></td>
+                    <td>
+                        <div class='d-flex align-items-center justify-content-end'>
+                            @include('partner.edit', [
+                                'partner' => $item
+                            ])
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
