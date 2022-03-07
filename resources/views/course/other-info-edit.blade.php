@@ -18,9 +18,9 @@
     </div>
 
     <div class="card">
-        <div class="card-header fw-bold">Create</div>
+        <div class="card-header fw-bold">Update</div>
         <div class="card-body">
-            <form action="{{ route('course.other-info-store') }}" method="post">
+            <form action="{{ route('course.other-info-update', $courseInfo->id()) }}" method="post">
                 @csrf
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Title</label>
@@ -36,11 +36,9 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="courseId" value="{{ $courseInfo->course->id() }}" required />
-
                 <div class="mb-3 row">
                     <div class="col-sm-10 ms-sm-auto">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
 
