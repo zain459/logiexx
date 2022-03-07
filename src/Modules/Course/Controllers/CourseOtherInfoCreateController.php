@@ -10,9 +10,8 @@ class CourseOtherInfoCreateController
     {
         $course = Course::query()->findOrFail($id);
 
-        return view('course.other-info-create',[
+        return view('course.other-info-create', [
             'course' => $course,
         ]);
     }
-
 }

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Logixs\Modules\Inventory\Model\Category;
 use Logixs\Modules\Inventory\Model\SubjectArea;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -133,6 +134,11 @@ class Course extends Model
     public function createdAt(): Carbon
     {
         return $this->created_at;
+    }
+
+    public function courseDetails(): HasMany
+    {
+        return $this->hasMany(CourseOtherInfo::class);
     }
 
     public function category(): BelongsTo
