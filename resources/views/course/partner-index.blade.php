@@ -4,11 +4,11 @@
 
     <x-course-navbar :course="$course"/>
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h3>Affiliated Partners</h3>
+        <h3>Course Affiliated Partners</h3>
 
         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                 data-bs-target="#createPartnerModal">
-            Assign Course
+            Assign Partner
         </button>
     </div>
 
@@ -16,28 +16,29 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>#Code</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Subject Area</th>
-                <th>Fee Type</th>
+                <th>Affiliated Partners</th>
+                <td></td>
             </tr>
             </thead>
             <tbody>
-            {{--            @forelse($courses as $course)--}}
-            {{--                <tr>--}}
-            {{--                    <td><a href="{{ route('course-edit', $course->id()) }}">{{ $course->courseCode() }}</a></td>--}}
-            {{--                    <td>{{ $course->title() }}</td>--}}
-            {{--                    <td>{{ $course->category->name() }}</td>--}}
-            {{--                    <td>{{ $course->subjectArea->name() }}</td>--}}
-            {{--                    <td>{{ $course->feeType() }}</td>--}}
-            {{--                </tr>--}}
-            {{--            @empty--}}
-            {{--                <tr>--}}
-            {{--                    <td colspan="5" class="text-center"> No record found</td>--}}
-            {{--                </tr>--}}
+            @forelse($assignedPartners as $item)
+                <tr>
+                    <td>{{ $item->partner->link() }}</td>
+                    <td>
+                        <form method="post" action="{{ route('course.partner-delete', $item->id()) }}">
+                            @csrf
+                            <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash align-middle text-danger"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center"> No record found</td>
+                </tr>
 
-            {{--            @endforelse--}}
+            @endforelse
             </tbody>
         </table>
     </div>
@@ -49,22 +50,22 @@
             <div class="modal-content">
                 <div class="card">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5>Assign Course</h5>
+                        <h5>Assign Partner</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('course.partner.assign-course') }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label" for="title">Category</label>
-                                <select class="form-select" name="assignedCourse" required>
+                                <label class="form-label" for="title">Partners</label>
+                                <select class="form-select" name="partner" required>
                                     <option></option>
-                                    @foreach($courses as $item)
-                                        <option value="{{ $item->id() }}">{{ $item->title() }}</option>
+                                    @foreach($partners as $item)
+                                        <option value="{{ $item->id() }}">{{ $item->link() }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="hidden" value="{{ $course->id() }}" name="courseId" required />
+                            <input type="hidden" value="{{ $course->id() }}" name="courseId" required/>
 
                             <button type="submit" class="btn btn-primary">Assign</button>
                         </form>

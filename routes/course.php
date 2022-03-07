@@ -9,6 +9,7 @@ use Logixs\Modules\Course\Controllers\CourseUpdateController;
 use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
 use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
+use Logixs\Modules\Course\Controllers\CoursePartnerDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
@@ -32,5 +33,6 @@ Route::middleware(['auth'])->group(function () {
 
     //Affiliated Partners
     Route::get('course/{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');
-    Route::post('course/partner/assign/courses', CoursePartnerStoreController::class)->name('course.partner.assign-course');
+    Route::post('course/partner/assign', CoursePartnerStoreController::class)->name('course.partner.assign-course');
+    Route::post('course/partner/assign/{id}/delete', CoursePartnerDeleteController::class)->name('course.partner-delete');
 });
