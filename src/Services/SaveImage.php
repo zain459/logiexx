@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules;
+namespace Logixs\Services;
 
 use Illuminate\Http\UploadedFile;
 
@@ -11,7 +11,7 @@ final class SaveImage
         /** @var string * */
         $path = $file->store('public/images');
 
-        $path= str_replace("public/","",$path);
+        $path = str_replace('public/', '', $path);
 
         return $path;
     }

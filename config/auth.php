@@ -62,7 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Logixs\Models\User::class,
+            'model' => \Logixs\Modules\User\Models\User::class,
         ],
 
         // 'users' => [

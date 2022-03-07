@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Logixs\Controllers\Auth\LoginController;
-use Logixs\Controllers\AdminDashboardController;
+use Logixs\Modules\User\Controllers\Auth\LoginController;
+use Logixs\Modules\User\Controllers\AdminDashboardController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');

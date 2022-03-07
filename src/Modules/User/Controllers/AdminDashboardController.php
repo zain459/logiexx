@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Controllers;
+namespace Logixs\Modules\User\Controllers;
 
 class AdminDashboardController
 {

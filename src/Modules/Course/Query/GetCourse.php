@@ -2,7 +2,7 @@
 
 namespace Logixs\Modules\Course\Query;
 
-use Logixs\Modules\SaveImage;
+use Logixs\Services\SaveImage;
 use Logixs\Modules\Course\Models\Pace;
 use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\Language;

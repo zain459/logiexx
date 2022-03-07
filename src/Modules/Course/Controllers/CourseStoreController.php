@@ -3,7 +3,7 @@
 namespace Logixs\Modules\Course\Controllers;
 
 use Illuminate\Http\Request;
-use Logixs\Modules\SaveImage;
+use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Course\Query\GetCourse;
 

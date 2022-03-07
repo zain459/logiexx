@@ -10,9 +10,8 @@ class CourseOtherInfoDeleteController
     {
         CourseOtherInfo::query()->findOrFail($id)->delete();
 
-        flash('course other detail delete')->warning();
+        flash('course other detail deleted')->warning();
+
         return redirect()->back();
-
     }
-
 }

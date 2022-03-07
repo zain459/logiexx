@@ -2,8 +2,8 @@
 
 namespace Logixs\Modules\Course\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Logixs\Modules\Course\Models\CourseOtherInfo;
 
 class CourseOtherInfoUpdateController extends Controller
@@ -24,7 +24,5 @@ class CourseOtherInfoUpdateController extends Controller
         flash('course other details updated')->success();
 
         return redirect()->back();
-
     }
-
 }

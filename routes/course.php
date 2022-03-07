@@ -3,15 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Course\Controllers\CourseEditController;
 use Logixs\Modules\Course\Controllers\CourseIndexController;
-use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
-use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
-use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
 use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('courses', CourseIndexController::class)->name('course-index');

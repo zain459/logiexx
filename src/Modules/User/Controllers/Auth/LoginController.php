@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Controllers\Auth;
+namespace Logixs\Modules\User\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;

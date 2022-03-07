@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Models;
+namespace Logixs\Modules\User\Models;
 
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;

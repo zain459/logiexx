@@ -35,6 +35,49 @@
                     </a>
                 </div>
 
+                <div class="col shadow-sm border bg-white rounded">
+                    <a class="d-block p-3 text-body text-decoration-none" href="">
+                        <div class="p-2 rounded d-inline-block mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="text-success" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                            </svg>
+                        </div>
+                        <h4>Instructors</h4>
+                        <p class="text-muted">Instructors.</p>
+                    </a>
+                </div>
+
+                <div class="col shadow-sm border bg-white rounded">
+                    <a class="d-block p-3 text-body text-decoration-none" href="">
+                        <div class="p-2 rounded d-inline-block mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="text-danger" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="text-danger" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="text-danger" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+
+                        </div>
+                        <h4>Learner Feedback</h4>
+                        <p class="text-muted">Learner Feedback .</p>
+                    </a>
+                </div>
+
+                <div class="col shadow-sm border bg-white rounded">
+                    <a class="d-block p-3 text-body text-decoration-none" href="{{ route('inventory.partner-index') }}">
+                        <div class="p-2 rounded d-inline-block mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" class="text-info" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <h4>Affiliated Partners</h4>
+                        <p class="text-muted">Affiliated Partners.</p>
+                    </a>
+                </div>
+
             </div>
     </div>
 @endsection

@@ -11,7 +11,7 @@ class CourseOtherInfoIndexController
     {
         /** @var Course $course */
         $course = Course::query()->findOrFail($id);
-        $courseDetails = CourseOtherInfo::query()->where('course_id',$course->id())->get();
+        $courseDetails = CourseOtherInfo::query()->where('course_id', $course->id())->get();
 
         return view('course.other-info', [
             'course' => $course,
