@@ -16,9 +16,12 @@ use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
 use Logixs\Modules\Course\Controllers\CoursePartnerDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
+use Logixs\Modules\Course\Controllers\CourseInstructorIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
+use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
+use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('courses', CourseIndexController::class)->name('course-index');
@@ -45,4 +48,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('course/store/feedback', FeedbackStoreController::class)->name('course.feedback-store');
     Route::post('course/update/feedback', FeedbackUpdateController::class)->name('course.feedback-update');
     Route::post('course/feedback/{id}/delete', FeedbackDeleteController::class)->name('course.feedback-delete');
+
+    //assign instructors
+    Route::get('course/{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');
+    Route::post('course/instructors/assign', CourseInstructorAssignController::class)->name('course.instructors-assign');
+    Route::post('course/instructors/{id}/delete', CourseInstructorDeleteController::class)->name('course.instructors-delete');
 });

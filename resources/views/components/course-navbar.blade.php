@@ -18,6 +18,10 @@
                 <a class="nav-link" href="{{ route('course.feedback-index', $course->id()) }}">Learner Feedback</a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>
+            </li>
+
         </ul>
     </div>
 </div>
