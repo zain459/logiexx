@@ -47,7 +47,7 @@ class Pace
     public static function all(): array
     {
         return [
-            new self(1, 'Instructor'),
+            new self(1, 'instructor'),
             new self(2, 'led'),
         ];
     }
