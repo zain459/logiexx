@@ -14,6 +14,10 @@
                 <a class="nav-link" href="{{ route('course.partner-index', $course->id()) }}">Affiliated Partners</a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('course.feedback-index', $course->id()) }}">Learner Feedback</a>
+            </li>
+
         </ul>
     </div>
 </div>

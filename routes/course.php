@@ -6,6 +6,8 @@ use Logixs\Modules\Course\Controllers\CourseIndexController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
 use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
+use Logixs\Modules\Course\Controllers\FeedbackIndexController;
+use Logixs\Modules\Course\Controllers\FeedbackStoreController;
 use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
 use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
@@ -35,4 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('course/{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');
     Route::post('course/partner/assign', CoursePartnerStoreController::class)->name('course.partner.assign-course');
     Route::post('course/partner/assign/{id}/delete', CoursePartnerDeleteController::class)->name('course.partner-delete');
+
+    //feedback
+    Route::get('course/{id}/feedback', FeedbackIndexController::class)->name('course.feedback-index');
+    Route::post('course/feedback/store', FeedbackStoreController::class)->name('course.feedback-store');
 });
