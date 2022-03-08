@@ -5,7 +5,7 @@
         <h3>Instructors</h3>
 
         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                data-bs-target="#createCategoryModal">
+                data-bs-target="#createInstructorModal">
             New Instructor
         </button>
     </div>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="createCategoryModal" tabindex="-1" role="dialog" aria-labelledby="createCategoryModal"
+    <div class="modal fade" id="createInstructorModal" tabindex="-1" role="dialog" aria-labelledby="createInstructorModal"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
