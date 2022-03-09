@@ -21,6 +21,7 @@ final class GetCourse
 
     public static function store(array $data, string $path): Course
     {
+        /** @var $course */
         $course = new Course();
         $course->title = $data['title'];
         $course->category_id = $data['categoryId'];
@@ -51,6 +52,7 @@ final class GetCourse
 
     public static function update(array $data, int $id, $request): void
     {
+        /** @var Course $course */
         $course = Course::query()->findOrFail($id);
         $course->title = $data['title'];
         $course->category_id = $data['categoryId'];
