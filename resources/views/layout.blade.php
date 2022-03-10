@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/@adminkit/core@latest/dist/css/app.css">
     <script src="https://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
+    <script type="text/javascript" src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body>
 <div id="app">
