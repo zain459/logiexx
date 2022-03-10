@@ -14,7 +14,8 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" v-model="formData.description" name="description" placeholder="Description" rows="3" required></textarea>
+                        <vue-editor v-model="formData.description" required></vue-editor>
+
                     </div>
                 </div>
 
@@ -30,8 +31,11 @@
 </template>
 
 <script>
-
+import { VueEditor } from "vue2-editor";
 export default {
+    components: {
+        VueEditor
+    },
     props:["course"],
 
     data (){

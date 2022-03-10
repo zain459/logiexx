@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "vue-axios": "^3.4.1",
-        "vue-select": "^3.18.3"
+        "vue-select": "^3.18.3",
+        "vue2-editor": "^2.10.3"
     }
 }
