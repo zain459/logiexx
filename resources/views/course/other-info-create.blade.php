@@ -6,5 +6,4 @@
 
     <other-details-component :course="{{ $course->id() }}"></other-details-component>
 
-
 @endsection

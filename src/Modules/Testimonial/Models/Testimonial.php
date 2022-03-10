@@ -2,17 +2,16 @@
 
 namespace Logixs\Modules\Testimonial\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int         $id
- * @property string      $name
- * @property string      $image
- * @property string      $designation
- * @property string      $company
- * @property string      $description
- * @property string      $other
+ * @property int    $id
+ * @property string $name
+ * @property string $image
+ * @property string $designation
+ * @property string $company
+ * @property string $description
+ * @property string $other
  */
 class Testimonial extends Model
 {
@@ -49,9 +48,8 @@ class Testimonial extends Model
         return $this->description;
     }
 
-    public function other():? string
+    public function other(): ?string
     {
         return $this->other;
     }
-
 }

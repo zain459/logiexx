@@ -2,20 +2,20 @@
 
 namespace Logixs\Modules\Testimonial\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Logixs\Modules\Testimonial\Models\Testimonial;
 use Logixs\Services\SaveImage;
+use App\Http\Controllers\Controller;
+use Logixs\Modules\Testimonial\Models\Testimonial;
 
 class TestimonialStoreController extends Controller
 {
     public function __invoke(Request $request)
     {
         $data = $this->validate($request, [
-            'name' => ['required', 'string','max:100'],
-            'company' => ['required', 'string','max:100'],
-            'designation' => ['required', 'string','max:100'],
-            'description' => ['required', 'string','max:100'],
+            'name' => ['required', 'string', 'max:100'],
+            'company' => ['required', 'string', 'max:100'],
+            'designation' => ['required', 'string', 'max:100'],
+            'description' => ['required', 'string', 'max:100'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
@@ -34,8 +34,5 @@ class TestimonialStoreController extends Controller
         flash('testimonial added')->success();
 
         return redirect()->route('testimonial-edit', $testimonial->id());
-
-
     }
-
 }

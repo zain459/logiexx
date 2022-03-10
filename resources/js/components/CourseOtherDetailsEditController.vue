@@ -1,9 +1,9 @@
 <template>
     <div class="card">
-        <div class="card-header fw-bold">Create</div>
+        <div class="card-header fw-bold">Edit</div>
         <div class="card-body">
 
-            <form @submit.prevent="onSubmit">
+            <form @submit.prevent="update">
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Title</label>
                     <div class="col-sm-10">
@@ -38,30 +38,27 @@ export default {
     components: {
         VueEditor
     },
-    props: ["course"],
+    props: ["info"],
 
     data() {
         return {
             formData: {
-                title: '',
-                description: '',
-                courseId: this.course,
+                title: this.info.title,
+                description: this.info.description,
             },
         }
     },
-    mounted() {
-        console.log(this.course);
-    },
+
     methods: {
-        onSubmit() {
+        update() {
             console.log(this.formData);
             if (this.formData.title === '' || this.formData.description === '') {
                 alert('Fill form properly');
 
             } else {
-                axios.post('/course/other-details/store', this.formData)
+                axios.post('/course/other-details/' + this.info.id + '/update', this.formData)
                     .then(redirect => {
-                        window.location.href = "/course/" + this.course + "/other-details";
+                        window.location.href = "/course/" + this.info.course_id + "/other-details";
                     }).catch(error => {
                     alert(error);
 

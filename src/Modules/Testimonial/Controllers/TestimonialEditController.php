@@ -13,7 +13,5 @@ class TestimonialEditController
         return view('testimonial.edit', [
             'testimonial' => $testimonial,
         ]);
-
     }
-
 }

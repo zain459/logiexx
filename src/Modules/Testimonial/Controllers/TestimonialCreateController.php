@@ -8,5 +8,4 @@ class TestimonialCreateController
     {
         return view('testimonial.create');
     }
-
 }

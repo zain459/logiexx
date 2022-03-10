@@ -9,10 +9,9 @@ class TestimonialIndexController
     public function __invoke()
     {
         $testimonials = Testimonial::all();
-        return view('testimonial.index',[
+
+        return view('testimonial.index', [
             'testimonials' => $testimonials,
         ]);
-
     }
-
 }

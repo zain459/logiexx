@@ -36,10 +36,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('{id}/other-details', CourseOtherInfoIndexController::class)->name('course.other-info');
         Route::get('{id}/other-details/create', CourseOtherInfoCreateController::class)->name('course.other-info-create');
         Route::post('other-details/store', CourseOtherInfoStoreController::class)->name('course.other-info-store');
-        Route::post('{id}/other-details/delete', CourseOtherInfoDeleteController::class)->name('course.other-info-delete');
-        Route::get('{id}/other-details/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
-
-        Route::post('{id}/other-details/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
+        Route::post('/other-details/{id}/delete', CourseOtherInfoDeleteController::class)->name('course.other-info-delete');
+        Route::get('/other-details/{id}/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
+        Route::post('/other-details/{id}/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
 
         //Affiliated Partners
         Route::get('{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');
