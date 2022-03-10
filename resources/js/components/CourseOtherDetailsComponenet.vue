@@ -7,7 +7,8 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" v-model="formData.title"  name="title" placeholder="Title"  />
+                        <input type="text" class="form-control" v-model="formData.title" name="title"
+                               placeholder="Title"/>
                     </div>
                 </div>
 
@@ -21,7 +22,7 @@
 
                 <div class="mb-3 row">
                     <div class="col-sm-10 ms-sm-auto">
-                        <button type="submit"  class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
 
@@ -31,34 +32,40 @@
 </template>
 
 <script>
-import { VueEditor } from "vue2-editor";
+import {VueEditor} from "vue2-editor";
+
 export default {
     components: {
         VueEditor
     },
-    props:["course"],
+    props: ["course"],
 
-    data (){
+    data() {
         return {
-            formData:{
-                title : '',
-                description : '',
-                courseId : this.course,
+            formData: {
+                title: '',
+                description: '',
+                courseId: this.course,
             },
         }
     },
-    methods : {
-        onSubmit(){
+    methods: {
+        onSubmit() {
             console.log(this.formData);
-            axios.post('/course/other-details/store',this.formData)
-                .then(redirect=>{
-                    window.location.href = "/course/"+this.course+"/other-details" ;
-                }).catch(error =>{
+            if (this.formData.title === '' || this.formData.description === '') {
+                alert('Fill form properly');
+
+            } else {
+                axios.post('/course/other-details/store', this.formData)
+                    .then(redirect => {
+                        window.location.href = "/course/" + this.course + "/other-details";
+                    }).catch(error => {
                     alert(error);
 
-            });
+                });
             }
         }
+    }
 }
 </script>
 <style scoped>

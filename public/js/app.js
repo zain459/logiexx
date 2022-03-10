@@ -5397,6 +5397,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5417,11 +5418,16 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       console.log(this.formData);
-      axios.post('/course/other-details/store', this.formData).then(function (redirect) {
-        window.location.href = "/course/" + _this.course + "/other-details";
-      })["catch"](function (error) {
-        alert(error);
-      });
+
+      if (this.formData.title === '' || this.formData.description === '') {
+        alert('Fill form properly');
+      } else {
+        axios.post('/course/other-details/store', this.formData).then(function (redirect) {
+          window.location.href = "/course/" + _this.course + "/other-details";
+        })["catch"](function (error) {
+          alert(error);
+        });
+      }
     }
   }
 });
