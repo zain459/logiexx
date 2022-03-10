@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('other-details-component', require('./components/CourseOtherDetailsComponenet.vue').default);
 Vue.component('edit-other-details-component', require('./components/CourseOtherDetailsEditController.vue').default);
+Vue.component('event-create-component', require('./components/EventCreateComponent.vue').default);
 
 
 

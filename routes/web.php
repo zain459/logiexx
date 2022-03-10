@@ -19,3 +19,4 @@ require __DIR__.'/inventory.php';
 require __DIR__.'/course.php';
 require __DIR__.'/instructor.php';
 require __DIR__.'/testimonial.php';
+require __DIR__.'/event.php';
