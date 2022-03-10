@@ -15,6 +15,7 @@
                 <th>description</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <td></td>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     <td>{!! html_entity_decode($event->description()) !!}</td>
                     <td>{{ $event->startDate()->toDateString() }}</td>
                     <td>{{ $event->endDate()->toDateString() }}</td>
+                    <td><a href="{{ route('event-edit', $event->id()) }}">Edit</a></td>
                 </tr>
             @empty
                 <tr>
