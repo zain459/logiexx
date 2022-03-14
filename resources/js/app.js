@@ -24,6 +24,7 @@ Vue.component('other-details-component', require('./components/CourseOtherDetail
 Vue.component('edit-other-details-component', require('./components/CourseOtherDetailsEditController.vue').default);
 Vue.component('event-create-component', require('./components/EventCreateComponent.vue').default);
 Vue.component('event-edit-component', require('./components/EventEditComponent.vue').default);
+Vue.component('news-form', require('./components/NewsForm.vue').default);
 
 
 
