@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int    $id
  * @property string $link
+ * @property string $title
  * @property string $image
+ * @property string $short_description
+ * @property string $long_description
+ * @property string $posted_date
  */
 class News extends Model
 {

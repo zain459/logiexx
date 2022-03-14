@@ -18,7 +18,7 @@
 
                     <label class="col-form-label col-sm-2 text-sm-end">link</label>
                     <div class="col-md-4">
-                        <input type="url" class="form-control" v-model="formData.link" required/>
+                        <input type="url" class="form-control" v-model="formData.link" />
                     </div>
                 </div>
 
@@ -69,12 +69,29 @@ export default {
                 shortDescription: '',
                 longDescription: '',
                 postedDate: '',
-                eventDate: '',
                 link: '',
                 image: '',
             },
         }
-    }
+    },
+    methods:{
+        onSubmit(){
+            console.log(this.formData);
+            if (this.formData.title === '' || this.formData.shortDescription === '') {
+                alert('Fill form properly');
+
+            } else {
+                axios.post('/news/store', this.formData)
+                    .then(redirect => {
+                        window.location.href = "/news";
+                    }).catch(error => {
+                    alert(error);
+
+                });
+            }
+
+        }
+    },
 
 }
 </script>

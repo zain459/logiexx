@@ -18,9 +18,8 @@ return new class() extends Migration {
             $table->string('short_description');
             $table->text('long_description');
             $table->date('posted_date');
-            $table->date('event_date');
-            $table->string('link');
-            $table->string('image');
+            $table->string('link')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

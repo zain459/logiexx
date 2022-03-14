@@ -5837,11 +5837,25 @@ __webpack_require__.r(__webpack_exports__);
         shortDescription: '',
         longDescription: '',
         postedDate: '',
-        eventDate: '',
         link: '',
         image: ''
       }
     };
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      console.log(this.formData);
+
+      if (this.formData.title === '' || this.formData.shortDescription === '') {
+        alert('Fill form properly');
+      } else {
+        axios.post('/news/store', this.formData).then(function (redirect) {
+          window.location.href = "/news";
+        })["catch"](function (error) {
+          alert(error);
+        });
+      }
+    }
   }
 });
 
@@ -44568,7 +44582,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { type: "url", required: "" },
+                attrs: { type: "url" },
                 domProps: { value: _vm.formData.link },
                 on: {
                   input: function ($event) {
