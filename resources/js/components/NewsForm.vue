@@ -11,22 +11,21 @@
                 </div>
 
                 <div class="mb-3 row">
-
                     <label class="col-form-label col-sm-2 text-sm-end">Posted Date</label>
                     <div class="col-sm-4">
                         <input type="date" class="form-control" v-model="formData.postedDate" required/>
                     </div>
 
-                    <label class="col-form-label col-sm-2 text-sm-end">Event Date</label>
-                    <div class="col-sm-4">
-                        <input type="date" class="form-control" v-model="formData.eventDate" required/>
+                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
+                    <div class="col-md-4">
+                        <input type="url" class="form-control" v-model="formData.link" required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Short Description</label>
                     <div class="col-sm-10">
-                       <textarea class="form-control" v-model="formData.shortDescription" required></textarea>
+                        <textarea class="form-control" v-model="formData.shortDescription" required></textarea>
                     </div>
                 </div>
 
@@ -38,15 +37,8 @@
                 </div>
 
                 <div class="mb-3 row">
-
-                    <label class="col-form-label col-sm-2 text-sm-end">Image</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" v-model="formData.image" required/>
-                    </div>
-
-                    <label class="col-form-label col-sm-2 text-sm-end">Link</label>
-                    <div class="col-sm-4">
-                        <input type="url" class="form-control" v-model="formData.link" required/>
+                    <div class="col-md-6">
+                        <picture-input width="150" height="150" accept="image/jpeg,image/png" v-model="formData.image"></picture-input>
                     </div>
                 </div>
 
@@ -63,10 +55,12 @@
 
 <script>
 import {VueEditor} from "vue2-editor";
+import PictureInput from 'vue-picture-input'
 
 export default {
     components: {
-        VueEditor
+        VueEditor,
+        PictureInput
     },
     data() {
         return {
