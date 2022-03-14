@@ -60,6 +60,8 @@ export default {
                 description: this.event.description,
                 startDate: this.event.start_date,
                 endDate: this.event.end_date,
+                link: this.event.link,
+                image:this.event.image,
             },
         }
     },

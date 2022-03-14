@@ -25,9 +25,22 @@
                 </div>
 
                 <div class="mb-3 row">
+                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
+                    <div class="col-md-4">
+                        <input type="url" class="form-control" v-model="formData.link" />
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description</label>
                     <div class="col-sm-10">
                         <vue-editor v-model="formData.description" required></vue-editor>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                        <picture-input width="150" height="150" accept="image/jpeg,image/png" v-model="formData.image"></picture-input>
                     </div>
                 </div>
 
@@ -44,10 +57,12 @@
 
 <script>
 import {VueEditor} from "vue2-editor";
+import PictureInput from "vue-picture-input";
 
 export default {
     components: {
-        VueEditor
+        VueEditor,
+        PictureInput
     },
     data() {
         return {
@@ -56,6 +71,8 @@ export default {
                 description: '',
                 startDate: '',
                 endDate: '',
+                link: '',
+                image: '',
             },
         }
     },

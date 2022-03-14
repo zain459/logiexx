@@ -24,9 +24,8 @@
                 <tr>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->short_description }}</td>
-                    <td>{{ $item->long_description }}</td>
+                    <td>{!! html_entity_decode($item->long_description) !!}</td>
                     <td>{{ $item->posted_date }}</td>
-                    <td>{{ $item->event_date }}</td>
                     <td>{{ $item->link }}</td>
                     <td>
                         <form method="post" action="{{ route('news-delete', $item->id()) }}">
@@ -45,7 +44,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="text-center"> No record found</td>
+                    <td colspan="6" class="text-center"> No record found</td>
                 </tr>
 
 

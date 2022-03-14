@@ -6,11 +6,13 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int    $id
- * @property string $title
- * @property string $description
- * @property Carbon $start_date
- * @property Carbon $end_date
+ * @property int         $id
+ * @property string      $title
+ * @property string      $description
+ * @property Carbon      $start_date
+ * @property Carbon      $end_date
+ * @property string|null $link
+ * @property string|null $image
  */
 class Event extends Model
 {
@@ -30,6 +32,16 @@ class Event extends Model
     public function description(): string
     {
         return $this->description;
+    }
+
+    public function link(): ?string
+    {
+        return $this->link;
+    }
+
+    public function image(): ?string
+    {
+        return $this->image;
     }
 
     public function startDate(): Carbon

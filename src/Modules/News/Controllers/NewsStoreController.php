@@ -3,9 +3,9 @@
 namespace Logixs\Modules\News\Controllers;
 
 use Illuminate\Http\Request;
+use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\News\Models\News;
-use Logixs\Services\SaveImage;
 
 class NewsStoreController extends Controller
 {
@@ -37,7 +37,5 @@ class NewsStoreController extends Controller
         $news->save();
 
         return 'news Created';
-
-
     }
 }

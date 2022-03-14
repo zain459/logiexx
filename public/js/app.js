@@ -5529,6 +5529,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var vue_picture_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-picture-input */ "./node_modules/vue-picture-input/PictureInput.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5574,9 +5588,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__.VueEditor
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__.VueEditor,
+    PictureInput: vue_picture_input__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -5584,7 +5600,9 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         description: '',
         startDate: '',
-        endDate: ''
+        endDate: '',
+        link: '',
+        image: ''
       }
     };
   },
@@ -5677,7 +5695,9 @@ __webpack_require__.r(__webpack_exports__);
         title: this.event.title,
         description: this.event.description,
         startDate: this.event.start_date,
-        endDate: this.event.end_date
+        endDate: this.event.end_date,
+        link: this.event.link,
+        image: this.event.image
       }
     };
   },
@@ -44181,6 +44201,38 @@ var render = function () {
             _c(
               "label",
               { staticClass: "col-form-label col-sm-2 text-sm-end" },
+              [_vm._v("link")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.link,
+                    expression: "formData.link",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "url" },
+                domProps: { value: _vm.formData.link },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.formData, "link", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3 row" }, [
+            _c(
+              "label",
+              { staticClass: "col-form-label col-sm-2 text-sm-end" },
               [_vm._v("Description")]
             ),
             _vm._v(" "),
@@ -44196,6 +44248,30 @@ var render = function () {
                       _vm.$set(_vm.formData, "description", $$v)
                     },
                     expression: "formData.description",
+                  },
+                }),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3 row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-6" },
+              [
+                _c("picture-input", {
+                  attrs: {
+                    width: "150",
+                    height: "150",
+                    accept: "image/jpeg,image/png",
+                  },
+                  model: {
+                    value: _vm.formData.image,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.formData, "image", $$v)
+                    },
+                    expression: "formData.image",
                   },
                 }),
               ],

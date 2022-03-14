@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Logixs\Modules\News\Controllers\NewsDeleteController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
 use Logixs\Modules\News\Controllers\NewsStoreController;
 use Logixs\Modules\News\Controllers\NewsCreateController;
+use Logixs\Modules\News\Controllers\NewsDeleteController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('news', NewsIndexController::class)->name('news-index');

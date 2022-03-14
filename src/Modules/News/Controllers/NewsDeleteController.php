@@ -13,7 +13,5 @@ class NewsDeleteController
         flash('News deleted')->success();
 
         return redirect()->back();
-
     }
-
 }
