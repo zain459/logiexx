@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $short_description
  * @property string $long_description
  * @property string $posted_date
+ * @property boolean $status
  */
 class News extends Model
 {

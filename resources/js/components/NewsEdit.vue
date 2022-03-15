@@ -1,8 +1,14 @@
 <template>
     <div class="card">
-        <div class="card-header fw-bold">Update News</div>
-        <div class="card-body">
-            <form @submit.prevent="onSubmit" method="post" enctype="multipart/form-data">
+        <form @submit.prevent="onSubmit" method="post" enctype="multipart/form-data">
+
+            <div class="form-check float-end m-2 form-switch">
+                <input class="form-check-input" v-model="formData.status" type="checkbox" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Status</label>
+            </div>
+            <div class="card-header fw-bold">Update News</div>
+            <div class="card-body">
+
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Title</label>
                     <div class="col-sm-10">
@@ -59,9 +65,11 @@
                     </div>
                 </div>
 
-            </form>
-        </div>
+            </div>
+        </form>
+
     </div>
+
 </template>
 
 <script>
@@ -83,6 +91,7 @@ export default {
                 postedDate: this.news.posted_date,
                 link: this.news.link,
                 image: '',
+                status: this.news.status,
             },
         }
     },
@@ -116,7 +125,8 @@ export default {
                 });
             }
 
-        }
+        },
+
     },
 
 }

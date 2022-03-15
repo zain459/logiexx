@@ -17,6 +17,7 @@ class NewsUpdateController extends Controller
             'postedDate' => ['required', 'date'],
             'link' => ['nullable', 'url'],
             'image' => ['nullable'],
+            'status' => ['required', 'boolean'],
         ]);
         /** @var News $news */
         $news = News::query()->findOrFail($id);
@@ -24,9 +25,8 @@ class NewsUpdateController extends Controller
         $news->short_description = $data['shortDescription'];
         $news->long_description = $data['longDescription'];
         $news->posted_date = $data['postedDate'];
-        if (isset($data['link'])) {
-            $news->link = $data['link'];
-        }
+        $news->status = $data['status'];
+        $news->link = $data['link'];
         if (isset($data['image'])) {
             $news->image = $data['image'];
         }
