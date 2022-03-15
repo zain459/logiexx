@@ -49,12 +49,8 @@ export default {
             },
         }
     },
-    mounted() {
-        console.log(this.course);
-    },
     methods: {
         onSubmit() {
-            console.log(this.formData);
             if (this.formData.title === '' || this.formData.description === '') {
                 alert('Fill form properly');
 

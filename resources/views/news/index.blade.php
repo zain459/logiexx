@@ -15,7 +15,7 @@
                 <th>Short Description</th>
                 <th>Long Description</th>
                 <th>Posted Date </th>
-                <th>link</th>
+                <th>Image</th>
                 <td></td>
             </tr>
             </thead>
@@ -26,8 +26,9 @@
                     <td>{{ $item->short_description }}</td>
                     <td>{!! html_entity_decode($item->long_description) !!}</td>
                     <td>{{ $item->posted_date }}</td>
-                    <td>{{ $item->link }}</td>
-                    <td class="table-action d-flex">
+                    <td><img src="{{ $item->image() }}" width="100"></td>
+
+                    <td class="table-action">
                         <a href="{{ route('news-edit', $item->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

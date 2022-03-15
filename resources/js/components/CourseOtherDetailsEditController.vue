@@ -51,7 +51,6 @@ export default {
 
     methods: {
         update() {
-            console.log(this.formData);
             if (this.formData.title === '' || this.formData.description === '') {
                 alert('Fill form properly');
 

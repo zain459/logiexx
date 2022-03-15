@@ -18,7 +18,7 @@
 
                     <label class="col-form-label col-sm-2 text-sm-end">link</label>
                     <div class="col-md-4">
-                        <input type="url" class="form-control" v-model="formData.link" />
+                        <input type="url" class="form-control" v-model="formData.link"/>
                     </div>
                 </div>
 
@@ -37,8 +37,12 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <div class="col-md-6">
-                        <picture-input width="150" height="150" accept="image/jpeg,image/png" v-model="formData.image"></picture-input>
+                    <div class="mb-3 row">
+                        <label class="col-form-label col-sm-2 text-sm-end">Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" accept="image/png, image/jpeg" @change="onChange">
+
+                        </div>
                     </div>
                 </div>
 
@@ -74,9 +78,20 @@ export default {
             },
         }
     },
-    methods:{
-        onSubmit(){
-            console.log(this.formData);
+    methods: {
+        onChange(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            if (file['size'] < 2111775) {
+                reader.onloadend = (file) => {
+                    this.formData.image = reader.result;
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert('File size can not be bigger than 2 MB')
+            }
+        },
+        onSubmit() {
             if (this.formData.title === '' || this.formData.shortDescription === '') {
                 alert('Fill form properly');
 

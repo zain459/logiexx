@@ -17,7 +17,7 @@ class NewsUpdateController extends Controller
             'longDescription' => ['required', 'string'],
             'postedDate' => ['required', 'date'],
             'link' => ['nullable', 'url'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable'],
         ]);
         /** @var News $news */
         $news = News::query()->findOrFail($id);
@@ -28,12 +28,7 @@ class NewsUpdateController extends Controller
         if (isset($data['link'])) {
             $news->link = $data['link'];
         }
-        if (isset($data['image'])) {
-            /** @var \Illuminate\Http\UploadedFile * */
-            $file = $request->file('image');
-            $path = SaveImage::save($file);
-            $news->image = $path;
-        }
+        $news->image = $data['image'];
         $news->save();
 
         return 'news updated';

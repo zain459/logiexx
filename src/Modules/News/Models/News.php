@@ -23,12 +23,12 @@ class News extends Model
         return $this->id;
     }
 
-    public function link(): string
+    public function link(): ?string
     {
         return $this->link;
     }
 
-    public function image(): string
+    public function image(): ?string
     {
         return $this->image;
     }
