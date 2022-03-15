@@ -27,7 +27,14 @@
                     <td>{!! html_entity_decode($item->long_description) !!}</td>
                     <td>{{ $item->posted_date }}</td>
                     <td>{{ $item->link }}</td>
-                    <td>
+                    <td class="table-action d-flex">
+                        <a href="{{ route('news-edit', $item->id()) }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-edit-2 align-middle me-2">
+                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                            </svg>
+                        </a>
                         <form method="post" action="{{ route('news-delete', $item->id()) }}">
                             @csrf
                             <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
@@ -46,7 +53,6 @@
                 <tr>
                     <td colspan="6" class="text-center"> No record found</td>
                 </tr>
-
 
             @endforelse
             </tbody>
