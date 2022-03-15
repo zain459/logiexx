@@ -33,6 +33,22 @@
                     </div>
                 </div>
 
+                <div class="mb-3 row" v-if="event.image">
+                    <label class="col-form-label col-sm-2 text-sm-end">Image</label>
+                    <div class="col-sm-10">
+                        <img :src="event.image" width="200" class="img-thumbnail" alt="Image">
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="mb-3 row">
+                        <label class="col-form-label col-sm-2 text-sm-end">Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" accept="image/png, image/jpeg" @change="onChange">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mb-3 row">
                     <div class="col-sm-10 ms-sm-auto">
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -61,12 +77,24 @@ export default {
                 startDate: this.event.start_date,
                 endDate: this.event.end_date,
                 link: this.event.link,
-                image:this.event.image,
+                image: '',
             },
         }
     },
 
     methods: {
+        onChange(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            if (file['size'] < 2111775) {
+                reader.onloadend = (file) => {
+                    this.formData.image = reader.result;
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert('File size can not be bigger than 2 MB')
+            }
+        },
         update() {
             if (this.formData.title === '' || this.formData.description === '') {
                 alert('Fill form properly');

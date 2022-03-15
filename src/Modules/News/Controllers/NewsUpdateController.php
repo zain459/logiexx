@@ -27,7 +27,9 @@ class NewsUpdateController extends Controller
         if (isset($data['link'])) {
             $news->link = $data['link'];
         }
-        $news->image = $data['image'];
+        if (isset($data['image'])) {
+            $news->image = $data['image'];
+        }
         $news->save();
 
         return 'news updated';
