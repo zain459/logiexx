@@ -2,9 +2,9 @@
 @section('title', 'News')
 @section('content')
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h3>Events</h3>
+        <h3>News</h3>
 
-        <a href="{{ route('news-create') }}" class="btn btn-primary btn-sm">New Event</a>
+        <a href="{{ route('news-create') }}" class="btn btn-primary btn-sm">New News</a>
     </div>
 
     <div class="card">
