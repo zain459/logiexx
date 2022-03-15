@@ -22,7 +22,7 @@ return new class() extends Migration {
             $table->unsignedTinyInteger('duration_interval');
             $table->unsignedTinyInteger('modality');
             $table->unsignedTinyInteger('pace');
-            $table->unsignedTinyInteger('fee_type');
+            $table->string('fee_type');
             $table->decimal('fee_amount')->nullable();
             $table->string('title');
             $table->string('overview');
