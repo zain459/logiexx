@@ -16,10 +16,10 @@ return new class() extends Migration {
             $table->id();
             $table->string('title');
             $table->string('short_description');
-            $table->text('long_description');
+            $table->longText('long_description');
             $table->date('posted_date');
             $table->string('link')->nullable();
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
