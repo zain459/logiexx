@@ -5,6 +5,7 @@ use Logixs\Modules\Event\Controllers\EventEditController;
 use Logixs\Modules\Event\Controllers\EventIndexController;
 use Logixs\Modules\Event\Controllers\EventStoreController;
 use Logixs\Modules\Event\Controllers\EventCreateController;
+use Logixs\Modules\Event\Controllers\EventDeleteController;
 use Logixs\Modules\Event\Controllers\EventUpdateController;
 
 Route::middleware(['auth'])->group(function () {
@@ -13,4 +14,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('event/store', EventStoreController::class);
     Route::get('event/{id}/edit', EventEditController::class)->name('event-edit');
     Route::post('event/{id}/update', EventUpdateController::class);
+    Route::post('event/{id}/delete', EventDeleteController::class)->name('event-delete');
 });

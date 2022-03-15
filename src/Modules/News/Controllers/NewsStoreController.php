@@ -3,7 +3,6 @@
 namespace Logixs\Modules\News\Controllers;
 
 use Illuminate\Http\Request;
-use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\News\Models\News;
 
