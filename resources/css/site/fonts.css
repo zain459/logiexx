@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('/fonts/icomoon.eot?f2gd1x');
+    src:  url('/fonts/icomoon.eot?f2gd1x#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?f2gd1x') format('truetype'),
+    url('/fonts/icomoon.woff?f2gd1x') format('woff'),
+    url('/fonts/icomoon.svg?f2gd1x#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+[class^="icon-"],[class*=" icon-"]{font-family:'icomoon'!important;speak:never;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.icon-registration-tick:before{content:"\e924";}
+.icon-like:before{content:"\e925";}
+.icon-feedback-note:before{content:"\e923";}
+.icon-reviews:before{content:"\e920";}
+.icon-rating:before{content:"\e921";}
+.icon-students:before{content:"\e922";}
+.icon-feedback:before{content:"\e91a";}
+.icon-course-4:before{content:"\e91b";}
+.icon-course-3:before{content:"\e91c";}
+.icon-course-2:before{content:"\e91d";}
+.icon-course-1:before{content:"\e91e";}
+.icon-lock:before{content:"\e91f";}
+.icon-jpg:before{content:"\e919";}
+.icon-pdf:before{content:"\e917";}
+.icon-word:before{content:"\e918";}
+.icon-calendar:before{content:"\e916";}
+.icon-right:before{content:"\e914";}
+.icon-left:before{content:"\e915";}
+.icon-arrow:before{content:"\e900";}
+.icon-button:before{content:"\e901";}
+.icon-email:before{content:"\e902";}
+.icon-facebook:before{content:"\e903";}
+.icon-i:before{content:"\e904";}
+.icon-ico1:before{content:"\e905";}
+.icon-ico2:before{content:"\e906";}
+.icon-ico3:before{content:"\e907";}
+.icon-ico4:before{content:"\e908";}
+.icon-ico5:before{content:"\e909";}
+.icon-ico6:before{content:"\e90a";}
+.icon-instagram:before{content:"\e90b";}
+.icon-interest:before{content:"\e90c";}
+.icon-link:before{content:"\e90d";}
+.icon-linkedin:before{content:"\e90e";}
+.icon-phone:before{content:"\e90f";}
+.icon-registration:before{content:"\e910";}
+.icon-ring:before{content:"\e911";}
+.icon-twitter:before{content:"\e912";}
+.icon-youtube:before{content:"\e913";}

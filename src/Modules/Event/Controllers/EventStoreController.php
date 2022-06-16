@@ -5,6 +5,7 @@ namespace Logixs\Modules\Event\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Event\Models\Event;
+use Logixs\Services\SaveImage;
 
 class EventStoreController extends Controller
 {
@@ -19,17 +20,22 @@ class EventStoreController extends Controller
             'image' => ['nullable'],
         ]);
 
+//        /** @var \Illuminate\Http\UploadedFile * */
+//        $file = $request->file('image');
+//        $path = SaveImage::save($file);
+
         $event = new Event();
         $event->title = $data['title'];
         $event->description = $data['description'];
         $event->start_date = $data['startDate'];
         $event->end_date = $data['endDate'];
         $event->link = $data['link'];
-        $event->image = $data['image'];
+        $event->image = $data['image'];;
         $event->save();
 
         flash('Event Created')->success();
 
+//        return response()->json(['event' => $event]);
         return redirect()->route('event-index');
     }
 }

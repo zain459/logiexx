@@ -4,7 +4,7 @@
 
     <x-course-navbar :course="$course" />
 
-    <form action="{{ route('course-update', $course->id()) }}" method="post" enctype="multipart/form-data" >
+    <form action="{{ route('course-update', $course->id()) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -40,6 +40,18 @@
                             </div>
                         </div>
 
+
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label class="form-label" for="venue">Venue</label>
+                                <input type="text" class="form-control" name="venue" value="{{ $course->venue() }}" id="venue"/>
+                            </div>
+
+                            <div class="mb-3 col">
+                                <label class="form-label" for="platform">Platform</label>
+                                <input type="text" class="form-control" name="platform" value="{{ $course->platform() }}" id="platform" required/>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="mb-3 col">
                                 <label class="form-label" for="courseStartDate">Course Start Date</label>
@@ -51,6 +63,13 @@
                             <div class="mb-3 col">
                                 <label class="form-label" for="overview">Overview</label>
                                 <textarea name="overview" class="form-control">{{ $course->overview() }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <label class="form-label" for="overview">Description</label>
+                                <textarea name="description" class="form-control">{{ $course->Description() }}</textarea>
                             </div>
                         </div>
 

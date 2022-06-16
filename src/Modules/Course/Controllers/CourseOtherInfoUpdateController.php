@@ -21,7 +21,8 @@ class CourseOtherInfoUpdateController extends Controller
         $info->description = $data['description'];
         $info->save();
 
-        flash('course other details updated')->success();
+        flash('course other de
+        tails updated')->success();
 
         return redirect()->back();
     }

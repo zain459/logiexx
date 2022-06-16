@@ -38,6 +38,9 @@ final class GetCourse
         $course->duration = $data['duration'];
         $course->course_start_date = $data['courseStartDate'];
         $course->overview = $data['overview'];
+        $course->description = $data['description'];
+        $course->venue = $data['venue'];
+        $course->platform = $data['platform'];
         $course->fee_type = $data['feeType'];
 
         if (isset($data['feeAmount'])) {
@@ -69,6 +72,8 @@ final class GetCourse
         $course->duration = $data['duration'];
         $course->course_start_date = $data['courseStartDate'];
         $course->overview = $data['overview'];
+        $course->description = $data['description'];
+        $course->venue = $data['venue'];
         $course->fee_type = $data['feeType'];
 
         if (isset($data['feeAmount'])) {

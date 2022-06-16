@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
+            </li>
 
         </ul>
     </div>

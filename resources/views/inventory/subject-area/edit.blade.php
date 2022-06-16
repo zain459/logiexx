@@ -10,11 +10,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('inventory.subject-update', $area->id()) }}">
+                <form method="POST" action="{{ route('inventory.subject-update', $area->id()) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <label class="form-label">Name</label>
                         <input name="name" class="form-control" value="{{ $area->name() }}" required />
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <img src="{{ asset('storage/'.$area->image()) }}" class="rounded" width="150">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <label class="form-label" for="overview">Image</label>
+                            <input type="file" name="image" class="form-control">
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update</button>

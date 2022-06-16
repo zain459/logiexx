@@ -1,0 +1,81 @@
+.alertbar{
+    padding: 50px 0;
+    background: #283250;
+}
+.alertbar label{
+    margin: 0 30px 0 0;
+    color: #fff;
+    font-size: 20px;
+}
+.alertbar .form-control{
+    height: 45px;
+    width: 245px;
+    background: #f2f2f2;
+    border-radius:10px;
+    padding: 5px 15px;
+    line-height: 35px;
+}
+.alertbar button{
+    padding: 0;
+    margin: 0;
+    background: none;
+    font-size: 40px;
+    color: #fff;
+    border: 0;
+    margin-left: 30px;
+}
+#footer{
+    border-top: 14px solid #a1b8e1;
+    padding: 42px 0;
+    font-size: 14px;
+    font-family: 'Tahoma', sans-serif;
+}
+#footer p{margin: 0 0 3px;}
+#footer p a{color: var(--primary);}
+#footer .social-media{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 26px;
+}
+#footer .social-media li{
+    display: inline-block;
+    padding: 0 10px;
+}
+#footer .social-media li:first-child{padding-left: 0;}
+#footer .social-media li a{color: #666;}
+#footer .social-media li:hover a{color:#6c757d;}
+#footer h5{
+    font-size: 18px;
+    color: #666;
+    margin: 0 0 14px;
+}
+#footer .logo{margin-right: 22px;}
+@media screen and (max-width: 991px){
+    #footer .social-media li{padding: 0 6px;}
+}
+@media screen and (max-width: 767px){
+    #footer{text-align: center;font-size: 13px;}
+    #footer .logo{margin-right: 0;margin-bottom: 15px;}
+    #footer h5{text-align: center;margin-top: 20px;}
+}
+.modal-backdrop.show{opacity: 0.8 !important;}
+.modal-content{border-radius: 20px;}
+.modal-header{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+#large .btn-close{
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #000;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%,-50%);
+    z-index: 99;
+    opacity: 1;
+}

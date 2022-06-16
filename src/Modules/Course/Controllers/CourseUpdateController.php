@@ -24,9 +24,11 @@ class CourseUpdateController extends Controller
             'timeCommitment' => ['required', 'string'],
             'courseCode' => ['required', 'string'],
             'courseStartDate' => ['required', 'date'],
-            'overview' => ['required', 'string'],
+            'overview' => ['required'],
             'feeType' => ['required', 'string'],
             'duration' => ['required', 'string'],
+            'venue' => ['required', 'string'],
+            'platform' => ['required', 'string'],
             'feeAmount' => ['nullable'],
             'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);

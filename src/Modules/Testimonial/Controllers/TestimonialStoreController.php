@@ -15,7 +15,7 @@ class TestimonialStoreController extends Controller
             'name' => ['required', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:100'],
             'designation' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:100'],
+            'description' => ['required', 'string'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 

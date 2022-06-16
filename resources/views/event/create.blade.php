@@ -8,8 +8,5 @@
             View All Events
         </a>
     </div>
-
-<event-create-component></event-create-component>
-
+    <event-create-component></event-create-component>
 @endsection
-

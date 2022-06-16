@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int         $id
  * @property string      $name
  * @property string      $email
+ * @property string      image
+ * @property string      bio
  * @property string|null $address
  */
 class Instructor extends Model
@@ -28,6 +30,15 @@ class Instructor extends Model
     public function email(): string
     {
         return $this->email;
+    }
+
+    public function image(): ?string
+    {
+        return $this->image;
+    }
+    public function bio(): ?string
+    {
+        return $this->bio;
     }
 
     public function address(): ?string

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Course\Controllers\CourseEditController;
 use Logixs\Modules\Course\Controllers\CourseIndexController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveEditController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
 use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
@@ -22,6 +24,10 @@ use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
 use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
 use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveStoreController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveUpdateController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveDeleteController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('courses', CourseIndexController::class)->name('course-index');
@@ -55,5 +61,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');
         Route::post('instructors/assign', CourseInstructorAssignController::class)->name('course.instructors-assign');
         Route::post('instructors/{id}/delete', CourseInstructorDeleteController::class)->name('course.instructors-delete');
+
+        //course learning objective
+        Route::get('{id}/learning-objective', CourseLearningObjectiveController::class)->name('course.learning-objective-index');
+        Route::get('{id}/learning-objective/create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
+        Route::get('{id}/learning-objective/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
+        Route::post('store/learning-objective', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
+        Route::post('{id}/update/learning-objective', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
+        Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
     });
+
+
 });

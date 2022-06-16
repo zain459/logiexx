@@ -10,26 +10,29 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property int        $id
- * @property int        $category_id
- * @property int        $subject_area_id
- * @property int        $language
- * @property int        $difficulty_level
- * @property int        $start_date_status
- * @property int        $duration_interval
- * @property string     $duration
- * @property int        $modality
- * @property int        $pace
- * @property int        $fee_type
+ * @property int $id
+ * @property int $category_id
+ * @property int $subject_area_id
+ * @property int $language
+ * @property int $difficulty_level
+ * @property int $start_date_status
+ * @property int $duration_interval
+ * @property string $duration
+ * @property int $modality
+ * @property int $pace
+ * @property int $fee_type
  * @property float|null $fee_amount
- * @property string     $title
- * @property string     $overview
- * @property int        $class_size
- * @property string     $time_commitment
- * @property Carbon     $course_start_date
- * @property string     $course_code
- * @property string     $image
- * @property Carbon     $created_at
+ * @property string $title
+ * @property string $overview
+ * @property string $platform
+ * @property int $class_size
+ * @property string $time_commitment
+ * @property Carbon $course_start_date
+ * @property string $course_code
+ * @property string $venue
+ * @property string $description
+ * @property string $image
+ * @property Carbon $created_at
  */
 class Course extends Model
 {
@@ -53,37 +56,52 @@ class Course extends Model
 
     public function language(): Language
     {
-        return Language::fromId((int) $this->language);
+        return Language::fromId((int)$this->language);
     }
 
     public function durationInterval(): DurationInterval
     {
-        return DurationInterval::fromId((int) $this->duration_interval);
+        return DurationInterval::fromId((int)$this->duration_interval);
     }
 
     public function difficultyLevel(): DifficultyLevel
     {
-        return DifficultyLevel::fromId((int) $this->difficulty_level);
+        return DifficultyLevel::fromId((int)$this->difficulty_level);
     }
 
     public function startDateStatus(): StartDateStatus
     {
-        return StartDateStatus::fromId((int) $this->start_date_status);
+        return StartDateStatus::fromId((int)$this->start_date_status);
     }
 
     public function modality(): Modality
     {
-        return Modality::fromId((int) $this->modality);
+        return Modality::fromId((int)$this->modality);
     }
 
     public function pace(): Pace
     {
-        return Pace::fromId((int) $this->pace);
+        return Pace::fromId((int)$this->pace);
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function feeType(): string
     {
         return $this->fee_type;
+    }
+
+    public function venue(): string
+    {
+        return $this->venue;
+    }
+
+    public function platform(): string
+    {
+        return $this->platform;
     }
 
     public function duration(): string

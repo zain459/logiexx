@@ -25,13 +25,16 @@ return new class() extends Migration {
             $table->string('fee_type');
             $table->decimal('fee_amount')->nullable();
             $table->string('title');
-            $table->string('overview');
+            $table->text('overview');
             $table->integer('class_size');
             $table->string('time_commitment');
             $table->date('course_start_date');
             $table->string('course_code');
+            $table->string('platform');
+            $table->string('venue');
             $table->string('duration');
             $table->string('image');
+            $table->text('description');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')

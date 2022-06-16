@@ -46,11 +46,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('inventory.subject-store') }}">
+                        <form method="POST" action="{{ route('inventory.subject-store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label class="form-label">Name</label>
                                 <input name="name" class="form-control" value="{{ old('name') }}" required autofocus/>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="image">Image</label>
+                                <input type="file" class="form-control" name="image" id="image" />
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>

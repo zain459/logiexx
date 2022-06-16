@@ -30,7 +30,6 @@ class NewsStoreController extends Controller
         $news->image = $data['image'];
 
         $news->save();
-
         return 'news Created';
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * The path to the "home" route for your application.
+     * The path to the "site" route for your application.
      *
      * This is used by Laravel authentication to redirect users after login.
      *

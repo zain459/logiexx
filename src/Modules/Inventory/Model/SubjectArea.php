@@ -7,8 +7,9 @@ use Logixs\Modules\Course\Models\Course;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property int    $id
+ * @property int $id
  * @property string $name
+ * @property string $image
  */
 class SubjectArea extends Model
 {
@@ -23,6 +24,11 @@ class SubjectArea extends Model
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function image(): string
+    {
+        return $this->image;
     }
 
     public function course(): HasMany

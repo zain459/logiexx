@@ -25,9 +25,12 @@ class CourseStoreController extends Controller
             'timeCommitment' => ['required', 'string'],
             'courseCode' => ['required', 'string'],
             'courseStartDate' => ['required', 'date'],
-            'overview' => ['required', 'string'],
+            'overview' => ['required'],
             'feeType' => ['required', 'string'],
             'duration' => ['required', 'string'],
+            'platform' => ['required', 'string'],
+            'venue' => ['required', 'string'],
+            'description' => ['required', 'string'],
             'feeAmount' => ['nullable'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);

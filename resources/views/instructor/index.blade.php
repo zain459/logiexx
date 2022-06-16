@@ -53,7 +53,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('instructor.store')}}">
+                        <form method="POST" action="{{route('instructor.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label class="form-label">Name</label>
@@ -68,6 +68,16 @@
                             <div class="form-group mb-3">
                                 <label class="form-label">Address</label>
                                <textarea name="address" class="form-control">{{ old('address') }}</textarea>
+                            </div>
+
+                            <div class="mb-3 col-md-12">
+                                <label class="form-label" for="bio">Brief Bio</label>
+                                <textarea name="bio" class="form-control" ></textarea>
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="image">Image</label>
+                                <input type="file" class="form-control" name="image" id="image" />
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>
