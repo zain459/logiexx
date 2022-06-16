@@ -29,7 +29,6 @@ Route::get('site/view-all-webinar-series', ViewAllWebinarSeriesController::class
 Route::get('site/testimonial', TestimonialController::class)->name('site.testimonial-index');
 Route::get('site/{id}/download-webinarPDF', WebinarPdfController::class)->name('site.webinar-pdf-download');
 Route::get('site/view-all-upcoming-webinar-series', ViewAllUpcomingWebinarController::class)->name('site.view-all-upcoming-webinar-series');
-//Route::get('site/view-all-past-webinar-series', viewAllPastWebinarController::class)->name('site.view-all-past-webinar-series');
 Route::get('site/view-all-past-webinar-series', viewAllPastWebinarController::class)->name('site.view-all-past-webinar-series');
 
 require __DIR__ . '/inventory.php';
