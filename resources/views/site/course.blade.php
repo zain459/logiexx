@@ -24,11 +24,13 @@
                 <a href="#" class="opener">Select Filters</a>
                 <ul class="filter-menu">
                     <li><a href="#">Subject Field</a>
-                        <ul>
-                            <li><label><input type="checkbox"> Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                        </ul>
+                            <ul>
+                                @foreach($subjectAreas as $subjectArea)
+                                <li><label><input type="checkbox"> {{ $subjectArea->name() }} </label></li>
+                                {{--                                <li><label><input type="checkbox">Sub Item</label></li>--}}
+                                {{--                                <li><label><input type="checkbox">Sub Item</label></li>--}}
+                                @endforeach
+                            </ul>
                     </li>
                     <li><a href="#">Fee</a>
                         <ul>
