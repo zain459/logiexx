@@ -24,13 +24,13 @@
                 <a href="#" class="opener">Select Filters</a>
                 <ul class="filter-menu">
                     <li><a href="#">Subject Field</a>
-                            <ul>
-                                @foreach($subjectAreas as $subjectArea)
+                        <ul>
+                            @foreach($subjectAreas as $subjectArea)
                                 <li><label><input type="checkbox"> {{ $subjectArea->name() }} </label></li>
                                 {{--                                <li><label><input type="checkbox">Sub Item</label></li>--}}
                                 {{--                                <li><label><input type="checkbox">Sub Item</label></li>--}}
-                                @endforeach
-                            </ul>
+                            @endforeach
+                        </ul>
                     </li>
                     <li><a href="#">Fee</a>
                         <ul>
@@ -41,30 +41,30 @@
                     </li>
                     <li><a href="#">Difficulty Level </a>
                         <ul>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
+                            @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
+                                <li><label><input type="checkbox" id="difficulty">{{ $difficultyLevel->name() }}</label></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">Start Date</a>
                         <ul>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
+                            @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $dateStatus)
+                                <li><label><input type="checkbox">{{$dateStatus->name()}}</label></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">Duration </a>
                         <ul>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
+                            @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
+                                <li><label><input type="checkbox">{{$durationInterval->name()}}</label></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">Modality</a>
                         <ul>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
-                            <li><label><input type="checkbox">Sub Item</label></li>
+                            @foreach(\Logixs\Modules\Course\Models\Modality::all() as $modality)
+                                <li><label><input type="checkbox">{{$modality->name()}}</label></li>
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
@@ -128,5 +128,23 @@
             </div>
         </section>
     </main>
+
+{{--    <script>--}}
+{{--        $(document).ready(function (){--}}
+{{--           $('difficulty').on('change', function (){--}}
+{{--               getMore();--}}
+{{--           });--}}
+{{--        });--}}
+{{--        function getMore(){--}}
+{{--            var selectedDifficulty = $("#difficulty option:selected").val();--}}
+{{--            $.ajax({--}}
+{{--                type:"GET",--}}
+{{--                data:{--}}
+{{--                    'difficultyLevel': selectedDifficulty,--}}
+{{--                },--}}
+{{--                url: "{{route('site.course-index')}}",--}}
+{{--            });--}}
+{{--        }--}}
+{{--    </script>--}}
 
 @endsection

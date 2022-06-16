@@ -49,7 +49,9 @@ class StartDateStatus
         return [
             new self(1, 'Available now'),
             new self(2, 'Available anytime'),
-            new self(3, 'coming soon'),
+            new self(3, 'Coming soon'),
+            new self(3, 'Starting after'),
         ];
+
     }
 }

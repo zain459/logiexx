@@ -4,6 +4,7 @@ namespace Logixs\Modules\Course\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Logixs\Modules\Inventory\Model\Category;
 use Logixs\Modules\Inventory\Model\SubjectArea;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -168,4 +169,13 @@ class Course extends Model
     {
         return $this->belongsTo(SubjectArea::class, 'subject_area_id');
     }
+
+//    public static function getDifficultyLevel($difficulty)
+//    {
+//        $courses = DB::table('courses');
+//        if ($difficulty && $difficulty != DifficultyLevel::all()) {
+//            $courses = $courses->where('courses.difficulty_level', $difficulty);
+//        }
+//        return $courses;
+//    }
 }

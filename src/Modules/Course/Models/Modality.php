@@ -47,10 +47,10 @@ class Modality
     public static function all(): array
     {
         return [
-            new self(1, 'in-person'),
-            new self(2, 'blended'),
-            new self(3, 'online'),
-            new self(4, 'online live'),
+            new self(1, 'In-person'),
+            new self(2, 'Blended'),
+            new self(3, 'Online'),
+            new self(4, 'Online live'),
         ];
     }
 }

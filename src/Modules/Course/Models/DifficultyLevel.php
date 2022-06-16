@@ -52,4 +52,5 @@ class DifficultyLevel
             new self(3, 'Advanced'),
         ];
     }
+
 }
