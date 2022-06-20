@@ -170,12 +170,4 @@ class Course extends Model
         return $this->belongsTo(SubjectArea::class, 'subject_area_id');
     }
 
-//    public static function getDifficultyLevel($difficulty)
-//    {
-//        $courses = DB::table('courses');
-//        if ($difficulty && $difficulty != DifficultyLevel::all()) {
-//            $courses = $courses->where('courses.difficulty_level', $difficulty);
-//        }
-//        return $courses;
-//    }
 }

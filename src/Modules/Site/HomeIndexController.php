@@ -25,7 +25,7 @@ class HomeIndexController
         $subjectFields = SubjectArea::all();
         $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->first();
         $totalInstructors = Instructor::count();
-        $courses = Course::with(['category'])->get();
+        $courses = Course::with(['category'])->limit(3)->get();
 
         return view('site.index', [
             'new' => $new,

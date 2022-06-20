@@ -68,7 +68,7 @@
 
                         <div class="row">
                             <div class="mb-3 col">
-                                <label class="form-label" for="overview">Description</label>
+                                <label class="form-label" for="description">Description</label>
                                 <textarea name="description" class="form-control">{{ $course->Description() }}</textarea>
                             </div>
                         </div>

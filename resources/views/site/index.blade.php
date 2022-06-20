@@ -62,13 +62,15 @@
                                     @if($course)
                                         <div class="col post">
                                             <div class="inner">
-                                                <div class="img"><img src="{{'storage/'.$course->image()}}"
+                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"
                                                                       class="img-fluid" alt="">
                                                 </div>
                                                 <div class="text">
                                                 <span
                                                     class="modality">Modality: {{($course->modality()->name())}}</span>
-                                                    <h3><a href="courses-detail.php">{{$course->title()}}</a></h3>
+                                                    <h3>
+                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>
+                                                    </h3>
                                                     <dl>
                                                         <dt>Duration</dt>
                                                         <dd>{{$course->duration()}}</dd>
@@ -116,7 +118,8 @@
                         <div class="col-md-4 pb-3 pb-lg-0">
                             <img src="{{'storage/'.$webinar->image()}}" class="img-fluid w-100" alt="">
                             <div class="d-flex justify-content-between py-2">
-                                <a href="{{route('site.webinar-pdf-download', $webinar->id())}}" class="btnlink">Download PDF Flyer</a>
+                                <a href="{{route('site.webinar-pdf-download', $webinar->id())}}" class="btnlink">Download
+                                    PDF Flyer</a>
                                 <a href="webinar-form.php" class="btnlink">Click here to register <i class="icon-i"></i></a>
                             </div>
                             <div class="webinar-box d-none d-md-block">

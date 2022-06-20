@@ -6,7 +6,8 @@
     <div class="title-section coursesdetail-title">
         <div class="container">
             <div class="inner-menu">
-                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>
+{{--                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>--}}
+                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
             <a href="course-enrollment.php" class="btn btn-primary btn-enroll">Enroll Now <i
@@ -157,25 +158,25 @@
             <div class="container pb-4 mb-5">
                 <h2>Other courses you may like</h2>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
-                    @foreach($courses as $course)
+                    @foreach($otherCourses as $otherCourse)
                         @if($course)
                             <div class="col post">
                                 <div class="inner">
-                                    <div class="img"><img src="{{'/storage/'.$course->image()}}" class="img-fluid"
+                                    <div class="img"><img src="{{'/storage/'.$otherCourse->image()}}" class="img-fluid"
                                                           alt="">
                                     </div>
                                     <div class="text">
-                                        <span class="modality">Modality: {{$course->modality()->name()}}</span>
-                                        <h3>{{$course->title()}}</h3>
+                                        <span class="modality">Modality: {{$otherCourse->modality()->name()}}</span>
+                                        <h3>{{$otherCourse->title()}}</h3>
                                         <dl>
                                             <dt>Duration</dt>
-                                            <dd>{{$course->duration()}}</dd>
+                                            <dd>{{$otherCourse->duration()}}</dd>
                                             <dt>Course Fee</dt>
-                                            <dd>PKR {{$course->feeAmount()}}</dd>
+                                            <dd>PKR {{$otherCourse->feeAmount()}}</dd>
                                             <dt>Start Date</dt>
-                                            <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>
+                                            <dd>{{\Carbon\Carbon::parse($otherCourse->courseStartDate())->format('F j, Y')}}</dd>
                                         </dl>
-                                        <a href="{{route('site.course-detail', $course->id())}}" class="learnmore">Learn
+                                        <a href="{{route('site.course-detail', $otherCourse->id())}}" class="learnmore">Learn
                                             More</a>
                                     </div>
                                 </div>
@@ -224,9 +225,9 @@
                         <div class="logos">
                             <div class="container">
                                 <div class="slick-slider">
-                                    @foreach($partners as $partner)
-                                        @if($partner != null)
-                                            <div class="slide"><img src="{{'/storage/'.$partner->image()}}" class="img-fluid mx-auto d-block" alt=""></div>
+                                    @foreach($coursePartners as $coursePartner)
+                                        @if($coursePartner != null)
+                                            <div class="slide"><img src="{{'/storage/'.$coursePartner->partner->image()}}" class="img-fluid mx-auto d-block" alt=""></div>
                                         @endif
                                     @endforeach
                                 </div>

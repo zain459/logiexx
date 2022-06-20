@@ -30,6 +30,7 @@ class CourseUpdateController extends Controller
             'venue' => ['required', 'string'],
             'platform' => ['required', 'string'],
             'feeAmount' => ['nullable'],
+            'description' => ['required', 'string'],
             'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
