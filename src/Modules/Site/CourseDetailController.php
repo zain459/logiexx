@@ -16,6 +16,7 @@ class CourseDetailController
 {
     public function __invoke(int $id)
     {
+        $courseEnrollment = Course::findOrFail($id);
         $pages = Pages::first();
         $instructors = Instructor::all();
         $totalPartners = Partner::count();
@@ -39,6 +40,7 @@ class CourseDetailController
             'coursePartners' => $coursePartners,
             'courseFeedbacks' => $courseFeedbacks,
             'courseInstructors' => $courseInstructors,
+            'courseEnrollment' => $courseEnrollment,
             'courseLearningObjectives' => $courseLearningObjectives,
         ]);
     }

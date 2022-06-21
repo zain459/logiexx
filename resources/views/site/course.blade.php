@@ -166,7 +166,7 @@
                                             <dt>Start Date</dt>
                                             <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>
                                         </dl>
-                                        <a href="#" class="learnmore">Learn More</a>
+                                        <a href="{{route('site.course-detail', $course->id())}}" class="learnmore">Learn More</a>
                                     </div>
                                 </div>
                             </div>
