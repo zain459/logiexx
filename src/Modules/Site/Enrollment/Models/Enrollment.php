@@ -6,6 +6,7 @@ namespace Logixs\Modules\Site\Enrollment\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Logixs\Modules\Course\Models\Course;
+use Logixs\Modules\Course\Models\EnrollmentStatus;
 use phpDocumentor\Reflection\Types\Boolean;
 
 /**
@@ -22,7 +23,7 @@ use phpDocumentor\Reflection\Types\Boolean;
  * @property string $personal_address
  * @property string $personal_city
  * @property string $personal_post_code
- * @property string $province
+ * @property string $personal_province
  * @property string $personal_country
  * @property int $employment_status;
  * @property string $position
@@ -31,13 +32,15 @@ use phpDocumentor\Reflection\Types\Boolean;
  * @property string $institution_address
  * @property string $institution_city
  * @property string $institution_post_code
- * @property string $province_state
+ * @property string $institution_province_state
  * @property string $institution_country
- * @property string $verifiable_certificate
+ * @property bool $verifiable_certificate
  * @property string $file
+ * @property string $description
  * @property string $file_type
  * @property string $file_name
  * @property float $file_size
+ * @property bool $status
  */
 class Enrollment extends Model
 {
@@ -110,7 +113,7 @@ class Enrollment extends Model
 
     public function province(): string
     {
-        return $this->province;
+        return $this->personal_province;
     }
 
     public function personalCountry(): string
@@ -155,7 +158,7 @@ class Enrollment extends Model
 
     public function provinceState(): string
     {
-        return $this->province_state;
+        return $this->institution_province_state;
     }
 
     public function institutionCountry(): string
@@ -163,15 +166,23 @@ class Enrollment extends Model
         return $this->institution_country;
     }
 
-    public function verifiable_certificate(): bool
+    public function verifiableCertificate(): bool
     {
         return $this->verifiable_certificate;
 
+    }
+    public function status():bool{
+        return $this->status;
     }
 
     public function file(): string
     {
         return $this->file;
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function fileType(): string
@@ -193,4 +204,5 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Course::class, 'course_id', 'id');
     }
+
 }

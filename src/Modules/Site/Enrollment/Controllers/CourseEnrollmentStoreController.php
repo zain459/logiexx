@@ -75,8 +75,9 @@ class CourseEnrollmentStoreController extends Controller
 
         /** @var \Illuminate\Http\UploadedFile * */
         $file = $request->file('file');
+        $path = SaveImage::save($file);
         $name = sprintf('%s.%s', (string)Str::uuid(), $file->getClientOriginalExtension());
-        $path = $file->storeAs('public/images', $name);
+//        $path = $file->storeAs('public/images', $name);
         $originalName = $file->getClientOriginalName();
         $fileType = $file->getClientMimeType();
         $fileSize = $file->getSize();

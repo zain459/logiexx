@@ -3,15 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Course\Controllers\CourseEditController;
 use Logixs\Modules\Course\Controllers\CourseIndexController;
-use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
-use Logixs\Modules\Course\Controllers\CourseLearningObjectiveEditController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
 use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
+use Logixs\Modules\Course\Controllers\EnrollmentViewController;
 use Logixs\Modules\Course\Controllers\FeedbackIndexController;
 use Logixs\Modules\Course\Controllers\FeedbackStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackDeleteController;
 use Logixs\Modules\Course\Controllers\FeedbackUpdateController;
+use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
+use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
 use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
 use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
@@ -25,9 +26,11 @@ use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
 use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
 use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveEditController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveStoreController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveUpdateController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveDeleteController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('courses', CourseIndexController::class)->name('course-index');
@@ -69,6 +72,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('store/learning-objective', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
         Route::post('{id}/update/learning-objective', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
         Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
+
+        //enrollment
+        Route::get('enrollment', EnrollmentIndexController::class)->name('course.enrollment-index');
+        Route::post('enrollment/{id}/delete', EnrollmentDeleteController::class)->name('course.enrollment-delete');
+        Route::get('enrollment/{id}/view', EnrollmentViewController::class)->name('course.enrollment-view');
+
+        //enrollment status
+        Route::post('enrollment-status/{id}/store', \Logixs\Modules\Course\Controllers\EnrollmentStatusStore::class)->name('course.enrollment-status-store');
+
     });
 
 

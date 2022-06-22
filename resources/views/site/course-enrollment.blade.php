@@ -244,7 +244,7 @@
                             <div class="inner">
                                 <i class="fa fa-upload"></i>
                                 <span class="d-flex mb-2">Drag and drop your file here</span>
-                                <span class="btn btn-dark">Choose File</span>
+                                <span class="btn btn-dark" onclick="myFunction()">Choose File</span>
                             </div>
                         </div>
                     </div>
@@ -269,7 +269,8 @@
                                 <td title="Description" width="355"><input type="text" class="form-control"
                                                                            placeholder="Deposit Slip"></td>
                                 <td title="File Size" id="size"></td>
-                                <td class="Action"><a href="#" id="view" onclick="getInputValue()">[View]</a> <a href="#" id="delete">[Delete]</a>
+                                <td class="Action"><a href="#" id="view" onclick="getInputValue()">[View]</a> <a
+                                        href="#" id="delete">[Delete]</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -310,14 +311,19 @@
         });
         var dele = document.getElementById("delete").addEventListener("click", function (e) {
             e.preventDefault();
-            document.getElementById("myTable").deleteRow(0);
+            var b = document.getElementsByTagName("tr")[1].remove();
         });
-        function getInputValue(){
+
+        function getInputValue() {
             // Selecting the input element and get its value
             var inputVal = document.getElementById("my").value;
 
             // Displaying the value
             alert(inputVal);
         }
+
+        $(document).ready(function () {
+            $('#code').select2();
+        });
     </script>
 @endsection

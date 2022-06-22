@@ -12,11 +12,9 @@ class CourseEnrollmentIndexController
     {
         /** @var Course $course */
         $course = Course::query()->findOrFail($id);
-        $enrolments = Enrollment::all();
 
         return view('site.course-enrollment', [
             'course' => $course,
-            'enrolments' => $enrolments
         ]);
     }
 }

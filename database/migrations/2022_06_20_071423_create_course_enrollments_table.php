@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('institution_country');
             $table->boolean('verifiable_certificate');
             $table->text('description');
+            $table->boolean('status')->default(false);
             $table->string('file')->nullable();
             $table->string('file_type')->nullable();
             $table->string('file_name')->nullable();
