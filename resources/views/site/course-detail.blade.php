@@ -1,5 +1,4 @@
 @extends('site.master')
-
 @section('title', 'Course Detail')
 @section('content')
 
@@ -103,7 +102,7 @@
                 <section class="block bdb">
                     <div class="container pb-4 mb-5">
                         <h2>{{$courseLearningObjective->title()}}</h2>
-                        <p>{!!html_entity_decode($courseLearningObjective->description())!!}</p>
+                        {!!html_entity_decode($courseLearningObjective->description())!!}
                     </div>
                 </section>
             @endif

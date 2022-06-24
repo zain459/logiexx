@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\SubjectArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
-use Logixs\Modules\Inventory\Model\SubjectArea;
 use Logixs\Services\SaveImage;
 
 class SubjectAreaStoreController extends Controller

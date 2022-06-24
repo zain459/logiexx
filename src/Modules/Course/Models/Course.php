@@ -2,13 +2,12 @@
 
 namespace Logixs\Modules\Course\Models;
 
+use App\Models\Category\Category;
+use App\Models\SubjectArea\SubjectArea;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Logixs\Modules\Inventory\Model\Category;
-use Logixs\Modules\Inventory\Model\SubjectArea;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id

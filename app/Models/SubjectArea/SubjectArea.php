@@ -1,18 +1,19 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Model;
+namespace App\Models\SubjectArea;
 
 use Illuminate\Database\Eloquent\Model;
-use Logixs\Modules\Course\Models\Course;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Logixs\Modules\Course\Models\Course;
 
 /**
- * @property int    $id
+ * @property int $id
  * @property string $name
+ * @property string $image
  */
-class Category extends Model
+class SubjectArea extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'subject_areas';
     protected $dateFormat = 'Y-m-d H:i:s';
 
     public function id(): int
@@ -23,6 +24,11 @@ class Category extends Model
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function image(): string
+    {
+        return $this->image;
     }
 
     public function course(): HasMany

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Category;
 
-use Logixs\Modules\Inventory\Model\Category;
+use App\Models\Category\Category;
 
 class CategoryIndexController
 {

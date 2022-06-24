@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\SubjectArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Logixs\Modules\Inventory\Model\SubjectArea;
 use Logixs\Services\SaveImage;
 
 class SubjectAreaUpdateController extends Controller

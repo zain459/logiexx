@@ -7,14 +7,14 @@ use Logixs\Modules\Course\Models\Course;
 
 class GetFeaturedCourses
 {
-    public static function popular()
-    {
-        return static::getFeaturedCoursesByType(FeaturedCourse::POPULAR);
-    }
-
     public static function trending()
     {
         return static::getFeaturedCoursesByType(FeaturedCourse::TRENDING);
+    }
+
+    public static function popular()
+    {
+        return static::getFeaturedCoursesByType(FeaturedCourse::POPULAR);
     }
 
     public static function editorPick()

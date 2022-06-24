@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
 use Illuminate\Http\Request;
-use Logixs\Modules\Inventory\Model\Category;
 
 class CategoryStoreController extends Controller
 {

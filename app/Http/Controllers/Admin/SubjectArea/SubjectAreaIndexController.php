@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\SubjectArea;
 
-use Logixs\Modules\Inventory\Model\SubjectArea;
+use App\Models\SubjectArea\SubjectArea;
 
 class SubjectAreaIndexController
 {

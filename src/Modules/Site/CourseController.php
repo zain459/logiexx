@@ -2,10 +2,9 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
 use Logixs\Modules\Course\Models\Course;
-use Logixs\Modules\Course\Models\DifficultyLevel;
-use Logixs\Modules\Inventory\Model\SubjectArea;
 
 class CourseController
 {

@@ -2,8 +2,8 @@
 
 namespace Logixs\Modules\Course\Controllers;
 
-use Logixs\Modules\Inventory\Model\Category;
-use Logixs\Modules\Inventory\Model\SubjectArea;
+use App\Models\Category\Category;
+use App\Models\SubjectArea\SubjectArea;
 
 class CourseCreateController
 {

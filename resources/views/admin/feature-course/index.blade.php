@@ -24,12 +24,48 @@
                             <option></option>
                             <option value=""></option>
                             <option value="1">Trending</option>
-                            <option value="2">popular</option>
-                            <option value="3">editor pick</option>
+                            <option value="2">Popular</option>
+                            <option value="3">Editor Pick</option>
                         </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+    </div>
+
+    <div class="card">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Type</th>
+                <th>Course Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($featuredCourses as $featuredCourse)
+                <tr>
+                    @if($featuredCourse->type_id === 1)
+                        <td>{{ $featuredCourse->type_id }}</td>
+                    @endif
+                    <td>{{ $featuredCourse->course->title() }}</td>
+                    <td>
+                        <form method="post" action="{{ route('admin.featured-course.delete', $featuredCourse->id) }}">
+                            @csrf
+                            <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

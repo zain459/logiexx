@@ -2,15 +2,15 @@
 
 namespace Logixs\Modules\Site;
 
-use Logixs\Modules\Pages\Models\Pages;
+use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Course\Models\Course;
-use Logixs\Modules\Course\Models\Feedback;
-use Logixs\Modules\Partner\Models\Partner;
-use Logixs\Modules\Inventory\Model\SubjectArea;
-use Logixs\Modules\Course\Models\CoursePartner;
-use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Course\Models\CourseInstructor;
 use Logixs\Modules\Course\Models\CourseLearningObjective;
+use Logixs\Modules\Course\Models\CoursePartner;
+use Logixs\Modules\Course\Models\Feedback;
+use Logixs\Modules\Instructor\Models\Instructor;
+use Logixs\Modules\Pages\Models\Pages;
+use Logixs\Modules\Partner\Models\Partner;
 
 class CourseDetailController
 {

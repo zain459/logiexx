@@ -2,9 +2,9 @@
 
 namespace Logixs\Modules\Course\Controllers;
 
+use App\Models\Category\Category;
+use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Course\Models\Course;
-use Logixs\Modules\Inventory\Model\Category;
-use Logixs\Modules\Inventory\Model\SubjectArea;
 
 class CourseEditController
 {

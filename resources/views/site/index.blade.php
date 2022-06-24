@@ -35,195 +35,71 @@
                 <div>
                     <ul class="nav nav-tabs d-flex justify-content-between" id="myTab" role="tablist">
                         <li class="nav-item active" role="presentation">
-                            <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab"
+                            <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#trending-courses" role="tab"
                                aria-controls="tab1" aria-selected="true">Trending</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab2" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#popular-courses" role="tab"
                                aria-controls="tab2" aria-selected="false">Most Popular</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#recent-courses" role="tab"
                                aria-controls="tab3" aria-selected="false">Recently Added</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab4" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#upcoming-courses" role="tab"
                                aria-controls="tab4" aria-selected="false">Starting Soon</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab5" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#editors-courses" role="tab"
                                aria-controls="tab5" aria-selected="false">Editor’s Pick</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-{{--                        <div class="tab-pane fade active" id="tab1" role="tabpanel" aria-labelledby="tab1">--}}
-{{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
-{{--                                @foreach($courseFeatures as $courseFeature)--}}
-{{--                                    @if($courseFeature)--}}
-{{--                                        <div class="col post">--}}
-{{--                                            <div class="inner">--}}
-{{--                                                <div class="img"><img src="{{ 'storage/'.$courseFeature->image() }}"--}}
-{{--                                                                      class="img-fluid" alt="">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="text">--}}
-{{--                                                    <span class="modality">Modality: {{($course->modality()->name())}}</span>--}}
-{{--                                                    <h3>--}}
-{{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
-{{--                                                    </h3>--}}
-{{--                                                    <dl>--}}
-{{--                                                        <dt>Duration</dt>--}}
-{{--                                                        <dd>{{$course->duration()}}</dd>--}}
-{{--                                                        <dt>Course Fee</dt>--}}
-{{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
-{{--                                                        <dt>Start Date</dt>--}}
-{{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
-{{--                                                    </dl>--}}
-{{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
-{{--                                                       class="learnmore">Learn More</a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    @endif--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
-{{--                                all courses</a>--}}
-{{--                        </div>--}}
-                        <div class="tab-pane fade active" id="tab2" role="tabpanel" aria-labelledby="tab2">
-                            {{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
-                            {{--                                @foreach($courses as $course)--}}
-                            {{--                                    @if($course)--}}
-                            {{--                                        <div class="col post">--}}
-                            {{--                                            <div class="inner">--}}
-                            {{--                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"--}}
-                            {{--                                                                      class="img-fluid" alt="">--}}
-                            {{--                                                </div>--}}
-                            {{--                                                <div class="text">--}}
-                            {{--                                                <span--}}
-                            {{--                                                    class="modality">Modality: {{($course->modality()->name())}}</span>--}}
-                            {{--                                                    <h3>--}}
-                            {{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
-                            {{--                                                    </h3>--}}
-                            {{--                                                    <dl>--}}
-                            {{--                                                        <dt>Duration</dt>--}}
-                            {{--                                                        <dd>{{$course->duration()}}</dd>--}}
-                            {{--                                                        <dt>Course Fee</dt>--}}
-                            {{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
-                            {{--                                                        <dt>Start Date</dt>--}}
-                            {{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
-                            {{--                                                    </dl>--}}
-                            {{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
-                            {{--                                                       class="learnmore">Learn More</a>--}}
-                            {{--                                                </div>--}}
-                            {{--                                            </div>--}}
-                            {{--                                        </div>--}}
-                            {{--                                    @endif--}}
-                            {{--                                @endforeach--}}
-                            {{--                            </div>--}}
-                            {{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
-                            {{--                                all courses</a>--}}
-                        </div>
-                        <div class="tab-pane fade active" id="tab3" role="tabpanel" aria-labelledby="tab3">
+                        <div class="tab-pane fade active show" id="trending-courses" role="tabpanel">
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
-                                @foreach($courses as $course)
-                                    @if($course)
-                                        <div class="col post">
-                                            <div class="inner">
-                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"
-                                                                      class="img-fluid" alt="">
-                                                </div>
-                                                <div class="text">
-                                                <span
-                                                    class="modality">Modality: {{($course->modality()->name())}}</span>
-                                                    <h3>
-                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>
-                                                    </h3>
-                                                    <dl>
-                                                        <dt>Duration</dt>
-                                                        <dd>{{$course->duration()}}</dd>
-                                                        <dt>Course Fee</dt>
-                                                        <dd>{{$course->feeAmount()}}</dd>
-                                                        <dt>Start Date</dt>
-                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>
-                                                    </dl>
-                                                    <a href="{{route('site.course-detail', $course->id())}}"
-                                                       class="learnmore">Learn More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
+                                @foreach($featuredTrendingCourses as $featuredTrendingCourse)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $featuredTrendingCourse])
                                 @endforeach
                             </div>
-                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
                                 all courses</a>
                         </div>
-                        <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4">
+                        <div class="tab-pane fade" id="popular-courses" role="tabpanel">
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
-                                @foreach($startingSoon as $startingSoon)
-                                    @if($startingSoon)
-                                        <div class="col post">
-                                            <div class="inner">
-                                                <div class="img"><img src="{{ 'storage/'.$startingSoon->image() }}"
-                                                                      class="img-fluid" alt="">
-                                                </div>
-                                                <div class="text">
-                                                <span
-                                                    class="modality">Modality: {{($startingSoon->modality()->name())}}</span>
-                                                    <h3>
-                                                        <a href="{{ route('site.course-index') }}">{{$startingSoon->title()}}</a>
-                                                    </h3>
-                                                    <dl>
-                                                        <dt>Duration</dt>
-                                                        <dd>{{$startingSoon->duration()}}</dd>
-                                                        <dt>Course Fee</dt>
-                                                        <dd>{{$startingSoon->feeAmount()}}</dd>
-                                                        <dt>Start Date</dt>
-                                                        <dd>{{\Carbon\Carbon::parse($startingSoon->courseStartDate())->format('F j, Y')}}</dd>
-                                                    </dl>
-                                                    <a href="{{route('site.course-detail', $startingSoon->id())}}"
-                                                       class="learnmore">Learn More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
+                                @foreach($featuredPopularCourses as $featuredPopularCourse)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $featuredPopularCourse])
                                 @endforeach
                             </div>
-                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
                                 all courses</a>
                         </div>
-                        <div class="tab-pane fade active" id="tab5" role="tabpanel" aria-labelledby="tab5">
-                            {{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
-                            {{--                                @foreach($courses as $course)--}}
-                            {{--                                    @if($course)--}}
-                            {{--                                        <div class="col post">--}}
-                            {{--                                            <div class="inner">--}}
-                            {{--                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"--}}
-                            {{--                                                                      class="img-fluid" alt="">--}}
-                            {{--                                                </div>--}}
-                            {{--                                                <div class="text">--}}
-                            {{--                                                <span--}}
-                            {{--                                                    class="modality">Modality: {{($course->modality()->name())}}</span>--}}
-                            {{--                                                    <h3>--}}
-                            {{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
-                            {{--                                                    </h3>--}}
-                            {{--                                                    <dl>--}}
-                            {{--                                                        <dt>Duration</dt>--}}
-                            {{--                                                        <dd>{{$course->duration()}}</dd>--}}
-                            {{--                                                        <dt>Course Fee</dt>--}}
-                            {{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
-                            {{--                                                        <dt>Start Date</dt>--}}
-                            {{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
-                            {{--                                                    </dl>--}}
-                            {{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
-                            {{--                                                       class="learnmore">Learn More</a>--}}
-                            {{--                                                </div>--}}
-                            {{--                                            </div>--}}
-                            {{--                                        </div>--}}
-                            {{--                                    @endif--}}
-                            {{--                                @endforeach--}}
-                            {{--                            </div>--}}
-                            {{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
-                            {{--                                all courses</a>--}}
+                        <div class="tab-pane fade" id="recent-courses" role="tabpanel">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
+                                @foreach($courses as $c)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $c])
+                                @endforeach
+                            </div>
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
+                                all courses</a>
+                        </div>
+                        <div class="tab-pane fade" id="upcoming-courses" role="tabpanel">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
+                                @foreach($startingSoon as $c)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $c])
+                                @endforeach
+                            </div>
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
+                                all courses</a>
+                        </div>
+                        <div class="tab-pane fade" id="editors-courses" role="tabpanel">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
+                                @foreach($featuresEditorPickCourses as $c)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $c])
+                                @endforeach
+                            </div>
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
+                                all courses</a>
                         </div>
                     </div>
                 </div>

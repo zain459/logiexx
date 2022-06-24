@@ -2,13 +2,13 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\SubjectArea\SubjectArea;
 use App\Query\Course\GetFeaturedCourses;
 use Carbon\Carbon;
 use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Event\Models\Event;
 use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Inventory\Class\GetCourseFeature;
-use Logixs\Modules\Inventory\Model\SubjectArea;
 use Logixs\Modules\News\Models\News;
 use Logixs\Modules\Partner\Models\Partner;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
@@ -28,15 +28,12 @@ class HomeIndexController
         $totalEnrollments = Enrollment::count();
         $totalInstructors = Instructor::count();
         $testimonials = Testimonial::limit(3)->get();
-//        $courseFeatures = CourseFeature::with(['feature', 'course'])->get();
-        $courses = Course::with(['category'])->limit(3)->get();
-        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->first();
-        $startingSoon = Course::with(['category'])->where('course_start_date', '>=', Carbon::now())->get();
-
         $featuredPopularCourses = GetFeaturedCourses::popular();
         $featuredTrendingCourses = GetFeaturedCourses::trending();
-
-        dd($featuredPopularCourses, $featuredTrendingCourses);
+        $courses = Course::with(['category'])->limit(3)->get();
+        $featuresEditorPickCourses = GetFeaturedCourses::editorPick();
+        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->first();
+        $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
 
         return view('site.index', [
             'new' => $new,
@@ -49,9 +46,11 @@ class HomeIndexController
             'totalCourses' => $totalCourses,
             'totalPartners' => $totalPartners,
             'subjectFields' => $subjectFields,
-//            'courseFeatures' =>$courseFeatures,
-            'totalEnrollments' => $totalEnrollments,
             'totalInstructors' => $totalInstructors,
+            'totalEnrollments' => $totalEnrollments,
+            'featuredPopularCourses' => $featuredPopularCourses,
+            'featuredTrendingCourses' => $featuredTrendingCourses,
+            'featuresEditorPickCourses' => $featuresEditorPickCourses,
         ]);
     }
 }
