@@ -39,9 +39,16 @@
                         </li>
                         <li><a href="#">Fee</a>
                             <ul>
-                                <li><label><input type="checkbox">Sub Item</label></li>
-                                <li><label><input type="checkbox">Sub Item</label></li>
-                                <li><label><input type="checkbox">Sub Item</label></li>
+                                @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
+                                    <li>
+                                        <label>
+                                            <input
+                                                {{isset($filters['course_fee']) && in_array($courseFee->id(), $filters['course_fee']) ? "checked": ""}}
+                                                type="checkbox" name="course_fee[]"
+                                                      value="{{$courseFee->id()}}">{{$courseFee->name()}}
+                                        </label>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li><a href="#">Difficulty Level </a>
@@ -92,7 +99,7 @@
                                     <li>
                                         <label>
                                             <input
-                                                {{isset($filters['$modality']) && in_array($modality->id(), $filters['$modality']) ? "checked": ""}}
+                                                {{isset($filters['modality']) && in_array($modality->id(), $filters['modality']) ? "checked": ""}}
                                                 type="checkbox" name="modality[]"
                                                 value="{{$modality->id()}}">{{$modality->name()}}
                                         </label>
@@ -126,6 +133,11 @@
                                 <span class="tag">{{ $subjectArea->name()  }} </a></span>
                             @endif
                         @endforeach
+                            @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
+                                @if(isset($filters['course_fee']) && in_array($courseFee->id(), $filters['course_fee']))
+                                    <span class="tag">{{$courseFee->name()}} </a></span>
+                                @endif
+                            @endforeach
                         @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
                             @if(isset($filters['difficulty_level']) && in_array($difficultyLevel->id(), $filters['difficulty_level']))
                                 <span class="tag">{{$difficultyLevel->name()}} </a></span>
@@ -166,7 +178,8 @@
                                             <dt>Start Date</dt>
                                             <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>
                                         </dl>
-                                        <a href="{{route('site.course-detail', $course->id())}}" class="learnmore">Learn More</a>
+                                        <a href="{{route('site.course-detail', $course->id())}}" class="learnmore">Learn
+                                            More</a>
                                     </div>
                                 </div>
                             </div>

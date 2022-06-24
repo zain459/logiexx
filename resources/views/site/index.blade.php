@@ -34,7 +34,7 @@
                 <h2>Our Courses</h2>
                 <div>
                     <ul class="nav nav-tabs d-flex justify-content-between" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item active" role="presentation">
                             <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab"
                                aria-controls="tab1" aria-selected="true">Trending</a>
                         </li>
@@ -56,7 +56,74 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
+{{--                        <div class="tab-pane fade active" id="tab1" role="tabpanel" aria-labelledby="tab1">--}}
+{{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
+{{--                                @foreach($courseFeatures as $courseFeature)--}}
+{{--                                    @if($courseFeature)--}}
+{{--                                        <div class="col post">--}}
+{{--                                            <div class="inner">--}}
+{{--                                                <div class="img"><img src="{{ 'storage/'.$courseFeature->image() }}"--}}
+{{--                                                                      class="img-fluid" alt="">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="text">--}}
+{{--                                                    <span class="modality">Modality: {{($course->modality()->name())}}</span>--}}
+{{--                                                    <h3>--}}
+{{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
+{{--                                                    </h3>--}}
+{{--                                                    <dl>--}}
+{{--                                                        <dt>Duration</dt>--}}
+{{--                                                        <dd>{{$course->duration()}}</dd>--}}
+{{--                                                        <dt>Course Fee</dt>--}}
+{{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
+{{--                                                        <dt>Start Date</dt>--}}
+{{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
+{{--                                                    </dl>--}}
+{{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
+{{--                                                       class="learnmore">Learn More</a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
+{{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
+{{--                                all courses</a>--}}
+{{--                        </div>--}}
+                        <div class="tab-pane fade active" id="tab2" role="tabpanel" aria-labelledby="tab2">
+                            {{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
+                            {{--                                @foreach($courses as $course)--}}
+                            {{--                                    @if($course)--}}
+                            {{--                                        <div class="col post">--}}
+                            {{--                                            <div class="inner">--}}
+                            {{--                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"--}}
+                            {{--                                                                      class="img-fluid" alt="">--}}
+                            {{--                                                </div>--}}
+                            {{--                                                <div class="text">--}}
+                            {{--                                                <span--}}
+                            {{--                                                    class="modality">Modality: {{($course->modality()->name())}}</span>--}}
+                            {{--                                                    <h3>--}}
+                            {{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
+                            {{--                                                    </h3>--}}
+                            {{--                                                    <dl>--}}
+                            {{--                                                        <dt>Duration</dt>--}}
+                            {{--                                                        <dd>{{$course->duration()}}</dd>--}}
+                            {{--                                                        <dt>Course Fee</dt>--}}
+                            {{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
+                            {{--                                                        <dt>Start Date</dt>--}}
+                            {{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
+                            {{--                                                    </dl>--}}
+                            {{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
+                            {{--                                                       class="learnmore">Learn More</a>--}}
+                            {{--                                                </div>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    @endif--}}
+                            {{--                                @endforeach--}}
+                            {{--                            </div>--}}
+                            {{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
+                            {{--                                all courses</a>--}}
+                        </div>
+                        <div class="tab-pane fade active" id="tab3" role="tabpanel" aria-labelledby="tab3">
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
                                 @foreach($courses as $course)
                                     @if($course)
@@ -89,6 +156,74 @@
                             </div>
                             <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View
                                 all courses</a>
+                        </div>
+                        <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
+                                @foreach($startingSoon as $startingSoon)
+                                    @if($startingSoon)
+                                        <div class="col post">
+                                            <div class="inner">
+                                                <div class="img"><img src="{{ 'storage/'.$startingSoon->image() }}"
+                                                                      class="img-fluid" alt="">
+                                                </div>
+                                                <div class="text">
+                                                <span
+                                                    class="modality">Modality: {{($startingSoon->modality()->name())}}</span>
+                                                    <h3>
+                                                        <a href="{{ route('site.course-index') }}">{{$startingSoon->title()}}</a>
+                                                    </h3>
+                                                    <dl>
+                                                        <dt>Duration</dt>
+                                                        <dd>{{$startingSoon->duration()}}</dd>
+                                                        <dt>Course Fee</dt>
+                                                        <dd>{{$startingSoon->feeAmount()}}</dd>
+                                                        <dt>Start Date</dt>
+                                                        <dd>{{\Carbon\Carbon::parse($startingSoon->courseStartDate())->format('F j, Y')}}</dd>
+                                                    </dl>
+                                                    <a href="{{route('site.course-detail', $startingSoon->id())}}"
+                                                       class="learnmore">Learn More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View
+                                all courses</a>
+                        </div>
+                        <div class="tab-pane fade active" id="tab5" role="tabpanel" aria-labelledby="tab5">
+                            {{--                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">--}}
+                            {{--                                @foreach($courses as $course)--}}
+                            {{--                                    @if($course)--}}
+                            {{--                                        <div class="col post">--}}
+                            {{--                                            <div class="inner">--}}
+                            {{--                                                <div class="img"><img src="{{ 'storage/'.$course->image() }}"--}}
+                            {{--                                                                      class="img-fluid" alt="">--}}
+                            {{--                                                </div>--}}
+                            {{--                                                <div class="text">--}}
+                            {{--                                                <span--}}
+                            {{--                                                    class="modality">Modality: {{($course->modality()->name())}}</span>--}}
+                            {{--                                                    <h3>--}}
+                            {{--                                                        <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>--}}
+                            {{--                                                    </h3>--}}
+                            {{--                                                    <dl>--}}
+                            {{--                                                        <dt>Duration</dt>--}}
+                            {{--                                                        <dd>{{$course->duration()}}</dd>--}}
+                            {{--                                                        <dt>Course Fee</dt>--}}
+                            {{--                                                        <dd>{{$course->feeAmount()}}</dd>--}}
+                            {{--                                                        <dt>Start Date</dt>--}}
+                            {{--                                                        <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>--}}
+                            {{--                                                    </dl>--}}
+                            {{--                                                    <a href="{{route('site.course-detail', $course->id())}}"--}}
+                            {{--                                                       class="learnmore">Learn More</a>--}}
+                            {{--                                                </div>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    @endif--}}
+                            {{--                                @endforeach--}}
+                            {{--                            </div>--}}
+                            {{--                            <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i> View--}}
+                            {{--                                all courses</a>--}}
                         </div>
                     </div>
                 </div>
@@ -195,9 +330,9 @@
                     <strong class="subtitle">Our Community</strong>
                     <div class="row community-count" id="counters">
                         <div class="col col ps-lg-0">
-                            @if($toatalCourses != null)
+                            @if($totalCourses != null)
                                 <strong class="bold"><span class="counter" data-TargetNum="15"
-                                                           data-Speed="2000"></span>{{$toatalCourses}}
+                                                           data-Speed="2000"></span>+{{$totalCourses}}
                                 </strong>
                                 <span>Courses</span>
                             @endif
@@ -207,8 +342,11 @@
                             <span>Global Alumni</span>
                         </div>
                         <div class="col">
-                            <strong class="bold"><span class="counter" data-TargetNum="15000" data-Speed="2000"></span>+</strong>
-                            <span>Enrollments</span>
+                            @if($totalEnrollments != null)
+                                <strong class="bold"><span class="counter" data-TargetNum="15000"
+                                                           data-Speed="2000"></span>+{{$totalEnrollments}}</strong>
+                                <span>Enrollments</span>
+                            @endif
                         </div>
                         <div class="col">
                             @if($totalInstructors != null)

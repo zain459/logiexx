@@ -2,18 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Site\CourseController;
-use Logixs\Modules\Site\HomeIndexController;
-use Logixs\Modules\Site\WebinarPdfController;
-use Logixs\Modules\Site\TestimonialController;
 use Logixs\Modules\Site\CourseDetailController;
-use Logixs\Modules\Site\viewAllPastWebinarController;
-use Logixs\Modules\Site\ViewAllWebinarSeriesController;
-use Logixs\Modules\User\Controllers\Auth\LoginController;
-use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
-use Logixs\Modules\User\Controllers\AdminDashboardController;
+use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentCreateController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentStoreController;
-use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentCreateController;
+use Logixs\Modules\Site\HomeIndexController;
+use Logixs\Modules\Site\TestimonialController;
+use Logixs\Modules\Site\viewAllPastWebinarController;
+use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
+use Logixs\Modules\Site\ViewAllWebinarSeriesController;
+use Logixs\Modules\Site\WebinarPdfController;
+use Logixs\Modules\User\Controllers\Auth\LoginController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -22,9 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
-});
+
 Route::get('site', HomeIndexController::class)->name('site.index');
 Route::get('site/courses', CourseController::class)->name('site.course-index');
 Route::get('site/{id}/course-detail', CourseDetailController::class)->name('site.course-detail');
@@ -47,3 +44,6 @@ require __DIR__ . '/event.php';
 require __DIR__ . '/news.php';
 require __DIR__ . '/pages.php';
 require __DIR__ . '/webinars.php';
+require __DIR__ . '/admin.php';
+
+

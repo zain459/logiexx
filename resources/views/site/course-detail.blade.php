@@ -6,11 +6,12 @@
     <div class="title-section coursesdetail-title">
         <div class="container">
             <div class="inner-menu">
-{{--                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>--}}
+                {{--                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>--}}
                 <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
-            <a href="{{route('site.course-enrollment', $courseEnrollment->id())}}" class="btn btn-primary btn-enroll">Enroll Now <i class="icon-link ms-3 align-items-center"></i></a>
+            <a href="{{route('site.course-enrollment', $courseEnrollment->id())}}" class="btn btn-primary btn-enroll">Enroll
+                Now <i class="icon-link ms-3 align-items-center"></i></a>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 @foreach($subjectFields as $subjectField)
@@ -100,7 +101,6 @@
         @foreach($courseLearningObjectives as $courseLearningObjective)
             @if($courseLearningObjective)
                 <section class="block bdb">
-
                     <div class="container pb-4 mb-5">
                         <h2>{{$courseLearningObjective->title()}}</h2>
                         <p>{!!html_entity_decode($courseLearningObjective->description())!!}</p>
@@ -217,22 +217,23 @@
                 </div>
             </div>
         </section>
-                <section class="logos-outer mb-5">
-                    <div class="d-flex justify-content-center trust-row">
-                        <span>Affiliated Partners</span>
+        <section class="logos-outer mb-5">
+            <div class="d-flex justify-content-center trust-row">
+                <span>Affiliated Partners</span>
+            </div>
+            <div class="logos">
+                <div class="container">
+                    <div class="slick-slider">
+                        @foreach($coursePartners as $coursePartner)
+                            @if($coursePartner != null)
+                                <div class="slide"><img src="{{'/storage/'.$coursePartner->partner->image()}}"
+                                                        class="img-fluid mx-auto d-block" alt=""></div>
+                            @endif
+                        @endforeach
                     </div>
-                        <div class="logos">
-                            <div class="container">
-                                <div class="slick-slider">
-                                    @foreach($coursePartners as $coursePartner)
-                                        @if($coursePartner != null)
-                                            <div class="slide"><img src="{{'/storage/'.$coursePartner->partner->image()}}" class="img-fluid mx-auto d-block" alt=""></div>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                </section>
+                </div>
+            </div>
+        </section>
         <section class="block bdb">
             <div class="container pb-4 mb-5">
                 <h2>Learner Feedback</h2>

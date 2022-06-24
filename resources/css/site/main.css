@@ -1464,7 +1464,7 @@ h2.subheading {
 }
 
 .filter-menu li.open ul {
-    max-height: 400px;
+    max-height: 4000px;
     visibility: visible;
 }
 

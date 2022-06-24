@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\Category;
+namespace App\Http\Controllers\Admin\Category;
 
 use Logixs\Modules\Inventory\Model\Category;
 
@@ -10,7 +10,7 @@ class CategoryIndexController
     {
         $categories = Category::all();
 
-        return view('inventory.category.index', [
+        return view('admin.category.index', [
             'categories' => $categories,
         ]);
     }

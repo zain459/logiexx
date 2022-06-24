@@ -80,8 +80,8 @@ Route::middleware(['auth'])->group(function () {
 
         //enrollment status
         Route::post('enrollment-status/{id}/store', \Logixs\Modules\Course\Controllers\EnrollmentStatusStore::class)->name('course.enrollment-status-store');
-
     });
 
-
+    Route::get('featured-courses', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController::class)->name('admin.featured-course.index');
+    Route::post('featured-courses/store', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController::class)->name('admin.featured-course.store');
 });

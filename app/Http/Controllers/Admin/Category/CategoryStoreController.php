@@ -1,9 +1,9 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\Category;
+namespace App\Http\Controllers\Admin\Category;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Logixs\Modules\Inventory\Model\Category;
 
 class CategoryStoreController extends Controller
@@ -19,6 +19,6 @@ class CategoryStoreController extends Controller
 
         flash('category added')->success();
 
-        return redirect(route('inventory.category-index'));
+        return redirect(route('admin.category.index'));
     }
 }

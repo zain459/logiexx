@@ -24,7 +24,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
             </li>
-
         </ul>
     </div>
 </div>

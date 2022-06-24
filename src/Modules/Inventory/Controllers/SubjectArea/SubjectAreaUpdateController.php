@@ -3,10 +3,10 @@
 namespace Logixs\Modules\Inventory\Controllers\SubjectArea;
 
 use Illuminate\Http\Request;
+use Logixs\Services\SaveImage;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Inventory\Model\SubjectArea;
-use Logixs\Services\SaveImage;
 
 class SubjectAreaUpdateController extends Controller
 {

@@ -4,7 +4,7 @@
     <div class="title-section">
         <div class="container">
             <div class="inner-menu">
-                <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
+                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
             <div class="fields-menu">
@@ -269,7 +269,7 @@
                                 <td title="Description" width="355"><input type="text" class="form-control"
                                                                            placeholder="Deposit Slip"></td>
                                 <td title="File Size" id="size"></td>
-                                <td class="Action"><a href="#" id="view" onclick="getInputValue()">[View]</a> <a
+                                <td class="Action"> <a
                                         href="#" id="delete">[Delete]</a>
                                 </td>
                             </tr>
@@ -311,19 +311,15 @@
         });
         var dele = document.getElementById("delete").addEventListener("click", function (e) {
             e.preventDefault();
-            var b = document.getElementsByTagName("tr")[1].remove();
+            var name = document.getElementById("name-ectention").innerHTML = "";
+            document.getElementById('size').innerHTML = "";
+            document.getElementById('jpg').innerHTML = ""
         });
 
-        function getInputValue() {
-            // Selecting the input element and get its value
-            var inputVal = document.getElementById("my").value;
-
-            // Displaying the value
-            alert(inputVal);
-        }
-
         $(document).ready(function () {
-            $('#code').select2();
+            $('#code').select2({
+                multiple: true,
+            });
         });
     </script>
 @endsection

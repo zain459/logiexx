@@ -1,10 +1,10 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\Category;
+namespace App\Http\Controllers\Admin\Category;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Logixs\Modules\Inventory\Model\Category;
 
 class CategoryUpdateController extends Controller
@@ -27,6 +27,6 @@ class CategoryUpdateController extends Controller
 
         flash('category updated')->success();
 
-        return redirect()->route('inventory.category-index');
+        return redirect()->route('admin.category.index');
     }
 }

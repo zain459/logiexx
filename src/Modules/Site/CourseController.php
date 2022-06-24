@@ -13,9 +13,14 @@ class CourseController
     {
 
         $filters = $request->all();
+//        dd($filters);
         $query = Course::with(['category']);
         if (isset($filters['subject_areas'])) {
             $query->whereIn('subject_area_id', $filters['subject_areas']);
+        }
+
+        if (isset($filters['course_fee'])) {
+            $query->whereIn('fee_type', $filters['course_fee']);
         }
 
         if (isset($filters['difficulty_level'])) {
@@ -30,8 +35,8 @@ class CourseController
             $query->whereIn('duration_interval', $filters['duration_interval']);
         }
 
-        if (isset($filters['$modality'])) {
-            $query->whereIn('$modality', $filters['$modality']);
+        if (isset($filters['modality'])) {
+            $query->whereIn('modality', $filters['modality']);
         }
         $courses = $query->paginate(6);
         $subjectAreas = SubjectArea::all();

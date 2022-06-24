@@ -1,11 +1,11 @@
 <?php
 
-namespace Logixs\Modules\User\Controllers;
+namespace App\Http\Controllers\Admin;
 
 class AdminDashboardController
 {
     public function __invoke()
     {
-        return view('dashboard');
+        return view('admin.dashboard');
     }
 }
