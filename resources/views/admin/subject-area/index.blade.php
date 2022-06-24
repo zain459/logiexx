@@ -24,7 +24,7 @@
                     <td>{{ $area->name() }}</td>
                     <td>
                         <div class='d-flex align-items-center justify-content-end'>
-                            @include('inventory.subject-area.edit', [
+                            @include('admin.subject-area.edit', [
                                 'area' => $area
                             ])
                         </div>
@@ -46,7 +46,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('inventory.subject-store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.subject-area.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label class="form-label">Name</label>

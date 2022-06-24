@@ -1,12 +1,12 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\SubjectArea;
+namespace App\Http\Controllers\Admin\SubjectArea;
 
-use Illuminate\Http\Request;
-use Logixs\Services\SaveImage;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Logixs\Modules\Inventory\Model\SubjectArea;
+use Logixs\Services\SaveImage;
 
 class SubjectAreaUpdateController extends Controller
 {
@@ -33,6 +33,6 @@ class SubjectAreaUpdateController extends Controller
 
         flash('category updated')->success();
 
-        return redirect()->route('inventory.subject-index');
+        return redirect()->route('admin.subject-area.index');
     }
 }

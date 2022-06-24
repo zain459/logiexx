@@ -1,11 +1,11 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\SubjectArea;
+namespace App\Http\Controllers\Admin\SubjectArea;
 
-use Illuminate\Http\Request;
-use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Logixs\Modules\Inventory\Model\SubjectArea;
+use Logixs\Services\SaveImage;
 
 class SubjectAreaStoreController extends Controller
 {
@@ -26,7 +26,7 @@ class SubjectAreaStoreController extends Controller
 
         flash('subject area added')->success();
 
-        return redirect(route('inventory.subject-index'));
+        return redirect(route('admin.subject-area.index'));
 
     }
 }

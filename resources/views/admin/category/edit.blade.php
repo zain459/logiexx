@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('inventory.category-update', $category->id()) }}">
+                <form method="POST" action="{{ route('admin.category.update', $category->id()) }}">
                     @csrf
                     <div class="form-group mb-3">
                         <label class="form-label">Name</label>

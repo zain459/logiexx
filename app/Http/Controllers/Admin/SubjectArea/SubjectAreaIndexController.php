@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\Inventory\Controllers\SubjectArea;
+namespace App\Http\Controllers\Admin\SubjectArea;
 
 use Logixs\Modules\Inventory\Model\SubjectArea;
 
@@ -10,7 +10,7 @@ class SubjectAreaIndexController
     {
         $subjectArea = SubjectArea::all();
 
-        return view('inventory.subject-area.index', [
+        return view('admin.subject-area.index', [
             'subjectArea' => $subjectArea,
         ]);
     }
