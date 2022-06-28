@@ -1,8 +1,8 @@
 <?php
 
-namespace Logixs\Modules\Partner\Controllers;
+namespace App\Http\Controllers\Admin\Partner;
 
-use Logixs\Modules\Partner\Models\Partner;
+use App\Models\SubjectArea\Partner\Partner;
 
 class PartnerIndexController
 {
@@ -10,7 +10,7 @@ class PartnerIndexController
     {
         $partners = Partner::query()->where('status', true)->get();
 
-        return view('partner.index', [
+        return view('admin.partner.index', [
             'partners' => $partners,
         ]);
     }

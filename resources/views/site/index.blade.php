@@ -85,8 +85,8 @@
                         </div>
                         <div class="tab-pane fade" id="upcoming-courses" role="tabpanel">
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
-                                @foreach($startingSoon as $c)
-                                    @include('site.partials.featured-course-tab-content', ['course' => $c])
+                                @foreach($startingSoon as $startingSoon)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $startingSoon])
                                 @endforeach
                             </div>
                             <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View
@@ -94,8 +94,8 @@
                         </div>
                         <div class="tab-pane fade" id="editors-courses" role="tabpanel">
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
-                                @foreach($featuresEditorPickCourses as $c)
-                                    @include('site.partials.featured-course-tab-content', ['course' => $c])
+                                @foreach($featuresEditorPickCourses as $featuresEditorPickCourse)
+                                    @include('site.partials.featured-course-tab-content', ['course' => $featuresEditorPickCourse])
                                 @endforeach
                             </div>
                             <a href="{{route('site.course-index')}}" class="view-all"><i class="icon-arrow"></i>View

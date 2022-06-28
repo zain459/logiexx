@@ -2,6 +2,7 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\SubjectArea\Partner\Partner;
 use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseInstructor;
@@ -10,7 +11,6 @@ use Logixs\Modules\Course\Models\CoursePartner;
 use Logixs\Modules\Course\Models\Feedback;
 use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Pages\Models\Pages;
-use Logixs\Modules\Partner\Models\Partner;
 
 class CourseDetailController
 {

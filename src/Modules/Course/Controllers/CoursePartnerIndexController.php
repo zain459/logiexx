@@ -2,8 +2,8 @@
 
 namespace Logixs\Modules\Course\Controllers;
 
+use App\Models\SubjectArea\Partner\Partner;
 use Logixs\Modules\Course\Models\Course;
-use Logixs\Modules\Partner\Models\Partner;
 use Logixs\Modules\Course\Models\CoursePartner;
 
 class CoursePartnerIndexController

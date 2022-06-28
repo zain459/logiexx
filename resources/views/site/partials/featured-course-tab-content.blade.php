@@ -7,7 +7,7 @@
         <div class="text">
             <span class="modality">Modality: {{($course->modality()->name())}}</span>
             <h3>
-                <a href="{{ route('site.course-index') }}">{{$course->title()}}</a>
+                <a href="{{ route('site.course-detail', $course->id()) }}">{{$course->title()}}</a>
             </h3>
             <dl>
                 <dt>Duration</dt>

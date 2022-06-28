@@ -20,97 +20,93 @@
             </div>
             <h1>Courses</h1>
             <div class="filtermenu-bar">
-                <form method="get">
-                    <a href="#" class="opener">Select Filters</a>
-                    <ul class="filter-menu">
-                        <li><a href="#">Subject Field</a>
-                            <ul>
-                                @foreach($subjectAreas as $subjectArea)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['subject_areas']) && in_array($subjectArea->id(), $filters['subject_areas']) ? "checked": ""}}
-                                                name="subject_areas[]" type="checkbox"
-                                                value="{{$subjectArea->id()}}"> {{$subjectArea->name()}}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="#">Fee</a>
-                            <ul>
-                                @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['course_fee']) && in_array($courseFee->id(), $filters['course_fee']) ? "checked": ""}}
-                                                type="checkbox" name="course_fee[]"
-                                                      value="{{$courseFee->id()}}">{{$courseFee->name()}}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="#">Difficulty Level </a>
-                            <ul>
-                                @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['difficulty_level']) && in_array($difficultyLevel->id(), $filters['difficulty_level']) ? "checked": ""}}
-                                                type="checkbox" name="difficulty_level[]"
-                                                value="{{$difficultyLevel->id()}}">{{ $difficultyLevel->name() }}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="#">Start Date</a>
-                            <ul>
-                                @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $dateStatus)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['start_date_status']) && in_array($dateStatus->id(), $filters['start_date_status']) ? "checked": ""}}
-                                                type="checkbox" name="start_date_status[]"
-                                                value="{{$dateStatus->id()}}">{{$dateStatus->name()}}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="#">Duration </a>
-                            <ul>
-                                @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['duration_interval']) && in_array($durationInterval->id(), $filters['duration_interval']) ? "checked": ""}}
-                                                type="checkbox" name="duration_interval[]"
-                                                value="{{$durationInterval->id()}}">{{$durationInterval->name()}}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="#">Modality</a>
-                            <ul>
-                                @foreach(\Logixs\Modules\Course\Models\Modality::all() as $modality)
-                                    <li>
-                                        <label>
-                                            <input
-                                                {{isset($filters['modality']) && in_array($modality->id(), $filters['modality']) ? "checked": ""}}
-                                                type="checkbox" name="modality[]"
-                                                value="{{$modality->id()}}">{{$modality->name()}}
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </ul>
-
-                </form>
+                <a href="#" class="opener">Select Filters</a>
+                <ul class="filter-menu">
+                    <li><a href="">Subject Field</a>
+                        <ul>
+                            @foreach($subjectAreas as $subjectArea)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['subject_areas']) && in_array($subjectArea->id(), $filters['subject_areas'])}}
+                                            name="subject_areas[]" type="checkbox" class="filters"
+                                            value="{{$subjectArea->id()}}"> {{$subjectArea->name()}}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="">Fee</a>
+                        <ul>
+                            @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['fee_type']) && in_array($courseFee->id(), $filters['fee_type']) ? "checked": ""}}
+                                            type="checkbox" name="fee_type[]" class="filters"
+                                            value="{{$courseFee->name()}}">{{$courseFee->name()}}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="">Difficulty Level </a>
+                        <ul>
+                            @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['difficulty_level']) && in_array($difficultyLevel->id(), $filters['difficulty_level']) ? "checked": ""}}
+                                            type="checkbox" name="difficulty_level[]" class="filters"
+                                            value="{{$difficultyLevel->id()}}">{{ $difficultyLevel->name() }}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="">Start Date</a>
+                        <ul>
+                            @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $dateStatus)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['start_date_status']) && in_array($dateStatus->id(), $filters['start_date_status']) ? "checked": ""}}
+                                            type="checkbox" name="start_date_status[]" class="filters"
+                                            value="{{$dateStatus->id()}}">{{$dateStatus->name()}}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="">Duration </a>
+                        <ul>
+                            @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['duration_interval']) && in_array($durationInterval->id(), $filters['duration_interval']) ? "checked": ""}}
+                                            type="checkbox" name="duration_interval[]" class="filters"
+                                            value="{{$durationInterval->id()}}">{{$durationInterval->name()}}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="">Modality</a>
+                        <ul>
+                            @foreach(\Logixs\Modules\Course\Models\Modality::all() as $modality)
+                                <li>
+                                    <label>
+                                        <input
+                                            {{isset($filters['modality']) && in_array($modality->id(), $filters['modality']) ? "checked": ""}}
+                                            type="checkbox" name="modality[]" class="filters"
+                                            value="{{$modality->id()}}">{{$modality->name()}}
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -133,16 +129,23 @@
                                 <span class="tag">{{ $subjectArea->name()  }} </a></span>
                             @endif
                         @endforeach
-                            @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
-                                @if(isset($filters['course_fee']) && in_array($courseFee->id(), $filters['course_fee']))
-                                    <span class="tag">{{$courseFee->name()}} </a></span>
-                                @endif
-                            @endforeach
+                        @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
+                            @if(isset($filters['fee_type']) && in_array($courseFee->name(), $filters['fee_type']))
+                                <span class="tag">{{$courseFee->name()}} </a></span>
+                            @endif
+                        @endforeach
                         @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
                             @if(isset($filters['difficulty_level']) && in_array($difficultyLevel->id(), $filters['difficulty_level']))
                                 <span class="tag">{{$difficultyLevel->name()}} </a></span>
                             @endif
                         @endforeach
+
+                        @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $startDateStatus)
+                            @if(isset($filters['start_date_status']) && in_array($startDateStatus->id(), $filters['start_date_status']))
+                                <span class="tag">{{$startDateStatus->name()}} </a></span>
+                            @endif
+                        @endforeach
+
                         @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
                             @if(isset($filters['duration_interval']) && in_array($durationInterval->id(), $filters['duration_interval']))
                                 <span class="tag">{{$durationInterval->name()}} </a></span>
@@ -194,4 +197,18 @@
             </div>
         </section>
     </main>
+    <script>
+        $(document).ready(function () {
+            $(".filters").on('change', function () {
+                var url = window.location.href;
+                if (url.indexOf('?') > -1) {
+                    url += '&' + this.name + "=" + this.value;
+                } else {
+                    url += '?' + this.name + "=" + this.value;
+                }
+                window.location = url;
+            })
+        })
+        // window.location.reload(false);
+    </script>
 @endsection

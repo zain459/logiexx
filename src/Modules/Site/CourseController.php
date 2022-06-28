@@ -5,21 +5,22 @@ namespace Logixs\Modules\Site;
 use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
 use Logixs\Modules\Course\Models\Course;
+use PhpParser\Node\Stmt\DeclareDeclare;
 
 class CourseController
 {
     public function __invoke(Request $request)
     {
-
+//        dd($request->all());
         $filters = $request->all();
-//        dd($filters);
+
         $query = Course::with(['category']);
         if (isset($filters['subject_areas'])) {
             $query->whereIn('subject_area_id', $filters['subject_areas']);
         }
 
-        if (isset($filters['course_fee'])) {
-            $query->whereIn('fee_type', $filters['course_fee']);
+        if (isset($filters['fee_type'])) {
+            $query->whereIn('fee_type', $filters['fee_type']);
         }
 
         if (isset($filters['difficulty_level'])) {

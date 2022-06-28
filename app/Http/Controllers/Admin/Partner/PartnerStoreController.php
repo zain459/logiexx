@@ -1,11 +1,11 @@
 <?php
 
-namespace Logixs\Modules\Partner\Controllers;
+namespace App\Http\Controllers\Admin\Partner;
 
+use App\Http\Controllers\Controller;
+use App\Models\SubjectArea\Partner\Partner;
 use Illuminate\Http\Request;
 use Logixs\Services\SaveImage;
-use App\Http\Controllers\Controller;
-use Logixs\Modules\Partner\Models\Partner;
 
 class PartnerStoreController extends Controller
 {

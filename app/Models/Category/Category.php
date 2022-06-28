@@ -3,8 +3,8 @@
 namespace App\Models\Category;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Logixs\Modules\Course\Models\Course;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int    $id

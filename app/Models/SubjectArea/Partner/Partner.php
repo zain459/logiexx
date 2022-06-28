@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\Partner\Models;
+namespace App\Models\SubjectArea\Partner;
 
 use Illuminate\Database\Eloquent\Model;
 

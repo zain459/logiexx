@@ -2,6 +2,7 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\SubjectArea\Partner\Partner;
 use App\Models\SubjectArea\SubjectArea;
 use App\Query\Course\GetFeaturedCourses;
 use Carbon\Carbon;
@@ -10,7 +11,6 @@ use Logixs\Modules\Event\Models\Event;
 use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Inventory\Class\GetCourseFeature;
 use Logixs\Modules\News\Models\News;
-use Logixs\Modules\Partner\Models\Partner;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 use Logixs\Modules\Testimonial\Models\Testimonial;
 use Logixs\Modules\Webinar\Models\Webinar;

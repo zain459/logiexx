@@ -19,7 +19,6 @@ class CourseLearningObjectiveUpdateController extends Controller
 //            'course_id' => ['required', 'int'],
         ]);
 
-
         /** @var CourseLearningObjective $courseLearningObjective */
         $courseLearningObjective = CourseLearningObjective::query()->findOrFail($id);
         $courseLearningObjective->title = $data['title'];

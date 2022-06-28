@@ -26,7 +26,7 @@
                     <td><img src="{{ asset('storage/'.$item->image()) }}" width="50"></td>
                     <td>
                         <div class='d-flex align-items-center justify-content-end'>
-                            @include('partner.edit', [
+                            @include('admin.partner.edit', [
                                 'partner' => $item
                             ])
                         </div>
@@ -48,7 +48,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('inventory.partner-store')}}" enctype="multipart/form-data" >
+                        <form method="POST" action="{{route('admin.partner.store')}}" enctype="multipart/form-data" >
                             @csrf
                             <div class="form-group mb-3">
                                 <label class="form-label">Link</label>

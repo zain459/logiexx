@@ -12,8 +12,6 @@ class FeaturedCourseIndexController extends Controller
     {
         $featuredCourses = FeaturedCourse::with('course')->orderBy('id', 'DESC')->get();
 
-        flash('Course Feature Created')->success();
-
         return view('admin.feature-course.index', [
             'featuredCourses' => $featuredCourses
         ]);

@@ -2,8 +2,8 @@
 
 namespace Logixs\Modules\Course\Models;
 
+use App\Models\SubjectArea\Partner\Partner;
 use Illuminate\Database\Eloquent\Model;
-use Logixs\Modules\Partner\Models\Partner;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
