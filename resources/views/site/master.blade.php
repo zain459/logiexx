@@ -41,7 +41,7 @@
                             <a class="nav-link" href="#">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="certificate-authentication.php"> Verify Certificate</a>
+                            <a class="nav-link" href="{{route('site.certificate-authentication.index')}}"> Verify Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us </a>

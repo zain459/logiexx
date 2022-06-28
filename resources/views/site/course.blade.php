@@ -1,5 +1,5 @@
 @extends('site.master')
-@section('title', '')
+@section('title', 'course')
 @section('content')
     <div class="title-section filtermenu-outer">
         <div class="container">

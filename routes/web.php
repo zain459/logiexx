@@ -1,18 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\CourseController;
+use Logixs\Modules\Site\HomeIndexController;
+use Logixs\Modules\Site\WebinarPdfController;
+use Logixs\Modules\Site\TestimonialController;
 use Logixs\Modules\Site\CourseDetailController;
+use Logixs\Modules\Site\viewAllPastWebinarController;
+use Logixs\Modules\Site\ViewAllWebinarSeriesController;
+use Logixs\Modules\User\Controllers\Auth\LoginController;
+use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
+use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentCreateController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentStoreController;
-use Logixs\Modules\Site\HomeIndexController;
-use Logixs\Modules\Site\TestimonialController;
-use Logixs\Modules\Site\viewAllPastWebinarController;
-use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
-use Logixs\Modules\Site\ViewAllWebinarSeriesController;
-use Logixs\Modules\Site\WebinarPdfController;
-use Logixs\Modules\User\Controllers\Auth\LoginController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -35,6 +37,11 @@ Route::get('site/view-all-past-webinar-series', ViewAllPastWebinarController::cl
 Route::get('site/{id}/course-enrollment', CourseEnrollmentIndexController::class)->name('site.course-enrollment');
 Route::get('site/{id}/create-course-enrollment', CourseEnrollmentCreateController::class)->name('site.course-enrollment-create');
 Route::post('site/store-course-enrollment', CourseEnrollmentStoreController::class)->name('site.course-enrollment-store');
+
+//certificate-authentication
+
+Route::get('site/certificate-authentication',CertificateAuthenticationIndexController::class)->name('site.certificate-authentication.index');
+Route::post('site/certificate-authentication-verification', CertificateAuthenticationverificationController::class)->name('site.certificate-authentication-verification');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';
