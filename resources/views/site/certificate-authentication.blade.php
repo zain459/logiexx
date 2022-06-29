@@ -1,10 +1,11 @@
 @extends('site.master')
-@section('title', 'certificate-authentication')
+@section('title', 'Certificate Authentication')
 @section('content')
     <div class="title-section">
         <div class="container">
             <div class="inner-menu">
-                <a href="{{ route('site.course-index') }}" class="btn-link"><span class="button">Browse Our Courses</span></a>
+                <a href="{{ route('site.course-index') }}" class="btn-link"><span
+                        class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
             <div class="fields-menu">

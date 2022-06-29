@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\CourseController;
 use Logixs\Modules\Site\HomeIndexController;
@@ -39,9 +40,11 @@ Route::get('site/{id}/create-course-enrollment', CourseEnrollmentCreateControlle
 Route::post('site/store-course-enrollment', CourseEnrollmentStoreController::class)->name('site.course-enrollment-store');
 
 //certificate-authentication
-
 Route::get('site/certificate-authentication',CertificateAuthenticationIndexController::class)->name('site.certificate-authentication.index');
 Route::post('site/certificate-authentication-verification', CertificateAuthenticationverificationController::class)->name('site.certificate-authentication-verification');
+
+//class-calendar
+Route::get('site/course/class-calendar', ClassCalendarIndexController::class)->name('site.class-calendar.index');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';

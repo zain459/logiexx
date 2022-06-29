@@ -41,7 +41,8 @@
                             <a class="nav-link" href="#">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('site.certificate-authentication.index')}}"> Verify Certificate</a>
+                            <a class="nav-link" href="{{route('site.certificate-authentication.index')}}"> Verify
+                                Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us </a>
@@ -84,11 +85,16 @@
                 <div class="col-12 col-md-auto">
                     <h5>Follow Us On</h5>
                     <ul class="social-media d-flex justify-content-center justify-content-md-end">
-                        <li><a href="https://www.linkedin.com/login" target="_blank"><i class="icon-linkedin"><span class="d-none">linkedin</span></i></a></li>
-                        <li><a href="https://www.youtube.com/" target="_blank"><i class="icon-youtube"><span class="d-none">youtube</span></i></a></li>
-                        <li><a href="https://www.facebook.com/"><i class="icon-facebook"><span class="d-none">facebook</span></i></a></li>
-                        <li><a href="https://www.instagram.com/?hl=en"><i class="icon-instagram"><span class="d-none">instagram</span></i></a></li>
-                        <li><a href="https://twitter.com/"><i class="icon-twitter"><span class="d-none">twitter</span></i></a></li>
+                        <li><a href="https://www.linkedin.com/login" target="_blank"><i class="icon-linkedin"><span
+                                        class="d-none">linkedin</span></i></a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank"><i class="icon-youtube"><span
+                                        class="d-none">youtube</span></i></a></li>
+                        <li><a href="https://www.facebook.com/"><i class="icon-facebook"><span
+                                        class="d-none">facebook</span></i></a></li>
+                        <li><a href="https://www.instagram.com/?hl=en"><i class="icon-instagram"><span class="d-none">instagram</span></i></a>
+                        </li>
+                        <li><a href="https://twitter.com/"><i class="icon-twitter"><span
+                                        class="d-none">twitter</span></i></a></li>
                     </ul>
                 </div>
             </div>

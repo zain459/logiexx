@@ -1017,6 +1017,17 @@ a{
 }
 /*----- Slideshow ----*/
 
+table {
+    border-collapse: collapse;
+    background: white;
+    color: black;
+}
+
+th,
+td {
+    font-weight: bold;
+}
+
 .title-section {
     background: #283250;
     position: relative;
