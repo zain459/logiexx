@@ -21,27 +21,40 @@
             <h1>Course Enrollment</h1>
         </div>
     </div>
+    @if ($errors->any())
+        <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @include('flash::message')
+
+    @yield('content')
     <main id="main">
         <section class="block apply-block">
             <div class="container">
 
                 <div class="inline-field mb-4 d-flex flex-column flex-md-row align-items-center">
-                    @if($course != null)
+                    @if($class != null)
                         <label for="CourseTitle">Course Title</label>
-                        <span class="tag">{{$course->title()}}</span>
+                        <span class="tag">{{$class->course->title()}}</span>
                     @endif
                 </div>
                 <div class="inline-field mb-4 flex-column flex-md-row align-items-center">
-                    @if($course != null)
+                    @if($class != null)
                         <label for="CourseTitle">Course Fee</label>
-                        <span class="tag">{{$course->feeType()}}</span>
+                        <span class="tag">{{$class->course->feeType()}}</span>
                     @endif
                 </div>
                 <h2>Applicant Information</h2>
                 <p>Please submit this form after providing mandatory information and you will receive your
                     enrollment
                     confirmation shortly by our support team through email or telephone. </p>
-                <form action="{{route('site.course-enrollment-store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('site.course-class-enrollment-store')}}" method="post"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="personal-information">
                         <strong class="overlap-text">Personal Information</strong>
@@ -74,7 +87,7 @@
                             <label for="">Telephone <span class="mark">*</span></label>
                             <div class="d-flex field">
                                 <div class="cu_select me-2">
-                                    <select class="form-select" name="code" id="code" required>
+                                    <select class="form-select" name="code[]" multiple="multiple" id="code" required>
                                         <option></option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryTelephoneCode)
                                             <option
@@ -269,7 +282,7 @@
                                 <td title="Description" width="355"><input type="text" class="form-control"
                                                                            placeholder="Deposit Slip"></td>
                                 <td title="File Size" id="size"></td>
-                                <td class="Action"> <a
+                                <td class="Action"><a
                                         href="#" id="delete">[Delete]</a>
                                 </td>
                             </tr>
@@ -281,7 +294,7 @@
                         <span class="check"></span>
                         <span class="text-primary label">By providing this information, you agree to our terms and privacy policy. You agree that we can contact you about Logixs Academy and use data from third parties to personalize your experience.</span>
                     </label>
-                    <input type="hidden" value="{{ $course->id() }}" name="courseId" required/>
+                    <input type="hidden" value="{{ $class->id() }}" name="classId" required/>
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                 </form>
             </div>

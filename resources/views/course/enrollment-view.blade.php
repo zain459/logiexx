@@ -28,7 +28,7 @@
                                             <strong class="margin-10px-left text-orange">Course:</strong>
                                         </div>
                                         <div class="col-md-7 col-7">
-                                            <p>{{$enrollment->course->title()}}</p>
+                                            <p>{{$enrollment->class->course->title()}}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -39,7 +39,7 @@
                                             <strong class="margin-10px-left text-orange">fee Type:</strong>
                                         </div>
                                         <div class="col-md-7 col-7">
-                                            <p>{{$enrollment->course->feeType()}}</p>
+                                            <p>{{$enrollment->class->course->feeType()}}</p>
                                         </div>
                                     </div>
                                 </li>

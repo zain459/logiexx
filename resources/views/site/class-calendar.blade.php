@@ -1,30 +1,3 @@
-{{--<html lang='en'>--}}
-{{--<head>--}}
-{{--    <meta charset='utf-8'/>--}}
-{{--    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet'/>--}}
-{{--    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>--}}
-{{--    <script>--}}
-
-{{--        document.addEventListener('DOMContentLoaded', function () {--}}
-{{--            var calendarEl = document.getElementById('calendar');--}}
-{{--            var calendar = new FullCalendar.Calendar(calendarEl, {--}}
-{{--                initialView: 'dayGridMonth',--}}
-{{--                headerToolbar:{--}}
-{{--                    left:'prev,next, today',--}}
-{{--                    center: 'title',--}}
-{{--                    right:'dayGridMonth, timeGridWeek, timeGridDay'--}}
-{{--                },--}}
-{{--            });--}}
-{{--            calendar.render();--}}
-{{--        });--}}
-
-{{--    </script>--}}
-{{--</head>--}}
-{{--<body>--}}
-{{--    <div id='calendar'></div>--}}
-{{--</body>--}}
-{{--</html>--}}
-
 <html>
 <head>
     <title></title>
@@ -64,14 +37,6 @@
                 center: 'title',
                 right: 'month, agendaWeek, agendaDay'
             },
-
-            {{--eventClick: function (event) {--}}
-            {{--    var id = event.id;--}}
-            {{--    "{{route('site.course-enrollment-create')}}--}}
-            {{--}--}}
-            // eventRender: function (event) {
-            //     // venue:event.venue
-            // }
         });
 
     });

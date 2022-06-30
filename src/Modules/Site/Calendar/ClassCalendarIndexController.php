@@ -3,6 +3,7 @@
 namespace Logixs\Modules\Site\Calendar;
 
 use Illuminate\Http\Request;
+use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseClass;
 
 class ClassCalendarIndexController
@@ -12,6 +13,7 @@ class ClassCalendarIndexController
         if ($request->ajax()) {
             $class = CourseClass::with('course')->get()->map(function ($c) {
                 return [
+                    'url' => route('site.course-class-enrollment-create', $c->id()),
                     'date' => $c->date()->toDateString(),
                     'title' => $c->title() . 'available seats: ' . $c->class_seat,
                 ];

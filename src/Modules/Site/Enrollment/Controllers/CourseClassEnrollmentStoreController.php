@@ -2,15 +2,15 @@
 
 namespace Logixs\Modules\Site\Enrollment\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\EnrollmentEmail;
-use Illuminate\Support\Str;
 use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
-class CourseEnrollmentStoreController extends Controller
+class CourseClassEnrollmentStoreController extends Controller
 {
     public function __invoke(Request $request)
     {
@@ -40,9 +40,8 @@ class CourseEnrollmentStoreController extends Controller
             'verifiable' => ['required', 'boolean'],
             'description' => ['required'],
             'file' => ['required', 'mimes:jpeg,png,jpg', 'max:2048'],
-            'courseId' => ['required', 'int', 'exists:courses,id'],
+            'classId' => ['required', 'int', 'exists:classes,id'],
         ]);
-//        dd($data);
 
         $enrollment = new Enrollment();
         $enrollment->title = $data['title'];
@@ -67,7 +66,6 @@ class CourseEnrollmentStoreController extends Controller
         $enrollment->institution_post_code = $data['institution_post_code'];
         $enrollment->institution_province_state = $data['institution_province_state'];
         $enrollment->institution_country = $data['institution_country'];
-
         if (isset($data['verifiable'])) {
             $enrollment->verifiable_certificate = $data['verifiable'];
         }
@@ -88,14 +86,13 @@ class CourseEnrollmentStoreController extends Controller
         $enrollment->file_name = $originalName;
         $enrollment->file_type = $fileType;
         $enrollment->file_size = $fileSize;
-        $enrollment->course_id = $data['courseId'];
+        $enrollment->class_id = $data['classId'];
         $enrollment->save();
-
 //        $enrollmentEmail = new EnrollmentEmail($enrollment);
 //        $mail = Mail::to($enrollment->email());
 //        $mail->send($enrollmentEmail);
 
-        flash('feedback submitted')->success();
+        flash('Enrollment submitted')->success();
 
         return redirect()->back();
     }

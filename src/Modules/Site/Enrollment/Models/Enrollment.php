@@ -6,12 +6,13 @@ namespace Logixs\Modules\Site\Enrollment\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Logixs\Modules\Course\Models\Course;
+use Logixs\Modules\Course\Models\CourseClass;
 use Logixs\Modules\Course\Models\EnrollmentStatus;
 use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @property int $id
- * @property int $course_id
+ * @property int $class_id
  * @property string $title
  * @property string $first_name
  * @property string $middle_name
@@ -44,16 +45,16 @@ use phpDocumentor\Reflection\Types\Boolean;
  */
 class Enrollment extends Model
 {
-    protected $table = 'course_enrollments';
+    protected $table = 'class_enrollment';
 
     public function id(): int
     {
         return $this->id;
     }
 
-    public function courseId(): int
+    public function classId(): int
     {
-        return $this->course_id;
+        return $this->class_id;
     }
 
     public function title(): string
@@ -200,9 +201,9 @@ class Enrollment extends Model
         return $this->file_size;
     }
 
-    public function course(): BelongsTo
+    public function class(): BelongsTo
     {
-        return $this->belongsTo(Course::class, 'course_id', 'id');
+        return $this->belongsTo(CourseClass::class, 'class_id', 'id');
     }
 
 }

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,9 +12,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('course_enrollments', function (Blueprint $table) {
+        Schema::create('class_enrollment', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('course_id')->index();
+            $table->unsignedBigInteger('class_id')->index();
             $table->unsignedBigInteger('employment_status');
             $table->unsignedBigInteger('code');
             $table->string('title');
@@ -45,10 +44,9 @@ return new class extends Migration
             $table->string('file_type')->nullable();
             $table->string('file_name')->nullable();
             $table->float('file_size')->nullable();
-
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->on('courses')
+            $table->foreign('class_id')->references('id')->on('classes')
                 ->onDelete('cascade');
         });
     }
@@ -60,6 +58,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_enrollments');
+        Schema::dropIfExists('class_enrollment');
     }
 };

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
-use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\CourseController;
 use Logixs\Modules\Site\HomeIndexController;
 use Logixs\Modules\Site\WebinarPdfController;
@@ -12,10 +10,12 @@ use Logixs\Modules\Site\viewAllPastWebinarController;
 use Logixs\Modules\Site\ViewAllWebinarSeriesController;
 use Logixs\Modules\User\Controllers\Auth\LoginController;
 use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
+use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
-use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentCreateController;
-use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentIndexController;
-use Logixs\Modules\Site\Enrollment\Controllers\CourseEnrollmentStoreController;
+use Logixs\Modules\Site\CertificateAuthenticationverificationController;
+use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
+use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
+use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -23,7 +23,6 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::middleware(['auth'])->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
-
 
 Route::get('site', HomeIndexController::class)->name('site.index');
 Route::get('site/courses', CourseController::class)->name('site.course-index');
@@ -35,9 +34,9 @@ Route::get('site/view-all-upcoming-webinar-series', ViewAllUpcomingWebinarContro
 Route::get('site/view-all-past-webinar-series', ViewAllPastWebinarController::class)->name('site.view-all-past-webinar-series');
 
 //course-enrollment
-Route::get('site/{id}/course-enrollment', CourseEnrollmentIndexController::class)->name('site.course-enrollment');
-Route::get('site/{id}/create-course-enrollment', CourseEnrollmentCreateController::class)->name('site.course-enrollment-create');
-Route::post('site/store-course-enrollment', CourseEnrollmentStoreController::class)->name('site.course-enrollment-store');
+Route::get('site/class/{id}/enrollment', CourseClassEnrollmentIndexController::class)->name('site.course-class-enrollment');
+Route::get('site/class/{id}/enrollment-create', CourseClassEnrollmentCreateController::class)->name('site.course-class-enrollment-create');
+Route::post('site/store-class-enrollment', CourseClassEnrollmentStoreController::class)->name('site.course-class-enrollment-store');
 
 //certificate-authentication
 Route::get('site/certificate-authentication',CertificateAuthenticationIndexController::class)->name('site.certificate-authentication.index');

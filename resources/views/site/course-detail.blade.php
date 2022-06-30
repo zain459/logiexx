@@ -9,10 +9,10 @@
                 <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
-{{--            <a href="{{route('site.course-enrollment', $courseEnrollment->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
-{{--                Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
+{{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
+{{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
             <a href="{{route('site.class-calendar.index')}}" class="btn btn-primary btn-enroll">Class Calendar
-                <i class="icon-link ms-3 align-items-center"></i></a>
+                            <i class="icon-link ms-3 align-items-center"></i></a>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 @foreach($subjectFields as $subjectField)
