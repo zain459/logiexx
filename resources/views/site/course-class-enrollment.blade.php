@@ -87,7 +87,7 @@
                             <label for="">Telephone <span class="mark">*</span></label>
                             <div class="d-flex field">
                                 <div class="cu_select me-2">
-                                    <select class="form-select" name="code[]" multiple="multiple" id="code" required>
+                                    <select class="form-select" name="code[]" id="code" required>
                                         <option></option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryTelephoneCode)
                                             <option
@@ -331,7 +331,6 @@
 
         $(document).ready(function () {
             $('#code').select2({
-                multiple: true,
             });
         });
     </script>

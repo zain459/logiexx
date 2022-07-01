@@ -13,9 +13,13 @@ use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
 use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
-use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
+use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
+use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
+use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
+use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipStoreController;
+use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipIndexController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -39,11 +43,19 @@ Route::get('site/class/{id}/enrollment-create', CourseClassEnrollmentCreateContr
 Route::post('site/store-class-enrollment', CourseClassEnrollmentStoreController::class)->name('site.course-class-enrollment-store');
 
 //certificate-authentication
-Route::get('site/certificate-authentication',CertificateAuthenticationIndexController::class)->name('site.certificate-authentication.index');
+Route::get('site/certificate-authentication', CertificateAuthenticationIndexController::class)->name('site.certificate-authentication.index');
 Route::post('site/certificate-authentication-verification', CertificateAuthenticationverificationController::class)->name('site.certificate-authentication-verification');
 
 //class-calendar
 Route::get('site/course/class-calendar', ClassCalendarIndexController::class)->name('site.class-calendar.index');
+
+//Corporate Partnership
+Route::get('site/corporate-partnership', CorporatePartnershipIndexController::class)->name('site.corporate-partnership');
+Route::post('site/corporate-partnership-store', CorporatePartnershipStoreController::class)->name('corporate-partnership.store');
+
+//become-an-instructor
+Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class)->name('site.become-an-instructor.index');
+Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';

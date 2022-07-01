@@ -11,9 +11,6 @@ class WebinarPdfController extends Controller
     public function __invoke(int $id)
     {
         $webinars = Webinar::findOrFail($id);
-//        $webinars = [
-//            'test' => $test
-//        ];
 
         $pdf = PDF::loadView('site.webinar-pdf', [
             'webinars' => $webinars

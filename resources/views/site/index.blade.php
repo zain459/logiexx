@@ -269,7 +269,7 @@
                 <h2>Need to train your team?</h2>
                 <p>We’ve got the solution: world-class training and development programs developed by field experts.</p>
                 <div class="d-flex justify-content-end">
-                    <a href="corporate-partnership.php" class="btn btn-primary">Get Started</a>
+                    <a href="{{route('site.corporate-partnership')}}" class="btn btn-primary">Get Started</a>
                 </div>
             </div>
         </section>
@@ -308,7 +308,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="become-an-instructor.php" class="btn btn-primary">Apply Here </a>
+                    <a href="{{route('site.become-an-instructor.index')}}" class="btn btn-primary">Apply Here </a>
                 </div>
             </div>
         </section>

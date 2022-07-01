@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\Certificate\VerifyCertificateDeleteController;
-use App\Http\Controllers\Admin\Certificate\VerifyCertificateUpdateController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDownloadController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
@@ -27,6 +27,13 @@ use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateStoreController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateCreateController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseDeleteController;
+use App\Http\Controllers\Admin\Certificate\VerifyCertificateDeleteController;
+use App\Http\Controllers\Admin\Certificate\VerifyCertificateUpdateController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorIndexController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDeleteController;
+use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipViewController;
+use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipIndexController;
+use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipDeleteController;
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
@@ -68,6 +75,18 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('class/verify-certificate/{id}/edit', VerifyCertificateEditController::class)->name('admin.verify-certificate.edit');
     Route::post('class/verify-certificate/{id}/update', VerifyCertificateUpdateController::class)->name('admin.verify-certificate.update');
     Route::post('class/verify-certificate/{id}/Delete', VerifyCertificateDeleteController::class)->name('admin.verify-certificate.delete');
+
     //setting
     Route::get('settings', SettingDashboardController::class)->name('admin.setting.dashboard');
+
+    //Corporate Partnership
+    Route::get('corporate-partnership', CorporatePartnershipIndexController::class)->name('admin.corporate-partnership.index');
+    Route::post('corporate-partnership/{id}/delete', CorporatePartnershipDeleteController::class)->name('admin.corporate-partnership.delete');
+    Route::get('corporate-partnership/{id}/view', CorporatePartnershipViewController::class)->name('admin.corporate-partnership.view');
+
+    //Become An Instructor
+    Route::get('become-an-instructor', BecomeAnInstructorIndexController::class)->name('admin.become-an-instructor.index');
+    Route::post('become-an-instructor/{id}/delete', BecomeAnInstructorDeleteController::class)->name('admin.become-an-instructor.delete');
+    Route::get('become-an-instructor/{id}/view', BecomeAnInstructorViewController::class)->name('admin.become-an-instructor.view');
+    Route::get('become-an-instructor/{id}/view', BecomeAnInstructorDownloadController::class)->name('admin.become-an-instructor.download');
 });
