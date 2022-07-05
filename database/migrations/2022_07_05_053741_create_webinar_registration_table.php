@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('hear_about_webinar')->nullable();
             $table->string('verifiable_certificate')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('status')->default(false);
             $table->string('file');
             $table->timestamps();
         });

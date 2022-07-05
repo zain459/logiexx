@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\SubjectArea\SubjectAreaIndexController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaStoreController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaUpdateController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
+use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateEditController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController;
@@ -29,11 +30,14 @@ use App\Http\Controllers\Admin\Certificate\VerifyCertificateDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateUpdateController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorIndexController;
+use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationViewController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDeleteController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDownloadController;
+use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationDeleteController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipViewController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipIndexController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipDeleteController;
+use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationStatusStoreController;
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
@@ -89,4 +93,11 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('become-an-instructor/{id}/delete', BecomeAnInstructorDeleteController::class)->name('admin.become-an-instructor.delete');
     Route::get('become-an-instructor/{id}/view', BecomeAnInstructorViewController::class)->name('admin.become-an-instructor.view');
     Route::get('become-an-instructor/{id}/download', BecomeAnInstructorDownloadController::class)->name('admin.become-an-instructor.download');
+
+    //Webinar Registration
+    Route::get('webinar-registration', WebinarRegistrationIndex::class)->name('admin.webinar-registration.index');
+    Route::get('webinar-registration/{id}/view', WebinarRegistrationViewController::class)->name('admin.webinar-registration.view');
+    Route::post('webinar-registration-status/{id}/store', WebinarRegistrationStatusStoreController::class)->name('admin.webinar-registration-status.store');
+    Route::post('webinar-registration/{id}/delete',WebinarRegistrationDeleteController::class)->name('admin.webinar-registration.delete');
+
 });

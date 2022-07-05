@@ -1,38 +1,38 @@
 @extends('layout')
-@section('title', 'Enrollment')
+@section('title', 'Webinar Registration')
 @section('content')
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h3>Enrollment</h3>
+        <h3>Webinar Registration</h3>
     </div>
 
     <div class="card">
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>title</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Degree</th>
-                <th>Position</th>
+                <th>Phone Number</th>
+                <th>organization Name</th>
+                <th>Occupation Type</th>
                 <th>Status</th>
             </tr>
             </thead>
             <tbody>
-            @forelse($enrollments as $enrollment)
+            @forelse($webinarRegistrations as $webinarRegistration)
                 <tr>
-                    <td>{{ $enrollment->title() }}</td>
-                    <td>{{ $enrollment->firstName() }}</td>
-                    <td>{{ $enrollment->lastName() }}</td>
-                    <td>{{ $enrollment->degree() }}</td>
-                    <td>{{ $enrollment->position() }}</td>
-                    @if($enrollment->status() == 1)
-                        <td><span class="btn btn-success">Active</span></td>
+                    <td>{{$webinarRegistration->firstName()}}</td>
+                    <td>{{$webinarRegistration->lastName()}}</td>
+                    <td>{{$webinarRegistration->phoneNumber()}}</td>
+                    <td>{{$webinarRegistration->organizationName()}}</td>
+                    <td>{{$webinarRegistration->occupationType()}}</td>
+                    @if($webinarRegistration->status() == 1)
+                        <td><span class="btn btn-success">Approved</span></td>
                     @else
-                        <td><span class="btn btn-danger">UnActive</span></td>
+                        <td><span class="btn btn-danger">UnApproved</span></td>
                     @endif
-
+                    <td></td>
                     <td class="table-action">
-                        <a href="{{route('course.enrollment-view', $enrollment->id())}}">
+                        <a href="{{route('admin.webinar-registration.view', $webinarRegistration->id())}}">
                             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>
                                     <path fill="none" d="M0 0h24v24H0z"/>
@@ -41,9 +41,11 @@
                                 </g>
                             </svg>
                         </a>
-                        <form method="post" action="{{route('course.enrollment-delete', $enrollment->id())}}">
+                        <form method="post"
+                              action="{{route('admin.webinar-registration.delete', $webinarRegistration->id())}}">
                             @csrf
-                            <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
+                            <button type="submit" class="btn text-danger p-0"
+                                    onclick="return confirm('Are you sure?')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round" class="feather feather-trash align-middle text-danger">

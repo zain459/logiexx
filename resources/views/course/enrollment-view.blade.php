@@ -297,7 +297,7 @@
                             @csrf
                             <label class="switch">
                                 <label>status</label>
-                                <input type="checkbox" name="status" value="1">
+                                <input type="checkbox" name="status" value="1" {{$enrollment->status() == 1 ? 'checked': ''}}>
                                 <span class="slider round"></span>
                             </label>
                            <div>

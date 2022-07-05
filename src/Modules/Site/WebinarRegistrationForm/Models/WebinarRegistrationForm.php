@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string hear_about_webinar
  * @property string verifiable_certificate
  * @property string description
+ * @property bool status
  * @property string file
  */
 class WebinarRegistrationForm extends Model
@@ -75,6 +76,11 @@ class WebinarRegistrationForm extends Model
     public function description(): string
     {
         return $this->description;
+    }
+
+    public function status(): bool
+    {
+        return $this->status;
     }
 
     public function file(): string

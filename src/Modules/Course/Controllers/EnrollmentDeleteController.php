@@ -11,6 +11,7 @@ class EnrollmentDeleteController
         $enrollment = Enrollment::findOrFail($id);
         $enrollment->delete();
 
-        return redirect()->back();
+        flash('Enrollment Removed')->error();
+        return redirect()->route('course.enrollment-index');
     }
 }

@@ -12,6 +12,7 @@ use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Inventory\Class\GetCourseFeature;
 use Logixs\Modules\News\Models\News;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
+use Logixs\Modules\Site\WebinarRegistrationForm\Models\WebinarRegistrationForm;
 use Logixs\Modules\Testimonial\Models\Testimonial;
 use Logixs\Modules\Webinar\Models\Webinar;
 
@@ -34,6 +35,7 @@ class HomeIndexController
         $featuresEditorPickCourses = GetFeaturedCourses::editorPick();
         $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->first();
         $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
+        $webinarRegistration = WebinarRegistrationForm::where('status', 1)->count();
 
         return view('site.index', [
             'new' => $new,
@@ -46,8 +48,9 @@ class HomeIndexController
             'totalCourses' => $totalCourses,
             'totalPartners' => $totalPartners,
             'subjectFields' => $subjectFields,
-            'totalInstructors' => $totalInstructors,
             'totalEnrollments' => $totalEnrollments,
+            'totalInstructors' => $totalInstructors,
+            'webinarRegistration' => $webinarRegistration,
             'featuredPopularCourses' => $featuredPopularCourses,
             'featuredTrendingCourses' => $featuredTrendingCourses,
             'featuresEditorPickCourses' => $featuresEditorPickCourses,

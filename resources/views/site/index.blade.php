@@ -169,7 +169,7 @@
                                 <dd class="date-time">{{\Carbon\Carbon::parse($webinar->startDate())->format('F j, Y H:i:s') . ' ' . \Carbon\Carbon::parse($webinar->endDate())->format('F j, Y H:i:s')}}</dd>
                             </dl>
                             <div class="d-flex justify-content-end record-data">
-                                <span>1189 Registrations <i class="icon-registration"></i></span>
+                                <span>{{$webinarRegistration}} Registrations <i class="icon-registration"></i></span>
                                 <span>23 Interested <i class="icon-interest"></i></span>
                             </div>
                         </div>

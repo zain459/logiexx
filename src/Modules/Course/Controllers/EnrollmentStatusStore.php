@@ -12,11 +12,14 @@ class EnrollmentStatusStore extends Controller
     {
         // TODO: Implement __invoke() method.
         $enrollment = Enrollment::findOrFail($id);
-        $enrollment->status = $request->has('status');
-
-        $enrollment->save();
-
-        flash('Status Active')->success();
-        return redirect()->back();
+        if ($request->has('status') == 1) {
+            $enrollment->status = $request->has('status');
+            $enrollment->save();
+            flash('Status Active')->success();
+            return redirect()->route('course.enrollment-index');
+        } else
+            $enrollment->save();
+        flash('Status UnActive')->success();
+        return redirect()->route('course.enrollment-index');
     }
 }

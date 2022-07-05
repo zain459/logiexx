@@ -17,6 +17,7 @@ use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
+use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
@@ -64,6 +65,7 @@ Route::get('site/learner-feedback', LearnerFeedBackIndexController::class)->name
 
 //webinar-registration-form
 Route::get('site/webinar-registration-form', WebinarRegistrationFormIndex::class)->name('site.webinar-registration-form');
+Route::post('site/webinar-registration-form-store',WebinarRegistrationFormStore::class)->name('site.webinar-registration-form.store');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';
