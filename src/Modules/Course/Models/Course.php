@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property string $image
  * @property Carbon $created_at
+ * @property string $file
  */
 class Course extends Model
 {
@@ -169,4 +170,8 @@ class Course extends Model
         return $this->belongsTo(SubjectArea::class, 'subject_area_id');
     }
 
+    public function file(): string
+    {
+        return $this->file;
+    }
 }

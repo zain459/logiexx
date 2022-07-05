@@ -16,12 +16,12 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('class_id')->index();
             $table->unsignedBigInteger('employment_status');
-            $table->unsignedBigInteger('code');
             $table->string('title');
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
             $table->string('degree');
+            $table->string('code');
             $table->string('telephone');
             $table->string('email')->unique();
             $table->string('personal_address')->nullable();

@@ -13,9 +13,11 @@ use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
 use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
+use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
+use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipStoreController;
@@ -30,9 +32,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('site', HomeIndexController::class)->name('site.index');
 Route::get('site/courses', CourseController::class)->name('site.course-index');
-Route::get('site/{id}/course-detail', CourseDetailController::class)->name('site.course-detail');
-Route::get('site/view-all-webinar-series', ViewAllWebinarSeriesController::class)->name('site.view-all-webinar');
+Route::get('site/course/{id}/detail', CourseDetailController::class)->name('site.course-detail');
 Route::get('site/testimonial', TestimonialController::class)->name('site.testimonial-index');
+Route::get('site/view-all-webinar-series', ViewAllWebinarSeriesController::class)->name('site.view-all-webinar');
 Route::get('site/{id}/download-webinarPDF', WebinarPdfController::class)->name('site.webinar-pdf-download');
 Route::get('site/view-all-upcoming-webinar-series', ViewAllUpcomingWebinarController::class)->name('site.view-all-upcoming-webinar-series');
 Route::get('site/view-all-past-webinar-series', ViewAllPastWebinarController::class)->name('site.view-all-past-webinar-series');
@@ -47,7 +49,7 @@ Route::get('site/certificate-authentication', CertificateAuthenticationIndexCont
 Route::post('site/certificate-authentication-verification', CertificateAuthenticationverificationController::class)->name('site.certificate-authentication-verification');
 
 //class-calendar
-Route::get('site/course/class-calendar', ClassCalendarIndexController::class)->name('site.class-calendar.index');
+Route::get('site/course/{id}/class-calendar', ClassCalendarIndexController::class)->name('site.class-calendar.index');
 
 //Corporate Partnership
 Route::get('site/corporate-partnership', CorporatePartnershipIndexController::class)->name('site.corporate-partnership');
@@ -56,6 +58,12 @@ Route::post('site/corporate-partnership-store', CorporatePartnershipStoreControl
 //become-an-instructor
 Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class)->name('site.become-an-instructor.index');
 Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
+
+//learner-feedback
+Route::get('site/learner-feedback', LearnerFeedBackIndexController::class)->name('site.learner-feedback.index');
+
+//webinar-registration-form
+Route::get('site/webinar-registration-form', WebinarRegistrationFormIndex::class)->name('site.webinar-registration-form');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';

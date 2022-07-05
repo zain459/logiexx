@@ -35,6 +35,7 @@ return new class() extends Migration {
             $table->string('duration');
             $table->string('image');
             $table->text('description');
+            $table->string('file');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')

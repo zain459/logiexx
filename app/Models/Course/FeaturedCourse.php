@@ -9,7 +9,7 @@ use Logixs\Modules\Course\Models\Course;
 /**
  * @property int $id
  * @property int $course_id
- * @property string $type_id
+ * @property int $type_id
  */
 class FeaturedCourse extends Model
 {
@@ -18,6 +18,20 @@ class FeaturedCourse extends Model
     const EDITOR = 3;
 
     protected $table = 'featured_courses';
+
+    public function type(): string
+    {
+        if ($this->type_id === self::TRENDING) {
+            return 'Trending';
+        }
+        if ($this->type_id === self::POPULAR) {
+            return 'Popular';
+        }
+        if ($this->type_id === self::EDITOR) {
+            return 'Editor';
+        }
+        return 'un know';
+    }
 
     public function course(): BelongsTo
     {

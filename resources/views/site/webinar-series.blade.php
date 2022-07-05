@@ -1,5 +1,4 @@
 @extends('site.master')
-
 @section('title', 'Webinar Series')
 @section('content')
     <div class="title-section">

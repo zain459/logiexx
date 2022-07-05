@@ -31,7 +31,9 @@
         });
 
         var calendar = $('#calendar').fullCalendar({
-            events: "{{ route('site.class-calendar.index') }}",
+            events: "{{ route('site.class-calendar.index', $id)
+
+ }}",
             selectable: true,
             selectHandler: true,
             displayEventTime: true,

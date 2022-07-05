@@ -8,10 +8,10 @@ use Logixs\Modules\Course\Models\CourseClass;
 
 class ClassCalendarIndexController
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, int $id)
     {
         if ($request->ajax()) {
-            $class = CourseClass::with('course')->get()->map(function ($c) {
+            $class = CourseClass::with('course')->where('course_id', $id)->get()->map(function ($c) {
                 return [
                     'url' => route('site.course-class-enrollment-create', $c->id()),
                     'date' => $c->date()->toDateString(),
@@ -21,11 +21,6 @@ class ClassCalendarIndexController
 
             return response()->json($class);
         }
-        return view('site.class-calendar',
-//            [
-//            'courseEnrollment' => $courseEnrollment,
-//            'currentMonth' => $currentMonth
-//        ]
-        );
+        return view('site.class-calendar', ['id' => $id]);
     }
 }

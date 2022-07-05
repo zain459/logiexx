@@ -45,9 +45,9 @@
             <tbody>
             @foreach($featuredCourses as $featuredCourse)
                 <tr>
-                    @if($featuredCourse->type_id === 1)
-                        <td>{{ $featuredCourse->type_id }}</td>
-                    @endif
+{{--                    @if($featuredCourse->type_id === 1)--}}
+                        <td>{{ $featuredCourse->type() }}</td>
+{{--                    @endif--}}
                     <td>{{ $featuredCourse->course->title() }}</td>
                     <td>
                         <form method="post" action="{{ route('admin.featured-course.delete', $featuredCourse->id) }}">

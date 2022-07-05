@@ -11,7 +11,7 @@
             </div>
 {{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
 {{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
-            <a href="{{route('site.class-calendar.index')}}" class="btn btn-primary btn-enroll">Class Calendar
+            <a href="{{route('site.class-calendar.index', $specific->id())}}" class="btn btn-primary btn-enroll">Class Calendar
                             <i class="icon-link ms-3 align-items-center"></i></a>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
@@ -94,14 +94,14 @@
                                         class="icon-students ms-0 me-1"></i> {{$specific->classSize()}} Students</span>
                             @endif
                         </div>
-                        <a href="#" class="view-all"><i class="icon-arrow"></i> Download Course Catalogue (PDF)</a>
+                        <a href="/storage/{{$specific->file()}}" download="" class="view-all"><i class="icon-arrow"></i> Download Course Catalogue (PDF)</a>
                     </div>
                 </div>
             </div>
         </section>
         @foreach($courseLearningObjectives as $courseLearningObjective)
             @if($courseLearningObjective)
-                <section class="block bdb">
+                <section class="block bdb academy-block">
                     <div class="container pb-4 mb-5">
                         <h2>{{$courseLearningObjective->title()}}</h2>
                         {!!html_entity_decode($courseLearningObjective->description())!!}
@@ -246,7 +246,7 @@
                     @endforeach
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <a href="learner-feedback.php" class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
+                    <a href="{{route('site.learner-feedback.index')}}" class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
                             class="icon-link ms-3 align-items-center"></i></a>
                     <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> 588 Feedbacks <b>Excellent</b>  </span>
                 </div>

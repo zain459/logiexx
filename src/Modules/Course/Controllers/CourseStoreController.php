@@ -3,6 +3,7 @@
 namespace Logixs\Modules\Course\Controllers;
 
 use Illuminate\Http\Request;
+use Logixs\Modules\Course\Models\Course;
 use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Course\Query\GetCourse;
@@ -33,13 +34,17 @@ class CourseStoreController extends Controller
             'description' => ['required', 'string'],
             'feeAmount' => ['nullable'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'file' => ['required', 'mimes:pdf', 'max:2048']
         ]);
 
         /** @var \Illuminate\Http\UploadedFile * */
         $file = $request->file('image');
         $path = SaveImage::save($file);
 
-        $course = GetCourse::store($data, $path);
+        $pdfFile = $request->file('file');
+        $filePath = SaveImage::save($pdfFile);
+
+        $course = GetCourse::store($data, $path, $filePath);
 
         flash('Course added');
 

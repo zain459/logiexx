@@ -174,7 +174,10 @@
                         <label class="form-label" for="image">Image</label>
                         <input type="file" class="form-control" name="image" id="image"/>
                     </div>
-
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" for="file">PDF File</label>
+                        <input type="file" class="form-control" name="file" id="file"/>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

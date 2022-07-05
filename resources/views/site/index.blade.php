@@ -131,7 +131,7 @@
                             <div class="d-flex justify-content-between py-2">
                                 <a href="{{route('site.webinar-pdf-download', $webinar->id())}}" class="btnlink">Download
                                     PDF Flyer</a>
-                                <a href="webinar-form.php" class="btnlink">Click here to register <i class="icon-i"></i></a>
+                                <a href="{{route('site.webinar-registration-form')}}" class="btnlink">Click here to register <i class="icon-i"></i></a>
                             </div>
                             <div class="webinar-box d-none d-md-block">
                                 <h3>Link to Join Webinar</h3>

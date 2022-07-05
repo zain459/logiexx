@@ -19,7 +19,7 @@ final class GetCourse
         return Course::with(['category', 'subjectArea'])->get();
     }
 
-    public static function store(array $data, string $path): Course
+    public static function store(array $data, string $path, $filePath): Course
     {
         /** @var $course */
         $course = new Course();
@@ -43,11 +43,13 @@ final class GetCourse
         $course->platform = $data['platform'];
         $course->fee_type = $data['feeType'];
 
+
         if (isset($data['feeAmount'])) {
             $course->fee_amount = $data['feeAmount'];
         }
 
         $course->image = $path;
+        $course->file = $filePath;
         $course->save();
 
         return $course;
@@ -84,6 +86,13 @@ final class GetCourse
             $file = $request->file('image');
             $path = SaveImage::save($file);
             $course->image = $path;
+        }
+
+        if (isset($data['file'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('file');
+            $path = SaveImage::save($file);
+            $course->file = $path;
         }
 
         $course->save();

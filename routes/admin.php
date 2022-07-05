@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDownloadController;
-use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
@@ -29,8 +27,10 @@ use App\Http\Controllers\Admin\Certificate\VerifyCertificateCreateController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateUpdateController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorIndexController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDeleteController;
+use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDownloadController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipViewController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipIndexController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipDeleteController;
@@ -88,5 +88,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('become-an-instructor', BecomeAnInstructorIndexController::class)->name('admin.become-an-instructor.index');
     Route::post('become-an-instructor/{id}/delete', BecomeAnInstructorDeleteController::class)->name('admin.become-an-instructor.delete');
     Route::get('become-an-instructor/{id}/view', BecomeAnInstructorViewController::class)->name('admin.become-an-instructor.view');
-    Route::get('become-an-instructor/{id}/view', BecomeAnInstructorDownloadController::class)->name('admin.become-an-instructor.download');
+    Route::get('become-an-instructor/{id}/download', BecomeAnInstructorDownloadController::class)->name('admin.become-an-instructor.download');
 });

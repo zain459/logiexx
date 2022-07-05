@@ -191,7 +191,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="#" class="view-all"><i class="icon-arrow"></i> Download CV (PDF)</a>
+                        <a href="/storage/{{$becomeAnInstructor->file()}}" class="view-all" download=""><i class="icon-arrow"></i> Download CV (PDF)</a>
                     </div>
                 </div>
             </div>

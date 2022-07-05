@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('featured_courses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('type_id');
+            $table->integer('type_id');
             $table->unsignedBigInteger('course_id')->index();
             $table->timestamps();
 

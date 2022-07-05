@@ -11,7 +11,7 @@ class ClassIndexController
     {
         /** @var Course $course */
         $course = Course::query()->findOrFail($id);
-        $classes = CourseClass::all();
+        $classes = CourseClass::where('course_id', $id)->get();
 
         return view('admin.course-class.index', [
             'course' => $course,

@@ -3183,19 +3183,23 @@ h2.subheading {
     margin-right: 10px;
 }
 
-.checklist {
+.academy-block ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 270px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.checklist li {
+.academy-block ul li {
     padding-left: 30px;
     margin-bottom: 9px;
     position: relative;
 }
 
-.checklist li:after {
+.academy-block ul li:after {
     position: absolute;
     left: 0;
     top: 6px;

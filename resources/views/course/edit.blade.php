@@ -102,7 +102,12 @@
                                     <input type="file" name="image" class="form-control">
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label class="form-label" for="overview">PDF File</label>
+                                    <input type="file" name="file" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

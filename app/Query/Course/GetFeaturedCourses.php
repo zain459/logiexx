@@ -28,6 +28,7 @@ class GetFeaturedCourses
             ->join('featured_courses', 'featured_courses.course_id', 'courses.id')
             ->where('type_id', $type)
             ->limit(3)
+            ->select('courses.*')
             ->get();
     }
 }
