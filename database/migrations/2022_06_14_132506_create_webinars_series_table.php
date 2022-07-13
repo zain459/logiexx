@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('organization');
             $table->string('sponsor');
             $table->string('focal_person');
+            $table->string('focal_person_telephone');
+            $table->string('focal_person_email')->unique();
             $table->string('link');
             $table->string('meeting_id');
             $table->string('passcode');
@@ -31,7 +33,6 @@ return new class extends Migration
             $table->date('end_date');
 
             $table->timestamps();
-
         });
     }
 

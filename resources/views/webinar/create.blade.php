@@ -64,6 +64,21 @@
                 </div>
 
                 <div class="mb-3 row">
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Telephone</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" value="{{old('focal_person_telephone')}}" name="focal_person_telephone"
+                               placeholder="Focal Person Telephone"/>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Email</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" value="{{old('focal_person_email')}}" name="focal_person_email"
+                               placeholder="Focal Person Email"/>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('link')}}" name="link" placeholder="Link"/>

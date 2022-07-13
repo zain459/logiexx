@@ -53,6 +53,17 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Focal Person</label>
+                            <input type="text" class="form-control" value="{{$webinar->focalPersonTelephone()}}" name="focal_person_telephone"
+                                   placeholder="Focal Person Telephone"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Focal Person</label>
+                            <input type="text" class="form-control" value="{{$webinar->focalPersonEmail()}}" name="focal_person_email"
+                                   placeholder="Focal Person"/>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Link</label>
                                 <input type="text" class="form-control" value="{{$webinar->link()}}" name="link" placeholder="Link"/>
                         </div>

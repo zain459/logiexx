@@ -11,6 +11,7 @@ use Logixs\Modules\Course\Models\CoursePartner;
 use Logixs\Modules\Course\Models\Feedback;
 use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Pages\Models\Pages;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Models\InstructorLearnerFeedBack;
 
 class CourseDetailController
 {

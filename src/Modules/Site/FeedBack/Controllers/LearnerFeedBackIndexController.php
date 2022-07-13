@@ -2,10 +2,16 @@
 
 namespace Logixs\Modules\Site\FeedBack\Controllers;
 
+use Logixs\Modules\Course\Models\Course;
+
 class LearnerFeedBackIndexController
 {
-    public function __invoke()
+    public function __invoke(int $id)
     {
-        return view('site.learner-feedback');
+        $course = Course::query()->findOrFail($id);
+
+        return view('site.learner-feedback', [
+            'course' => $course,
+        ]);
     }
 }

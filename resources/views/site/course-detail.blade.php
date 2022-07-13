@@ -246,7 +246,7 @@
                     @endforeach
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <a href="{{route('site.learner-feedback.index')}}" class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
+                    <a href="{{route('site.learner-feedback.form', $specific->id())}}" class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
                             class="icon-link ms-3 align-items-center"></i></a>
                     <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> 588 Feedbacks <b>Excellent</b>  </span>
                 </div>

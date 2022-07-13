@@ -14,6 +14,7 @@ use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
+use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackVerificationController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
@@ -23,6 +24,7 @@ use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexCo
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipStoreController;
 use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipIndexController;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -61,11 +63,15 @@ Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class
 Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
 
 //learner-feedback
-Route::get('site/learner-feedback', LearnerFeedBackIndexController::class)->name('site.learner-feedback.index');
+Route::get('site/course/{id}/learner-feedback', LearnerFeedBackIndexController::class)->name('site.learner-feedback.form');
+Route::get('site/course/{id}/learner-feedback/verify', LearnerFeedBackVerificationController::class)->name('site.learner-feedback.verify');
+
+//course-learner-feedback
+Route::post('site/course/{id}/learner-feedback/store', CourseLearnerFeedBackStoreController::class)->name('site.course-learner-feedback.store');
 
 //webinar-registration-form
 Route::get('site/webinar-registration-form', WebinarRegistrationFormIndex::class)->name('site.webinar-registration-form');
-Route::post('site/webinar-registration-form-store',WebinarRegistrationFormStore::class)->name('site.webinar-registration-form.store');
+Route::post('site/webinar-registration-form-store', WebinarRegistrationFormStore::class)->name('site.webinar-registration-form.store');
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';

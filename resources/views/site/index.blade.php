@@ -35,23 +35,28 @@
                 <div>
                     <ul class="nav nav-tabs d-flex justify-content-between" id="myTab" role="tablist">
                         <li class="nav-item active" role="presentation">
-                            <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#trending-courses" role="tab"
+                            <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#trending-courses"
+                               role="tab"
                                aria-controls="tab1" aria-selected="true">Trending</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#popular-courses" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#popular-courses"
+                               role="tab"
                                aria-controls="tab2" aria-selected="false">Most Popular</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#recent-courses" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#recent-courses"
+                               role="tab"
                                aria-controls="tab3" aria-selected="false">Recently Added</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#upcoming-courses" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#upcoming-courses"
+                               role="tab"
                                aria-controls="tab4" aria-selected="false">Starting Soon</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#editors-courses" role="tab"
+                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#editors-courses"
+                               role="tab"
                                aria-controls="tab5" aria-selected="false">Editor’s Pick</a>
                         </li>
                     </ul>
@@ -131,7 +136,8 @@
                             <div class="d-flex justify-content-between py-2">
                                 <a href="{{route('site.webinar-pdf-download', $webinar->id())}}" class="btnlink">Download
                                     PDF Flyer</a>
-                                <a href="{{route('site.webinar-registration-form')}}" class="btnlink">Click here to register <i class="icon-i"></i></a>
+                                <a href="{{route('site.webinar-registration-form')}}" class="btnlink">Click here to
+                                    register <i class="icon-i"></i></a>
                             </div>
                             <div class="webinar-box d-none d-md-block">
                                 <h3>Link to Join Webinar</h3>
@@ -161,17 +167,20 @@
                                 <dt>Sponsors</dt>
                                 <dd>{{$webinar->sponsor()}}</dd>
                                 <dt>Focal Person</dt>
-                                <dd>{{$webinar->focalPerson()}} <a href="#" class="mx-1"><i class="icon-phone"></i></a>
-                                    <a href="#"
+                                <dd>{{$webinar->focalPerson()}} <a href="tel:{{$webinar->focalPersonTelephone()}}" class="mx-1"><i class="icon-phone"></i></a>
+                                    <a href="mailto:{{$webinar->focalPersonEmail()}}"
                                        class="mx-1"><i
                                             class="icon-email"></i></a></dd>
                                 <dt class="date-time">Start Date & End Date</dt>
                                 <dd class="date-time">{{\Carbon\Carbon::parse($webinar->startDate())->format('F j, Y H:i:s') . ' ' . \Carbon\Carbon::parse($webinar->endDate())->format('F j, Y H:i:s')}}</dd>
                             </dl>
-                            <div class="d-flex justify-content-end record-data">
-                                <span>{{$webinarRegistration}} Registrations <i class="icon-registration"></i></span>
-                                <span>23 Interested <i class="icon-interest"></i></span>
-                            </div>
+                            @if($webinarRegistration != null)
+                                <div class="d-flex justify-content-end record-data">
+                                    <span>{{$webinarRegistration}} Registrations <i
+                                            class="icon-registration"></i></span>
+                                    <span>23 Interested <i class="icon-interest"></i></span>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <a href="{{route('site.view-all-webinar')}}" class="view-all"><i class="icon-arrow"></i> View all

@@ -18,6 +18,8 @@ class WebinarStoreController extends Controller
             'sponsor' => ['required'],
             'organization' => ['required'],
             'focal_person' => ['required'],
+            'focal_person_telephone' => ['required'],
+            'focal_person_email' => ['required'],
             'link' => ['required'],
             'meeting_id' => ['required'],
             'start_date' => ['required'],
@@ -27,6 +29,7 @@ class WebinarStoreController extends Controller
             'link_image'=>['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'short_description'=>['required', 'string']
         ]);
+
         /** @var \Illuminate\Http\UploadedFile * */
         $file = $request->file('image');
         $file1 = $request->file('link_image');
@@ -40,7 +43,9 @@ class WebinarStoreController extends Controller
         $webinar->organization = $data['organization'];
         $webinar->sponsor = $data['sponsor'];
         $webinar->focal_person = $data['focal_person'];
-        $webinar->link = $data['link'];
+        $webinar->focal_person_telephone = $data['focal_person_telephone'];
+        $webinar->link = $data['link'];        $webinar->focal_person_email = $data['focal_person_email'];
+
         $webinar->meeting_id = $data['meeting_id'];
         $webinar->start_date = $data['start_date'];
         $webinar->end_date = $data['end_date'];

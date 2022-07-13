@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $organization
  * @property string $sponsor
  * @property string $focal_person
+ * @property string $focal_person_telephone
+ * @property string $focal_person_email
  * @property string $link
  * @property string $meeting_id
  * @property string $passcode
@@ -97,6 +99,14 @@ class Webinar extends Model
         return Carbon::parse($this->start_date);
     }
 
+    public function focalPersonTelephone(): string
+    {
+        return $this->focal_person_telephone;
+    }
+    public function focalPersonEmail(): string
+    {
+        return $this->focal_person_email;
+    }
     public function endDate(): Carbon
     {
         return Carbon::parse($this->end_date);

@@ -33,9 +33,9 @@ class HomeIndexController
         $featuredTrendingCourses = GetFeaturedCourses::trending();
         $courses = Course::with(['category'])->limit(3)->get();
         $featuresEditorPickCourses = GetFeaturedCourses::editorPick();
+        $webinarRegistration = WebinarRegistrationForm::where('status', 1)->count();
         $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->first();
         $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
-        $webinarRegistration = WebinarRegistrationForm::where('status', 1)->count();
 
         return view('site.index', [
             'new' => $new,

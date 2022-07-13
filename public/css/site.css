@@ -1044,7 +1044,6 @@ td {
 .filtermenu-outer {
     z-index: 1023;
 }
-
 .btn-enroll {
     position: absolute;
     right: 0;
@@ -2805,7 +2804,7 @@ h2.subheading {
     font-size: 22px;
     margin-right: 11px;
 }
-
+.start-label input[type="checkbox"]:checked + .fa-star{color: var(--dark);}
 .fa-star.checked {
     color: var(--dark);
 }
@@ -3145,7 +3144,9 @@ h2.subheading {
     font-weight: 700;
     margin-right: 20px;
 }
-
+/*.rating .start-label:active ~ .start-label .fa-star{*/
+/*    color: yellow;*/
+/*}*/
 .rating b {
     position: relative;
     padding-left: 20px;

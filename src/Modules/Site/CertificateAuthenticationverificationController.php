@@ -15,12 +15,16 @@ class CertificateAuthenticationverificationController extends Controller
             'certificate_serial_number' => ['required', 'string'],
         ]);
 
-        $certificateAuthentication = CertificateAuthentication::where('name', $data['name'])->where('verify_certificate', $data['certificate_serial_number'])->first();
+        $certificateAuthentication = CertificateAuthentication::query()
+            ->where('name', (string)$data['name'])
+            ->where('verify_certificate', (string)$data['certificate_serial_number'])
+            ->first();
         if (null !== $certificateAuthentication) {
             flash('Your Certificate has been verified. The issue date is:' . $certificateAuthentication->issueDate()->toDateString())->success();
         } else {
             flash('Your Certificate has not been verified')->error();
         }
+
         return redirect()->route('site.certificate-authentication.index');
     }
 }
