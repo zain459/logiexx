@@ -106,5 +106,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     //FeedBack
     Route::get('feed-back', FeedBackController::class)->name('admin.feed-back.index');
     Route::post('feed-back/store', FeedBackStoreController::class)->name('admin.feed-back.store');
-    Route::post('feed-back/{id}/store', FeedBackUpdateController::class)->name('admin.feed-back.update');
+    Route::post('feed-back/{id}/update', FeedBackUpdateController::class)->name('admin.feed-back.update');
 });
