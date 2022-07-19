@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\FeedBack\FeedBackController;
+use App\Http\Controllers\Admin\FeedBack\FeedBackUpdateController;
+use App\Http\Controllers\Admin\FeedBack\FeedBackStoreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
@@ -98,6 +101,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('webinar-registration', WebinarRegistrationIndex::class)->name('admin.webinar-registration.index');
     Route::get('webinar-registration/{id}/view', WebinarRegistrationViewController::class)->name('admin.webinar-registration.view');
     Route::post('webinar-registration-status/{id}/store', WebinarRegistrationStatusStoreController::class)->name('admin.webinar-registration-status.store');
-    Route::post('webinar-registration/{id}/delete',WebinarRegistrationDeleteController::class)->name('admin.webinar-registration.delete');
+    Route::post('webinar-registration/{id}/delete', WebinarRegistrationDeleteController::class)->name('admin.webinar-registration.delete');
 
+    //FeedBack
+    Route::get('feed-back', FeedBackController::class)->name('admin.feed-back.index');
+    Route::post('feed-back/store', FeedBackStoreController::class)->name('admin.feed-back.store');
+    Route::post('feed-back/{id}/store', FeedBackUpdateController::class)->name('admin.feed-back.update');
 });

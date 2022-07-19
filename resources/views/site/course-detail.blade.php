@@ -9,10 +9,11 @@
                 <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
-{{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
-{{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
-            <a href="{{route('site.class-calendar.index', $specific->id())}}" class="btn btn-primary btn-enroll">Class Calendar
-                            <i class="icon-link ms-3 align-items-center"></i></a>
+            {{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
+            {{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
+            <a href="{{route('site.class-calendar.index', $specific->id())}}" class="btn btn-primary btn-enroll">Class
+                Calendar
+                <i class="icon-link ms-3 align-items-center"></i></a>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 @foreach($subjectFields as $subjectField)
@@ -94,7 +95,8 @@
                                         class="icon-students ms-0 me-1"></i> {{$specific->classSize()}} Students</span>
                             @endif
                         </div>
-                        <a href="/storage/{{$specific->file()}}" download="" class="view-all"><i class="icon-arrow"></i> Download Course Catalogue (PDF)</a>
+                        <a href="/storage/{{$specific->file()}}" download="" class="view-all"><i class="icon-arrow"></i>
+                            Download Course Catalogue (PDF)</a>
                     </div>
                 </div>
             </div>
@@ -202,8 +204,10 @@
                                     </div>
                                     <div class="text">
                                         <ul>
-                                            <li><i class="icon-rating"></i> 4.9 Instructor Rating</li>
-                                            <li><i class="icon-reviews"></i> 533 Reviews</li>
+                                            <li>
+                                                <i class="icon-rating"></i>{{$instructorsFeedback->get($courseInstructor->id())}} Instructor Rating
+                                            </li>
+                                            <li><i class="icon-reviews"></i> {{$instructorsReview->get($courseInstructor->id())}} Reviews</li>
                                             <li><i class="icon-students"></i> 3251 Students</li>
                                         </ul>
                                     </div>
@@ -246,7 +250,8 @@
                     @endforeach
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <a href="{{route('site.learner-feedback.form', $specific->id())}}" class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
+                    <a href="{{route('site.learner-feedback.form', $specific->id())}}"
+                       class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
                             class="icon-link ms-3 align-items-center"></i></a>
                     <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> 588 Feedbacks <b>Excellent</b>  </span>
                 </div>
