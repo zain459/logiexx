@@ -5,8 +5,9 @@ namespace Logixs\Modules\Site\FeedBack\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Course\Models\Course;
-use App\Models\Certificate\CertificateAuthentication;
 use Logixs\Modules\Course\Models\CourseInstructor;
+use App\Models\Certificate\CertificateAuthentication;
+use App\Models\CourseFeedBackParams\CourseFeedBackParams;
 
 class LearnerFeedBackVerificationController extends Controller
 {
@@ -18,7 +19,16 @@ class LearnerFeedBackVerificationController extends Controller
         ]);
 
         $course = Course::query()->findOrFail($id);
-        $courseInstructors = CourseInstructor::query()->with('instructor')->where('course_id', (int)$course->id())->get();
+        $courseInstructors = CourseInstructor::query()->with('instructor')
+            ->where('course_id', (int)$course->id())->get();
+
+        $courseFeedbackParams = CourseFeedBackParams::with('feedbackParam')
+            ->where('course_id', $course->id())
+            ->where('type', 'Course')->get();
+
+        $courseInstructorFeedbackParams = CourseFeedBackParams::with('feedbackParam')
+            ->where('course_id', $course->id())
+            ->where('type', lcfirst('Instructor'))->get();
 
         $verified = CertificateAuthentication::query()
             ->where('name', (string)$data['name'])
@@ -33,7 +43,9 @@ class LearnerFeedBackVerificationController extends Controller
         return view('site.learner-feedback', [
             'course' => $course,
             'verified' => $verified,
-            'courseInstructors' => $courseInstructors
+            'courseInstructors' => $courseInstructors,
+            'courseFeedbackParams' => $courseFeedbackParams,
+            'courseInstructorFeedbackParams' => $courseInstructorFeedbackParams
         ]);
     }
 }

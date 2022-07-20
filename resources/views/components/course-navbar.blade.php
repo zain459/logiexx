@@ -27,6 +27,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.course-class.index', $course->id()) }}">Class</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.course.feedback-params', $course->id()) }}">Feedback Params</a>
+            </li>
         </ul>
     </div>
 </div>

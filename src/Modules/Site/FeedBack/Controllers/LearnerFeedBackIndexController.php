@@ -2,6 +2,7 @@
 
 namespace Logixs\Modules\Site\FeedBack\Controllers;
 
+use App\Models\CourseFeedBackParams\CourseFeedBackParams;
 use Logixs\Modules\Course\Models\Course;
 
 class LearnerFeedBackIndexController

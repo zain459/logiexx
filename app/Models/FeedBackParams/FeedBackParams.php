@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\FeedBack;
+namespace App\Models\FeedBackParams;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $category
  * @property string $title
  */
-class FeedBack extends Model
+class FeedBackParams extends Model
 {
     protected $table = 'feedback_params';
 

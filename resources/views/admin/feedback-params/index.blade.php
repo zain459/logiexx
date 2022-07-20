@@ -23,11 +23,10 @@
                     <td>{{ $feedBackParam->category() }}</td>
                     <td>{{ $feedBackParam->title() }}</td>
                     <td>
-                        @include('admin.feedback.edit',[
+                        @include('admin.feedback-params.edit',[
                                     'feedBackParam' => $feedBackParam
                         ])
                     </td>
-
                 </tr>
             @empty
                 <tr>

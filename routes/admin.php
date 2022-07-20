@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\FeedBack\FeedBackController;
-use App\Http\Controllers\Admin\FeedBack\FeedBackUpdateController;
-use App\Http\Controllers\Admin\FeedBack\FeedBackStoreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
@@ -22,6 +19,9 @@ use App\Http\Controllers\Admin\SubjectArea\SubjectAreaIndexController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaStoreController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaUpdateController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsUpdateController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsStoreController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateEditController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController;
@@ -38,9 +38,12 @@ use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDeleteContro
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorDownloadController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationDeleteController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipViewController;
+use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsStoreController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipIndexController;
+use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsIndexController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipDeleteController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationStatusStoreController;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 
@@ -75,6 +78,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('course/{id}/class/delete', ClassDeleteController::class)->name('admin.course-class.delete');
     Route::post('course-class/{id}/update', ClassUpdateController::class)->name('admin.course-class.update');
 
+
     //Certificate
     Route::get('class/{id}/verify-certificate', VerifyCertificateController::class)->name('admin.verify-certificate.index');
     Route::get('class/{id}/verify-certificate/create', VerifyCertificateCreateController::class)->name('admin.verify-certificate.create');
@@ -103,8 +107,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('webinar-registration-status/{id}/store', WebinarRegistrationStatusStoreController::class)->name('admin.webinar-registration-status.store');
     Route::post('webinar-registration/{id}/delete', WebinarRegistrationDeleteController::class)->name('admin.webinar-registration.delete');
 
-    //FeedBack
-    Route::get('feed-back', FeedBackController::class)->name('admin.feed-back.index');
-    Route::post('feed-back/store', FeedBackStoreController::class)->name('admin.feed-back.store');
-    Route::post('feed-back/{id}/update', FeedBackUpdateController::class)->name('admin.feed-back.update');
+    //FeedBackParams
+    Route::get('feedback-params', FeedBackParamsController::class)->name('admin.feed-back.index');
+    Route::post('feedback-params/store', FeedBackParamsStoreController::class)->name('admin.feed-back.store');
+    Route::post('feedback-params/{id}/update', FeedBackParamsUpdateController::class)->name('admin.feed-back.update');
+
+    //CourseFeedBackParams
+    Route::get('course/{id}/feedback-params', CourseFeedBackParamsIndexController::class)->name('admin.course.feedback-params');
+    Route::post('course-feedback-params/store', CourseFeedBackParamsStoreController::class)->name('admin.course-feed-back-params.store');
 });

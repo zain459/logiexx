@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('course_learner_feedback', function (Blueprint $table) {
+        Schema::create('course_feedback_params', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('feedback_params_id')->index();
             $table->unsignedBigInteger('course_id')->index();
-            $table->string('recommend_improvements_course');
-            $table->string('comment_on_continuing_appropriateness');
-            $table->string('like_most_about_course');
-            $table->string('like_us_know_about_course');
-            $table->integer('quality_of_course');
+            $table->string('type');
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->on('courses')
+            $table->foreign('feedback_params_id')->references('id')->on('feedback_params')
                 ->onDelete('cascade');
         });
     }
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_feedback');
+        Schema::dropIfExists('course_feedback_params');
     }
 };

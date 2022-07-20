@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\FeedBack;
+namespace App\Http\Controllers\Admin\FeedBackParams;
 
-use App\Http\Controllers\Controller;
-use App\Models\FeedBack\FeedBack;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\FeedBackParams\FeedBackParams;
 
-class FeedBackUpdateController extends Controller
+class FeedBackParamsUpdateController extends Controller
 {
     public function __invoke(int $id, Request $request)
     {
-        /**@var FeedBack $feedBackParam */
-        $feedBackParam = FeedBack::query()->findOrFail($id);
+        /**@var FeedBackParams $feedBackParam */
+        $feedBackParam = FeedBackParams::query()->findOrFail($id);
         if (null === $feedBackParam) {
             abort(404, 'FeedBack Params Not Found');
         }

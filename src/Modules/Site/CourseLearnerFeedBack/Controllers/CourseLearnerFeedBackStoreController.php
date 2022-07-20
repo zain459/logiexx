@@ -14,9 +14,9 @@ class CourseLearnerFeedBackStoreController extends Controller
     {
         $course = Course::query()->findOrFail($id);
         $data = $this->validate($request, [
-            'course_content' => ['required', 'int'],
-            'days_allocated_course' => ['required', 'int'],
-            'delivery_method' => ['required', 'int'],
+//            'course_content' => ['required', 'int'],
+//            'days_allocated_course' => ['required', 'int'],
+//            'delivery_method' => ['required', 'int'],
             'recommend_improvements_course' => ['required', 'string'],
             'comment_on_continuing_appropriateness' => ['required', 'string'],
             'like_most_about_course' => ['required', 'string'],
@@ -24,9 +24,9 @@ class CourseLearnerFeedBackStoreController extends Controller
             'quality_of_course' => ['required', 'int'],
             'courseId' => ['required', 'int', 'exists:courses,id'],
             'courseInstructor' => ['required', 'array'],
-            'courseInstructor.*.instructor_course_content' => ['required', 'int'],
-            'courseInstructor.*.instructor_days_allocated_course' => ['required', 'int'],
-            'courseInstructor.*.instructor_delivery_method' => ['required', 'int'],
+//            'courseInstructor.*.instructor_course_content' => ['required', 'int'],
+//            'courseInstructor.*.instructor_days_allocated_course' => ['required', 'int'],
+//            'courseInstructor.*.instructor_delivery_method' => ['required', 'int'],
             'courseInstructor.*.instructor_recommend_improvements_course' => ['required', 'string'],
             'courseInstructor.*.instructor_comment_on_continuing_appropriateness' => ['required', 'string'],
             'courseInstructor.*.instructor_like_most_about_course' => ['required', 'string'],
@@ -37,9 +37,9 @@ class CourseLearnerFeedBackStoreController extends Controller
         ]);
 
         $courseFeedback = new CourseLearnerFeedBack();
-        $courseFeedback->course_content = $data['course_content'];
-        $courseFeedback->days_allocated_course = $data['days_allocated_course'];
-        $courseFeedback->delivery_method = $data['delivery_method'];
+//        $courseFeedback->course_content = $data['course_content'];
+//        $courseFeedback->days_allocated_course = $data['days_allocated_course'];
+//        $courseFeedback->delivery_method = $data['delivery_method'];
         $courseFeedback->recommend_improvements_course = $data['recommend_improvements_course'];
         $courseFeedback->comment_on_continuing_appropriateness = $data['comment_on_continuing_appropriateness'];
         $courseFeedback->like_most_about_course = $data['like_most_about_course'];
@@ -51,9 +51,9 @@ class CourseLearnerFeedBackStoreController extends Controller
         $items = $data['courseInstructor'];
         foreach ($items as $item) {
             $instructorFeedback = new InstructorLearnerFeedBack();
-            $instructorFeedback->instructor_course_content = $item['instructor_course_content'];
-            $instructorFeedback->instructor_days_allocated_course = $item['instructor_days_allocated_course'];
-            $instructorFeedback->instructor_delivery_method = $item['instructor_delivery_method'];
+//            $instructorFeedback->instructor_course_content = $item['instructor_course_content'];
+//            $instructorFeedback->instructor_days_allocated_course = $item['instructor_days_allocated_course'];
+//            $instructorFeedback->instructor_delivery_method = $item['instructor_delivery_method'];
             $instructorFeedback->instructor_recommend_improvements_course = $item['instructor_recommend_improvements_course'];
             $instructorFeedback->instructor_comment_on_continuing_appropriateness = $item['instructor_comment_on_continuing_appropriateness'];
             $instructorFeedback->instructor_like_most_about_course = $item['instructor_like_most_about_course'];

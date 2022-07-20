@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\FeedBack;
+namespace App\Http\Controllers\Admin\FeedBackParams;
 
 use Illuminate\Http\Request;
-use App\Models\FeedBack\FeedBack;
 use App\Http\Controllers\Controller;
+use App\Models\FeedBackParams\FeedBackParams;
 
-class FeedBackStoreController extends Controller
+class FeedBackParamsStoreController extends Controller
 {
     public function __invoke(Request $request)
     {
@@ -15,7 +15,7 @@ class FeedBackStoreController extends Controller
             'title' => ['required', 'string']
         ]);
 
-        $feedBack = new FeedBack();
+        $feedBack = new FeedBackParams();
         $feedBack->category = $data['category'];
         $feedBack->title = $data['title'];
         $feedBack->save();
