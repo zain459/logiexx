@@ -136,35 +136,28 @@
                                 <tr>
                                     <th class="text-start" colspan="5">Relevance of the Training</th>
                                 </tr>
-                                @foreach($courseFeedbackParams as $courseFeedbackParam)
+                                @foreach($courseFeedbackParams as $key => $courseFeedbackParam)
                                     <tr>
                                         <td class="text-start">{{$courseFeedbackParam->feedbackParam->title()}}</td>
-                                        <td><input type="radio" name="course_feedback_param_value" value="{{'Excellent'}}"></td>
-                                        <td><input type="radio" name="course_feedback_param_value" value="{{'Good'}}"></td>
-                                        <td><input type="radio" name="course_feedback_param_value" value="{{'Fair'}}"></td>
-                                        <td><input type="radio" name="course_feedback_param_value" value="{{'Poor'}}"></td>
-                                        <td><input type="radio" name="course_feedback_param_value" value="{{'Worst'}}"></td>
+                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                                   value="{{'Excellent'}}">
+                                        </td>
+                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                                   value="{{'Good'}}">
+                                        </td>
+                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                                   value="{{'Fair'}}">
+                                        </td>
+                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                                   value="{{'Poor'}}">
+                                        </td>
+                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                                   value="{{'Worst'}}">
+                                        </td>
                                     </tr>
+                                    <input type="hidden" value="{{ $courseFeedbackParam->id() }}"
+                                           name="course[{{$key}}][courseFeedbackParams_id]" required/>
                                 @endforeach
-                                {{--                                <tr>--}}
-                                {{--                                    <th class="text-start" colspan="5">Training Delivery</th>--}}
-                                {{--                                </tr>--}}
-                                {{--                                <tr>--}}
-                                {{--                                    <td class="text-start">Days allocated to the course</td>--}}
-                                {{--                                    <td><input type="radio" name="days_allocated_course" value="{{1}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="days_allocated_course" value="{{2}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="days_allocated_course" value="{{3}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="days_allocated_course" value="{{4}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="days_allocated_course" value="{{5}}"></td>--}}
-                                {{--                                </tr>--}}
-                                {{--                                <tr>--}}
-                                {{--                                    <td class="text-start">Delivery method</td>--}}
-                                {{--                                    <td><input type="radio" name="delivery_method" value="{{1}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="delivery_method" value="{{2}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="delivery_method" value="{{3}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="delivery_method" value="{{4}}"></td>--}}
-                                {{--                                    <td><input type="radio" name="delivery_method" value="{{5}}"></td>--}}
-                                {{--                                </tr>--}}
                             </table>
                         </div>
                         <div class="fieldgroup">
@@ -176,7 +169,8 @@
                                 relation
                                 to
                                 the intended learning objectives.</label>
-                            <input type="text" class="form-control" name="comment_on_continuing_appropriateness">
+                            <input type="text" class="form-control"
+                                   name="comment_on_continuing_appropriateness">
                         </div>
                         <div class="fieldgroup">
                             <label class="label">What did you like the most about this course?</label>
@@ -212,135 +206,7 @@
                             </div>
                         </div>
                         @foreach($courseInstructors as $key => $courseInstructor)
-                            <h3 class="heading"><i class="icon-feedback"></i> Instructor’s Feedback</h3>
-                            <div class="inline-field mb-4 d-flex flex-column flex-md-row align-items-center">
-                                <label for="CourseTitle">Instructor Name</label>
-                                <span class="tag">{{$courseInstructor->instructor->name()}}</span>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table text-center table-form" cellspacing="0" cellpadding="0"
-                                       width="100%">
-                                    <tr>
-                                        <th class="text-start"></th>
-                                        <th>Excellent</th>
-                                        <th>Good</th>
-                                        <th>Fair</th>
-                                        <th>Poor</th>
-                                        <th>Worst</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-start" colspan="5">Relevance of the Training</th>
-                                    </tr>
-                                    @foreach($courseInstructorFeedbackParams as $courseInstructorFeedbackParam)
-                                        <tr>
-                                            <td class="text-start">{{$courseFeedbackParam->feedbackParam->title()}}</td>
-                                            <td><input type="radio" name="course_feedback_param_value" value="{{'Excellent'}}"></td>
-                                            <td><input type="radio" name="course_feedback_param_value" value="{{'Good'}}"></td>
-                                            <td><input type="radio" name="course_feedback_param_value" value="{{'Fair'}}"></td>
-                                            <td><input type="radio" name="course_feedback_param_value" value="{{'Poor'}}"></td>
-                                            <td><input type="radio" name="course_feedback_param_value" value="{{'Worst'}}"></td>
-                                            {{--                                            <td class="text-start">Course content was relevant to my work</td>--}}
-                                            {{--                                            <td><input type="radio"--}}
-                                            {{--                                                       name="courseInstructor[{{$key}}][instructor_course_content]"--}}
-                                            {{--                                                       value="{{1}}"></td>--}}
-                                            {{--                                            <td><input type="radio"--}}
-                                            {{--                                                       name="courseInstructor[{{$key}}]][instructor_course_content]"--}}
-                                            {{--                                                       value="{{2}}"></td>--}}
-                                            {{--                                            <td><input type="radio"--}}
-                                            {{--                                                       name="courseInstructor[{{$key}}]][instructor_course_content]"--}}
-                                            {{--                                                       value="{{3}}"></td>--}}
-                                            {{--                                            <td><input type="radio"--}}
-                                            {{--                                                       name="courseInstructor[{{$key}}]][instructor_course_content]"--}}
-                                            {{--                                                       value="{{4}}"></td>--}}
-                                            {{--                                            <td><input type="radio"--}}
-                                            {{--                                                       name="courseInstructor[{{$key}}]][instructor_course_content]"--}}
-                                            {{--                                                       value="{{5}}"></td>--}}
-                                        </tr>
-                                    @endforeach
-                                    {{--                                        <tr>--}}
-                                    {{--                                            <th class="text-start" colspan="5">Training Delivery</th>--}}
-                                    {{--                                        </tr>--}}
-                                    {{--                                        <tr>--}}
-                                    {{--                                            <td class="text-start">Days allocated to the course</td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_days_allocated_course]" value="{{1}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_days_allocated_course]" value="{{2}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_days_allocated_course]" value="{{3}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_days_allocated_course]" value="{{4}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_days_allocated_course]" value="{{5}}"></td>--}}
-                                    {{--                                        </tr>--}}
-                                    {{--                                        <tr>--}}
-                                    {{--                                            <td class="text-start">Delivery method</td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_delivery_method]" value="{{1}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_delivery_method]" value="{{2}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_delivery_method]" value="{{3}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_delivery_method]" value="{{4}}"></td>--}}
-                                    {{--                                            <td><input type="radio" name="courseInstructor[{{$key}}][instructor_delivery_method]" value="{{5}}"></td>--}}
-                                    {{--                                        </tr>--}}
-                                </table>
-                            </div>
-                            <div class="fieldgroup">
-                                <label class="label">Would you recommend any improvements in this course?</label>
-                                <input type="text" class="form-control"
-                                       name="courseInstructor[{{$key}}][instructor_recommend_improvements_course]">
-                            </div>
-                            <div class="fieldgroup">
-                                <label class="label">Please comment on the continuing appropriateness of the course
-                                    in
-                                    relation
-                                    to
-                                    the intended learning objectives.</label>
-                                <input type="text" class="form-control"
-                                       name="courseInstructor[{{$key}}][instructor_comment_on_continuing_appropriateness]">
-                            </div>
-                            <div class="fieldgroup">
-                                <label class="label">What did you like the most about this course?</label>
-                                <input type="text" class="form-control"
-                                       name="courseInstructor[{{$key}}][instructor_like_most_about_course]">
-                            </div>
-                            <div class="fieldgroup">
-                                <label class="label">What else would you like us to know about the course?</label>
-                                <input type="text" class="form-control"
-                                       name="courseInstructor[{{$key}}][instructor_like_us_know_about_course]">
-                            </div>
-                            <div class="fieldgroup">
-                                <label class="label">How would you rate the overall quality of the course?</label>
-                                <div class="rating">
-                                    <label class="start-label">
-                                        <input type="checkbox"
-                                               name="courseInstructor[{{$key}}][instructor_quality_of_course]"
-                                               value="{{1}}">
-                                        <span class="fa fa-star"></span>
-                                    </label>
-                                    <label class="start-label">
-                                        <input type="checkbox"
-                                               name="courseInstructor[{{$key}}][instructor_quality_of_course]"
-                                               value="{{2}}">
-                                        <span class="fa fa-star"></span>
-                                    </label>
-                                    <label class="start-label">
-                                        <input type="checkbox"
-                                               name="courseInstructor[{{$key}}][instructor_quality_of_course]"
-                                               value="{{3}}">
-                                        <span class="fa fa-star"></span>
-                                    </label>
-                                    <label class="start-label">
-                                        <input type="checkbox"
-                                               name="courseInstructor[{{$key}}][instructor_quality_of_course]"
-                                               value="{{4}}">
-                                        <span class="fa fa-star"></span>
-                                    </label>
-                                    <label class="start-label">
-                                        <input type="checkbox"
-                                               name="courseInstructor[{{$key}}][instructor_quality_of_course]"
-                                               value="{{5}}">
-                                        <span class="fa fa-star"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <input type="hidden" value="{{ $courseInstructor->courseId() }}"
-                                   name="courseInstructor[{{$key}}][courseId]" required/>
-                            <input type="hidden" value="{{ $courseInstructor->instructorId() }}"
-                                   name="courseInstructor[{{$key}}][instructorId]" required/>
+                            @include('site.feedback.instructor-feedback', ['instructor' =>  $courseInstructor->instructor, 'feedbackParams' => $instructorFeedbackParams])
                         @endforeach
                         <input type="hidden" value="{{ $course->id() }}" name="courseId" required/>
                         <button type="submit" class="btn btn-primary">Submit Application</button>

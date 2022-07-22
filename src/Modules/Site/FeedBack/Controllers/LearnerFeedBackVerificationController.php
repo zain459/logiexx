@@ -8,6 +8,7 @@ use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseInstructor;
 use App\Models\Certificate\CertificateAuthentication;
 use App\Models\CourseFeedBackParams\CourseFeedBackParams;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Models\CourseLearnerFeedBack;
 
 class LearnerFeedBackVerificationController extends Controller
 {
@@ -26,7 +27,7 @@ class LearnerFeedBackVerificationController extends Controller
             ->where('course_id', $course->id())
             ->where('type', 'Course')->get();
 
-        $courseInstructorFeedbackParams = CourseFeedBackParams::with('feedbackParam')
+        $instructorFeedbackParams = CourseFeedBackParams::with('feedbackParam')
             ->where('course_id', $course->id())
             ->where('type', lcfirst('Instructor'))->get();
 
@@ -34,6 +35,8 @@ class LearnerFeedBackVerificationController extends Controller
             ->where('name', (string)$data['name'])
             ->where('verify_certificate', (string)$data['certificate_serial_number'])
             ->first();
+
+
         if (null !== $verified) {
             flash('Your Certificate has been verified. Please add your feedback')->success();
         } else {
@@ -45,7 +48,7 @@ class LearnerFeedBackVerificationController extends Controller
             'verified' => $verified,
             'courseInstructors' => $courseInstructors,
             'courseFeedbackParams' => $courseFeedbackParams,
-            'courseInstructorFeedbackParams' => $courseInstructorFeedbackParams
+            'instructorFeedbackParams' => $instructorFeedbackParams,
         ]);
     }
 }
