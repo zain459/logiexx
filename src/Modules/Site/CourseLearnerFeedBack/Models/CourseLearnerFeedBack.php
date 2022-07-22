@@ -2,6 +2,7 @@
 
 namespace Logixs\Modules\Site\CourseLearnerFeedBack\Models;
 
+use App\Models\Certificate\CertificateAuthentication;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Logixs\Modules\Course\Models\Course;
@@ -9,6 +10,7 @@ use Logixs\Modules\Course\Models\Course;
 /**
  * @property int $id
  * @property int $course_id
+ * @property int $student_id
  * @property int $course_content
  * @property int $days_allocated_course
  * @property int $delivery_method
@@ -30,6 +32,11 @@ class CourseLearnerFeedBack extends Model
     public function courseId(): int
     {
         return $this->course_id;
+    }
+
+    public function studentId(): int
+    {
+        return $this->student_id;
     }
 
     public function courseContent(): int
@@ -75,5 +82,10 @@ class CourseLearnerFeedBack extends Model
     public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class, 'course_id', 'id');
+    }
+
+    public function courseStudent(): BelongsTo
+    {
+        return $this->belongsTo(CertificateAuthentication::class, 'student_id', 'id');
     }
 }

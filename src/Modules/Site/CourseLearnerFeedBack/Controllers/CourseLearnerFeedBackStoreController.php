@@ -13,70 +13,64 @@ class CourseLearnerFeedBackStoreController extends Controller
 {
     public function __invoke(Request $request, int $id)
     {
-        dd($request->all());
+
         $course = Course::query()->findOrFail($id);
         $data = $this->validate($request, [
-            'recommend_improvements_course' => ['required', 'string'],
-            'comment_on_continuing_appropriateness' => ['required', 'string'],
-            'like_most_about_course' => ['required', 'string'],
-            'like_us_know_about_course' => ['required', 'string'],
-            'quality_of_course' => ['required', 'int'],
-            'courseId' => ['required', 'int', 'exists:courses,id'],
-            'courseInstructor' => ['required', 'array'],
-            'courseInstructor.*.instructor_recommend_improvements_course' => ['required', 'string'],
-            'courseInstructor.*.instructor_comment_on_continuing_appropriateness' => ['required', 'string'],
-            'courseInstructor.*.instructor_like_most_about_course' => ['required', 'string'],
-            'courseInstructor.*.instructor_like_us_know_about_course' => ['required', 'string'],
-            'courseInstructor.*.instructor_quality_of_course' => ['required', 'int'],
-            'courseInstructor.*.courseId' => ['required', 'int', 'exists:courses,id'],
-            'courseInstructorFeedbackParamIndex.*.instructorCourseFeedbackParams_id' => ['required', 'int'],
-            'courseInstructorFeedbackParamIndex.*.instructor_course_feedback_param_value' => ['required', 'string'],
-            'course.*.courseFeedbackParams_id' => ['required', 'int'],
-            'course.*.course_feedback_param_value' => ['required', 'string'],
-            'courseInstructorFeedbackParam.*.course_feedback_param_value' => ['required', 'string'],
-            'courseInstructorFeedbackParam.*.instructorCourseFeedbackParams_id' => ['required', 'int'],
-        ]);
-        dd($data);
-        $courseFeedback = new CourseLearnerFeedBack();
-        $courseFeedback->recommend_improvements_course = $data['recommend_improvements_course'];
-        $courseFeedback->comment_on_continuing_appropriateness = $data['comment_on_continuing_appropriateness'];
-        $courseFeedback->like_most_about_course = $data['like_most_about_course'];
-        $courseFeedback->like_us_know_about_course = $data['like_us_know_about_course'];
-        $courseFeedback->quality_of_course = $data['quality_of_course'];
-        $courseFeedback->course_id = $data['courseId'];
-        $courseFeedback->save();
-        $courseFeedbackId = $courseFeedback->id();
+            'course.recommend_improvements_course' => ['required', 'string'],
+            'course.comment_on_continuing_appropriateness' => ['required', 'string'],
+            'course.like_most_about_course' => ['required', 'string'],
+            'course.like_us_know_about_course' => ['required', 'string'],
+            'course.quality_of_course' => ['required', 'int'],
+            'course.studentId' => ['required', 'int'],
+            'course.course_feedback_params' => ['required', 'array'],
 
-        $courseItems = $data['course'];
-        foreach ($courseItems as $courseItem) {
+            'instructors' => ['required', 'array'],
+            'instructors.*.recommend_improvements_course' => ['required', 'string'],
+            'instructors.*.comment_on_continuing_appropriateness' => ['required', 'string'],
+            'instructors.*.like_most_about_course' => ['required', 'string'],
+            'instructors.*.like_us_know_about_course' => ['required', 'string'],
+            'instructors.*.quality_of_course' => ['required', 'int'],
+            'instructors.*.feedback_params' => ['required', 'array'],
+        ]);
+
+        $courseFeedbackData = $data['course'];
+
+        $courseFeedback = new CourseLearnerFeedBack();
+        $courseFeedback->recommend_improvements_course = $courseFeedbackData['recommend_improvements_course'];
+        $courseFeedback->comment_on_continuing_appropriateness = $courseFeedbackData['comment_on_continuing_appropriateness'];
+        $courseFeedback->like_most_about_course = $courseFeedbackData['like_most_about_course'];
+        $courseFeedback->like_us_know_about_course = $courseFeedbackData['like_us_know_about_course'];
+        $courseFeedback->quality_of_course = $courseFeedbackData['quality_of_course'];
+        $courseFeedback->student_id = $courseFeedbackData['studentId'];
+        $courseFeedback->course_id = $course->id();
+        $courseFeedback->save();
+
+        foreach ($courseFeedbackData['course_feedback_params'] as $paramKey => $value) {
             $feedbackParamsValue = new FeedbackParamsValue();
-            $feedbackParamsValue->course_feedback_id = $courseFeedbackId;
-            $feedbackParamsValue->course_feedback_param_id = $courseItem['courseFeedbackParams_id'];
-            $feedbackParamsValue->course_feedback_param_value = $courseItem['course_feedback_param_value'];
+            $feedbackParamsValue->course_feedback_id = $courseFeedback->id();
+            $feedbackParamsValue->course_feedback_param_id = $paramKey;
+            $feedbackParamsValue->course_feedback_param_value = $value;
             $feedbackParamsValue->save();
         }
 
-        $items = $data['courseInstructor'];
-        foreach ($items as $item) {
+        $instructorFeedBackData = $data['instructors'];
+        foreach ($instructorFeedBackData as $key => $item) {
             $instructorFeedback = new InstructorLearnerFeedBack();
-            $instructorFeedback->instructor_recommend_improvements_course = $item['instructor_recommend_improvements_course'];
-            $instructorFeedback->instructor_comment_on_continuing_appropriateness = $item['instructor_comment_on_continuing_appropriateness'];
-            $instructorFeedback->instructor_like_most_about_course = $item['instructor_like_most_about_course'];
-            $instructorFeedback->instructor_like_us_know_about_course = $item['instructor_like_us_know_about_course'];
-            $instructorFeedback->instructor_quality_of_course = $item['instructor_quality_of_course'];
-            $instructorFeedback->instructor_id = $item['instructorId'];
-            $instructorFeedback->course_id = $item['courseId'];
+            $instructorFeedback->instructor_recommend_improvements_course = $item['recommend_improvements_course'];
+            $instructorFeedback->instructor_comment_on_continuing_appropriateness = $item['comment_on_continuing_appropriateness'];
+            $instructorFeedback->instructor_like_most_about_course = $item['like_most_about_course'];
+            $instructorFeedback->instructor_like_us_know_about_course = $item['like_us_know_about_course'];
+            $instructorFeedback->instructor_quality_of_course = $item['quality_of_course'];
+            $instructorFeedback->course_id = $course->id();
+            $instructorFeedback->instructor_id = $key;
             $instructorFeedback->save();
-            $instructorFeedbackId = $instructorFeedback->id();
-        }
-
-        $courseInstructorFeedbackParams = $data['courseInstructorFeedbackParam'];
-        foreach ($courseInstructorFeedbackParams as $courseInstructorFeedbackParam) {
-            $feedbackInstructorParamsValue = new FeedbackParamsValue();
-            $feedbackInstructorParamsValue->instructor_feedback_id = $instructorFeedbackId;
-            $feedbackInstructorParamsValue->course_feedback_param_value = $courseInstructorFeedbackParam['course_feedback_param_value'];
-            $feedbackInstructorParamsValue->course_feedback_param_id = $courseInstructorFeedbackParam['instructorCourseFeedbackParams_id'];
-            $feedbackInstructorParamsValue->save();
+            foreach ($item['feedback_params'] as $paramKey => $value) {
+                $feedbackInstructorParamsValue = new FeedbackParamsValue();
+                $feedbackInstructorParamsValue->instructor_feedback_id = $instructorFeedback->id();
+                $feedbackInstructorParamsValue->course_feedback_param_value = $value;
+                $feedbackInstructorParamsValue->course_feedback_param_id = $paramKey;
+                $feedbackInstructorParamsValue->save();
+            }
         }
 
         flash('FeedBack Submitted')->success();

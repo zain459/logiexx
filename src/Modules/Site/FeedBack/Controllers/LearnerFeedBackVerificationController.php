@@ -18,7 +18,7 @@ class LearnerFeedBackVerificationController extends Controller
             'name' => ['required', 'string'],
             'certificate_serial_number' => ['required', 'string'],
         ]);
-
+        $certificate = CertificateAuthentication::query()->findOrFail($id);
         $course = Course::query()->findOrFail($id);
         $courseInstructors = CourseInstructor::query()->with('instructor')
             ->where('course_id', (int)$course->id())->get();
@@ -36,16 +36,16 @@ class LearnerFeedBackVerificationController extends Controller
             ->where('verify_certificate', (string)$data['certificate_serial_number'])
             ->first();
 
-
         if (null !== $verified) {
             flash('Your Certificate has been verified. Please add your feedback')->success();
         } else {
             flash('Your Certificate has not been verified')->error();
-
         }
+
         return view('site.learner-feedback', [
             'course' => $course,
             'verified' => $verified,
+            'certificate' => $certificate,
             'courseInstructors' => $courseInstructors,
             'courseFeedbackParams' => $courseFeedbackParams,
             'instructorFeedbackParams' => $instructorFeedbackParams,

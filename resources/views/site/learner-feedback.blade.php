@@ -100,19 +100,19 @@
                 <span id="Submit" class="scroll">scroll</span>
                 <div class="container">
                     <ul class="course-type">
-                        <li class="selected">
+                        <li class="{{ $course->modality()->name() === 'Online' ? "selected": "" }}">
                             <i class="icon-course-1"></i>
                             <span>Online Course</span>
                         </li>
-                        <li>
+                        <li class="{{ $course->modality()->name() === 'In-person' ? "selected": "" }}">
                             <i class="icon-course-2"></i>
                             <span>In-Person Course</span>
                         </li>
-                        <li>
+                        <li class="{{ $course->modality()->name() === 'Online Live' ? "selected": "" }}">
                             <i class="icon-course-3"></i>
                             <span>Online Live Course</span>
                         </li>
-                        <li>
+                        <li class="{{ $course->modality()->name() === 'Blended' ? "selected": "" }}">
                             <i class="icon-course-4"></i>
                             <span>Blended Course</span>
                         </li>
@@ -136,33 +136,36 @@
                                 <tr>
                                     <th class="text-start" colspan="5">Relevance of the Training</th>
                                 </tr>
-                                @foreach($courseFeedbackParams as $key => $courseFeedbackParam)
+                                @foreach($courseFeedbackParams as $courseFeedbackParam)
                                     <tr>
                                         <td class="text-start">{{$courseFeedbackParam->feedbackParam->title()}}</td>
-                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                        <td><input type="radio"
+                                                   name="course[course_feedback_params][{{$courseFeedbackParam->id()}}]"
                                                    value="{{'Excellent'}}">
                                         </td>
-                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                        <td><input type="radio"
+                                                   name="course[course_feedback_params][{{$courseFeedbackParam->id()}}]"
                                                    value="{{'Good'}}">
                                         </td>
-                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                        <td><input type="radio"
+                                                   name="course[course_feedback_params][{{$courseFeedbackParam->id()}}]"
                                                    value="{{'Fair'}}">
                                         </td>
-                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                        <td><input type="radio"
+                                                   name="course[course_feedback_params][{{$courseFeedbackParam->id()}}]"
                                                    value="{{'Poor'}}">
                                         </td>
-                                        <td><input type="radio" name="course[{{$key}}][course_feedback_param_value]"
+                                        <td><input type="radio"
+                                                   name="course[course_feedback_params][{{$courseFeedbackParam->id()}}]"
                                                    value="{{'Worst'}}">
                                         </td>
                                     </tr>
-                                    <input type="hidden" value="{{ $courseFeedbackParam->id() }}"
-                                           name="course[{{$key}}][courseFeedbackParams_id]" required/>
                                 @endforeach
                             </table>
                         </div>
                         <div class="fieldgroup">
                             <label class="label">Would you recommend any improvements in this course?</label>
-                            <input type="text" class="form-control" name="recommend_improvements_course">
+                            <input type="text" class="form-control" name="course[recommend_improvements_course]">
                         </div>
                         <div class="fieldgroup">
                             <label class="label">Please comment on the continuing appropriateness of the course in
@@ -170,41 +173,42 @@
                                 to
                                 the intended learning objectives.</label>
                             <input type="text" class="form-control"
-                                   name="comment_on_continuing_appropriateness">
+                                   name="course[comment_on_continuing_appropriateness]">
                         </div>
                         <div class="fieldgroup">
                             <label class="label">What did you like the most about this course?</label>
-                            <input type="text" class="form-control" name="like_most_about_course">
+                            <input type="text" class="form-control" name="course[like_most_about_course]">
                         </div>
                         <div class="fieldgroup">
                             <label class="label">What else would you like us to know about the course?</label>
-                            <input type="text" class="form-control" name="like_us_know_about_course">
+                            <input type="text" class="form-control" name="course[like_us_know_about_course]">
                         </div>
                         <div class="fieldgroup">
                             <label class="label">How would you rate the overall quality of the course?</label>
                             <div class="rating">
                                 <label class="start-label">
-                                    <input type="checkbox" name="quality_of_course" value="{{1}}">
+                                    <input type="checkbox" name="course[quality_of_course]" value="{{1}}">
                                     <span class="fa fa-star"></span>
                                 </label>
                                 <label class="start-label">
-                                    <input type="checkbox" name="quality_of_course" value="{{2}}">
+                                    <input type="checkbox" name="course[quality_of_course]" value="{{2}}">
                                     <span class="fa fa-star"></span>
                                 </label>
                                 <label class="start-label">
-                                    <input type="checkbox" name="quality_of_course" value="{{3}}">
+                                    <input type="checkbox" name="course[quality_of_course]" value="{{3}}">
                                     <span class="fa fa-star"></span>
                                 </label>
                                 <label class="start-label">
-                                    <input type="checkbox" name="quality_of_course" value="{{4}}">
+                                    <input type="checkbox" name="course[quality_of_course]" value="{{4}}">
                                     <span class="fa fa-star"></span>
                                 </label>
                                 <label class="start-label">
-                                    <input type="checkbox" name="quality_of_course" value="{{5}}">
+                                    <input type="checkbox" name="course[quality_of_course]" value="{{5}}">
                                     <span class="fa fa-star"></span>
                                 </label>
                             </div>
                         </div>
+                        <input type="hidden" value="{{$certificate->id()}}" name="course[studentId]">
                         @foreach($courseInstructors as $key => $courseInstructor)
                             @include('site.feedback.instructor-feedback', ['instructor' =>  $courseInstructor->instructor, 'feedbackParams' => $instructorFeedbackParams])
                         @endforeach

@@ -56,7 +56,7 @@
 <div class="fieldgroup">
     <label class="label">What did you like the most about this course?</label>
     <input type="text" class="form-control"
-           name="instructors[{{$instructor->id())}}][like_most_about_course]">
+           name="instructors[{{$instructor->id()}}][like_most_about_course]">
 </div>
 <div class="fieldgroup">
     <label class="label">What else would you like us to know about the course?</label>
@@ -66,31 +66,31 @@
     <label class="label">How would you rate the overall quality of the course?</label>
     <div class="rating">
         <label class="start-label">
-            <input type="checkbox"
+            <input type="radio"
                    name="instructors[{{$instructor->id()}}][quality_of_course]"
                    value="{{1}}">
             <span class="fa fa-star"></span>
         </label>
         <label class="start-label">
-            <input type="checkbox"
+            <input type="radio"
                    name="instructors[{{$instructor->id()}}][quality_of_course]"
                    value="{{2}}">
             <span class="fa fa-star"></span>
         </label>
         <label class="start-label">
-            <input type="checkbox"
+            <input type="radio"
                    name="instructors[{{$instructor->id()}}][instructor_quality_of_course]"
                    value="{{3}}">
             <span class="fa fa-star"></span>
         </label>
         <label class="start-label">
-            <input type="checkbox"
+            <input type="radio"
                    name="instructors[{{$instructor->id()}}][instructor_quality_of_course]"
                    value="{{4}}">
             <span class="fa fa-star"></span>
         </label>
         <label class="start-label">
-            <input type="checkbox"
+            <input type="radio"
                    name="instructors[{{$instructor->id()}}][instructor_quality_of_course]"
                    value="{{5}}">
             <span class="fa fa-star"></span>
