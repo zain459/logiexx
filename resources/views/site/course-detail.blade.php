@@ -208,7 +208,7 @@
                                                 <i class="icon-rating"></i>{{$instructorsFeedback->get($courseInstructor->id())}} Instructor Rating
                                             </li>
                                             <li><i class="icon-reviews"></i> {{$instructorsReview->get($courseInstructor->id())}} Reviews</li>
-                                            <li><i class="icon-students"></i> 3251 Students</li>
+                                            <li><i class="icon-students"></i>{{$instructorsStudent->get($courseInstructor->id())}} Students</li>
                                         </ul>
                                     </div>
                                 </div>

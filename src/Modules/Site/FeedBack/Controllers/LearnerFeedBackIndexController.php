@@ -2,7 +2,6 @@
 
 namespace Logixs\Modules\Site\FeedBack\Controllers;
 
-use App\Models\CourseFeedBackParams\CourseFeedBackParams;
 use Logixs\Modules\Course\Models\Course;
 
 class LearnerFeedBackIndexController
@@ -11,7 +10,7 @@ class LearnerFeedBackIndexController
     {
         $course = Course::query()->findOrFail($id);
 
-        return view('site.learner-feedback', [
+        return view('site.feedback-verification', [
             'course' => $course,
         ]);
     }

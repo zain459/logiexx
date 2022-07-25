@@ -13,8 +13,8 @@ class CourseLearnerFeedBackStoreController extends Controller
 {
     public function __invoke(Request $request, int $id)
     {
-
         $course = Course::query()->findOrFail($id);
+//        $verified = CertificateAuthentication::query()->findOrFail($id);
         $data = $this->validate($request, [
             'course.recommend_improvements_course' => ['required', 'string'],
             'course.comment_on_continuing_appropriateness' => ['required', 'string'],
@@ -29,12 +29,12 @@ class CourseLearnerFeedBackStoreController extends Controller
             'instructors.*.comment_on_continuing_appropriateness' => ['required', 'string'],
             'instructors.*.like_most_about_course' => ['required', 'string'],
             'instructors.*.like_us_know_about_course' => ['required', 'string'],
-            'instructors.*.quality_of_course' => ['required', 'int'],
+            'instructors.*.studentId' => ['required', 'int'],
+            'instructors.*.instructor_quality_of_course' => ['required', 'int'],
             'instructors.*.feedback_params' => ['required', 'array'],
         ]);
 
         $courseFeedbackData = $data['course'];
-
         $courseFeedback = new CourseLearnerFeedBack();
         $courseFeedback->recommend_improvements_course = $courseFeedbackData['recommend_improvements_course'];
         $courseFeedback->comment_on_continuing_appropriateness = $courseFeedbackData['comment_on_continuing_appropriateness'];
@@ -60,8 +60,9 @@ class CourseLearnerFeedBackStoreController extends Controller
             $instructorFeedback->instructor_comment_on_continuing_appropriateness = $item['comment_on_continuing_appropriateness'];
             $instructorFeedback->instructor_like_most_about_course = $item['like_most_about_course'];
             $instructorFeedback->instructor_like_us_know_about_course = $item['like_us_know_about_course'];
-            $instructorFeedback->instructor_quality_of_course = $item['quality_of_course'];
+            $instructorFeedback->instructor_quality_of_course = $item['instructor_quality_of_course'];
             $instructorFeedback->course_id = $course->id();
+            $instructorFeedback->student_id = $item['studentId'];
             $instructorFeedback->instructor_id = $key;
             $instructorFeedback->save();
             foreach ($item['feedback_params'] as $paramKey => $value) {
@@ -74,8 +75,9 @@ class CourseLearnerFeedBackStoreController extends Controller
         }
 
         flash('FeedBack Submitted')->success();
-        return view('site.learner-feedback', [
-            'course' => $course
-        ]);
+
+            return view('site.learner-feedback', [
+                'course' => $course
+            ]);
     }
 }

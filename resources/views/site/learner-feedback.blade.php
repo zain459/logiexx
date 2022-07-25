@@ -36,63 +36,24 @@
         @yield('content')
     </div>
     <main id="main">
-        <div class="feedback-block">
-            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <div class="title-box">
-                    <h2>Your Feedback Matters!</h2>
-                    <span class="subheading">3 Easy Steps to Submit Response...</span>
-                </div>
-                <ul class="three-stepsnav">
-                    <li title="1"><a href="#Verify">Verify</a></li>
-                    <li title="2"><a href="#provide-feedback">Provide Feedback</a></li>
-                    <li title="3"><a href="#Submit">Submit</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="block">
-            <span id="Verify" class="scroll">scroll</span>
-            <div class="container">
-                <h2>Identity Verification of Alumna</h2>
-                <div class="verify-certificate">
-                    <div class="head">
-                        <h3>Verify Certificate</h3>
-                    </div>
-                    <div class="body">
-                        <form action="{{route('site.learner-feedback.verify', $course->id())}}"
-                              method="get">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
-                                <label for="floatingInput">Name</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="certificate_serial_number"
-                                       placeholder="Serial Number" name="certificate_serial_number">
-                                <label for="floatingInput">Certificate Serial Number</label>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-dark">Verify</button>
-                            </div>
-                            <span class="d-block text-dark">Enter ‘Name’ and ‘Certificate Serial Number’ as appear on certificate.</span>
-                            <div class="form-bottom">
-                                <p>This page is designed to provide a means to verify the authenticity of a student's
-                                    Certificate of Completion for any courses completed. </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @if(isset($verified) && null !== $verified)
+        @if(isset($courseLearnerFeedBackCheck))
+            <p class="text-center">Feedback Already Submitted</p>
+        @elseif(isset($verified) && $verified !== null)
+{{--            <p class="text-center">You have already submit your feedback</p>--}}
+{{--        @else--}}
             <div class="block">
                 <span id="provide-feedback" class="scroll">scroll</span>
                 <div class="container">
                     <h2>Feedback <i class="icon-lock"></i></h2>
                     <p>Instructions: Join Youth Outside, an organization committed to advancing racial equity and
                         inclusion
-                        in the outdoors, for this Logixs Academy webinar to discuss the importance of asking critical
-                        questions related to race, equity, and inclusion as we envision programming that connects people
+                        in the outdoors, for this Logixs Academy webinar to discuss the importance of asking
+                        critical
+                        questions related to race, equity, and inclusion as we envision programming that connects
+                        people
                         to
-                        the environment during these uncertain and evolving times. Join Youth Outside, an organization
+                        the environment during these uncertain and evolving times. Join Youth Outside, an
+                        organization
                         committed to advancing racial equity and inclusion in the outdoors.</p>
                 </div>
             </div>
@@ -121,10 +82,12 @@
                         <label for="CourseTitle">Course Title</label>
                         <span class="tag">{{$course->title()}}</span>
                     </div>
-                    <form method="post" action="{{route('site.course-learner-feedback.store', $course->id())}}">
-                        @csrf
+
+                    <form method="get" action="{{route('site.course-learner-feedback.store', $course->id())}}">
+{{--                        @csrf--}}
                         <div class="table-responsive">
-                            <table class="table text-center table-form" cellspacing="0" cellpadding="0" width="100%">
+                            <table class="table text-center table-form" cellspacing="0" cellpadding="0"
+                                   width="100%">
                                 <tr>
                                     <th class="text-start"></th>
                                     <th>Excellent</th>
@@ -208,11 +171,11 @@
                                 </label>
                             </div>
                         </div>
-                        <input type="hidden" value="{{$certificate->id()}}" name="course[studentId]">
+                        <input type="hidden" value="{{$verified->id()}}" name="course[studentId]">
                         @foreach($courseInstructors as $key => $courseInstructor)
                             @include('site.feedback.instructor-feedback', ['instructor' =>  $courseInstructor->instructor, 'feedbackParams' => $instructorFeedbackParams])
                         @endforeach
-                        <input type="hidden" value="{{ $course->id() }}" name="courseId" required/>
+                        <input type="hidden" value="{{ $course->id() }}" name="[courseId]" required/>
                         <button type="submit" class="btn btn-primary">Submit Application</button>
                     </form>
                 </div>

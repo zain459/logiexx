@@ -67,13 +67,13 @@
     <div class="rating">
         <label class="start-label">
             <input type="radio"
-                   name="instructors[{{$instructor->id()}}][quality_of_course]"
+                   name="instructors[{{$instructor->id()}}][instructor_quality_of_course]"
                    value="{{1}}">
             <span class="fa fa-star"></span>
         </label>
         <label class="start-label">
             <input type="radio"
-                   name="instructors[{{$instructor->id()}}][quality_of_course]"
+                   name="instructors[{{$instructor->id()}}][instructor_quality_of_course]"
                    value="{{2}}">
             <span class="fa fa-star"></span>
         </label>
@@ -96,4 +96,5 @@
             <span class="fa fa-star"></span>
         </label>
     </div>
+    <input type="hidden" value="{{$verified->id()}}" name="instructors[{{$instructor->id()}}][studentId]">
 </div>

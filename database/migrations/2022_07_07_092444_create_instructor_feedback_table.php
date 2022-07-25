@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id')->index();
             $table->unsignedBigInteger('instructor_id')->index();
-//            $table->unsignedBigInteger('student_id')->index();
+            $table->unsignedBigInteger('student_id')->index();
             $table->string('instructor_recommend_improvements_course');
             $table->string('instructor_comment_on_continuing_appropriateness');
             $table->string('instructor_like_most_about_course');
@@ -29,8 +29,8 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->foreign('instructor_id')->references('id')->on('instructors')
                 ->onDelete('cascade');
-//            $table->foreign('student_id')->references('id')->on('certificate_authentication')
-//                ->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('certificate_authentication')
+                ->onDelete('cascade');
         });
     }
 

@@ -11,6 +11,7 @@ use Logixs\Modules\Instructor\Models\Instructor;
  * @property int $id
  * @property int $course_id
  * @property mixed $instructor_id
+ * @property mixed $student_id
  * @property int $instructor_course_content
  * @property int $instructor_days_allocated_course
  * @property int $instructor_delivery_method
@@ -37,6 +38,10 @@ class InstructorLearnerFeedBack extends Model
     public function instructorId(): int
     {
         return $this->instructor_id;
+    }
+
+    public function studentId():int{
+        return $this->student_id;
     }
 
     public function instructorCourseContent(): int

@@ -9,6 +9,7 @@ use Logixs\Modules\Course\Models\CourseInstructor;
 use App\Models\Certificate\CertificateAuthentication;
 use App\Models\CourseFeedBackParams\CourseFeedBackParams;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\CourseLearnerFeedBack;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Models\InstructorLearnerFeedBack;
 
 class LearnerFeedBackVerificationController extends Controller
 {
@@ -18,7 +19,7 @@ class LearnerFeedBackVerificationController extends Controller
             'name' => ['required', 'string'],
             'certificate_serial_number' => ['required', 'string'],
         ]);
-        $certificate = CertificateAuthentication::query()->findOrFail($id);
+
         $course = Course::query()->findOrFail($id);
         $courseInstructors = CourseInstructor::query()->with('instructor')
             ->where('course_id', (int)$course->id())->get();
@@ -36,6 +37,12 @@ class LearnerFeedBackVerificationController extends Controller
             ->where('verify_certificate', (string)$data['certificate_serial_number'])
             ->first();
 
+        $courseLearnerFeedBackCheck = CourseLearnerFeedBack::query()
+            ->where('student_id', (int)$verified?->id())->first();
+
+        $instructorLearnerFeedBackCheck = InstructorLearnerFeedBack::query()
+            ->where('student_id', (int)$verified?->id())->first();
+
         if (null !== $verified) {
             flash('Your Certificate has been verified. Please add your feedback')->success();
         } else {
@@ -45,10 +52,11 @@ class LearnerFeedBackVerificationController extends Controller
         return view('site.learner-feedback', [
             'course' => $course,
             'verified' => $verified,
-            'certificate' => $certificate,
             'courseInstructors' => $courseInstructors,
             'courseFeedbackParams' => $courseFeedbackParams,
             'instructorFeedbackParams' => $instructorFeedbackParams,
+            'courseLearnerFeedBackCheck' => $courseLearnerFeedBackCheck,
+            'instructorLearnerFeedBackCheck' => $instructorLearnerFeedBackCheck
         ]);
     }
 }

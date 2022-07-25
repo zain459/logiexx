@@ -64,10 +64,10 @@ Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController
 
 //learner-feedback
 Route::get('site/course/{id}/learner-feedback', LearnerFeedBackIndexController::class)->name('site.learner-feedback.form');
-Route::get('site/course/{id}/learner-feedback/verify', LearnerFeedBackVerificationController::class)->name('site.learner-feedback.verify');
+Route::post('site/course/{id}/learner-feedback/verify', LearnerFeedBackVerificationController::class)->name('site.learner-feedback.verify');
 
 //course-learner-feedback
-Route::post('site/course/{id}/learner-feedback/store', CourseLearnerFeedBackStoreController::class)->name('site.course-learner-feedback.store');
+Route::get('site/course/{id}/learner-feedback/store', CourseLearnerFeedBackStoreController::class)->name('site.course-learner-feedback.store');
 
 //webinar-registration-form
 Route::get('site/webinar-registration-form', WebinarRegistrationFormIndex::class)->name('site.webinar-registration-form');

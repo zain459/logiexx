@@ -45,9 +45,16 @@ class CourseDetailController
             ->get()
             ->mapWithKeys(function ($item) {
                 return [$item->instructor_id => $item->reviews];
-            }
-            );
-//        dd($instructorsFeedback);
+            });
+
+            $instructorsStudent = DB::table('instructor_feedback')
+                ->select(['instructor_id', 'course_id',  DB::raw('count(student_id) as totalStudent')])
+                ->groupBy('instructor_id', 'course_id')
+                ->get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->instructor_id => $item->totalStudent];
+                });
+
 
         return view('site.course-detail', [
             'pages' => $pages,
@@ -64,6 +71,7 @@ class CourseDetailController
             'instructorsFeedback' => $instructorsFeedback,
             'instructorsReview' => $instructorsReview,
             'courseLearningObjectives' => $courseLearningObjectives,
+            'instructorsStudent' => $instructorsStudent,
         ]);
     }
 
