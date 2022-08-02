@@ -13,6 +13,7 @@ use Logixs\Modules\Course\Models\CoursePartner;
 use Logixs\Modules\Instructor\Models\Instructor;
 use Logixs\Modules\Course\Models\CourseInstructor;
 use Logixs\Modules\Course\Models\CourseLearningObjective;
+use Logixs\Modules\Site\CourseLearnerFeedBack\Models\CourseLearnerFeedBack;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\InstructorLearnerFeedBack;
 
 class CourseDetailController
@@ -47,14 +48,14 @@ class CourseDetailController
                 return [$item->instructor_id => $item->reviews];
             });
 
-            $instructorsStudent = DB::table('instructor_feedback')
-                ->select(['instructor_id', 'course_id',  DB::raw('count(student_id) as totalStudent')])
-                ->groupBy('instructor_id', 'course_id')
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->instructor_id => $item->totalStudent];
-                });
-
+        $instructorsStudent = DB::table('instructor_feedback')
+            ->select(['instructor_id', 'course_id', DB::raw('count(student_id) as totalStudent')])
+            ->groupBy('instructor_id', 'course_id')
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->instructor_id => $item->totalStudent];
+            });
+        $totalCourseFeedback = CourseLearnerFeedBack::where('course_id', $specific->id())->count('student_id');
 
         return view('site.course-detail', [
             'pages' => $pages,
@@ -66,12 +67,13 @@ class CourseDetailController
             'totalPartners' => $totalPartners,
             'coursePartners' => $coursePartners,
             'courseFeedbacks' => $courseFeedbacks,
-            'courseInstructors' => $courseInstructors,
             'courseEnrollment' => $courseEnrollment,
-            'instructorsFeedback' => $instructorsFeedback,
+            'courseInstructors' => $courseInstructors,
             'instructorsReview' => $instructorsReview,
-            'courseLearningObjectives' => $courseLearningObjectives,
             'instructorsStudent' => $instructorsStudent,
+            'instructorsFeedback' => $instructorsFeedback,
+            'totalCourseFeedback' => $totalCourseFeedback,
+            'courseLearningObjectives' => $courseLearningObjectives,
         ]);
     }
 

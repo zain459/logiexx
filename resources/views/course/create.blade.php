@@ -171,6 +171,14 @@
                     </div>
 
                     <div class="mb-3 col-md-6">
+                        <label class="form-label" for="platform">Link</label>
+                        <input type="text" class="form-control" name="link" id="link" required/>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" for="image">Licensing Information Image</label>
+                        <input type="file" class="form-control" name="licensing_information_image" id="image"/>
+                    </div>
+                    <div class="mb-3 col-md-6">
                         <label class="form-label" for="image">Image</label>
                         <input type="file" class="form-control" name="image" id="image"/>
                     </div>

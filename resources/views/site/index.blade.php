@@ -119,7 +119,7 @@
                             <div class="col">
                                 <i class=""><img src="{{'storage/'.$subjectField->image()}}" class="img-fluid w-10"
                                                  alt=""></i>
-                                <h3><a href="#">{{$subjectField->name()}}</a></h3>
+                                <h3><a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a></h3>
                             </div>
                         @endif
                     @endforeach

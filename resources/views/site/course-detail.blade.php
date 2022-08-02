@@ -31,7 +31,7 @@
         <section class="block bg-light detail-block">
             <div class="container">
                 <div class="float-lg-end right-block">
-                    <img src="{{asset('images/detail-img.jpg')}}" class="img-fluid w-100" alt="">
+                    <img src="{{ '/storage/'.$specific->image() }}" class="img-fluid w-100" alt="">
                     <div class="text">
                         <h2>At a Glance</h2>
                         @if($specific != null)
@@ -205,10 +205,17 @@
                                     <div class="text">
                                         <ul>
                                             <li>
-                                                <i class="icon-rating"></i>{{$instructorsFeedback->get($courseInstructor->id())}} Instructor Rating
+                                                <i class="icon-rating"></i>{{$instructorsFeedback->get($courseInstructor->id())}}
+                                                Instructor Rating
                                             </li>
-                                            <li><i class="icon-reviews"></i> {{$instructorsReview->get($courseInstructor->id())}} Reviews</li>
-                                            <li><i class="icon-students"></i>{{$instructorsStudent->get($courseInstructor->id())}} Students</li>
+                                            <li>
+                                                <i class="icon-reviews"></i> {{$instructorsReview->get($courseInstructor->id())}}
+                                                Reviews
+                                            </li>
+                                            <li>
+                                                <i class="icon-students"></i>{{$instructorsStudent->get($courseInstructor->id())}}
+                                                Students
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -253,15 +260,16 @@
                     <a href="{{route('site.learner-feedback.form', $specific->id())}}"
                        class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
                             class="icon-link ms-3 align-items-center"></i></a>
-                    <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> 588 Feedbacks <b>Excellent</b>  </span>
+                    <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> {{$totalCourseFeedback}} Feedbacks <b>Excellent</b>  </span>
                 </div>
             </div>
         </section>
         <section class="block">
             <div class="container mb-5">
                 <h2>Licensing Information</h2>
-                <p><a href="https://creativecommons.org/licenses/by-nc/4.0" target="_blank"><img
-                            src="{{asset('images/creativecommons.png')}}" class="img-fluid" alt=""></a></p>
+                <p><a href="{{$specific->link()}}" target="_blank"><img
+                            src="{{'/storage/'.$specific->licensingInformationImage()}}" class="img-fluid" alt=""></a>
+                </p>
             </div>
         </section>
     </main>

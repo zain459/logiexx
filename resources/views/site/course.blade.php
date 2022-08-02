@@ -125,37 +125,42 @@
         <section class="block apply-block">
             <div class="container">
                 <div class="filter-tags d-md-flex flex-wrap justify-content-between">
-                    <div class="inner">
+                    <div class="inner" id="demo">
                         @foreach($subjectAreas as $subjectArea)
                             @if(isset($filters['subject_areas']) && in_array($subjectArea->id(), $filters['subject_areas']))
-                                <span class="tag">{{ $subjectArea->name()  }} </a></span>
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['subject_areas' => null]) }}">{{ $subjectArea->name() }} </a></span>
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
                             @if(isset($filters['fee_type']) && in_array($courseFee->name(), $filters['fee_type']))
-                                <span class="tag">{{$courseFee->name()}} </a></span>
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['fee_type' => null]) }}">{{$courseFee->name()}}</a></span>
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
                             @if(isset($filters['difficulty_level']) && in_array($difficultyLevel->id(), $filters['difficulty_level']))
-                                <span class="tag">{{$difficultyLevel->name()}} </a></span>
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['difficulty_level' => null]) }}">{{$difficultyLevel->name()}} </a></span>
                             @endif
                         @endforeach
-
                         @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $startDateStatus)
                             @if(isset($filters['start_date_status']) && in_array($startDateStatus->id(), $filters['start_date_status']))
-                                <span class="tag">{{$startDateStatus->name()}} </a></span>
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['start_date_status' => null]) }}">{{$startDateStatus->name()}} </a></span>
                             @endif
                         @endforeach
 
                         @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
                             @if(isset($filters['duration_interval']) && in_array($durationInterval->id(), $filters['duration_interval']))
-                                <span class="tag">{{$durationInterval->name()}} </a></span>
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['duration_interval' => null]) }}">{{$durationInterval->name()}} </a></span>
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\Modality::all() as $modality)
-                            @if(isset($filters['$modality']) && in_array($modality->id(), $filters['$modality']))
-                                <span class="tag">{{$modality->name()}} </a></span>
+                            @if(isset($filters['modality']) && in_array($modality->id(), $filters['modality']))
+                                <span class="tag"><a
+                                        href="{{ request()->fullUrlWithQuery(['modality' => null]) }}">{{$modality->name()}} </a></span>
                             @endif
                         @endforeach
 
@@ -168,12 +173,14 @@
                         @if($course != null)
                             <div class="col post">
                                 <div class="inner">
-                                    <div class="img"><img src="{{'/storage/'.$course->image()}}" class="img-fluid"
-                                                          alt="">
+                                    <div class="img">
+                                        <a href="{{ route('site.course-detail', $course->id()) }}">
+                                            <img src="{{'/storage/'.$course->image()}}" class="img-fluid" alt="">
+                                        </a>
                                     </div>
                                     <div class="text">
                                         <span class="modality">Modality: {{($course->modality()->name())}}</span>
-                                        <h3><a href="#">{{$course->category->name()}}</a>
+                                        <h3><a href="{{route('site.course-detail', $course->id())}}">{{$course->category->name()}}</a>
                                         </h3>
                                         <dl>
                                             <dt>Duration</dt>
@@ -204,6 +211,7 @@
             $(".filters").on('change', function () {
                 $('#filtersForm').submit();
                 // var url = window.location.href;
+                // console.log(url, 'hello')
                 // if (url.indexOf('?') > -1) {
                 //     url += '&' + this.name + "=" + this.value;
                 // } else {

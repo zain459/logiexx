@@ -36,6 +36,8 @@ return new class() extends Migration {
             $table->string('image');
             $table->text('description');
             $table->string('file');
+            $table->string('licensing_information_image');
+            $table->string('link');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')

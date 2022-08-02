@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $image
  * @property Carbon $created_at
  * @property string $file
+ * @property string $licensing_information_image
+ * @property string $link
  */
 class Course extends Model
 {
@@ -153,6 +155,16 @@ class Course extends Model
     public function createdAt(): Carbon
     {
         return $this->created_at;
+    }
+
+    public function licensingInformationImage(): string
+    {
+        return $this->licensing_information_image;
+    }
+
+    public function link(): string
+    {
+        return $this->link;
     }
 
     public function courseDetails(): HasMany

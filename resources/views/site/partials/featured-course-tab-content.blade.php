@@ -1,8 +1,9 @@
 <div class="col post">
     <div class="inner">
-        <div class="img"><img
-                src="{{ 'storage/'.$course->image() }}"
-                class="img-fluid" alt="">
+        <div class="img"><a href="{{ route('site.course-detail', $course->id()) }}"> <img
+                    src="{{ 'storage/'.$course->image() }}"
+                    class="img-fluid" alt="">
+            </a>
         </div>
         <div class="text">
             <span class="modality">Modality: {{($course->modality()->name())}}</span>

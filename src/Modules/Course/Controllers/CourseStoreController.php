@@ -34,7 +34,9 @@ class CourseStoreController extends Controller
             'description' => ['required', 'string'],
             'feeAmount' => ['nullable'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'file' => ['required', 'mimes:pdf', 'max:2048']
+            'file' => ['required', 'mimes:pdf', 'max:2048'],
+            'licensing_information_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'link' => ['required', 'string']
         ]);
 
         /** @var \Illuminate\Http\UploadedFile * */
@@ -44,7 +46,10 @@ class CourseStoreController extends Controller
         $pdfFile = $request->file('file');
         $filePath = SaveImage::save($pdfFile);
 
-        $course = GetCourse::store($data, $path, $filePath);
+        $licensingInformationImage = $request->file('licensing_information_image');
+        $licensingInformationImagePath = SaveImage::save($licensingInformationImage);
+
+        $course = GetCourse::store($data, $path, $filePath, $licensingInformationImagePath);
 
         flash('Course added');
 

@@ -89,11 +89,11 @@
                                         class="d-none">linkedin</span></i></a></li>
                         <li><a href="https://www.youtube.com/" target="_blank"><i class="icon-youtube"><span
                                         class="d-none">youtube</span></i></a></li>
-                        <li><a href="https://www.facebook.com/"><i class="icon-facebook"><span
+                        <li><a href="https://www.facebook.com/" target="_blank"><i class="icon-facebook"><span
                                         class="d-none">facebook</span></i></a></li>
-                        <li><a href="https://www.instagram.com/?hl=en"><i class="icon-instagram"><span class="d-none">instagram</span></i></a>
+                        <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="icon-instagram"><span class="d-none">instagram</span></i></a>
                         </li>
-                        <li><a href="https://twitter.com/"><i class="icon-twitter"><span
+                        <li><a href="https://twitter.com/i/flow/login" target="_blank"><i class="icon-twitter"><span
                                         class="d-none">twitter</span></i></a></li>
                     </ul>
                 </div>

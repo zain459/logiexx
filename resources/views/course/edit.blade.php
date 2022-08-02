@@ -54,6 +54,12 @@
                         </div>
                         <div class="row">
                             <div class="mb-3 col">
+                                <label class="form-label" for="link">Link</label>
+                                <input type="text" class="form-control" name="link" value="{{ $course->link() }}" id="link"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col">
                                 <label class="form-label" for="courseStartDate">Course Start Date</label>
                                 <input type="date" class="form-control" name="courseStartDate" value="{{ $course->courseStartDate()->toDateString() }}" id="courseStartDate"/>
                             </div>
@@ -89,7 +95,18 @@
                             <div class="col mb-3" id="show" style="visibility:hidden">
                                 <input type="number" class="form-control" min="0" name="feeAmount" value="{{ $course->feeAmount() }}"/>
                             </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <img src="{{ asset('storage/'.$course->licensingInformationImage()) }}" class="rounded" width="150">
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label class="form-label" for="overview">Licensing Information Image</label>
+                                    <input type="file" name="licensing_information_image" class="form-control">
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <img src="{{ asset('storage/'.$course->image()) }}" class="rounded" width="150">

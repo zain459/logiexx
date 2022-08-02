@@ -32,6 +32,9 @@ class CourseUpdateController extends Controller
             'feeAmount' => ['nullable'],
             'description' => ['required', 'string'],
             'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'file' => ['required', 'mimes:pdf', 'max:2048'],
+            'licensing_information_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'link' => ['required', 'string']
         ]);
 
         GetCourse::update($data, $id, $request);
