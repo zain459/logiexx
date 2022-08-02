@@ -45,7 +45,7 @@
                                             <input
                                                 {{isset($filters['fee_type']) && in_array($courseFee->id(), $filters['fee_type']) ? "checked": ""}}
                                                 type="checkbox" name="fee_type[]" class="filters"
-                                                value="{{$courseFee->name()}}">{{$courseFee->name()}}
+                                                value="{{$courseFee->id()}}">{{$courseFee->name()}}
                                         </label>
                                     </li>
                                 @endforeach
@@ -128,12 +128,13 @@
                     <div class="inner" id="demo">
                         @foreach($subjectAreas as $subjectArea)
                             @if(isset($filters['subject_areas']) && in_array($subjectArea->id(), $filters['subject_areas']))
-                                <span class="tag"><a
-                                        href="{{ request()->fullUrlWithQuery(['subject_areas' => null]) }}">{{ $subjectArea->name() }} </a></span>
+                                <span class="tag">
+                                    <a href="{{ request()->fullUrlWithQuery(['subject_areas' => null]) }}">{{ $subjectArea->name() }} </a>
+                                </span>
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
-                            @if(isset($filters['fee_type']) && in_array($courseFee->name(), $filters['fee_type']))
+                            @if(isset($filters['fee_type']) && in_array($courseFee->id(), $filters['fee_type']))
                                 <span class="tag"><a
                                         href="{{ request()->fullUrlWithQuery(['fee_type' => null]) }}">{{$courseFee->name()}}</a></span>
                             @endif
