@@ -38,7 +38,7 @@ class ClassStoreController extends Controller
         $class->course_id = $data['courseId'];
         $class->save();
 
-        flash('Class Created')->success();
+        flash('Class Created')->success()->important();
         return redirect(route('admin.course-class.index', $course->id()));
     }
 }

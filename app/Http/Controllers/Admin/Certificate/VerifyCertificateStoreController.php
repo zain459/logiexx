@@ -26,6 +26,8 @@ class VerifyCertificateStoreController extends Controller
         $certificateAuthentication->class_id = $data['class_id'];
 
         $certificateAuthentication->save();
+        flash('Certificate Authentication Submitted Successfully')->success()->important();
+        
         return redirect(route('admin.verify-certificate.index', $class->id()));
     }
 }

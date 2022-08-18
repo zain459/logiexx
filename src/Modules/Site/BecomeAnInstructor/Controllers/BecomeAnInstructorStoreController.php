@@ -55,6 +55,7 @@ class BecomeAnInstructorStoreController extends Controller
         $path = SaveImage::save($file);
         $becomeAnInstructor->file = $path;
         $becomeAnInstructor->save();
+        flash('Successfully Submitted')->success();
 
         return redirect()->back();
     }

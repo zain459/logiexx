@@ -4,7 +4,7 @@
     <div class="title-section">
         <div class="container">
             <div class="inner-menu">
-                <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
+                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
             <div class="fields-menu">
@@ -20,6 +20,20 @@
             </div>
             <h1>Become an Instructor </h1>
         </div>
+    </div>
+    <div class="container p-0">
+        @if ($errors->any())
+            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @include('flash::message')
+
+        @yield('content')
     </div>
     <main id="main">
         <section class="block our-courses bdb">
@@ -238,70 +252,70 @@
                         <ul class="list-unstyled d-flex justify-content-between row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 flex-wrap">
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Creative Arts & Media'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Creative Arts & Media')}}">
                                     <span class="check"></span>
                                     <span class="label">Creative Arts & Media</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Business & Management'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Business & Management')}}">
                                     <span class="check"></span>
                                     <span class="label">Business & Management</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'IT & Computer Science'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('IT & Computer Science')}}">
                                     <span class="check"></span>
                                     <span class="label">IT & Computer Science</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Accounting & Finance'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Accounting & Finance')}}">
                                     <span class="check"></span>
                                     <span class="label">Accounting & Finance</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Education & Teaching'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Education & Teaching')}}">
                                     <span class="check"></span>
                                     <span class="label">Education & Teaching</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Health & Medicine'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Health & Medicine')}}">
                                     <span class="check"></span>
                                     <span class="label">Health & Medicine</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Humanities'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Humanities')}}">
                                     <span class="check"></span>
                                     <span class="label">Humanities</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Design Courses'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Design Courses')}}">
                                     <span class="check"></span>
                                     <span class="label">Design Courses</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Mathematics'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Mathematics')}}">
                                     <span class="check"></span>
                                     <span class="label">Mathematics</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Programming'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Programming')}}">
                                     <span class="check"></span>
                                     <span class="label">Programming</span>
                                 </label>
@@ -309,35 +323,35 @@
                             <li>
                                 <label>
                                     <input type="checkbox" name="subject_areas[]"
-                                           value="{{'Professional Development'}}">
+                                           value="{{old('Professional Development')}}">
                                     <span class="check"></span>
                                     <span class="label">Professional Development</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Other (please specify)'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Other (please specify)')}}">
                                     <span class="check"></span>
                                     <span class="label">Other (please specify) </span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Social Sciences'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Social Sciences')}}">
                                     <span class="check"></span>
                                     <span class="label">Social Sciences </span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Sales & Marketing'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Sales & Marketing')}}">
                                     <span class="check"></span>
                                     <span class="label">Sales & Marketing</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{'Statistics'}}">
+                                    <input type="checkbox" name="subject_areas[]" value="{{old('Statistics')}}">
                                     <span class="check"></span>
                                     <span class="label">Statistics</span>
                                 </label>
@@ -359,13 +373,13 @@
                         <div class="d-flex">
                             <div class="cu_select cu_select2">
                                 <select name="available_to_start_work">
-                                    <option>select</option>
+                                    <option></option>
                                     <option value="{{'After 15 Days'}}">After 15 Days</option>
                                     <option value="{{'After 1 Month'}}">After 1 Month</option>
                                 </select>
                             </div>
                             <label class="calendar">
-                                <input type="date" class="date-control" name="date" value="{{'date'}}" required>
+                                <input type="date" class="date-control" name="date" value="{{old('date')}}" required>
                                 <span><i class="icon-calendar"></i></an></span>
                             </label>
                         </div>

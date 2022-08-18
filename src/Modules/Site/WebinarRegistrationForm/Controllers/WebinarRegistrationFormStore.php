@@ -41,7 +41,9 @@ class WebinarRegistrationFormStore extends Controller
         $file = $request->file('file');
         $path = SaveImage::save($file);
         $webinarRegistration->file = $path;
+
         $webinarRegistration->save();
+        flash('Successfully Submitted')->success();
 
         return redirect()->route('site.webinar-registration-form');
     }

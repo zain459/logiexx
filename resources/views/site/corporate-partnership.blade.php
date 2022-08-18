@@ -21,6 +21,20 @@
             <h1>Corporate Partnership</h1>
         </div>
     </div>
+    <div class="container p-0">
+        @if ($errors->any())
+            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @include('flash::message')
+
+        @yield('content')
+    </div>
     <main id="main">
         <section class="block apply-block">
             <div class="container">
@@ -96,7 +110,7 @@
                                     <label for="contact_on_behalf_of">Contacting on Behalf of<sup>*</sup></label>
                                     <div class="cu_select m-0">
                                         <select name="contact_on_behalf_of">
-                                            <option>select</option>
+                                            <option></option>
                                             <option value="{{'x'}}">x</option>
                                             <option value="{{'y'}}">y</option>
                                         </select>
@@ -108,7 +122,7 @@
                                     <label for="company_type">Company Type<sup>*</sup></label>
                                     <div class="cu_select m-0">
                                         <select name="company_type">
-                                            <option>select</option>
+                                            <option></option>
                                             <option value="{{'x'}}">x</option>
                                             <option value="{{'y'}}">y</option>
                                         </select>
@@ -120,7 +134,7 @@
                                     <label for="expected_learners">Expected Learners<sup>*</sup></label>
                                     <div class="cu_select m-0">
                                         <select name="expected_learners">
-                                            <option>select</option>
+                                            <option></option>
                                             <option value="{{'1'}}">x</option>
                                             <option value="{{'2'}}">y</option>
                                         </select>

@@ -11,8 +11,8 @@ use Logixs\Modules\Event\Controllers\EventUpdateController;
 Route::middleware(['auth'])->group(function () {
     Route::get('events', EventIndexController::class)->name('event-index');
     Route::get('event/create', EventCreateController::class)->name('event-create');
-    Route::post('event/store', EventStoreController::class);
+    Route::post('event/store', EventStoreController::class)->name('event-store');
     Route::get('event/{id}/edit', EventEditController::class)->name('event-edit');
-    Route::post('event/{id}/update', EventUpdateController::class);
+    Route::post('event/{id}/update', EventUpdateController::class)->name('event-update');
     Route::post('event/{id}/delete', EventDeleteController::class)->name('event-delete');
 });

@@ -17,7 +17,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th></th>
+                <th class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -26,10 +26,22 @@
                     <td>{{ $instructor->name() }}</td>
                     <td>{{ $instructor->email() }}</td>
                     <td>{{ $instructor->address() }}</td>
-                    <td>
+                    <td class="d-flex justify-content-center">
                         @include('instructor.edit', [
                                 'instructor' => $instructor
                             ])
+                        <form method="post" action="{{ route('instructor.delete', $instructor->id()) }}">
+                            @csrf
+                            <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @empty

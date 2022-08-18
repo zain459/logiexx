@@ -14,6 +14,7 @@ class FeaturedCourseStoreController extends Controller
         $feature->course_id = $request->course_id;
         $feature->type_id = $request->type_id;
         $feature->save();
+        flash('Course Feature Submitted Successfully')->success()->important();
 
         return redirect()->back();
     }

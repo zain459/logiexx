@@ -18,9 +18,10 @@ class FeedBackParamsStoreController extends Controller
         $feedBack = new FeedBackParams();
         $feedBack->category = $data['category'];
         $feedBack->title = $data['title'];
-        $feedBack->save();
 
-        flash('FeedBack Submitted Successfully')->success();
+        $feedBack->save();
+        flash('FeedBack Submitted Successfully')->success()->important();
+
         return redirect(route('admin.feed-back.index'));
     }
 }

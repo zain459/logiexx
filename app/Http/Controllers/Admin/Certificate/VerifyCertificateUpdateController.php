@@ -20,9 +20,10 @@ class VerifyCertificateUpdateController extends Controller
         $verifyCertificateAuthentication->name = $data['name'];
         $verifyCertificateAuthentication->verify_certificate = $data['verify_certificate'];
         $verifyCertificateAuthentication->issue_date = $data['issue_date'];
-        $verifyCertificateAuthentication->save();
 
-        flash('certificate Authentication Updated')->success();
+        $verifyCertificateAuthentication->save();
+        flash('Certificate Authentication Updated')->success()->important();
+
         return redirect()->back();
 
     }

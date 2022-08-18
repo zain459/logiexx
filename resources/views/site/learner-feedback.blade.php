@@ -39,8 +39,8 @@
         @if(isset($courseLearnerFeedBackCheck))
             <p class="text-center">Feedback Already Submitted</p>
         @elseif(isset($verified) && $verified !== null)
-{{--            <p class="text-center">You have already submit your feedback</p>--}}
-{{--        @else--}}
+            {{--            <p class="text-center">You have already submit your feedback</p>--}}
+            {{--        @else--}}
             <div class="block">
                 <span id="provide-feedback" class="scroll">scroll</span>
                 <div class="container">
@@ -84,7 +84,7 @@
                     </div>
 
                     <form method="get" action="{{route('site.course-learner-feedback.store', $course->id())}}">
-{{--                        @csrf--}}
+                        {{--                        @csrf--}}
                         <div class="table-responsive">
                             <table class="table text-center table-form" cellspacing="0" cellpadding="0"
                                    width="100%">
@@ -148,27 +148,65 @@
                         </div>
                         <div class="fieldgroup">
                             <label class="label">How would you rate the overall quality of the course?</label>
-                            <div class="rating">
-                                <label class="start-label">
-                                    <input type="checkbox" name="course[quality_of_course]" value="{{1}}">
-                                    <span class="fa fa-star"></span>
-                                </label>
-                                <label class="start-label">
-                                    <input type="checkbox" name="course[quality_of_course]" value="{{2}}">
-                                    <span class="fa fa-star"></span>
-                                </label>
-                                <label class="start-label">
-                                    <input type="checkbox" name="course[quality_of_course]" value="{{3}}">
-                                    <span class="fa fa-star"></span>
-                                </label>
-                                <label class="start-label">
-                                    <input type="checkbox" name="course[quality_of_course]" value="{{4}}">
-                                    <span class="fa fa-star"></span>
-                                </label>
-                                <label class="start-label">
-                                    <input type="checkbox" name="course[quality_of_course]" value="{{5}}">
-                                    <span class="fa fa-star"></span>
-                                </label>
+                            {{--                            <div class="rating">--}}
+                            <div class="rating-stars">
+
+                                <ul id='stars'>
+                                    <li class='star' title='Poor' data-value='1'>
+                                        <label>
+                                            <input type="checkbox" name="course[quality_of_course]" value="{{1}}">
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </label>
+                                    </li>
+                                    <li class='star' title='Fair' data-value='2'>
+                                        <label>
+                                            <input type="checkbox" name="course[quality_of_course]" value="{{2}}">
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </label>
+                                    </li>
+                                    <li class='star' title='Good' data-value='3'>
+                                        <label>
+                                            <input type="checkbox" name="course[quality_of_course]" value="{{3}}">
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </label>
+                                    </li>
+                                    <li class='star' title='Excellent' data-value='4'>
+                                        <label>
+                                            <input type="checkbox" name="course[quality_of_course]" value="{{4}}">
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </label>
+                                    </li>
+                                    <li class='star' title='WOW!!!' data-value='5'>
+                                        <label>
+                                            <input type="checkbox" name="course[quality_of_course]" value="{{5}}">
+                                            <i class='fa fa-star fa-fw'></i>
+                                        </label>
+                                    </li>
+                                </ul>
+
+
+                                {{--                                <label class="start-label">--}}
+                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{1}}">--}}
+                                {{--                                    <span class="fa fa-star"></span>--}}
+                                {{--                                </label>--}}
+                                {{--                                <label class="start-label">--}}
+                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{2}}">--}}
+                                {{--                                    <span class="fa fa-star"></span>--}}
+                                {{--                                </label>--}}
+                                {{--                                <label class="start-label">--}}
+                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{3}}">--}}
+                                {{--                                    <span class="fa fa-star"></span>--}}
+                                {{--                                </label>--}}
+                                {{--                                <label class="start-label">--}}
+                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{4}}">--}}
+                                {{--                                    <span class="fa fa-star"></span>--}}
+                                {{--                                </label>--}}
+                                {{--                                <label class="start-label">--}}
+                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{5}}">--}}
+                                {{--                                    <span class="fa fa-star"></span>--}}
+                                {{--                                </label>--}}
+
+
                             </div>
                         </div>
                         <input type="hidden" value="{{$verified->id()}}" name="course[studentId]">
@@ -186,6 +224,57 @@
         $('input[type="checkbox"]').on('change', function () {
             $('input[name="' + this.name + '"]').not(this).prop('checked', false);
         });
+
+        $(document).ready(function () {
+            /* 1. Visualizing things on Hover - See next part for action on click */
+            $('#stars li').on('mouseover', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function (e) {
+                    if (e < onStar) {
+                        $(this).addClass('hover');
+                    } else {
+                        $(this).removeClass('hover');
+                    }
+                });
+
+            }).on('mouseout', function () {
+                $(this).parent().children('li.star').each(function (e) {
+                    $(this).removeClass('hover');
+                });
+            });
+
+            /* 2. Action to perform on click */
+            $('#stars li').on('click', function () {
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+
+                for (i = 0; i < stars.length; i++) {
+                    $(stars[i]).removeClass('selected');
+                }
+
+                for (i = 0; i < onStar; i++) {
+                    $(stars[i]).addClass('selected');
+                }
+
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                    msg = "Thanks! You rated this " + ratingValue + " stars.";
+                } else {
+                    msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+                }
+                responseMessage(msg);
+            });
+        });
+
+        function responseMessage(msg) {
+            $('.success-box').fadeIn(200);
+            $('.success-box div.text-message').html("<span>" + msg + "</span>");
+        }
+
 
     </script>
 @endsection

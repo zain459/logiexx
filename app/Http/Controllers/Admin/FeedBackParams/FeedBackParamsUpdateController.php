@@ -21,9 +21,10 @@ class FeedBackParamsUpdateController extends Controller
         ]);
         $feedBackParam->category = $data['category'];
         $feedBackParam->title = $data['title'];
-        $feedBackParam->save();
 
-        flash('FeedBack updated Successfully')->success();
+        $feedBackParam->save();
+        flash('FeedBack updated Successfully')->success()->important();
+
         return redirect(route('admin.feed-back.index'));
     }
 }

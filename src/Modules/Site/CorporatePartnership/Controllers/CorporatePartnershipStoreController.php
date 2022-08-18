@@ -38,10 +38,11 @@ class CorporatePartnershipStoreController extends Controller
         $corporatePartnership->company_type = $data['company_type'];
         $corporatePartnership->expected_learners = $data['expected_learners'];
         $corporatePartnership->country = $data['country'];
-        $corporatePartnership->teaching_interest = implode(',' , $data['teaching_interest']);
+        $corporatePartnership->teaching_interest = implode(',', $data['teaching_interest']);
         $corporatePartnership->description = $data['description'];
 
         $corporatePartnership->save();
+        flash('Successfully Submitted')->success();
 
         return redirect()->route('site.corporate-partnership');
 

@@ -37,7 +37,7 @@ class ClassUpdateController extends Controller
         }
         $courseClass->save();
 
-        flash('class Updated')->success();
+        flash('class Updated')->success()->important();
         return redirect()->back();
     }
 }

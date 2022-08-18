@@ -10,6 +10,7 @@ class VerifyCertificateDeleteController
     {
         $verifyCertificateAuthentication = CertificateAuthentication::findOrFail($id);
         $verifyCertificateAuthentication->delete();
+        flash('Deleted Successfully')->error()->important();
 
         return redirect()->back();
     }

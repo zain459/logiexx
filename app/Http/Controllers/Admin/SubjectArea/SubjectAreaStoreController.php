@@ -24,7 +24,7 @@ class SubjectAreaStoreController extends Controller
         $cat->image = $path;
         $cat->save();
 
-        flash('subject area added')->success();
+        flash('subject area added')->success()->important();
 
         return redirect(route('admin.subject-area.index'));
 

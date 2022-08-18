@@ -19,17 +19,17 @@
             <tr>
                 <th>Title</th>
                 <th>Feedback</th>
-                <th>Rating</th>
-                <td></td>
+                <th class="text-center">Rating</th>
+                <th class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
             @forelse($feedbacks as $feedback)
                 <tr>
                     <td>{{ $feedback->title() }}</td>
-                    <td>{{ $feedback->feedback() }}</td>
-                    <td>{{ $feedback->rating() }}</td>
-                    <td class="d-flex">
+                    <td class="text-truncate">{{ $feedback->feedback() }}</td>
+                    <td class="text-center">{{ $feedback->rating() }}</td>
+                    <td class="d-flex justify-content-center">
                         @include('course.feedback-edit', [
                         'feedback' => $feedback
                     ])

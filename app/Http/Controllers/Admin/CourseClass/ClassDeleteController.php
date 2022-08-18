@@ -10,7 +10,9 @@ class ClassDeleteController
     public function __invoke(int $id)
     {
         $class = CourseClass::findOrFail($id);
+
         $class->delete();
+        flash('Class Deleted')->error()->important();
 
         return redirect()->back();
     }

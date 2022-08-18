@@ -16,6 +16,7 @@
                 <th>Speaker</th>
                 <th>Moderator</th>
                 <th>Organization</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +27,7 @@
                     <td>{{$webinar->moderator()}}</td>
                     <td>{{$webinar->organization()}}</td>
 
-                    <td class="table-action">
+                    <td class="table-action d-flex gap-2">
                         <a href="{{route('webinar-edit', $webinar->id())}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

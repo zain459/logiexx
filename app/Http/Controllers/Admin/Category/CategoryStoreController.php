@@ -17,7 +17,7 @@ class CategoryStoreController extends Controller
         $cat->name = $data['name'];
         $cat->save();
 
-        flash('category added')->success();
+        flash('category added')->success()->important();
 
         return redirect(route('admin.category.index'));
     }

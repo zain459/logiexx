@@ -1,5 +1,9 @@
 <button data-bs-toggle="modal" data-bs-target="#editFeedback-{{$feedback->id()}}" class="btn btn-sm btn-link">
-    Edit
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+         stroke-linejoin="round" class="feather feather-edit-2 align-middle me-2">
+        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+    </svg>
 </button>
 
 <div class="modal fade" id="editFeedback-{{$feedback->id()}}" tabindex="-1" role="dialog" aria-labelledby="editFeedback-{{$feedback->id()}}" aria-hidden="true">

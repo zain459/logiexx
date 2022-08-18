@@ -4,7 +4,7 @@
     <div class="title-section">
         <div class="container">
             <div class="inner-menu">
-                <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
+                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
                 <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
             </div>
             <div class="fields-menu">
@@ -21,6 +21,20 @@
             <h1 style="text-transform: none;">Register for a Webinar</h1>
         </div>
     </div>
+    <div class="container p-0">
+        @if ($errors->any())
+            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @include('flash::message')
+
+        @yield('content')
+    </div>
     <main id="main">
         <section class="block apply-block">
             <div class="container">
@@ -33,32 +47,32 @@
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="first_name">First Name<sup>*</sup></label>
-                                    <input type="text" id="first_name" name="first_name" class="form-control">
+                                    <input type="text" id="first_name" value="{{old('first_name')}}" name="first_name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="last_name">Last Name<sup>*</sup></label>
-                                    <input type="text" id="last_name" name="last_name" class="form-control">
+                                    <input type="text" id="last_name" value="{{old('last_name')}}" name="last_name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="work_email">Work Email<sup>*</sup></label>
-                                    <input type="text" id="work_email" name="work_email" class="form-control">
+                                    <input type="text" id="work_email" value="{{old('work_email')}}" name="work_email" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="phone_number">Phone Number<sup>*</sup></label>
-                                    <input type="text" id="phone_number" name="phone_number" class="form-control">
+                                    <input type="text" id="phone_number" value="{{old('phone_number')}}" name="phone_number" class="form-control">
                                 </div>
                             </div>
                             <div class="col-12 col-md-11">
                                 <div class="field d-flex flex-column flex-xl-row justify-content-between fieldrow">
                                     <label for="organization_name">Organization Name (Full Company Name; no
                                         abbreviations/acronyms)</label>
-                                    <div class=""><input type="text" id="organization_name" name="organization_name"
+                                    <div class=""><input type="text" id="organization_name" value="{{old('organization_name')}}" name="organization_name"
                                                          class="form-control"></div>
                                 </div>
                             </div>

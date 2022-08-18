@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsDeleteController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
@@ -110,9 +112,11 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     //FeedBackParams
     Route::get('feedback-params', FeedBackParamsController::class)->name('admin.feed-back.index');
     Route::post('feedback-params/store', FeedBackParamsStoreController::class)->name('admin.feed-back.store');
+    Route::post('feedback-params/{id}/delete', FeedBackParamsDeleteController::class)->name('admin.feed-back.delete');
     Route::post('feedback-params/{id}/update', FeedBackParamsUpdateController::class)->name('admin.feed-back.update');
 
     //CourseFeedBackParams
     Route::get('course/{id}/feedback-params', CourseFeedBackParamsIndexController::class)->name('admin.course.feedback-params');
     Route::post('course-feedback-params/store', CourseFeedBackParamsStoreController::class)->name('admin.course-feed-back-params.store');
+    Route::post('course-feedback-params/{id}/store', CourseFeedBackParamsDeleteController::class)->name('admin.course-feed-back-params.delete');
 });

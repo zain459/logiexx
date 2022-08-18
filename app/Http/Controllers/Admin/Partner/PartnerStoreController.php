@@ -25,7 +25,7 @@ class PartnerStoreController extends Controller
         $partner->image = $path;
         $partner->save();
 
-        flash('affiliated partners created')->success();
+        flash('affiliated partners created')->success()->important();
 
         return redirect()->back();
     }

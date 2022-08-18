@@ -31,7 +31,7 @@ class SubjectAreaUpdateController extends Controller
 
         $area->save();
 
-        flash('category updated')->success();
+        flash('category updated')->success()->important();
 
         return redirect()->route('admin.subject-area.index');
     }

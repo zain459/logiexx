@@ -22,7 +22,7 @@ class CourseFeedBackParamsStoreController extends Controller
         $courseFeedbackParam->type = $data['type'];
         $courseFeedbackParam->save();
 
-        flash('Course Feedback Params Submit Successfully')->success();
+        flash('Course Feedback Params Submit Successfully')->success()->important();
 
         return redirect(route('admin.course.feedback-params', $courseFeedbackParam->course_id));
     }

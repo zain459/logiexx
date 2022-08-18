@@ -10,7 +10,7 @@ class FeaturedCourseDeleteController
     {
         FeaturedCourse::findOrFail($id)->delete();
 
-        flash('Course Featured deleted')->success();
+        flash('Course Featured deleted')->error()->important();
 
         return redirect()->back();
     }

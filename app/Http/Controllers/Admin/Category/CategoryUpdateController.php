@@ -25,7 +25,7 @@ class CategoryUpdateController extends Controller
         $cat->name = $data['name'];
         $cat->save();
 
-        flash('category updated')->success();
+        flash('category updated')->success()->important();
 
         return redirect()->route('admin.category.index');
     }

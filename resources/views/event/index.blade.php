@@ -26,7 +26,7 @@
                     <td>{!! html_entity_decode($event->description()) !!}</td>
                     <td>{{ $event->startDate()->toDateString() }}</td>
                     <td>{{ $event->endDate()->toDateString() }}</td>
-                    <td><img src="{{ $event->image() }}" width="100" alt="Image"></td>
+                    <td><img src="{{ asset('storage/'. $event->image()) }}" width="100" alt="Image"></td>
 
                     <td>
                         <a href="{{ route('event-edit', $event->id()) }}">

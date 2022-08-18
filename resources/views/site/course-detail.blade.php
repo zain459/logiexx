@@ -74,10 +74,10 @@
                     <div class="group">
                         <h2>Course Modality</h2>
                         <ul class="overview-list">
-                            <li class="selected">In-Person</li>
-                            <li>Online</li>
-                            <li>Blended</li>
-                            <li>Online Live</li>
+                            <li class="{{ $specific->modality === 1 ? "selected": "" }}">In-Person</li>
+                            <li class="{{ $specific->modality === 2 ? "selected": "" }}">Blended</li>
+                            <li class="{{ $specific->modality === 3 ? "selected": "" }}">Online</li>
+                            <li class="{{ $specific->modality === 4 ? "selected": "" }}">Online Live</li>
                         </ul>
                     </div>
                     <div class="group">

@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ $courseLearningObjective->title() }}</td>
 {{--                    <td>{!! html_entity_decode($courseLearningObjective->description()) !!}</td>--}}
-                    <td class="table-action">
+                    <td class="table-action d-flex justify-content-end gap-2">
                         <a href="{{ route('course.learning-objective-edit', $courseLearningObjective->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

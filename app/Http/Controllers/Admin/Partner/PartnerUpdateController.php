@@ -29,7 +29,7 @@ class PartnerUpdateController extends Controller
         }
 
         $partner->save();
-        flash('affiliated partners updated')->success();
+        flash('affiliated partners updated')->success()->important();
 
         return redirect()->back();
     }

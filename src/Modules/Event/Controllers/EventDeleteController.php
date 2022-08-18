@@ -9,7 +9,7 @@ class EventDeleteController
     public function __invoke(int $id)
     {
         Event::query()->findOrFail($id)->delete();
-        flash('event deleted')->success();
+        flash('Event deleted')->error()->important();
 
         return redirect()->back();
     }

@@ -13,6 +13,7 @@
                 <th>Last Name</th>
                 <th>Degree</th>
                 <th>Telephone</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -22,7 +23,7 @@
                     <td>{{ $becomeAnInstructor->lastName() }}</td>
                     <td>{{ $becomeAnInstructor->degree() }}</td>
                     <td>{{ $becomeAnInstructor->telephone() }}</td>
-                    <td class="table-action">
+                    <td class="table-action d-flex gap-2">
                         <a href="{{route('admin.become-an-instructor.view', $becomeAnInstructor->id())}}">
                             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>

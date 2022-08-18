@@ -5,6 +5,7 @@ namespace Logixs\Modules\Event\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\Event\Models\Event;
+use Logixs\Services\SaveImage;
 
 class EventUpdateController extends Controller
 {
@@ -26,11 +27,14 @@ class EventUpdateController extends Controller
         $event->end_date = $data['endDate'];
         $event->link = $data['link'];
         if (isset($data['image'])) {
-            $event->image = $data['image'];
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $event->image = $path;
         }
         $event->save();
 
-        flash('Event Updated')->success();
+        flash('Event Updated')->success()->important();
 
         return redirect()->route('event-index');
     }
