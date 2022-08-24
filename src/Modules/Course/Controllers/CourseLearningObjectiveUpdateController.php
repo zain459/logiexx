@@ -21,12 +21,13 @@ class CourseLearningObjectiveUpdateController extends Controller
 
         /** @var CourseLearningObjective $courseLearningObjective */
         $courseLearningObjective = CourseLearningObjective::query()->findOrFail($id);
+//        dd($courseLearningObjective);
         $courseLearningObjective->title = $data['title'];
         $courseLearningObjective->description = $data['description'];
         $courseLearningObjective->save();
 
-        flash('Course Learning Objective Updated')->success();
+        flash('Course Learning Objective Updated')->success()->important();
 
-        return redirect()->back();
+        return redirect()->route('course.learning-objective-index',$courseLearningObjective->courseId());
     }
 }

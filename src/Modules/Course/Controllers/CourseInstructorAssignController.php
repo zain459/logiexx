@@ -19,14 +19,19 @@ class CourseInstructorAssignController extends Controller
             ->where('instructor_id', $data['instructor'])
             ->where('course_id', $data['courseId'])
             ->exists();
+
         if (!$instructor) {
             $assign = new CourseInstructor();
             $assign->course_id = $data['courseId'];
             $assign->instructor_id = $data['instructor'];
             $assign->save();
-        }
-        flash('instructor assigned')->success();
+            flash('instructor assigned')->success()->important();
 
-        return redirect()->back();
+            return redirect()->back();
+        } else {
+            flash('Instructor Already Assigned')->error()->important();
+
+            return redirect()->back();
+        }
     }
 }

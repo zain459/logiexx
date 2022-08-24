@@ -1017,6 +1017,12 @@ a{
 }
 /*----- Slideshow ----*/
 
+.already-exist {
+    background: #6f0202;
+    color: white;
+    text-align: center;
+}
+
 .feedIns {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -1492,6 +1498,16 @@ td {
     color: #666;
     transition: all linear 0.2s;
 }
+
+.subject-fields .col svg {
+    width: 40px;
+}
+
+.subject-fields .col svg path{
+    fill:#666 !important;
+}
+
+
 
 .subject-fields .col:hover i {
     transform: scale(1.1, 1.1);

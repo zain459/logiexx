@@ -5,9 +5,9 @@ namespace Logixs\Modules\Testimonial\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int    $id
+ * @property int $id
  * @property string $name
- * @property string $image
+ * @property ?string $image
  * @property string $designation
  * @property string $company
  * @property string $description
@@ -28,7 +28,7 @@ class Testimonial extends Model
         return $this->name;
     }
 
-    public function image(): string
+    public function image(): ?string
     {
         return $this->image;
     }

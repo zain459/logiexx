@@ -18,14 +18,17 @@ class InstructorStoreController extends Controller
             'bio' => ['required'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $path = SaveImage::save($file);
+
         $instructor = new Instructor();
         $instructor->setName($data['name']);
         $instructor->setEmail($data['email']);
         $instructor->bio = $data['bio'];
-        $instructor->image = $path;
+        if (isset($data['image'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $instructor->image = $path;
+        }
         if (isset($data['address'])) {
             $instructor->setAddress($data['address']);
         }

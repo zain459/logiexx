@@ -5,115 +5,142 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <figure class="figure">
-                <img src="{{asset('storage/'. $webinar->image())}}" width="200" class="img-cricle mr-6" >
-                <img src="{{asset('storage/'. $webinar->linkImage())}}" width="200" class="img-cricle" >
+                @if($webinar->image())
+                    <img src="{{asset('storage/'. $webinar->image())}}" width="200" class="img-cricle mr-6">
+                @else
+                    <img src="{{ asset('images/f-logo.png') }}" width="200" class="img-cricle mr-6">
+                @endif
+                @if($webinar->linkImage())
+                    <img src="{{asset('storage/'. $webinar->linkImage())}}" width="200" class="img-cricle">
+                @else
+                    <img src="{{ asset('images/f-logo.png') }}" width="200" class="img-cricle">
+                @endif
             </figure>
         </div>
 
         <div class="col-md-6">
-            <div class="card">
+            <div class="card twocolumns-form">
                 <div class="card-header fw-bold">Update</div>
                 <div class="card-body">
-                    <form action="{{route('webinar-update', $webinar->id())}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('webinar-update', $webinar->id())}}" method="post"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                        <label class="form-label">Title</label>
+                            <label class="form-label">Title<sup>*</sup></label>
                             <input type="text" class="form-control" value="{{$webinar->title()}}" name="title"
                                    placeholder="Title"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Speaker</label>
-                                <input type="text" class="form-control" value="{{$webinar->speaker()}}" name="speaker"
-                                       placeholder="Speaker"/>
+                            <label class="form-label">Speaker<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->speaker()}}" name="speaker"
+                                   placeholder="Speaker"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Moderator</label>
-                                <input type="text" class="form-control" value="{{$webinar->moderator()}}" name="moderator"
-                                       placeholder="Moderator"/>
+                            <label class="form-label">Moderator<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->moderator()}}" name="moderator"
+                                   placeholder="Moderator"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Organization</label>
-                                <input type="text" class="form-control" value="{{$webinar->organization()}}" name="organization"
-                                       placeholder="Organization"/>
+                            <label class="form-label">Organization<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->organization()}}"
+                                   name="organization"
+                                   placeholder="Organization"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Sponsor</label>
-                                <input type="text" class="form-control" value="{{$webinar->sponsor()}}" name="sponsor"
-                                       placeholder="sponsor"/>
+                            <label class="form-label">Sponsor<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->sponsor()}}" name="sponsor"
+                                   placeholder="sponsor"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Focal Person</label>
-                                <input type="text" class="form-control" value="{{$webinar->focalPerson()}}" name="focal_person"
-                                       placeholder="Focal Person"/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Focal Person</label>
-                            <input type="text" class="form-control" value="{{$webinar->focalPersonTelephone()}}" name="focal_person_telephone"
-                                   placeholder="Focal Person Telephone"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Focal Person</label>
-                            <input type="text" class="form-control" value="{{$webinar->focalPersonEmail()}}" name="focal_person_email"
+                            <label class="form-label">Focal Person<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->focalPerson()}}"
+                                   name="focal_person"
                                    placeholder="Focal Person"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Link</label>
-                                <input type="text" class="form-control" value="{{$webinar->link()}}" name="link" placeholder="Link"/>
+                            <label class="form-label">Focal Person<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->focalPersonTelephone()}}"
+                                   name="focal_person_telephone"
+                                   placeholder="Focal Person Telephone"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Focal Person<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->focalPersonEmail()}}"
+                                   name="focal_person_email"
+                                   placeholder="Focal Person"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Meeting Id</label>
-                                <input type="text" class="form-control" value="{{$webinar->meetingId()}}" name="meeting_id"
-                                       placeholder="Meeting Id"/>
+                            <label class="form-label">Link<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->link()}}" name="link"
+                                   placeholder="Link"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="passcode"> Passcode</label>
-                                <input type="text" class="form-control" name="passcode" value="{{$webinar->passcode()}}" id="passcode"/>
+                            <label class="form-label">Meeting Id<sup>*</sup></label>
+                            <input type="text" class="form-control" value="{{$webinar->meetingId()}}" name="meeting_id"
+                                   placeholder="Meeting Id"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="passcode"> Passcode<sup>*</sup></label>
+                            <input type="text" class="form-control" name="passcode" value="{{$webinar->passcode()}}"
+                                   id="passcode"/>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="start_date">Webinar Start
-                                Date</label>
-                                <input type="date" class="form-control" value="{{$webinar->startDate()->toDateString()}}" name="start_date" id="start_date"/>
+                                Date<sup>*</sup></label>
+                            <input type="date" class="form-control" value="{{$webinar->startDate()->toDateString()}}"
+                                   name="start_date" id="start_date"/>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="end_date">Webinar End Date</label>
-                                <input type="date" class="form-control" value="{{$webinar->endDate()->toDateString()}}" name="end_date"
-                                       placeholder="end_date"/>
+                            <label class="form-label" for="end_date">Webinar End Date<sup>*</sup></label>
+                            <input type="date" class="form-control" value="{{$webinar->endDate()->toDateString()}}"
+                                   name="end_date"
+                                   placeholder="end_date"/>
                         </div>
-
-                        <div class="mb-3">
-                            <img src="{{ asset('storage/'. $webinar->image()) }}" width="150" class="rounded">
-                        </div>
+                        @if($webinar->image())
+                            <div class="mb-3">
+                                <img src="{{ asset('storage/'. $webinar->image()) }}" width="150" class="rounded">
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('images/f-logo.png') }}" width="150" class="rounded">
+                            </div>
+                        @endif
                         <div class="mb-3">
                             <label class="form-label">Image</label>
-                                <input type="file" class="form-control" name="image"/>
+                            <input type="file" class="form-control" name="image"/>
                         </div>
-
-                        <div class="mb-3">
-                            <img src="{{ asset('storage/'. $webinar->linkImage()) }}" width="150" class="rounded">
-                        </div>
+                        @if($webinar->linkImage())
+                            <div class="mb-3">
+                                <img src="{{ asset('storage/'. $webinar->linkImage()) }}" width="150" class="rounded">
+                            </div>
+                        @else
+                            <div class="mb-3">
+                                <img src="{{ asset('images/f-logo.png') }}" width="150" class="rounded">
+                            </div>
+                        @endif
                         <div class="mb-3">
                             <label class="form-label">Link Image</label>
-                                <input type="file" class="form-control" name="link_image"/>
+                            <input type="file" class="form-control" name="link_image">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Short Description</label>
-                        <textarea class="form-control" name="short_description" placeholder="Short Description"
-                                  rows="3" required>{{$webinar->shortDescription()}}</textarea>
+                            <label class="form-label">Short Description<sup>*</sup></label>
+                            <textarea class="form-control" name="short_description" placeholder="Short Description"
+                                      rows="3" required>{{$webinar->shortDescription()}}</textarea>
                         </div>
 
-{{--                        <input type="hidden" name="webinarId" value="{{$webinar->id()}}" required />--}}
+                        {{--                        <input type="hidden" name="webinarId" value="{{$webinar->id()}}" required />--}}
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -124,8 +151,7 @@
     </div>
 
     <script>
-        import { VueEditor } from "vue2-editor";
+        import {VueEditor} from "vue2-editor";
     </script>
-
 
 @endsection

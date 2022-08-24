@@ -282,10 +282,11 @@
                                     <div class="row">
                                         <div class="col-md-5 col-5">
                                             <i class="fas fa-graduation-cap text-orange"></i>
-                                            <strong class="margin-10px-left text-orange">Verifiable Certificate:</strong>
+                                            <strong class="margin-10px-left text-orange">Verifiable
+                                                Certificate:</strong>
                                         </div>
                                         <div class="col-md-7 col-7">
-                                            <p>{{$enrollment->verifiableCertificate()}}</p>
+                                            <p>{{$enrollment->verifiableCertificate()? 'Yes':'No'}}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -297,12 +298,13 @@
                             @csrf
                             <label class="switch">
                                 <label>status</label>
-                                <input type="checkbox" name="status" value="1" {{$enrollment->status() == 1 ? 'checked': ''}}>
+                                <input type="checkbox" name="status"
+                                       value="1" {{$enrollment->status() == 1 ? 'checked': ''}}>
                                 <span class="slider round"></span>
                             </label>
-                           <div>
-                               <button type="submit" class="btn btn-primary">Submit</button>
-                           </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -2,10 +2,16 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\SubjectArea\SubjectArea;
+
 class CertificateAuthenticationIndexController
 {
     public function __invoke()
     {
-       return view('site.certificate-authentication');
+        $subjectFields = SubjectArea::all();
+
+        return view('site.certificate-authentication', [
+            'subjectFields' => $subjectFields
+        ]);
     }
 }

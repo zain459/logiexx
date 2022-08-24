@@ -10,12 +10,13 @@
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Course Enrollment</h1>
@@ -330,8 +331,7 @@
         });
 
         $(document).ready(function () {
-            $('#code').select2({
-            });
+            $('#code').select2({});
         });
     </script>
 @endsection

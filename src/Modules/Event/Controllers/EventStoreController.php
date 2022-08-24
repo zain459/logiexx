@@ -20,17 +20,18 @@ class EventStoreController extends Controller
             'image' => ['nullable'],
         ]);
 
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $path = SaveImage::save($file);
-
         $event = new Event();
         $event->title = $data['title'];
         $event->description = $data['description'];
         $event->start_date = $data['startDate'];
         $event->end_date = $data['endDate'];
         $event->link = $data['link'];
-        $event->image = $path;
+        if (isset($data['image'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $event->image = $path;
+        }
         $event->save();
 
         flash('Event Created')->success()->important();

@@ -12,12 +12,11 @@
         <div class="card-header">
             <h5 class="card-title">New Webinar</h5>
         </div>
-        <div class="card-body">
-
+        <div class="card-body twocolumns-form">
             <form action="{{route('webinar-store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Title</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('title')}}" name="title"
                                placeholder="Title"/>
@@ -25,7 +24,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Speaker</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Speaker<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('speaker')}}" name="speaker"
                                placeholder="Speaker"/>
@@ -33,7 +32,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Moderator</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Moderator<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('moderator')}}" name="moderator"
                                placeholder="Moderator"/>
@@ -41,14 +40,14 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Organization</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Organization<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('organization')}}" name="organization"
                                placeholder="Organization"/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Sponsor</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Sponsor<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('sponsor')}}" name="sponsor"
                                placeholder="sponsor"/>
@@ -56,7 +55,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person')}}" name="focal_person"
                                placeholder="Focal Person"/>
@@ -64,14 +63,14 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Telephone</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Telephone<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person_telephone')}}" name="focal_person_telephone"
                                placeholder="Focal Person Telephone"/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Email</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Email<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person_email')}}" name="focal_person_email"
                                placeholder="Focal Person Email"/>
@@ -79,14 +78,14 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('link')}}" name="link" placeholder="Link"/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Meeting Id</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Meeting Id<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('meeting_id')}}" name="meeting_id"
                                placeholder="Meeting Id"/>
@@ -95,7 +94,7 @@
 
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end" for="start_date">Webinar Start
-                        Date</label>
+                        Date<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="date" class="form-control" name="start_date" id="start_date"/>
                     </div>
@@ -103,13 +102,13 @@
 
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end" for="end_date">Webinar End
-                        Date</label>
+                        Date<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="date" class="form-control" name="end_date" id="end_date"/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Passcode</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Passcode<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('passcode')}}" name="passcode"
                                placeholder="Passcode"/>
@@ -124,13 +123,13 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link Image</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link Image<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="file" class="form-control" name="link_image"/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Short Description</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Short Description<sup>*</sup></label>
                     <div class="col-sm-10">
                         <textarea class="form-control" name="short_description" placeholder="Short Description"
                                   rows="3" required>{{old('short_description')}}</textarea>

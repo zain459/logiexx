@@ -61,12 +61,39 @@
     <div class="alertbar">
         <div class="container d-flex flex-column flex-md-row justify-content-md-center">
             <label class="align-self-md-center">Get updates on new courses.</label>
-            <div class="d-flex justify-content-md-center">
-                <input type="text" class="form-control" placeholder="Email address">
-                <button type="submit"><span class="icon-ring"></span></button>
-            </div>
+            <form method="post" action="{{route('site.mailing-list.store')}}" class="d-flex justify-content-md-center"
+                  id="myForm">
+                @csrf
+                <input type="email" name="email" class="form-control" placeholder="Email address" required>
+                <button class="btn-modal" type="submit"><span class="icon-ring"></span></button>
+            </form>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center flex-column">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                         id="Capa_1" x="0px" y="0px" viewBox="0 0 50 50"
+                         style="enable-background:new 0 0 50 50; width: 60px; height: 60px; margin-bottom: 10px;"
+                         xml:space="preserve">
+                            <circle style="fill:#25AE88;" cx="25" cy="25" r="25"/>
+                        <polyline
+                            style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                            points="  38,15 22,33 12,25 "/>
+                    </svg>
+                    <h4 class="modal-title text-center">Success!</h4>
+                    <p class="text-center">You are now on our mailing list. We promise not to abuse it.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-sm btncls">Got It</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <footer id="footer">
         <div class="container">
             <div class="row justify-content-md-between justify-content-center">
@@ -76,9 +103,11 @@
                         <div class="text">
                             <p>© 2021 Logixs International (Pvt) Limited</p>
                             <p>Cookies are used by this site. <a href="#">Cookie Settings</a></p>
-                            <p><a href="#" class="me-md-4 mx-2 mx-md-0">Terms & Conditions</a><a href="#"
-                                                                                                 class="me-md-4 mx-2 mx-md-0">Privacy
-                                    Policy</a><a href="#" class="me-md-4 mx-2 mx-md-0">Cookie Notice</a></p>
+                            <p>
+                                <a href="#" class="me-md-4 mx-2 mx-md-0">Terms & Conditions</a>
+                                <a href="#" class="me-md-4 mx-2 mx-md-0">Privacy Policy</a>
+                                <a href="#" class="me-md-4 mx-2 mx-md-0">Cookie Notice</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +120,8 @@
                                         class="d-none">youtube</span></i></a></li>
                         <li><a href="https://www.facebook.com/" target="_blank"><i class="icon-facebook"><span
                                         class="d-none">facebook</span></i></a></li>
-                        <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="icon-instagram"><span class="d-none">instagram</span></i></a>
+                        <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="icon-instagram"><span
+                                        class="d-none">instagram</span></i></a>
                         </li>
                         <li><a href="https://twitter.com/i/flow/login" target="_blank"><i class="icon-twitter"><span
                                         class="d-none">twitter</span></i></a></li>
@@ -124,6 +154,23 @@
         })
 
     });
+
+    $('#myForm').on('submit', function (e) {
+        $('#myModal').modal('show');
+        $(this).parents(".alertbar").hide();
+        // e.preventDefault();
+    });
+    $('.btncls').on('click', function (e) {
+        $('#myModal').modal('hide');
+        e.preventDefault();
+    });
+
+    // $('. btn-modal').on('click', function (e) {
+    //     $('#myModal').modal('show');
+    //     e.preventDefault();
+    // });
+
+
 </script>
 </body>
 </html>

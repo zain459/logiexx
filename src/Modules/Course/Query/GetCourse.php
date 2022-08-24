@@ -43,7 +43,6 @@ final class GetCourse
         $course->platform = $data['platform'];
         $course->fee_type = $data['feeType'];
 
-
         if (isset($data['feeAmount'])) {
             $course->fee_amount = $data['feeAmount'];
         }

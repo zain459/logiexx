@@ -21,9 +21,21 @@
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="type">Type</label>
-                        <input type="text" class="form-control" name="type" id="type"/>
+                        <label class="form-label" for="type">type</label>
+                        <select class="form-select" name="type" id="type" required>
+                            <option></option>
+                            <option value="{{'Instructor'}}">{{ 'Instructor' }}</option>
+                            <option value="{{'Course'}}">{{ 'Course' }}</option>
+                        </select>
                     </div>
+
+
+                    {{--                    <div class="mb-3 col-md-4">--}}
+                    {{--                        <label class="form-label" for="type">Type</label><option value="{{ $durationInterval->id() }}">{{ 'Course' }}</option>--}}
+                    {{--                        <option value="">{{ 'Instructor' }}</option>--}}
+                    {{--                        <option value="">{{ 'Course' }}</option>--}}
+                    {{--                        <input type="text" class="form-control" name="type" id="type"/>--}}
+                    {{--                    </div>--}}
                 </div>
                 <input type="hidden" value="{{$course->id()}}" name="course_id" required/>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -47,7 +59,8 @@
                     <td>{{ $courseFeedbackParam->type() }}</td>
                     <td>{{ $courseFeedbackParam->feedbackParam->title() }}</td>
                     <td>
-                        <form method="post" action="{{route('admin.course-feed-back-params.delete', $courseFeedbackParam->id())}}">
+                        <form method="post"
+                              action="{{route('admin.course-feed-back-params.delete', $courseFeedbackParam->id())}}">
                             @csrf
                             <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"

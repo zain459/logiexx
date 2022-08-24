@@ -13,33 +13,33 @@
         <div class="card-header">
             <h5 class="card-title">New Testimonial</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body twocolumns-form">
 
             <form action="{{ route('testimonial-store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Name</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Name<sup>*</sup></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Name"  />
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Company</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Company<sup>*</sup></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" value="{{old('company')}}" name="company" placeholder="Company"  />
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Designation</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Designation<sup>*</sup></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" value="{{old('designation')}}" name="designation" placeholder="Designation"  />
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Description</label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-sm-10">
                         <textarea class="form-control" name="description" placeholder="Description" rows="3" required>{{ old('description') }}</textarea>
                     </div>

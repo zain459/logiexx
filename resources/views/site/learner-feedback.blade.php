@@ -1,44 +1,48 @@
 @extends('site.master')
 @section('title', 'become-an-instructor')
 @section('content')
-    <div class="title-section">
-        <div class="container">
-            <div class="inner-menu">
-                <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
-                <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
+    @if(null !== $courseLearnerFeedBackCheck && null !== $instructorLearnerFeedBackCheck)
+        <h5 class="already-exist">FeedBack Already Submitted</h5>
+    @else
+        <div class="title-section">
+            <div class="container">
+                <div class="inner-menu">
+                    <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
+                    <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
+                </div>
+                <div class="fields-menu">
+                    <h2>Browse Our Subject Fields</h2>
+                    <ul>
+                        @foreach($subjectFields as $subjectField)
+                            @if($subjectField != null)
+                                <li>
+                                    <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </div>
+                <h1>Learner Feedback</h1>
             </div>
-            <div class="fields-menu">
-                <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
-                </ul>
-            </div>
-            <h1>Learner Feedback</h1>
         </div>
-    </div>
-    <div class="container p-0">
-        @if ($errors->any())
-            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @include('flash::message')
+        <div class="container p-0">
+            @if ($errors->any())
+                <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @include('flash::message')
 
-        @yield('content')
-    </div>
-    <main id="main">
-        @if(isset($courseLearnerFeedBackCheck))
-            <p class="text-center">Feedback Already Submitted</p>
-        @elseif(isset($verified) && $verified !== null)
+            @yield('content')
+        </div>
+        <main id="main">
+            {{--        @if(isset($courseLearnerFeedBackCheck))--}}
+            {{--            <p class="text-center">Feedback Already Submitted</p>--}}
+            {{--        @elseif(isset($verified) && $verified !== null)--}}
             {{--            <p class="text-center">You have already submit your feedback</p>--}}
             {{--        @else--}}
             <div class="block">
@@ -83,8 +87,8 @@
                         <span class="tag">{{$course->title()}}</span>
                     </div>
 
-                    <form method="get" action="{{route('site.course-learner-feedback.store', $course->id())}}">
-                        {{--                        @csrf--}}
+                    <form method="post" action="{{route('site.learner-feedback.store', $course->id())}}">
+                        @csrf
                         <div class="table-responsive">
                             <table class="table text-center table-form" cellspacing="0" cellpadding="0"
                                    width="100%">
@@ -100,6 +104,7 @@
                                     <th class="text-start" colspan="5">Relevance of the Training</th>
                                 </tr>
                                 @foreach($courseFeedbackParams as $courseFeedbackParam)
+                                    {{--                                    @dump($courseFeedbackParam)--}}
                                     <tr>
                                         <td class="text-start">{{$courseFeedbackParam->feedbackParam->title()}}</td>
                                         <td><input type="radio"
@@ -184,29 +189,6 @@
                                     </li>
                                 </ul>
 
-
-                                {{--                                <label class="start-label">--}}
-                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{1}}">--}}
-                                {{--                                    <span class="fa fa-star"></span>--}}
-                                {{--                                </label>--}}
-                                {{--                                <label class="start-label">--}}
-                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{2}}">--}}
-                                {{--                                    <span class="fa fa-star"></span>--}}
-                                {{--                                </label>--}}
-                                {{--                                <label class="start-label">--}}
-                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{3}}">--}}
-                                {{--                                    <span class="fa fa-star"></span>--}}
-                                {{--                                </label>--}}
-                                {{--                                <label class="start-label">--}}
-                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{4}}">--}}
-                                {{--                                    <span class="fa fa-star"></span>--}}
-                                {{--                                </label>--}}
-                                {{--                                <label class="start-label">--}}
-                                {{--                                    <input type="checkbox" name="course[quality_of_course]" value="{{5}}">--}}
-                                {{--                                    <span class="fa fa-star"></span>--}}
-                                {{--                                </label>--}}
-
-
                             </div>
                         </div>
                         <input type="hidden" value="{{$verified->id()}}" name="course[studentId]">
@@ -218,63 +200,62 @@
                     </form>
                 </div>
             </div>
-        @endif
-    </main>
-    <script>
-        $('input[type="checkbox"]').on('change', function () {
-            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-        });
+            @endif
+        </main>
+        <script>
+            $('input[type="checkbox"]').on('change', function () {
+                $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+            });
 
-        $(document).ready(function () {
-            /* 1. Visualizing things on Hover - See next part for action on click */
-            $('#stars li').on('mouseover', function () {
-                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+            $(document).ready(function () {
+                /* 1. Visualizing things on Hover - See next part for action on click */
+                $('#stars li').on('mouseover', function () {
+                    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
 
-                // Now highlight all the stars that's not after the current hovered star
-                $(this).parent().children('li.star').each(function (e) {
-                    if (e < onStar) {
-                        $(this).addClass('hover');
-                    } else {
+                    // Now highlight all the stars that's not after the current hovered star
+                    $(this).parent().children('li.star').each(function (e) {
+                        if (e < onStar) {
+                            $(this).addClass('hover');
+                        } else {
+                            $(this).removeClass('hover');
+                        }
+                    });
+
+                }).on('mouseout', function () {
+                    $(this).parent().children('li.star').each(function (e) {
                         $(this).removeClass('hover');
+                    });
+                });
+
+                /* 2. Action to perform on click */
+                $('#stars li').on('click', function () {
+                    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                    var stars = $(this).parent().children('li.star');
+
+                    for (i = 0; i < stars.length; i++) {
+                        $(stars[i]).removeClass('selected');
                     }
-                });
 
-            }).on('mouseout', function () {
-                $(this).parent().children('li.star').each(function (e) {
-                    $(this).removeClass('hover');
+                    for (i = 0; i < onStar; i++) {
+                        $(stars[i]).addClass('selected');
+                    }
+
+                    // JUST RESPONSE (Not needed)
+                    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                    var msg = "";
+                    if (ratingValue > 1) {
+                        msg = "Thanks! You rated this " + ratingValue + " stars.";
+                    } else {
+                        msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+                    }
+                    responseMessage(msg);
                 });
             });
 
-            /* 2. Action to perform on click */
-            $('#stars li').on('click', function () {
-                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
-                var stars = $(this).parent().children('li.star');
+            function responseMessage(msg) {
+                $('.success-box').fadeIn(200);
+                $('.success-box div.text-message').html("<span>" + msg + "</span>");
+            }
 
-                for (i = 0; i < stars.length; i++) {
-                    $(stars[i]).removeClass('selected');
-                }
-
-                for (i = 0; i < onStar; i++) {
-                    $(stars[i]).addClass('selected');
-                }
-
-                // JUST RESPONSE (Not needed)
-                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-                var msg = "";
-                if (ratingValue > 1) {
-                    msg = "Thanks! You rated this " + ratingValue + " stars.";
-                } else {
-                    msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
-                }
-                responseMessage(msg);
-            });
-        });
-
-        function responseMessage(msg) {
-            $('.success-box').fadeIn(200);
-            $('.success-box div.text-message').html("<span>" + msg + "</span>");
-        }
-
-
-    </script>
-@endsection
+        </script>
+        @endsection

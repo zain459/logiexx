@@ -24,17 +24,11 @@ class WebinarStoreController extends Controller
             'meeting_id' => ['required'],
             'start_date' => ['required'],
             'end_date' => ['required'],
-            'passcode'=>['required'],
-            'image'=>['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'link_image'=>['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'short_description'=>['required', 'string']
+            'passcode' => ['required'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'link_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'short_description' => ['required', 'string']
         ]);
-
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $file1 = $request->file('link_image');
-        $path = SaveImage::save($file);
-        $path1 = SaveImage::save($file1);
 
         $webinar = new Webinar();
         $webinar->title = $data['title'];
@@ -44,14 +38,25 @@ class WebinarStoreController extends Controller
         $webinar->sponsor = $data['sponsor'];
         $webinar->focal_person = $data['focal_person'];
         $webinar->focal_person_telephone = $data['focal_person_telephone'];
-        $webinar->link = $data['link'];        $webinar->focal_person_email = $data['focal_person_email'];
+        $webinar->link = $data['link'];
+        $webinar->focal_person_email = $data['focal_person_email'];
 
         $webinar->meeting_id = $data['meeting_id'];
         $webinar->start_date = $data['start_date'];
         $webinar->end_date = $data['end_date'];
         $webinar->passcode = $data['passcode'];
-        $webinar->image = $path;
-        $webinar->link_image = $path1;
+        if (isset($data['image'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $webinar->image = $path;
+        }
+        if (isset($data['link_image'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file1 = $request->file('link_image');
+            $path1 = SaveImage::save($file1);
+            $webinar->link_image = $path1;
+        }
         $webinar->short_description = $data['short_description'];
         $webinar->save();
 

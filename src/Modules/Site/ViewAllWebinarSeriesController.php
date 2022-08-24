@@ -3,6 +3,7 @@
 namespace Logixs\Modules\Site;
 
 use Carbon\Carbon;
+use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Webinar\Models\Webinar;
 
 class ViewAllWebinarSeriesController
@@ -11,10 +12,12 @@ class ViewAllWebinarSeriesController
     {
         $upComingWebinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->latest()->first();
         $pastWebinar = Webinar::where('start_date', '<', Carbon::now()->format('Y-m-d'))->first();
+        $subjectFields = SubjectArea::all();
 
         return view('site.webinar-series', [
-           'upComingWebinar' => $upComingWebinar,
-            'pastWebinar' => $pastWebinar
+            'pastWebinar' => $pastWebinar,
+            'subjectFields' => $subjectFields,
+            'upComingWebinar' => $upComingWebinar,
         ]);
     }
 }

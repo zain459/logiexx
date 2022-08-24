@@ -10,11 +10,11 @@
     </div>
     <div class="card">
         <div class="card-header fw-bold">Create Event</div>
-        <div class="card-body">
+        <div class="card-body twocolumns-form">
             <form action="{{route('event-store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Title</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-10">
                         <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="Title"/>
                     </div>
@@ -22,12 +22,12 @@
 
                 <div class="mb-3 row">
 
-                    <label class="col-form-label col-sm-2 text-sm-end">Start Date</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Start Date<sup>*</sup></label>
                     <div class="col-sm-4">
                         <input type="date" name="startDate" value="{{old('startDate')}}" class="form-control"/>
                     </div>
 
-                    <label class="col-form-label col-sm-2 text-sm-end">End Date</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">End Date<sup>*</sup></label>
                     <div class="col-sm-4">
                         <input type="date" name="endDate" value="{{old('endDate')}}" class="form-control"/>
                     </div>
@@ -35,14 +35,14 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">link<sup>*</sup></label>
                     <div class="col-md-4">
                         <input type="url" name="link" value="{{old('link')}}" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Description</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-md-10">
                         <textarea class="ckeditor form-control" name="description"></textarea>
 {{--                        <vue-editor v-model="formData.description" required></vue-editor>--}}

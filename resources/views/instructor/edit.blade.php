@@ -6,42 +6,50 @@
     </svg>
 </button>
 
-<div class="modal fade" id="editItemCategoryodal-{{$instructor->id()}}" tabindex="-1" role="dialog" aria-labelledby="editItemCategoryodal-{{$instructor->id()}}" aria-hidden="true">
+<div class="modal fade" id="editItemCategoryodal-{{$instructor->id()}}" tabindex="-1" role="dialog"
+     aria-labelledby="editItemCategoryodal-{{$instructor->id()}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5>Editing {{ $instructor->name() }} Instructor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="card-body">
-                <form method="POST" action="{{ route('instructor.update', $instructor->id()) }}" enctype="multipart/form-data">
+            <div class="card-body twocolumns-form">
+                <form method="POST" action="{{ route('instructor.update', $instructor->id()) }}"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
-                        <label class="form-label">Name</label>
-                        <input name="name" class="form-control" value="{{ $instructor->name() }}" required />
+                        <label class="form-label">Name<sup>*</sup></label>
+                        <input name="name" class="form-control" value="{{ $instructor->name() }}" required/>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label">Email</label>
-                        <input name="email" class="form-control" value="{{ $instructor->email() }}" required />
+                        <label class="form-label">Email<sup>*</sup></label>
+                        <input name="email" class="form-control" value="{{ $instructor->email() }}" required/>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label">Address</label>
+                        <label class="form-label">Address<sup>*</sup></label>
                         <textarea name="address" class="form-control">{{ $instructor->address() }}</textarea>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label class="form-label">Brief Bio</label>
+                        <label class="form-label">Brief Bio<sup>*</sup></label>
                         <textarea name="bio" class="form-control">{{ $instructor->bio() }}</textarea>
                     </div>
-
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <img src="{{ asset('storage/'.$instructor->image()) }}" class="rounded" width="150">
+                    @if($instructor->image())
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <img src="{{ asset('storage/'.$instructor->image()) }}" class="rounded" width="150">
+                            </div>
                         </div>
-                    </div>
-
+                    @else
+                        <div class="row">
+                            <div class="mb-3 col">
+                                <img src="{{asset('images/f-logo.png')}}" width="150" class="rounded">
+                            </div>
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="mb-3 col">
                             <label class="form-label" for="overview">Image</label>

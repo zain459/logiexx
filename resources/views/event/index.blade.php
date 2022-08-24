@@ -26,8 +26,11 @@
                     <td>{!! html_entity_decode($event->description()) !!}</td>
                     <td>{{ $event->startDate()->toDateString() }}</td>
                     <td>{{ $event->endDate()->toDateString() }}</td>
-                    <td><img src="{{ asset('storage/'. $event->image()) }}" width="100" alt="Image"></td>
-
+                    @if($event->image())
+                        <td><img src="{{ asset('storage/'. $event->image()) }}" width="100" alt="Image"></td>
+                    @else
+                        <td><img src="{{asset('images/f-logo.png')}}" width="100" alt="Image"></td>
+                    @endif
                     <td>
                         <a href="{{ route('event-edit', $event->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

@@ -10,7 +10,7 @@ class TestimonialDeleteController
     public function __invoke(int $id)
     {
         Testimonial::query()->findOrFail($id)->delete();
-        flash('Deleted Successfully')->error();
+        flash('Deleted Successfully')->error()->important();
 
         return redirect(route('testimonial-index'));
     }

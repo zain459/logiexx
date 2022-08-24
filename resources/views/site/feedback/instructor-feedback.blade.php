@@ -17,7 +17,7 @@
         <tr>
             <th class="text-start" colspan="5">Relevance of the Training</th>
         </tr>
-        @foreach($feedbackParams as $param)
+            @foreach($feedbackParams as $param)
             <tr>
                 <td class="text-start">{{$param->feedbackParam->title()}}</td>
                 <td><input type="radio"
@@ -68,31 +68,31 @@
         <ul id='stars'>
             <li class='star' title='Poor' data-value='1'>
                 <label>
-                    <input type="checkbox" name="course[quality_of_course]" value="{{1}}">
+                    <input type="checkbox" name="instructors[{{$instructor->id()}}][instructor_quality_of_course]" value="{{1}}">
                     <i class='fa fa-star fa-fw'></i>
                 </label>
             </li>
             <li class='star' title='Fair' data-value='2'>
                 <label>
-                    <input type="checkbox" name="course[quality_of_course]" value="{{2}}">
+                    <input type="checkbox" name="instructors[{{$instructor->id()}}][instructor_quality_of_course]" value="{{2}}">
                     <i class='fa fa-star fa-fw'></i>
                 </label>
             </li>
             <li class='star' title='Good' data-value='3'>
                 <label>
-                    <input type="checkbox" name="course[quality_of_course]" value="{{3}}">
+                    <input type="checkbox" name="instructors[{{$instructor->id()}}][instructor_quality_of_course]" value="{{3}}">
                     <i class='fa fa-star fa-fw'></i>
                 </label>
             </li>
             <li class='star' title='Excellent' data-value='4'>
                 <label>
-                    <input type="checkbox" name="course[quality_of_course]" value="{{4}}">
+                    <input type="checkbox" name="instructors[{{$instructor->id()}}][instructor_quality_of_course]" value="{{4}}">
                     <i class='fa fa-star fa-fw'></i>
                 </label>
             </li>
             <li class='star' title='WOW!!!' data-value='5'>
                 <label>
-                    <input type="checkbox" name="course[quality_of_course]" value="{{5}}">
+                    <input type="checkbox" name="instructors[{{$instructor->id()}}][instructor_quality_of_course]" value="{{5}}">
                     <i class='fa fa-star fa-fw'></i>
                 </label>
             </li>

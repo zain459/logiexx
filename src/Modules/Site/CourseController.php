@@ -15,6 +15,7 @@ class CourseController
         $filters = $request->all();
 
         $query = Course::with(['category']);
+
         if (isset($filters['subject_areas'])) {
             $query->whereIn('subject_area_id', $filters['subject_areas']);
         }
@@ -27,8 +28,8 @@ class CourseController
             $query->whereIn('difficulty_level', $filters['difficulty_level']);
         }
 
-        if (isset($filters['start_date_status'])) {
-            $query->whereIn('start_date_status', $filters['start_date_status']);
+        if (isset($filters['course_start_date'])) {
+            $query->whereIn('course_start_date', $filters['course_start_date']);
         }
 
         if (isset($filters['duration_interval'])) {

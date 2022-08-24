@@ -22,7 +22,7 @@ class InstructorUpdateController extends Controller
         $data = $this->validate($request, [
             'name' => ['required', 'string', 'max:171'],
             'email' => ['required', 'email', Rule::unique('instructors')->ignore($instructor->id())],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'bio' => ['required'],
             'address' => ['nullable', 'string', 'max:171'],
         ]);

@@ -16,11 +16,11 @@
                 <i class="icon-link ms-3 align-items-center"></i></a>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
-                @foreach($subjectFields as $subjectField)
                     <ul>
-                        <li><a href="#">{{$subjectField->name()}}</a></li>
+                        @foreach($subjectFields as $subjectField)
+                        <li><a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a></li>
+                        @endforeach
                     </ul>
-                @endforeach
             </div>
             @if($specific != null)
                 <h1>{{$specific->title()}}</h1>
@@ -47,7 +47,7 @@
                                 <dt>Platform</dt>
                                 <dd>{{$specific->platform()}}</dd>
                                 <dt>Class Size</dt>
-                                <dd>{{$specific->classSize()}}</dd>
+                                <dd>{{$specific->classSize(). ' '. '(onsite)'}}</dd>
                                 <dt>Duration</dt>
                                 <dd>{{$specific->duration()}}</dd>
                                 <dt>Time Commitment</dt>
@@ -198,10 +198,17 @@
                         @if($courseInstructor != null)
                             <div class="col-lg-6 col-12">
                                 <div class="d-md-flex align-items-center mb-4">
+                                    @if($courseInstructor->instructor->image())
                                     <div class="image"><img src="{{'/storage/'.$courseInstructor->instructor->image()}}"
                                                             class="img-fluid rounded-circle mx-auto mx-md-0 d-block"
                                                             alt="">
                                     </div>
+                                    @else
+                                        <div class="image"><img src=" {{asset('images/f-logo.png')}}    "
+                                                                class="img-fluid rounded-circle mx-auto mx-md-0 d-block"
+                                                                alt="">
+                                        </div>
+                                    @endif
                                     <div class="text">
                                         <ul>
                                             <li>
@@ -256,8 +263,14 @@
                         @endif
                     @endforeach
                 </div>
+{{--                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">--}}
+{{--                    <a href="{{route('site.learner-feedback.form', $specific->id())}}"--}}
+{{--                       class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i--}}
+{{--                            class="icon-link ms-3 align-items-center"></i></a>--}}
+{{--                    <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> {{$totalCourseFeedback}} Feedbacks <b>Excellent</b>  </span>--}}
+{{--                </div>--}}
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <a href="{{route('site.learner-feedback.form', $specific->id())}}"
+                    <a href="{{route('site.verify-certificate.form', $specific->id())}}"
                        class="btn btn-primary mb-4 mb-md-0">Submit Feedback <i
                             class="icon-link ms-3 align-items-center"></i></a>
                     <span class="rating"><span class="star-rating">5.0</span><img src="{{asset('images/rating.png')}}"> {{$totalCourseFeedback}} Feedbacks <b>Excellent</b>  </span>

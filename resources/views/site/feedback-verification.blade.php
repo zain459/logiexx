@@ -10,31 +10,19 @@
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Learner Feedback</h1>
         </div>
     </div>
-    <div class="container p-0">
-        @if ($errors->any())
-            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @include('flash::message')
 
-        @yield('content')
-    </div>
     <main id="main">
         <div class="feedback-block">
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
@@ -53,12 +41,26 @@
             <span id="Verify" class="scroll">scroll</span>
             <div class="container">
                 <h2>Identity Verification of Alumna</h2>
+                <div class="container p-0">
+                    @if ($errors->any())
+                        <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @include('flash::message')
+
+                    @yield('content')
+                </div>
                 <div class="verify-certificate">
                     <div class="head">
                         <h3>Verify Certificate</h3>
                     </div>
                     <div class="body">
-                        <form action="{{route('site.learner-feedback.verify', $course->id())}}"
+                        <form action="{{route('site.verify-certificate.verify', $course->id())}}"
                               method="post">
                             @csrf
                             <div class="form-floating mb-3">

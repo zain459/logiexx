@@ -28,10 +28,13 @@
                     @if($enrollment->status() == 1)
                         <td><span class="btn btn-success">Active</span></td>
                     @else
-                        <td><span class="btn btn-danger">UnActive</span></td>
+                        <td><span class="btn btn-danger">In Active</span></td>
                     @endif
 
                     <td class="table-action">
+{{--                        <a href="{{ route('admin.verify-certificate.index', $enrollment->id()) }}">--}}
+{{--                            View Certificate--}}
+{{--                        </a>--}}
                         <a href="{{route('course.enrollment-view', $enrollment->id())}}">
                             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>

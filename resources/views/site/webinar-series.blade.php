@@ -10,12 +10,13 @@
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Webinar Series</h1>
@@ -108,7 +109,7 @@
                             <div class="d-flex justify-content-between py-2">
                                 <a href="{{route('site.webinar-pdf-download', $pastWebinar->id())}}" class="btnlink">Download
                                     PDF Flyer</a>
-                                <a href="#" class="btnlink">Click here to watch <i class="icon-i"></i></a>
+                                <a href="{{$pastWebinar->link()}}" class="btnlink">Click here to watch <i class="icon-i"></i></a>
                             </div>
                         </div>
                         <div class="col-md-8">

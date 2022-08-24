@@ -9,13 +9,13 @@
             </div>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                <ul> @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Become an Instructor </h1>
@@ -152,7 +152,8 @@
                         <strong class="overlap-text">Personal Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Title <span class="mark">*</span></label>
-                            <input type="text" name="title" value="{{old('title')}}" class="form-control field" required>
+                            <input type="text" name="title" value="{{old('title')}}" class="form-control field"
+                                   required>
                             <span class="note">(Prof., Mr., Ms., Mrs., etc.)</span>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
@@ -163,22 +164,24 @@
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Middle Name</label>
                             <input type="text" name="middle_name" value="{{old('middle_name')}}"
-                                   class="form-control field" required>
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Family/Last Name <span class="mark">*</span></label>
-                            <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control field" required>
+                            <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Degree <span class="mark">*</span></label>
-                            <input type="text" name="degree" value="{{old('degree')}}" class="form-control field" required>
+                            <input type="text" name="degree" value="{{old('degree')}}" class="form-control field"
+                                   required>
                             <span class="note">(MS, MD, PhD etc.)</span>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Telephone <span class="mark">*</span></label>
                             <div class="d-flex field">
                                 <div class="cu_select me-2">
-                                    <select>
+                                    <select required>
                                         <option value="9200">Pk(+92)</option>
                                         <option value="9200">Pk(+52)</option>
                                     </select>
@@ -189,11 +192,12 @@
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Email <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="email" value="{{old('email')}}" class="form-control field" required>
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Address</label>
-                            <input type="text" name="address" value="{{old('address')}}" class="form-control field" required>
+                            <input type="text" name="address" value="{{old('address')}}" class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">City <span class="mark">*</span></label>
@@ -201,15 +205,18 @@
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Post Code <span class="mark">*</span></label>
-                            <input type="text" name="post_code" value="{{old('post_code')}}" class="form-control field" required>
+                            <input type="text" name="post_code" value="{{old('post_code')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Province/State <span class="mark">*</span></label>
-                            <input type="text" name="province" value="{{old('province')}}" class="form-control field" required>
+                            <input type="text" name="province" value="{{old('province')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Country <span class="mark">*</span></label>
-                            <input type="text" name="country" value="{{old('country')}}" class="form-control field" required>
+                            <input type="text" name="country" value="{{old('country')}}" class="form-control field"
+                                   required>
                         </div>
                     </div>
                     <div class="fieldgroup">
@@ -252,35 +259,40 @@
                         <ul class="list-unstyled d-flex justify-content-between row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 flex-wrap">
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Creative Arts & Media')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('Creative Arts & Media')}}">
                                     <span class="check"></span>
                                     <span class="label">Creative Arts & Media</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Business & Management')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('Business & Management')}}">
                                     <span class="check"></span>
                                     <span class="label">Business & Management</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('IT & Computer Science')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('IT & Computer Science')}}">
                                     <span class="check"></span>
                                     <span class="label">IT & Computer Science</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Accounting & Finance')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('Accounting & Finance')}}">
                                     <span class="check"></span>
                                     <span class="label">Accounting & Finance</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Education & Teaching')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('Education & Teaching')}}">
                                     <span class="check"></span>
                                     <span class="label">Education & Teaching</span>
                                 </label>
@@ -330,7 +342,8 @@
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Other (please specify)')}}">
+                                    <input type="checkbox" name="subject_areas[]"
+                                           value="{{old('Other (please specify)')}}">
                                     <span class="check"></span>
                                     <span class="label">Other (please specify) </span>
                                 </label>
@@ -366,7 +379,7 @@
                             the
                             finalization of the course)</label>
                         <input type="text" name="tentative_course_title" value="{{old('tentative_course_title')}}"
-                               class="form-control" required>
+                               class="form-control">
                     </div>
                     <div class="fieldgroup">
                         <label class="label">When are you available to start work? <span class="mark">*</span></label>

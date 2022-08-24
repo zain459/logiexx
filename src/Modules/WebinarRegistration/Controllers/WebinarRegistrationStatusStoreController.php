@@ -13,15 +13,17 @@ class WebinarRegistrationStatusStoreController extends Controller
         $webinarRegistrationStatus = WebinarRegistrationForm::query()->findOrFail($id);
         if ($request->has('status') == 1) {
             $webinarRegistrationStatus->status = $request->has('status');
-
             $webinarRegistrationStatus->save();
+
             flash('Registration Approved')->success()->important();
-
             return redirect()->route('admin.webinar-registration.index');
-        }else
-        $webinarRegistrationStatus->save();
-        flash('Registration UnApproved')->success()->important();
+        }
+        if ($request->has('status') == 0) {
+            $webinarRegistrationStatus->status = $request->has('status');
+            $webinarRegistrationStatus->save();
 
-        return redirect()->route('admin.webinar-registration.index');
+            flash('Registration UnApproved')->error()->important();
+            return redirect()->route('admin.webinar-registration.index');
+        }
     }
 }

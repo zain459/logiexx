@@ -13,6 +13,7 @@ class CourseLearnerFeedBackStoreController extends Controller
 {
     public function __invoke(Request $request, int $id)
     {
+
         $course = Course::query()->findOrFail($id);
 //        $verified = CertificateAuthentication::query()->findOrFail($id);
         $data = $this->validate($request, [
@@ -25,13 +26,13 @@ class CourseLearnerFeedBackStoreController extends Controller
             'course.course_feedback_params' => ['required', 'array'],
 
             'instructors' => ['required', 'array'],
+            'instructors.*.feedback_params' => ['required', 'array'],
             'instructors.*.recommend_improvements_course' => ['required', 'string'],
             'instructors.*.comment_on_continuing_appropriateness' => ['required', 'string'],
             'instructors.*.like_most_about_course' => ['required', 'string'],
             'instructors.*.like_us_know_about_course' => ['required', 'string'],
             'instructors.*.studentId' => ['required', 'int'],
             'instructors.*.instructor_quality_of_course' => ['required', 'int'],
-            'instructors.*.feedback_params' => ['required', 'array'],
         ]);
 
         $courseFeedbackData = $data['course'];
@@ -74,10 +75,11 @@ class CourseLearnerFeedBackStoreController extends Controller
             }
         }
 
-        flash('FeedBack Submitted')->success();
+        flash('FeedBack Submitted')->success()->important();
 
-            return view('site.learner-feedback', [
-                'course' => $course
-            ]);
+        return redirect()->route('site.course-detail', $course->id());
+//        return view('site.learner-feedback', [
+//            'course' => $course
+//        ]);
     }
 }

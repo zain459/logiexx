@@ -2,9 +2,11 @@
 
 namespace Logixs\Modules\Course\Models;
 
+use App\Models\Certificate\CertificateAuthentication;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -71,4 +73,5 @@ class CourseClass extends Model
     {
         return $this->belongsTo(Course::Class, 'course_id', 'id');
     }
+
 }

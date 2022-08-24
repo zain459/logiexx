@@ -59,7 +59,7 @@
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="card">
+                <div class="card twocolumns-form">
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <h5>New Instructor</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -68,22 +68,22 @@
                         <form method="POST" action="{{route('instructor.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Name<sup>*</sup></label>
                                 <input name="name" class="form-control" value="{{ old('name') }}" required autofocus/>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label">Email</label>
+                                <label class="form-label">Email<sup>*</sup></label>
                                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus/>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label">Address</label>
+                                <label class="form-label">Address<sup>*</sup></label>
                                <textarea name="address" class="form-control">{{ old('address') }}</textarea>
                             </div>
 
                             <div class="mb-3 col-md-12">
-                                <label class="form-label" for="bio">Brief Bio</label>
+                                <label class="form-label" for="bio">Brief Bio<sup>*</sup></label>
                                 <textarea name="bio" class="form-control" ></textarea>
                             </div>
 

@@ -23,9 +23,9 @@ class CorporatePartnershipStoreController extends Controller
             'expected_learners' => ['required', 'string'],
             'country' => ['required', 'string'],
             'teaching_interest' => ['required', 'array'],
-            'description' => ['required', 'string'],
+            'description' => ['nullable', 'string'],
         ]);
-
+       
         $corporatePartnership = new  CorporatePartnership();
         $corporatePartnership->first_name = $data['first_name'];
         $corporatePartnership->last_name = $data['last_name'];
@@ -42,7 +42,7 @@ class CorporatePartnershipStoreController extends Controller
         $corporatePartnership->description = $data['description'];
 
         $corporatePartnership->save();
-        flash('Successfully Submitted')->success();
+        flash('Successfully Submitted')->success()->important();
 
         return redirect()->route('site.corporate-partnership');
 

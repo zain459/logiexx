@@ -1,28 +1,31 @@
 <?php
 
-namespace Logixs\Modules\Site\FeedBack\Controllers;
+namespace Logixs\Modules\Site;
 
+use App\Http\Controllers\Controller;
 use App\Models\Certificate\CertificateAuthentication;
 use App\Models\CourseFeedBackParams\CourseFeedBackParams;
-
+use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
 use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseInstructor;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\CourseLearnerFeedBack;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\InstructorLearnerFeedBack;
 
-class VerifyCertificateController
+class VerifyCertificateController extends Controller
 {
     public function form(int $id)
     {
         $course = Course::query()->findOrFail($id);
+        $subjectFields = SubjectArea::all();
 
         return view('site.feedback-verification', [
             'course' => $course,
+            'subjectFields' => $subjectFields
         ]);
     }
 
-    public function verify(int $id, Request $request)
+    public function verify(Request $request, int $id)
     {
         $data = $this->validate($request, [
             'name' => ['required', 'string'],
@@ -30,16 +33,6 @@ class VerifyCertificateController
         ]);
 
         $course = Course::query()->findOrFail($id);
-        $courseInstructors = CourseInstructor::query()->with('instructor')
-            ->where('course_id', (int)$course->id())->get();
-
-        $courseFeedbackParams = CourseFeedBackParams::with('feedbackParam')
-            ->where('course_id', $course->id())
-            ->where('type', 'Course')->get();
-
-        $instructorFeedbackParams = CourseFeedBackParams::with('feedbackParam')
-            ->where('course_id', $course->id())
-            ->where('type', lcfirst('Instructor'))->get();
 
         $verified = CertificateAuthentication::query()
             ->where('name', (string)$data['name'])
@@ -52,14 +45,17 @@ class VerifyCertificateController
         $instructorLearnerFeedBackCheck = InstructorLearnerFeedBack::query()
             ->where('student_id', (int)$verified?->id())->first();
 
-        if (null !== $verified) {
+        if (null !== $courseLearnerFeedBackCheck && null !== $instructorLearnerFeedBackCheck) {
+            flash('Already submitted FeedBack')->error()->important();
+//            return view('site.learner-feedback');
+            return redirect()->back();
+        } elseif (null !== $verified) {
             flash('Your Certificate has been verified. Please add your feedback')->success()->important();
-            redirect()->route('site.learner-feedback.form', []);
+            return redirect()->route('site.learner-feedback.form', ['id' => $course->id(), 'verified' => $verified->id()]);
         } else {
             flash('Your Certificate has not been verified')->error()->important();
 //            return view('site.learner-feedback');
             return redirect()->back();
         }
     }
-
 }

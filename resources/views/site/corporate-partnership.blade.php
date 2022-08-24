@@ -10,12 +10,13 @@
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Corporate Partnership</h1>
@@ -46,44 +47,44 @@
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="first">First Name<sup>*</sup></label>
-                                    <input type="text" id="first_name" name="first_name" value="{{old('first_name')}}" class="form-control">
+                                    <input type="text" id="first_name" name="first_name" value="{{old('first_name')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="first">Last Name<sup>*</sup></label>
-                                    <input type="text" id="last_name" name="last_name" value="{{old('last_name')}}" class="form-control">
+                                    <input type="text" id="last_name" name="last_name" value="{{old('last_name')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="first">Work Email<sup>*</sup></label>
-                                    <input type="text" id="work_email" name="work_email" value="{{old('work_email')}}" class="form-control">
+                                    <input type="text" id="work_email" name="work_email" value="{{old('work_email')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="phone_number">Phone Number<sup>*</sup></label>
-                                    <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number')}}" class="form-control">
+                                    <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="company_name">Company Name<sup>*</sup></label>
-                                    <input type="text" id="company_name" name="company_name" value="{{old('company_name')}}" class="form-control">
+                                    <input type="text" id="company_name" name="company_name" value="{{old('company_name')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5 offset-md-1">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="first">Job Title<sup>*</sup></label>
-                                    <input type="text" id="first" name="job_title" value="{{old('job_title')}}" class="form-control">
+                                    <input type="text" id="first" name="job_title" value="{{old('job_title')}}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="company_size">Company Size<sup>*</sup></label>
                                     <div class="cu_select m-0">
-                                        <select name="company_size">
+                                        <select name="company_size" required>
                                             <option>select</option>
                                             <option value={{'0-50'}}>0-50</option>
                                             <option value="{{'50-100'}}">50-100</option>
@@ -109,7 +110,7 @@
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="contact_on_behalf_of">Contacting on Behalf of<sup>*</sup></label>
                                     <div class="cu_select m-0">
-                                        <select name="contact_on_behalf_of">
+                                        <select name="contact_on_behalf_of" required>
                                             <option></option>
                                             <option value="{{'x'}}">x</option>
                                             <option value="{{'y'}}">y</option>
@@ -121,7 +122,7 @@
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="company_type">Company Type<sup>*</sup></label>
                                     <div class="cu_select m-0">
-                                        <select name="company_type">
+                                        <select name="company_type" required>
                                             <option></option>
                                             <option value="{{'x'}}">x</option>
                                             <option value="{{'y'}}">y</option>
@@ -133,7 +134,7 @@
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="expected_learners">Expected Learners<sup>*</sup></label>
                                     <div class="cu_select m-0">
-                                        <select name="expected_learners">
+                                        <select name="expected_learners" required>
                                             <option></option>
                                             <option value="{{'1'}}">x</option>
                                             <option value="{{'2'}}">y</option>
@@ -145,7 +146,7 @@
                                 <div class="field d-flex flex-column flex-xl-row fieldrow">
                                     <label for="country">Country<sup>*</sup></label>
                                     <div class="cu_select m-0">
-                                        <select name="country">
+                                        <select name="country" required>
                                             <option>select</option>
                                             <option value="{{'Pakistan'}}">Pakistan</option>
                                             <option value="{{'Australia'}}">Australia</option>

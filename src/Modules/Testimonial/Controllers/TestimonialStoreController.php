@@ -16,23 +16,24 @@ class TestimonialStoreController extends Controller
             'company' => ['required', 'string', 'max:100'],
             'designation' => ['required', 'string', 'max:100'],
             'description' => ['required', 'string'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
-
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $path = SaveImage::save($file);
 
         $testimonial = new Testimonial();
         $testimonial->name = $data['name'];
         $testimonial->company = $data['company'];
         $testimonial->designation = $data['designation'];
         $testimonial->description = $data['description'];
-        $testimonial->image = $path;
+        /** @var \Illuminate\Http\UploadedFile * */
+        if (isset($data['image'])) {
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $testimonial->image = $path;
+        }
         $testimonial->save();
 
-        flash('testimonial added')->success();
+        flash('testimonial added')->success()->important();
 
-        return redirect()->route('testimonial-edit', $testimonial->id());
+        return redirect()->route('testimonial-index', $testimonial->id());
     }
 }

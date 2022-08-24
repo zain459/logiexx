@@ -13,17 +13,18 @@ use Logixs\Modules\Site\ViewAllUpcomingWebinarController;
 use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
-use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
+use Logixs\Modules\Site\MailingList\Controllers\MailingListStoreController;
+//use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
 use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackVerificationController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
-use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
-use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
+use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
+use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
-use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipStoreController;
 use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipIndexController;
+use Logixs\Modules\site\CorporatePartnership\Controllers\CorporatePartnershipStoreController;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
@@ -63,15 +64,20 @@ Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class
 Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
 
 //learner-feedback
-Route::get('site/course/{id}/learner-feedback', LearnerFeedBackIndexController::class)->name('site.learner-feedback.form');
-Route::post('site/course/{id}/learner-feedback/verify', LearnerFeedBackVerificationController::class)->name('site.learner-feedback.verify');
+Route::get('site/course/{id}/verify-certificate', [\Logixs\Modules\Site\VerifyCertificateController::class, 'form'])->name('site.verify-certificate.form');
+Route::post('site/course/{id}/verify-certificate', [\Logixs\Modules\Site\VerifyCertificateController::class, 'verify'])->name('site.verify-certificate.verify');
 
 //course-learner-feedback
-Route::get('site/course/{id}/learner-feedback/store', CourseLearnerFeedBackStoreController::class)->name('site.course-learner-feedback.store');
+Route::get('site/course/{id}/learner-feedback', LearnerFeedBackVerificationController::class)->name('site.learner-feedback.form');
+Route::post('site/course/{id}/learner-feedback/store', CourseLearnerFeedBackStoreController::class)->name('site.learner-feedback.store');
 
 //webinar-registration-form
 Route::get('site/webinar-registration-form', WebinarRegistrationFormIndex::class)->name('site.webinar-registration-form');
 Route::post('site/webinar-registration-form-store', WebinarRegistrationFormStore::class)->name('site.webinar-registration-form.store');
+
+//Get updates on new courses.
+Route::post('site/mailing-list', MailingListStoreController::class)->name('site.mailing-list.store');
+
 
 require __DIR__ . '/inventory.php';
 require __DIR__ . '/course.php';

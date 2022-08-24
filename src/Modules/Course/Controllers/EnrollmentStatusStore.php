@@ -15,11 +15,16 @@ class EnrollmentStatusStore extends Controller
         if ($request->has('status') == 1) {
             $enrollment->status = $request->has('status');
             $enrollment->save();
-            flash('Status Active')->success();
-            return redirect()->route('course.enrollment-index');
-        } else
+
+            flash('Status Active')->success()->important();;
+            return redirect()->route('course.enrollment-index', $enrollment->classId());
+        }
+        if ($request->has('status') == 0) {
+            $enrollment->status = $request->has('status');
             $enrollment->save();
-        flash('Status UnActive')->success();
-        return redirect()->route('course.enrollment-index');
+
+            flash('Status InActive')->error()->error()->important();
+            return redirect()->route('course.enrollment-index', $enrollment->classId());
+        }
     }
 }

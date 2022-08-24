@@ -4,6 +4,7 @@ namespace Logixs\Modules\Course\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseLearningObjective;
 
 class CourseLearningObjectiveStoreController extends Controller
@@ -22,8 +23,8 @@ class CourseLearningObjectiveStoreController extends Controller
         $courseLearningObjective->course_id = $data['courseId'];
         $courseLearningObjective->save();
 
-        flash('Learning Objective submitted')->success();
+        flash('Learning Objective submitted')->success()->important();
 
-        return redirect()->back();
+        return redirect(route('course.learning-objective-index', $courseLearningObjective->courseId()));
     }
 }

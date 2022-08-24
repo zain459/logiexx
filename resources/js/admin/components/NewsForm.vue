@@ -1,36 +1,36 @@
 <template>
     <div class="card">
         <div class="card-header fw-bold">Create News</div>
-        <div class="card-body">
+        <div class="card-body twocolumns-form">
             <form @submit.prevent="onSubmit" enctype="multipart/form-data">
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Title</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" v-model="formData.title" placeholder="Title" required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Posted Date</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Posted Date<sup>*</sup></label>
                     <div class="col-sm-4">
                         <input type="date" class="form-control" v-model="formData.postedDate" required/>
                     </div>
 
-                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">link<sup>*</sup></label>
                     <div class="col-md-4">
                         <input type="url" class="form-control" v-model="formData.link"/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Short Description</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Short Description<sup>*</sup></label>
                     <div class="col-sm-10">
                         <textarea class="form-control" v-model="formData.shortDescription" required></textarea>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Long Description</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Long Description<sup>*</sup></label>
                     <div class="col-sm-10">
                         <vue-editor v-model="formData.longDescription" required></vue-editor>
                     </div>

@@ -24,6 +24,9 @@ use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsUpdateController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsStoreController;
+use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
+use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
+use Logixs\Modules\Course\Controllers\EnrollmentViewController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateEditController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController;
@@ -119,4 +122,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('course/{id}/feedback-params', CourseFeedBackParamsIndexController::class)->name('admin.course.feedback-params');
     Route::post('course-feedback-params/store', CourseFeedBackParamsStoreController::class)->name('admin.course-feed-back-params.store');
     Route::post('course-feedback-params/{id}/store', CourseFeedBackParamsDeleteController::class)->name('admin.course-feed-back-params.delete');
+
+    //enrollment
+    Route::get('class/{id}/enrollment', EnrollmentIndexController::class)->name('course.enrollment-index');
+    Route::post('enrollment/{id}/delete', EnrollmentDeleteController::class)->name('course.enrollment-delete');
+    Route::get('enrollment/{id}/view', EnrollmentViewController::class)->name('course.enrollment-view');
+
+    //enrollment status
+    Route::post('enrollment-status/{id}/store', \Logixs\Modules\Course\Controllers\EnrollmentStatusStore::class)->name('course.enrollment-status-store');
 });

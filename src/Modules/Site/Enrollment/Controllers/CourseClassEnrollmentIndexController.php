@@ -2,9 +2,7 @@
 
 namespace Logixs\Modules\Site\Enrollment\Controllers;
 
-use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseClass;
-use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
 class CourseClassEnrollmentIndexController
 {

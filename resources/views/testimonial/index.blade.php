@@ -26,7 +26,11 @@
                     <td>{{ $testimonial->company() }}</td>
                     <td>{{ $testimonial->designation() }}</td>
                     <td class="text-truncate">{{ $testimonial->description() }}</td>
+                    @if($testimonial->image())
                     <td class="text-center"><img src="{{ asset('storage/'. $testimonial->image()) }}" width="70" class="rounded"></td>
+                    @else
+                        <td class="text-center"><img src="{{asset('images/f-logo.png')}}" width="70" class="rounded"></td>
+                    @endif
                     <td class="text-center">
                         <a href="{{ route('testimonial-edit', $testimonial->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

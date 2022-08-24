@@ -14,19 +14,19 @@ class BecomeAnInstructorStoreController extends Controller
         $data = $this->validate($request, [
             'title' => ['required', 'string'],
             'first_name' => ['required', 'string'],
-            'middle_name' => ['string'],
+            'middle_name' => ['nullable', 'string'],
             'last_name' => ['required', 'string'],
             'degree' => ['required', 'string'],
             'telephone' => ['required', 'string'],
             'email' => ['required', 'string'],
-            'address' => ['required', 'string'],
+            'address' => ['nullable', 'string'],
             'city' => ['required', 'string'],
             'post_code' => ['required', 'string'],
             'province' => ['required', 'string'],
             'country' => ['required', 'string'],
             'teaching_interest' => ['required', 'array'],
             'subject_areas' => ['required', 'array'],
-            'tentative_course_title' => ['string'],
+            'tentative_course_title' => ['nullable','string'],
             'available_to_start_work' => ['required', 'string'],
             'date' => ['required', 'string'],
             'file' => ['required', 'mimes:pdf,doc', 'max:2048'],
@@ -55,7 +55,7 @@ class BecomeAnInstructorStoreController extends Controller
         $path = SaveImage::save($file);
         $becomeAnInstructor->file = $path;
         $becomeAnInstructor->save();
-        flash('Successfully Submitted')->success();
+        flash('Successfully Submitted')->success()->important();
 
         return redirect()->back();
     }

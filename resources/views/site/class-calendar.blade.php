@@ -32,11 +32,15 @@
             {{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
-                @foreach($subjectFields as $subjectField)
-                    <ul>
-                        <li><a href="#">{{$subjectField->name()}}</a></li>
-                    </ul>
-                @endforeach
+                <ul>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
             </div>
             @if($specific != null)
                 <h1>{{$specific->title()}}</h1>

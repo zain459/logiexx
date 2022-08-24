@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->text('expected_learners');
             $table->text('country');
             $table->string('teaching_interest');
-            $table->string('description');
+            $table->string('description')->nullable();
 
             $table->timestamps();
         });

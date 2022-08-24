@@ -9,13 +9,15 @@
             </div>
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
-                @foreach($subjectFields as $subjectField)
-                    @if($subjectField != null)
-                        <ul>
-                            <li><a href="#">{{$subjectField->name()}}</a></li>
-                        </ul>
-                    @endif
-                @endforeach
+                <ul>
+                    @foreach($subjectFields as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
             </div>
             <h1>Logixs Academy</h1>
         </div>
@@ -117,9 +119,16 @@
                     @foreach($subjectFields as $subjectField)
                         @if($subjectField != null)
                             <div class="col">
-                                <i class=""><img src="{{'storage/'.$subjectField->image()}}" class="img-fluid w-10"
+{{--                                <object type="image/svg+xml" data="{{'storage/'.$subjectField->image()}}" id="svg-fluid">--}}
+{{--                                    Kiwi Logo <!-- fallback image in CSS -->--}}
+{{--                                </object>--}}
+
+{{--                                <svg width="100%" src="{{'storage/'.$subjectField->image()}}" height="100%" viewBox="0 0 167 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"></svg>--}}
+                                <i class=""><img src="{{'storage/'.$subjectField->image()}}" class="custom-svg-icon w-10"
                                                  alt=""></i>
-                                <h3><a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a></h3>
+                                <h3>
+                                    <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                                </h3>
                             </div>
                         @endif
                     @endforeach
@@ -132,7 +141,11 @@
                     <h2>L.A. Webinars Series</h2>
                     <div class="row">
                         <div class="col-md-4 pb-3 pb-lg-0">
-                            <img src="{{'storage/'.$webinar->image()}}" class="img-fluid w-100" alt="">
+                            @if($webinar->image())
+                                <img src="{{'storage/'.$webinar->image()}}" class="img-fluid w-100" alt="">
+                            @else
+                                <img src="{{asset('images/f-logo.png')}}" class="img-fluid w-100" alt="">
+                            @endif
                             <div class="d-flex justify-content-between py-2">
                                 <a href="{{route('site.webinar-pdf-download', $webinar->id())}}" class="btnlink">Download
                                     PDF Flyer</a>
@@ -142,12 +155,17 @@
                             <div class="webinar-box d-none d-md-block">
                                 <h3>Link to Join Webinar</h3>
                                 <div class="d-lg-flex">
-									<span class="barcode align-self-start">
+                                    @if($webinar->linkImage())
+                                        <span class="barcode align-self-start">
 										<img src="{{'storage/'.$webinar->linkImage()}}" alt="">
 									</span>
+                                    @else
+                                        <span class="barcode align-self-start">
+										<img src="{{asset('images/f-logo.png')}}" alt="">
+									</span>
+                                    @endif
                                     <div class="text">
-                                        <span class="d-block">Link: <a href=""
-                                                                       style="text-decoration: none">{{$webinar->link()}}</a></span>
+                                        <span class="d-block">Link: <a href="" style="text-decoration: none">{{$webinar->link()}}</a></span>
                                         <span class="d-block">Meeting Id: {{$webinar->meetingId()}}</span>
                                         <span class="d-block">Passcode: {{$webinar->passcode()}}</span>
                                     </div>
@@ -167,7 +185,8 @@
                                 <dt>Sponsors</dt>
                                 <dd>{{$webinar->sponsor()}}</dd>
                                 <dt>Focal Person</dt>
-                                <dd>{{$webinar->focalPerson()}} <a href="tel:{{$webinar->focalPersonTelephone()}}" class="mx-1"><i class="icon-phone"></i></a>
+                                <dd>{{$webinar->focalPerson()}} <a href="tel:{{$webinar->focalPersonTelephone()}}"
+                                                                   class="mx-1"><i class="icon-phone"></i></a>
                                     <a href="mailto:{{$webinar->focalPersonEmail()}}"
                                        class="mx-1"><i
                                             class="icon-email"></i></a></dd>
@@ -328,8 +347,13 @@
                     @foreach($testimonials as $testimonial)
                         @if($testimonial)
                             <div class="col">
-                                <div class="photo"><img src="{{'storage/'.$testimonial->image()}}" class="img-fluid"
-                                                        alt=""></div>
+                                @if($testimonial->image())
+                                    <div class="photo"><img src="{{'storage/'.$testimonial->image()}}" class="img-fluid"
+                                                            alt=""></div>
+                                @else
+                                    <div class="photo"><img src="{{asset('images/f-logo.png')}}" class="img-fluid"
+                                                            alt=""></div>
+                                @endif
                                 <strong class="name" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                         title="Lorem, ipsum dolor sit amet">{{$testimonial->name()}}</strong>
                                 <span
@@ -383,6 +407,50 @@
             </div>
         </section>
     </main>
+<script>
 
+    $(function(){
+        //Change the class name, if it has to be applied for more SVG elements
+        jQuery('body img').each(function(){
+            var $img = jQuery(this); // The image
+            var imgID = $img.attr('id'); // ID attribute
+            var imgClass = $img.attr('class'); // Class Name
+            var imgURL = $img.attr('src'); // URL of the SVG image
+
+            jQuery.get(imgURL, function(data) {
+                //The data param contains the XML data of the SVG image
+                //alert(new XMLSerializer().serializeToString(data));
+
+                // Get the SVG tag, ignore the rest
+                var $svg = jQuery(data).find('svg');
+
+                // Give the image's ID to the SVG
+                if(typeof imgID !== 'undefined')
+                {
+                    $svg = $svg.attr('id', imgID);
+                }
+
+                // Give the image's class to the SVG
+                if(typeof imgClass !== 'undefined')
+                {
+                    $svg = $svg.attr('class', imgClass+' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Check if the viewport is set, else we gonna set it if we can.
+                if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width'))
+                {
+                    $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                }
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+
+            }, 'xml'); //Returns as XML
+        });
+    });
+</script>
 @endsection
 

@@ -14,7 +14,7 @@
                 <dt>Duration</dt>
                 <dd>{{$course->duration()}}</dd>
                 <dt>Course Fee</dt>
-                <dd>{{$course->feeAmount()}}</dd>
+                <dd>{{'PKR' . ' '.  number_format($course->feeAmount(), 2)}}</dd>
                 <dt>Start Date</dt>
                 <dd>{{\Carbon\Carbon::parse($course->courseStartDate())->format('F j, Y')}}</dd>
             </dl>

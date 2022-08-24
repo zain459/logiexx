@@ -37,7 +37,7 @@ class TestimonialUpdateController extends Controller
         }
         $testimonial->save();
 
-        flash('Record updated')->success();
+        flash('Record updated')->success()->important();
 
         return redirect()->back();
     }

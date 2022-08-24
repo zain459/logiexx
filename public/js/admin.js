@@ -45707,7 +45707,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "card twocolumns-form" }, [
     _c(
       "form",
       {
@@ -45779,11 +45779,7 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Title")]
-            ),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-10" }, [
               _c("input", {
@@ -45811,11 +45807,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Posted Date")]
-            ),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("input", {
@@ -45841,11 +45833,7 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("link")]
-            ),
+            _vm._m(2),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-4" }, [
               _c("input", {
@@ -45873,11 +45861,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Short Description")]
-            ),
+            _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-10" }, [
               _c("textarea", {
@@ -45909,11 +45893,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Long Description")]
-            ),
+            _vm._m(4),
             _vm._v(" "),
             _c(
               "div",
@@ -45969,13 +45949,58 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(5),
         ]),
       ]
     ),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Title"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Posted Date"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("link"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Short Description"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Long Description"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -46016,7 +46041,7 @@ var render = function () {
   return _c("div", { staticClass: "card" }, [
     _c("div", { staticClass: "card-header fw-bold" }, [_vm._v("Create News")]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
+    _c("div", { staticClass: "card-body twocolumns-form" }, [
       _c(
         "form",
         {
@@ -46030,11 +46055,7 @@ var render = function () {
         },
         [
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Title")]
-            ),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-10" }, [
               _c("input", {
@@ -46062,11 +46083,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Posted Date")]
-            ),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-4" }, [
               _c("input", {
@@ -46092,11 +46109,7 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("link")]
-            ),
+            _vm._m(2),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-4" }, [
               _c("input", {
@@ -46124,11 +46137,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Short Description")]
-            ),
+            _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-10" }, [
               _c("textarea", {
@@ -46160,11 +46169,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3 row" }, [
-            _c(
-              "label",
-              { staticClass: "col-form-label col-sm-2 text-sm-end" },
-              [_vm._v("Long Description")]
-            ),
+            _vm._m(4),
             _vm._v(" "),
             _c(
               "div",
@@ -46203,13 +46208,58 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(5),
         ]
       ),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Title"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Posted Date"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("link"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Short Description"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-form-label col-sm-2 text-sm-end" }, [
+      _vm._v("Long Description"),
+      _c("sup", [_vm._v("*")]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

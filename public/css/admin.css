@@ -4,4 +4,10 @@
     overflow: hidden;
     max-width: 1px;
 }
+.twocolumns-form label sup {
+    font-size: 18px;
+    color: #920000;
+    position: relative;
+    top: 1px;
+}
 

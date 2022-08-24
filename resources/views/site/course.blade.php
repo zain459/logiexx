@@ -10,12 +10,13 @@
             <div class="fields-menu">
                 <h2>Browse Our Subject Fields</h2>
                 <ul>
-                    <li><a href="#">Business & Management</a></li>
-                    <li><a href="#">Social Sciences</a></li>
-                    <li><a href="#">Health & Medicine</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Education & Teaching</a></li>
-                    <li><a href="#">Supply Chain Management</a></li>
+                    @foreach($subjectAreas as $subjectField)
+                        @if($subjectField != null)
+                            <li>
+                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <h1>Courses</h1>
@@ -71,8 +72,8 @@
                                     <li>
                                         <label>
                                             <input
-                                                {{isset($filters['start_date_status']) && in_array($dateStatus->id(), $filters['start_date_status']) ? "checked": ""}}
-                                                type="checkbox" name="start_date_status[]" class="filters"
+                                                {{isset($filters['course_start_date']) && in_array($dateStatus->id(), $filters['course_start_date']) ? "checked": ""}}
+                                                type="checkbox" name="course_start_date[]" class="filters"
                                                 value="{{$dateStatus->id()}}">{{$dateStatus->name()}}
                                         </label>
                                     </li>
@@ -181,7 +182,7 @@
                                     </div>
                                     <div class="text">
                                         <span class="modality">Modality: {{($course->modality()->name())}}</span>
-                                        <h3><a href="{{route('site.course-detail', $course->id())}}">{{$course->category->name()}}</a>
+                                        <h3><a href="{{route('site.course-detail', $course->id())}}">{{$course->title()}}</a>
                                         </h3>
                                         <dl>
                                             <dt>Duration</dt>

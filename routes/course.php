@@ -68,13 +68,13 @@ Route::middleware(['auth'])->group(function () {
         //course learning objective
         Route::get('{id}/learning-objective', CourseLearningObjectiveController::class)->name('course.learning-objective-index');
         Route::get('{id}/learning-objective/create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
-        Route::get('{id}/learning-objective/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
+        Route::get('learning-objective/{id}/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
         Route::post('store/learning-objective', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
         Route::post('{id}/update/learning-objective', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
         Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
 
         //enrollment
-        Route::get('enrollment', EnrollmentIndexController::class)->name('course.enrollment-index');
+//        Route::get('class/{id}/enrollment', EnrollmentIndexController::class)->name('course.enrollment-index');
         Route::post('enrollment/{id}/delete', EnrollmentDeleteController::class)->name('course.enrollment-delete');
         Route::get('enrollment/{id}/view', EnrollmentViewController::class)->name('course.enrollment-view');
 
