@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -20,9 +21,9 @@ return new class extends Migration {
             $table->string('course_feedback_param_value');
             $table->timestamps();
 
-            $table->foreign('instructor_feedback_id')->references('id')->on('instructor_feedback')
+            $table->foreign('instructor_feedback_id')->references('id')->on('instructor_feedbacks')
                 ->onDelete('cascade');
-            $table->foreign('course_feedback_id')->references('id')->on('course_learner_feedback')
+            $table->foreign('course_feedback_id')->references('id')->on('course_feedbacks')
                 ->onDelete('cascade');
             $table->foreign('course_feedback_param_id')->references('id')->on('course_feedback_params')
                 ->onDelete('cascade');

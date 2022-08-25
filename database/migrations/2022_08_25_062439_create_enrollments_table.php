@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,10 +13,8 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('class_enrollment', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('class_id')->index();
-            $table->unsignedBigInteger('employment_status');
             $table->string('title');
             $table->string('first_name');
             $table->string('middle_name')->nullable();
@@ -44,6 +43,8 @@ return new class extends Migration {
             $table->string('file_type')->nullable();
             $table->string('file_name')->nullable();
             $table->float('file_size')->nullable();
+            $table->unsignedBigInteger('class_id')->index();
+            $table->unsignedBigInteger('employment_status');
             $table->timestamps();
 
             $table->foreign('class_id')->references('id')->on('classes')
@@ -58,6 +59,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('class_enrollment');
+        Schema::dropIfExists('enrollments');
     }
 };

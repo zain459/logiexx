@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,7 +13,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('course_learner_feedback', function (Blueprint $table) {
+        Schema::create('course_feedbacks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('course_id')->index();
             $table->unsignedBigInteger('student_id')->index();
@@ -25,7 +26,7 @@ return new class extends Migration {
 
             $table->foreign('course_id')->references('id')->on('courses')
                 ->onDelete('cascade');
-            $table->foreign('student_id')->references('id')->on('certificate_authentication')
+            $table->foreign('student_id')->references('id')->on('certificates')
                 ->onDelete('cascade');
         });
     }
@@ -37,6 +38,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('course_feedback');
+        Schema::dropIfExists('course_feedbacks');
     }
 };

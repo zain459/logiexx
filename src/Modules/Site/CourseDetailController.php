@@ -32,7 +32,7 @@ class CourseDetailController
         $specific = Course::with(['category'])->where('id', $id)->first();
         $coursePartners = CoursePartner::with(['partner'])->where('course_id', $id)->get();
         $courseLearningObjectives = CourseLearningObjective::with('course')->where('course_id', $id)->get();
-        $instructorsFeedback = DB::table('instructor_feedback')
+        $instructorsFeedback = DB::table('instructor_feedbacks')
             ->select(['instructor_id', DB::raw('SUM(instructor_quality_of_course)/count(*) as feedback')])
             ->groupBy('instructor_id')
             ->get()
@@ -40,7 +40,7 @@ class CourseDetailController
                 return [$item->instructor_id => number_format($item->feedback, 1, '.', '')];
             });
 
-        $instructorsReview = DB::table('instructor_feedback')
+        $instructorsReview = DB::table('instructor_feedbacks')
             ->select(['instructor_id', DB::raw('count(instructor_id) as reviews')])
             ->groupBy('instructor_id')
             ->get()
@@ -48,7 +48,7 @@ class CourseDetailController
                 return [$item->instructor_id => $item->reviews];
             });
 
-        $instructorsStudent = DB::table('instructor_feedback')
+        $instructorsStudent = DB::table('instructor_feedbacks')
             ->select(['instructor_id', 'course_id', DB::raw('count(student_id) as totalStudent')])
             ->groupBy('instructor_id', 'course_id')
             ->get()

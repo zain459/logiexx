@@ -45,7 +45,7 @@ use phpDocumentor\Reflection\Types\Boolean;
  */
 class Enrollment extends Model
 {
-    protected $table = 'class_enrollment';
+    protected $table = 'enrollments';
 
     public function id(): int
     {

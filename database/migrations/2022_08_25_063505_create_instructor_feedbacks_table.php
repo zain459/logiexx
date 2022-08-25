@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('instructor_feedback', function (Blueprint $table) {
+        Schema::create('instructor_feedbacks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('course_id')->index();
             $table->unsignedBigInteger('instructor_id')->index();
@@ -29,7 +29,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->foreign('instructor_id')->references('id')->on('instructors')
                 ->onDelete('cascade');
-            $table->foreign('student_id')->references('id')->on('certificate_authentication')
+            $table->foreign('student_id')->references('id')->on('certificates')
                 ->onDelete('cascade');
         });
     }
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instructor_feedback');
+        Schema::dropIfExists('instructor_feedbacks');
     }
 };

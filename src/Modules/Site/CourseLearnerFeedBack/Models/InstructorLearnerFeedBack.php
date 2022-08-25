@@ -23,7 +23,7 @@ use Logixs\Modules\Instructor\Models\Instructor;
  */
 class InstructorLearnerFeedBack extends Model
 {
-    protected $table = 'instructor_feedback';
+    protected $table = 'instructor_feedbacks';
 
     public function id(): int
     {

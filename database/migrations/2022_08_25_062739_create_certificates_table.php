@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,15 +13,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('certificate_authentication', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('class_id')->index();
             $table->string('name');
-            $table->string('verify_certificate');
             $table->date('issue_date');
+            $table->string('certificate');
+            $table->unsignedBigInteger('enrollment_id')->index();
             $table->timestamps();
 
-            $table->foreign('class_id')->references('id')->on('classes')
+            $table->foreign('enrollment_id')->references('id')->on('enrollments')
                 ->onDelete('cascade');
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('certificate_authentication');
+        Schema::dropIfExists('certificates');
     }
 };

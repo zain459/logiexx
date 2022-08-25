@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class CertificateAuthentication extends Model
 {
-    protected $table = 'certificate_authentication';
+    protected $table = 'certificates';
     protected $dateFormat = 'Y-m-d H:i:s';
 
     public function id(): int
@@ -43,8 +43,8 @@ class CertificateAuthentication extends Model
         return Carbon::parse($this->issue_date);
     }
 
-    public function class(): BelongsTo
-    {
-        return $this->belongsTo(CourseClass::class, 'class_id', 'id');
-    }
+//    public function class(): BelongsTo
+//    {
+//        return $this->belongsTo(CourseClass::class, 'class_id', 'id');
+//    }
 }
