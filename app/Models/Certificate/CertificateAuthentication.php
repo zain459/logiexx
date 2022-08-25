@@ -6,12 +6,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Logixs\Modules\Course\Models\CourseClass;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
 /**
- * @property int $class_id
+ * @property int $id
+ * @property int $enrollment_id
  * @property string $name
  * @property Carbon $issue_date
- * @property string $verify_certificate
+ * @property string $certificate
  */
 class CertificateAuthentication extends Model
 {
@@ -23,9 +25,9 @@ class CertificateAuthentication extends Model
         return $this->id;
     }
 
-    public function classId(): int
+    public function enrollmentId(): int
     {
-        return $this->class_id;
+        return $this->enrollment_id;
     }
 
     public function name(): string
@@ -35,7 +37,7 @@ class CertificateAuthentication extends Model
 
     public function verifyCertificate(): string
     {
-        return $this->verify_certificate;
+        return $this->certificate;
     }
 
     public function issueDate(): Carbon
@@ -43,8 +45,8 @@ class CertificateAuthentication extends Model
         return Carbon::parse($this->issue_date);
     }
 
-//    public function class(): BelongsTo
-//    {
-//        return $this->belongsTo(CourseClass::class, 'class_id', 'id');
-//    }
+    public function enrollment(): BelongsTo
+    {
+        return $this->belongsTo(Enrollment::class, 'enrollment_id', 'id');
+    }
 }

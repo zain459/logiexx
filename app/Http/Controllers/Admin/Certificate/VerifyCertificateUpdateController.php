@@ -12,13 +12,13 @@ class VerifyCertificateUpdateController extends Controller
     {
         $data = $this->validate($request, [
             'name' => ['required', 'string'],
-            'verify_certificate' => ['required', 'string'],
+            'certificate' => ['required', 'string'],
             'issue_date' => ['required', 'date'],
         ]);
 
         $verifyCertificateAuthentication = CertificateAuthentication::query()->findOrFail($id);
         $verifyCertificateAuthentication->name = $data['name'];
-        $verifyCertificateAuthentication->verify_certificate = $data['verify_certificate'];
+        $verifyCertificateAuthentication->certificate = $data['certificate'];
         $verifyCertificateAuthentication->issue_date = $data['issue_date'];
 
         $verifyCertificateAuthentication->save();

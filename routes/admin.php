@@ -83,15 +83,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('course/{id}/class/delete', ClassDeleteController::class)->name('admin.course-class.delete');
     Route::post('course-class/{id}/update', ClassUpdateController::class)->name('admin.course-class.update');
 
-
-    //Certificate
-    Route::get('class/{id}/verify-certificate', VerifyCertificateController::class)->name('admin.verify-certificate.index');
-    Route::get('class/{id}/verify-certificate/create', VerifyCertificateCreateController::class)->name('admin.verify-certificate.create');
-    Route::post('class/{id}/verify-certificate/store', VerifyCertificateStoreController::class)->name('admin.verify-certificate.store');
-    Route::get('class/verify-certificate/{id}/edit', VerifyCertificateEditController::class)->name('admin.verify-certificate.edit');
-    Route::post('class/verify-certificate/{id}/update', VerifyCertificateUpdateController::class)->name('admin.verify-certificate.update');
-    Route::post('class/verify-certificate/{id}/Delete', VerifyCertificateDeleteController::class)->name('admin.verify-certificate.delete');
-
     //setting
     Route::get('settings', SettingDashboardController::class)->name('admin.setting.dashboard');
 
@@ -130,4 +121,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     //enrollment status
     Route::post('enrollment-status/{id}/store', \Logixs\Modules\Course\Controllers\EnrollmentStatusStore::class)->name('course.enrollment-status-store');
+
+    //Certificate
+    Route::get('enrollment/{id}/certificate-create', VerifyCertificateCreateController::class)->name('admin.verify-certificate.create');
+    Route::post('enrollment/{id}/certificate-store', VerifyCertificateStoreController::class)->name('admin.verify-certificate.store');
+    Route::get('class/verify-certificate/{id}/edit', VerifyCertificateEditController::class)->name('admin.verify-certificate.edit');
+    Route::post('class/verify-certificate/{id}/update', VerifyCertificateUpdateController::class)->name('admin.verify-certificate.update');
+    Route::post('class/verify-certificate/{id}/Delete', VerifyCertificateDeleteController::class)->name('admin.verify-certificate.delete');
+
 });
