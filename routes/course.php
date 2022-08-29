@@ -33,21 +33,21 @@ use Logixs\Modules\Course\Controllers\CourseLearningObjectiveDeleteController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('courses', CourseIndexController::class)->name('course-index');
+//    Route::get('courses', CourseIndexController::class)->name('course-index');
 
     Route::prefix('course')->group(function () {
-        Route::get('create', CourseCreateController::class)->name('course-create');
-        Route::post('store', CourseStoreController::class)->name('course-store');
-        Route::get('{id}/edit', CourseEditController::class)->name('course-edit');
-        Route::post('{id}/update', CourseUpdateController::class)->name('course-update');
+//        Route::get('create', CourseCreateController::class)->name('course-create');
+//        Route::post('store', CourseStoreController::class)->name('course-store');
+//        Route::get('{id}/edit', CourseEditController::class)->name('course-edit');
+//        Route::post('{id}/update', CourseUpdateController::class)->name('course-update');
 
-        //other info
-        Route::get('{id}/other-details', CourseOtherInfoIndexController::class)->name('course.other-info');
-        Route::get('{id}/other-details/create', CourseOtherInfoCreateController::class)->name('course.other-info-create');
-        Route::post('other-details/store', CourseOtherInfoStoreController::class)->name('course.other-info-store');
-        Route::post('/other-details/{id}/delete', CourseOtherInfoDeleteController::class)->name('course.other-info-delete');
-        Route::get('/other-details/{id}/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
-        Route::post('/other-details/{id}/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
+//        //other info
+//        Route::get('{id}/other-details', CourseOtherInfoIndexController::class)->name('course.other-info');
+//        Route::get('{id}/other-details/create', CourseOtherInfoCreateController::class)->name('course.other-info-create');
+//        Route::post('other-details/store', CourseOtherInfoStoreController::class)->name('course.other-info-store');
+//        Route::post('/other-details/{id}/delete', CourseOtherInfoDeleteController::class)->name('course.other-info-delete');
+//        Route::get('/other-details/{id}/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
+//        Route::post('/other-details/{id}/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
 
         //Affiliated Partners
         Route::get('{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');

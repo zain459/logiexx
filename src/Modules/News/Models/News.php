@@ -5,7 +5,7 @@ namespace Logixs\Modules\News\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int    $id
+ * @property int $id
  * @property string $link
  * @property string $title
  * @property string $image
@@ -22,6 +22,11 @@ class News extends Model
     public function id(): int
     {
         return $this->id;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
     }
 
     public function link(): ?string

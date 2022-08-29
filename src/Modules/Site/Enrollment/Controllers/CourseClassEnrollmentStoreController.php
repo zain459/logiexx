@@ -2,12 +2,15 @@
 
 namespace Logixs\Modules\Site\Enrollment\Controllers;
 
+use App\Models\Certificate\CertificateAuthentication;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\EnrollmentEmail;
 use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
 class CourseClassEnrollmentStoreController extends Controller
@@ -79,21 +82,31 @@ class CourseClassEnrollmentStoreController extends Controller
         $originalName = $file->getClientOriginalName();
         $fileType = $file->getClientMimeType();
         $fileSize = $file->getSize();
-//        if ($file->getSize() >= 1024) {
-//            $fileSize = number_format($file->getSize() / 1024, 2) . ' KB';
-//        }
         $enrollment->file = $path;
         $enrollment->file_name = $originalName;
         $enrollment->file_type = $fileType;
         $enrollment->file_size = $fileSize;
         $enrollment->class_id = $data['classId'];
         $enrollment->save();
+        $certificate = new CertificateAuthentication();
+        $certificate->name = $enrollment->first_name;
+        $certificate->certificate =  Str::random(8);;
+        $certificate->enrollment_id = $enrollment->id();
+        $certificate->issue_date = Carbon::now()->addDays(5);
+        $certificate->save();
+
 //        $enrollmentEmail = new EnrollmentEmail($enrollment);
 //        $mail = Mail::to($enrollment->email());
 //        $mail->send($enrollmentEmail);
 
-        flash('Enrollment submitted')->success();
+        flash('Enrollment submitted')->success()->important();
 
         return redirect()->back();
     }
+
+//    private function str_random(int $int)
+//    {
+//        $certificate = new CertificateAuthentication();
+//        $certificate->certificate = $int;
+//    }
 }

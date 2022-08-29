@@ -6,7 +6,34 @@
 
         <a href="{{ route('event-create') }}" class="btn btn-primary btn-sm">New Event</a>
     </div>
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('event-index')}}" autocomplete="off">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Date</label>
+                        <input type="text" name="date-filter" class="form-control" autocomplete="off"
+                               value="{{request()->get('date-filter')}}"/>
+                    </div>
 
+
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('event-index')}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>
@@ -62,5 +89,28 @@
             </tbody>
         </table>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <script type="text/javascript">
+        $(function () {
 
+            $('input[name="date-filter"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('input[name="date-filter"]').on('apply.daterangepicker', function (ev, picker) {
+                $(this).val(picker.startDate.format('YYYY-MM-DD') + ' ' + picker.endDate.format('YYYY-MM-DD'));
+            });
+
+            $('input[name="date-filter"]').on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('');
+            });
+
+        });
+    </script>
 @endsection

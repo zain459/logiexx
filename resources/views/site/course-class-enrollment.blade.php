@@ -89,7 +89,7 @@
                             <div class="d-flex field">
                                 <div class="cu_select me-2">
                                     <select class="form-select" name="code" id="code" required>
-                                        <option></option>
+                                        <option>(Pakistan)+92</option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryTelephoneCode)
                                             <option
                                                 value="{{$countryTelephoneCode->id()}}">{{$countryTelephoneCode->code()}}</option>

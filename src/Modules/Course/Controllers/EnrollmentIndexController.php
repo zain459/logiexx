@@ -9,7 +9,7 @@ class EnrollmentIndexController
 {
     public function __invoke(int $id)
     {
-        $enrollments = Enrollment::where('class_id', $id)->get();
+        $enrollments = Enrollment::with('class')->where('class_id', $id)->get();
 
         return view('course.enrollment-index', [
             'enrollments' => $enrollments

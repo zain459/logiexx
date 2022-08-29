@@ -145,10 +145,11 @@
                         <label class="form-label" for="overview">Overview</label>
                         <textarea name="overview" class="form-control"></textarea>
                     </div>
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label" for="description">Description</label>
-                        <textarea name="description" class="form-control"></textarea>
-                    </div>
+                    {{--                    <div class="mb-3 col-md-12">--}}
+                    {{--                        <label class="form-label" for="description">Description</label>--}}
+                    {{--                        <textarea name="description" class="form-control"></textarea>--}}
+                    {{--                    </div>--}}
+
                     <div class="mb-3 col-md-12">
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
@@ -186,11 +187,17 @@
                         <label class="form-label" for="file">PDF File</label>
                         <input type="file" class="form-control" name="file" id="file"/>
                     </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="ckeditor form-control" name="description"></textarea>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script>
         function check() {
             if (document.getElementById('paid').checked) {
@@ -198,6 +205,15 @@
             } else document.getElementById('show').style.visibility = 'hidden';
 
         }
+
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
     </script>
+    {{--    <script type="text/javascript">--}}
+    {{--        $(document).ready(function() {--}}
+    {{--            $('.ckeditor').ckeditor();--}}
+    {{--        });--}}
+    {{--    </script>--}}
 @endsection
 

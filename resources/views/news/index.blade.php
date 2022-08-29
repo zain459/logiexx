@@ -7,6 +7,89 @@
         <a href="{{ route('news-create') }}" class="btn btn-primary btn-sm">New News</a>
     </div>
 
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('news-index')}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">title</label>
+                        <input type="text" name="title" class="form-control" value="">
+                    </div>
+
+                    {{--                    <div class="col-md-2">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <label class="form-label">Publication Frequency</label>--}}
+                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
+                    {{--                                <option></option>--}}
+                    {{--                                <option value="1">--}}
+                    {{--                                    Annual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="2">--}}
+                    {{--                                    Article-by-Article--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="3">--}}
+                    {{--                                    Bimonthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="4">--}}
+                    {{--                                    Continuous Publication--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="5">--}}
+                    {{--                                    Fortnightly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="6">--}}
+                    {{--                                    Irregular--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="7">--}}
+                    {{--                                    Monthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="8">--}}
+                    {{--                                    Quarterly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="9">--}}
+                    {{--                                    Semiannual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="10">--}}
+                    {{--                                    Semimonthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="11">--}}
+                    {{--                                    Triannual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="12">--}}
+                    {{--                                    Weekly--}}
+                    {{--                                </option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+
+                    {{--                    <div class="col-md-2">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <label class="form-label">Fee Type</label>--}}
+                    {{--                            <select class="form-select" name="fee_type">--}}
+                    {{--                                <option></option>--}}
+                    {{--                                <option value="free">--}}
+                    {{--                                    free--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="paid">--}}
+                    {{--                                    paid--}}
+                    {{--                                </option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('news-index')}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="card">
         <table class="table table-hover">
             <thead>
@@ -14,7 +97,7 @@
                 <th>Title</th>
                 <th>Short Description</th>
                 <th>Long Description</th>
-                <th>Posted Date </th>
+                <th>Posted Date</th>
                 <th>Image</th>
                 <td></td>
             </tr>
@@ -58,6 +141,11 @@
             @endforelse
             </tbody>
         </table>
+        @if($news != null)
+            <div class="pagination d-flex justify-content-end align-items-center">
+                {!! $news->links() !!}
+            </div>
+        @endif
     </div>
 
 @endsection

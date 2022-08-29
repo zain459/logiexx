@@ -12,7 +12,7 @@ class EnrollmentViewController
 
         $enrollment = Enrollment::with('class')->findOrFail($id);
         $verifyCertification = CertificateAuthentication::get()->count();
-        $verifyCertifications = CertificateAuthentication::get();
+        $verifyCertifications = CertificateAuthentication::where('enrollment_id', $id)->get();
 
         return view('course.enrollment-view', [
             'enrollment' => $enrollment,

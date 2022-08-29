@@ -119,12 +119,13 @@
                     @foreach($subjectFields as $subjectField)
                         @if($subjectField != null)
                             <div class="col">
-{{--                                <object type="image/svg+xml" data="{{'storage/'.$subjectField->image()}}" id="svg-fluid">--}}
-{{--                                    Kiwi Logo <!-- fallback image in CSS -->--}}
-{{--                                </object>--}}
+                                {{--                                <object type="image/svg+xml" data="{{'storage/'.$subjectField->image()}}" id="svg-fluid">--}}
+                                {{--                                    Kiwi Logo <!-- fallback image in CSS -->--}}
+                                {{--                                </object>--}}
 
-{{--                                <svg width="100%" src="{{'storage/'.$subjectField->image()}}" height="100%" viewBox="0 0 167 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"></svg>--}}
-                                <i class=""><img src="{{'storage/'.$subjectField->image()}}" class="custom-svg-icon w-10"
+                                {{--                                <svg width="100%" src="{{'storage/'.$subjectField->image()}}" height="100%" viewBox="0 0 167 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"></svg>--}}
+                                <i class=""><img src="{{'storage/'.$subjectField->image()}}"
+                                                 class="custom-svg-icon w-10"
                                                  alt=""></i>
                                 <h3>
                                     <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
@@ -135,7 +136,7 @@
                 </div>
             </div>
         </section>
-        @if($webinar != null)
+        @if(null !== $webinar)
             <section class="block series-block bdb">
                 <div class="container pb-4 mb-5">
                     <h2>L.A. Webinars Series</h2>
@@ -165,7 +166,8 @@
 									</span>
                                     @endif
                                     <div class="text">
-                                        <span class="d-block">Link: <a href="" style="text-decoration: none">{{$webinar->link()}}</a></span>
+                                    <span class="d-block">Link: <a href=""
+                                                                   style="text-decoration: none">{{$webinar->link()}}</a></span>
                                         <span class="d-block">Meeting Id: {{$webinar->meetingId()}}</span>
                                         <span class="d-block">Passcode: {{$webinar->passcode()}}</span>
                                     </div>
@@ -407,50 +409,47 @@
             </div>
         </section>
     </main>
-<script>
+    <script>
 
-    $(function(){
-        //Change the class name, if it has to be applied for more SVG elements
-        jQuery('body img').each(function(){
-            var $img = jQuery(this); // The image
-            var imgID = $img.attr('id'); // ID attribute
-            var imgClass = $img.attr('class'); // Class Name
-            var imgURL = $img.attr('src'); // URL of the SVG image
+        $(function () {
+            //Change the class name, if it has to be applied for more SVG elements
+            jQuery('body img').each(function () {
+                var $img = jQuery(this); // The image
+                var imgID = $img.attr('id'); // ID attribute
+                var imgClass = $img.attr('class'); // Class Name
+                var imgURL = $img.attr('src'); // URL of the SVG image
 
-            jQuery.get(imgURL, function(data) {
-                //The data param contains the XML data of the SVG image
-                //alert(new XMLSerializer().serializeToString(data));
+                jQuery.get(imgURL, function (data) {
+                    //The data param contains the XML data of the SVG image
+                    //alert(new XMLSerializer().serializeToString(data));
 
-                // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
+                    // Get the SVG tag, ignore the rest
+                    var $svg = jQuery(data).find('svg');
 
-                // Give the image's ID to the SVG
-                if(typeof imgID !== 'undefined')
-                {
-                    $svg = $svg.attr('id', imgID);
-                }
+                    // Give the image's ID to the SVG
+                    if (typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
 
-                // Give the image's class to the SVG
-                if(typeof imgClass !== 'undefined')
-                {
-                    $svg = $svg.attr('class', imgClass+' replaced-svg');
-                }
+                    // Give the image's class to the SVG
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
 
-                // Remove any invalid XML tags as per http://validator.w3.org
-                $svg = $svg.removeAttr('xmlns:a');
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
 
-                // Check if the viewport is set, else we gonna set it if we can.
-                if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width'))
-                {
-                    $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-                }
+                    // Check if the viewport is set, else we gonna set it if we can.
+                    if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                        $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                    }
 
-                // Replace image with new SVG
-                $img.replaceWith($svg);
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
 
-            }, 'xml'); //Returns as XML
+                }, 'xml'); //Returns as XML
+            });
         });
-    });
-</script>
+    </script>
 @endsection
 

@@ -39,7 +39,7 @@ class CourseUpdateController extends Controller
 
         GetCourse::update($data, $id, $request);
 
-        flash('Course Updated')->success();
+        flash('Course Updated')->success()->important();
 
         return redirect()->back();
     }

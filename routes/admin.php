@@ -24,6 +24,17 @@ use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsUpdateController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsStoreController;
+use Logixs\Modules\Course\Controllers\CourseCreateController;
+use Logixs\Modules\Course\Controllers\CourseEditController;
+use Logixs\Modules\Course\Controllers\CourseIndexController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
+use Logixs\Modules\Course\Controllers\CourseStoreController;
+use Logixs\Modules\Course\Controllers\CourseUpdateController;
 use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
 use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
 use Logixs\Modules\Course\Controllers\EnrollmentViewController;
@@ -54,6 +65,21 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // dashboard
     Route::get('dashboard', AdminDashboardController::class)->name('admin.dashboard');
+
+    //course
+    Route::get('courses', CourseIndexController::class)->name('course-index');
+    Route::get('course/create', CourseCreateController::class)->name('course-create');
+    Route::post('course/store', CourseStoreController::class)->name('course-store');
+    Route::get('course/{id}/edit', CourseEditController::class)->name('course-edit');
+    Route::post('course/{id}/update', CourseUpdateController::class)->name('course-update');
+
+    //other info
+    Route::get('course/{id}/other-details', CourseOtherInfoIndexController::class)->name('course.other-info');
+    Route::get('course/{id}/other-details/create', CourseOtherInfoCreateController::class)->name('course.other-info-create');
+    Route::post('course/other-details/store', CourseOtherInfoStoreController::class)->name('course.other-info-store');
+    Route::post('course/other-details/{id}/delete', CourseOtherInfoDeleteController::class)->name('course.other-info-delete');
+    Route::get('course/other-details/{id}/edit', CourseOtherInfoEditController::class)->name('course.other-info-edit');
+    Route::post('course/other-details/{id}/update', CourseOtherInfoUpdateController::class)->name('course.other-info-update');
 
     // featured courses
     Route::get('featured-courses', FeaturedCourseIndexController::class)->name('admin.featured-course.index');

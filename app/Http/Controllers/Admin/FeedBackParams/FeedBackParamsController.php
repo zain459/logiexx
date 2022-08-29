@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers\Admin\FeedBackParams;
 
+use Illuminate\Http\Request;
 use App\Models\FeedBackParams\FeedBackParams;
 
 class FeedBackParamsController
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        $feedBackParams = FeedBackParams::all();
+        $feedBackParam = FeedBackParams::query();
 
-        return view('admin.feedback-params.index',[
+        if (null !== $request->get('title')) {
+            $feedBackParam->where('title', 'like', '%' . $request->get('title') . '%');
+        }
+
+        $feedBackParams = $feedBackParam->paginate(10);
+
+        return view('admin.feedback-params.index', [
             'feedBackParams' => $feedBackParams
         ]);
     }

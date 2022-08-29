@@ -59,7 +59,7 @@ class WebinarUpdateController extends Controller
         }
         $webinar->save();
 
-        flash('Record updated')->success();
+        flash('Record updated')->success()->important();
 
         return redirect()->back();
     }

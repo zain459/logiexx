@@ -4,7 +4,6 @@ namespace App\Models\Certificate;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Logixs\Modules\Course\Models\CourseClass;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 

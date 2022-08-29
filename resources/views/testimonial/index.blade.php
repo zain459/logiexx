@@ -6,7 +6,88 @@
 
         <a href="{{ route('testimonial-create') }}" class="btn btn-sm btn-primary">New Testimonial</a>
     </div>
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('testimonial-index')}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" value="">
+                    </div>
 
+                    {{--                    <div class="col-md-2">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <label class="form-label">Publication Frequency</label>--}}
+                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
+                    {{--                                <option></option>--}}
+                    {{--                                <option value="1">--}}
+                    {{--                                    Annual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="2">--}}
+                    {{--                                    Article-by-Article--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="3">--}}
+                    {{--                                    Bimonthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="4">--}}
+                    {{--                                    Continuous Publication--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="5">--}}
+                    {{--                                    Fortnightly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="6">--}}
+                    {{--                                    Irregular--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="7">--}}
+                    {{--                                    Monthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="8">--}}
+                    {{--                                    Quarterly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="9">--}}
+                    {{--                                    Semiannual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="10">--}}
+                    {{--                                    Semimonthly--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="11">--}}
+                    {{--                                    Triannual--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="12">--}}
+                    {{--                                    Weekly--}}
+                    {{--                                </option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+
+                    {{--                    <div class="col-md-2">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <label class="form-label">Fee Type</label>--}}
+                    {{--                            <select class="form-select" name="fee_type">--}}
+                    {{--                                <option></option>--}}
+                    {{--                                <option value="free">--}}
+                    {{--                                    free--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="paid">--}}
+                    {{--                                    paid--}}
+                    {{--                                </option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('testimonial-index')}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>
@@ -61,6 +142,11 @@
             @endforelse
             </tbody>
         </table>
+        @if($testimonials != null)
+            <div class="pagination d-flex justify-content-end align-items-center">
+                {!! $testimonials->links() !!}
+            </div>
+        @endif
     </div>
 
 @endsection

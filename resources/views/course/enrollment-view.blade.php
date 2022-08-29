@@ -319,8 +319,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="modal fade" id="createSubjectAreaModal" tabindex="-1" role="dialog"
@@ -374,11 +372,11 @@
         @if($enrollment->status() == 1 && $verifyCertification == 0)
             <hr>
             <div class="mb-3 d-flex justify-content-between align-items-center">
-                <h4>Subject Area</h4>
+                <h4>Certificate</h4>
 
                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                         data-bs-target="#createSubjectAreaModal">
-                    New Area
+                    Add Certificate
                 </button>
             </div>
         @endif

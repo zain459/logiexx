@@ -60,7 +60,7 @@ class WebinarStoreController extends Controller
         $webinar->short_description = $data['short_description'];
         $webinar->save();
 
-        flash('webinar added')->success();
-        return redirect()->route('webinar-edit', $webinar->id());
+        flash('webinar added')->success()->important();
+        return redirect()->route('webinar-index');
     }
 }

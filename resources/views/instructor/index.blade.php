@@ -9,7 +9,35 @@
             New Instructor
         </button>
     </div>
-
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('instructor.index')}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" value="{{request()->get('email')}}">
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" value="{{request()->get('address')}}">
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('instructor.index')}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>
@@ -52,6 +80,11 @@
             @endforelse
             </tbody>
         </table>
+        @if($instructors != null)
+            <div class="pagination d-flex justify-content-end align-items-center">
+                {!! $instructors->links() !!}
+            </div>
+        @endif
     </div>
 
     <!-- Modal -->

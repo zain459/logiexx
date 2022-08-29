@@ -51,7 +51,7 @@ class CourseStoreController extends Controller
 
         $course = GetCourse::store($data, $path, $filePath, $licensingInformationImagePath);
 
-        flash('Course added');
+        flash('Course added')->success()->important();
 
         return redirect()->route('course-edit', $course->id());
     }
