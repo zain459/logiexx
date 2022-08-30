@@ -19,8 +19,8 @@ class NewsIndexController
                     ->orWhere('long_description', 'like', '%' . $request->get('key') . '%');
             });
         }
-        if (null !== $request->get('date-filter')) {
-            $query->where('posted_date', 'like', '%' . $request->get('date') . '%');
+        if (null !== $request->get('date')) {
+            $query->where('posted_date',  $request->get('date'));
         }
         $news = $query->paginate(10);
 

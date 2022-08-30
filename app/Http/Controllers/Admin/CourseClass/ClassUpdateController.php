@@ -38,6 +38,6 @@ class ClassUpdateController extends Controller
         $courseClass->save();
 
         flash('class Updated')->success()->important();
-        return redirect()->back();
+        return redirect()->route('admin.course-class.index', $courseClass->courseId());
     }
 }

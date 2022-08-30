@@ -8,7 +8,49 @@
 
         <a href="{{route('admin.course-class.create', $course->id())}}" class="btn btn-sm btn-primary">New Class</a>
     </div>
-
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('admin.course-class.index', $course->id())}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="form-label" for="title">Modality</label>
+                            <select class="form-select" name="modality">
+                                <option></option>
+                                @foreach($modalities as $modality)
+                                    <option
+                                        value="{{ $modality->id() }}" @selected($modality->id() == request()->get('modality'))>{{$modality->name()}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" name="date" class="form-control" autocomplete="off"
+                               value="{{request()->get('date')}}"/>
+                    </div>
+{{--                    <div class="col-md-3 form-group">--}}
+{{--                        <label class="form-label">Date</label>--}}
+{{--                        <input type="text" name="date" class="form-control" autocomplete="off"--}}
+{{--                               value="{{request()->get('date')}}"/>--}}
+{{--                    </div>--}}
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('admin.course-class.index', $course->id())}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>
@@ -23,7 +65,7 @@
             @forelse($classes as $class)
                 <tr>
                     <td>{{$class->title()}}</td>
-                    <td>{{$class->date()}}</td>
+                    <td>{{$class->date()->toDateString()}}</td>
                     <td>{{$class->classSeat()}}</td>
                     <td class="d-flex flex-column align-items-center">
                         <a href="{{route('course.enrollment-index', $class->id())}}">

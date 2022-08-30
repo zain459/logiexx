@@ -8,13 +8,34 @@
         <h3>Course learning Units</h3>
         <a href="{{ route('course.learning-objective-create', $course->id()) }}" class="btn btn-sm btn-primary">New Learning Unit</a>
     </div>
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('course.learning-objective-index', $course->id())}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
+                    </div>
 
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('course.learning-objective-index', $course->id())}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>Title</th>
-{{--                <th>Description</th>--}}
+                <th>Description</th>
                 <td></td>
             </tr>
             </thead>
@@ -22,7 +43,7 @@
             @forelse($courseLearningObjectives as $courseLearningObjective)
                 <tr>
                     <td>{{ $courseLearningObjective->title() }}</td>
-{{--                    <td>{!! html_entity_decode($courseLearningObjective->description()) !!}</td>--}}
+                    <td>{{strip_tags($courseLearningObjective->description())}}</td>
                     <td class="table-action d-flex justify-content-end gap-2">
                         <a href="{{ route('course.learning-objective-edit', $courseLearningObjective->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

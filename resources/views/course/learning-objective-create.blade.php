@@ -2,7 +2,7 @@
 @section('title', 'Course Learning-Objective')
 @section('content')
 
-{{--    <x-course-navbar :course="$course" />--}}
+    <x-course-navbar :course="$course" />
 
 
     <div class="card">

@@ -1,6 +1,7 @@
 @extends('layout')
 @section('title', 'Enrollment')
 @section('content')
+    <x-course-navbar :course="$course"/>
     <div class="mb-3 d-flex justify-content-between align-items-center">
         <h3>Enrollment</h3>
     </div>

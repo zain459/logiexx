@@ -67,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
         //course learning objective
         Route::get('{id}/learning-objective', CourseLearningObjectiveController::class)->name('course.learning-objective-index');
-        Route::get('{id}/learning-objective/create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
+        Route::get('{id}/learning-objective-create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
         Route::get('learning-objective/{id}/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
         Route::post('store/learning-objective', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
         Route::post('{id}/update/learning-objective', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
