@@ -2,7 +2,7 @@
 @section('title', 'Course-Feedback-Create')
 @section('content')
     <x-course-navbar :course="$course"/>
-    <div class="card">
+    <div class="card twocolumns-form">
         <div class="card-header">
             <h5 class="card-title">New Course Feedback Params</h5>
         </div>
@@ -11,7 +11,7 @@
                 @csrf
                 <div class="row">
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="title">Title</label>
+                        <label class="form-label" for="title">Title<sup>*</sup></label>
                         <select class="form-select" name="feedback_params_id" required>
                             <option></option>
                             @foreach($feedbacks as $feedback)
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="type">type</label>
+                        <label class="form-label" for="type">type<sup>*</sup></label>
                         <select class="form-select" name="type" id="type" required>
                             <option></option>
                             <option value="{{'Instructor'}}">{{ 'Instructor' }}</option>
