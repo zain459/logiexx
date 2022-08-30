@@ -88,6 +88,11 @@
             @endforelse
             </tbody>
         </table>
+        @if($event != null)
+            <div class="pagination d-flex justify-content-end align-items-center">
+                {!! $event->links() !!}
+            </div>
+        @endif
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
