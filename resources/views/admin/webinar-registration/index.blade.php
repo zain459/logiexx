@@ -2,7 +2,6 @@
 @section('title', 'Webinar Registration')
 @section('content')
 
-
     <div class="mb-3 d-flex justify-content-between align-items-center">
         <h3>Webinar Registration</h3>
     </div>
@@ -14,13 +13,23 @@
             <form method="GET" action="{{route('admin.webinar-registration.index')}}">
                 <div class="row g-3 align-items-end">
                     <div class="col-md-4 form-group">
-                        <label class="form-label">First Name</label>
-                        <input type="text" name="first_name" class="form-control" value="">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
                     </div>
-                    <div class="col-md-4 form-group">
-                        <label class="form-label">Organization Name</label>
-                        <input type="text" name="organization_name" class="form-control" value="">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="form-label" for="title">Status</label>
+                            <select class="form-select" name="status">
+                                <option></option>
+                                <option value="1" @selected(1 == request()->get('status'))>Approved</option>
+                                <option value="0" @selected(0 == request()->get('status'))>Un Approved</option>
+                            </select>
+                        </div>
                     </div>
+                    {{--                    <div class="col-md-4 form-group">--}}
+                    {{--                        <label class="form-label">Organization Name</label>--}}
+                    {{--                        <input type="text" name="organization_name" class="form-control" value="">--}}
+                    {{--                    </div>--}}
 
                     {{--                    <div class="col-md-2">--}}
                     {{--                        <div class="form-group">--}}
@@ -86,7 +95,8 @@
                         <button class="btn btn-primary" type="submit">
                             Search
                         </button>
-                        <a href="{{route('admin.webinar-registration.index')}}" class="btn btn-outline-primary">Clear</a>
+                        <a href="{{route('admin.webinar-registration.index')}}"
+                           class="btn btn-outline-primary">Clear</a>
                     </div>
                 </div>
             </form>
