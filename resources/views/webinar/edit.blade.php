@@ -136,10 +136,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">Short Description<sup>*</sup></label>
-                            <textarea class="form-control" name="short_description" placeholder="Short Description"
-                                      rows="3" required>{{$webinar->shortDescription()}}</textarea>
+                                <textarea class="ckeditor form-control" name="short_description">{{$webinar->shortDescription()}}</textarea>
                         </div>
-
                         {{--                        <input type="hidden" name="webinarId" value="{{$webinar->id()}}" required />--}}
 
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -150,8 +148,11 @@
 
     </div>
 
-    <script>
-        import {VueEditor} from "vue2-editor";
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
     </script>
 
 @endsection

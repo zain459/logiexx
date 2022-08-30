@@ -24,8 +24,8 @@ class EventIndexController
                     ->orWhere('start_date', 'like', '%' . Str::between($request->get('date-filter'), '"', ' ') . '%')
                     ->orWhere('end_date', 'like', '%' . Str::between($request->get('date-filter'), ' ', '"') . '%');
             });
-
         }
+
         $events = $query->paginate(10);
 
         return view('event.index', [

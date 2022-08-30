@@ -9,13 +9,19 @@ class TestimonialIndexController
 {
     public function __invoke(Request $request)
     {
-        $testimonial = Testimonial::query();
+        $query = Testimonial::query();
 
-        if (null !== $request->get('name')) {
-            $testimonial->where('name', 'like', '%' . $request->get('name') . '%');
+        if (null !== $request->get('key')) {
+            $query->where(function ($q) use ($request){
+               $q
+                   ->orWhere('name', 'like', '%'. $request->get('key').'%')
+                   ->orWhere('company', 'like', '%'. $request->get('key'). '%')
+                   ->orWhere('designation', 'like', '%'. $request->get('key'). '%')
+                   ->orWhere('description', 'like', '%'. $request->get('key'). '%');
+            });
         }
 
-        $testimonials = $testimonial->paginate(10);
+        $testimonials = $query->paginate(10);
 
         return view('testimonial.index', [
             'testimonials' => $testimonials,
