@@ -20,77 +20,12 @@
                         <div class="form-group">
                             <label class="form-label" for="title">Status</label>
                             <select class="form-select" name="status">
-                                <option></option>
+                                <option>Select</option>
                                 <option value="1" @selected(1 == request()->get('status'))>Approved</option>
                                 <option value="0" @selected(0 == request()->get('status'))>Un Approved</option>
                             </select>
                         </div>
                     </div>
-                    {{--                    <div class="col-md-4 form-group">--}}
-                    {{--                        <label class="form-label">Organization Name</label>--}}
-                    {{--                        <input type="text" name="organization_name" class="form-control" value="">--}}
-                    {{--                    </div>--}}
-
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Publication Frequency</label>--}}
-                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="1">--}}
-                    {{--                                    Annual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="2">--}}
-                    {{--                                    Article-by-Article--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="3">--}}
-                    {{--                                    Bimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="4">--}}
-                    {{--                                    Continuous Publication--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="5">--}}
-                    {{--                                    Fortnightly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="6">--}}
-                    {{--                                    Irregular--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="7">--}}
-                    {{--                                    Monthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="8">--}}
-                    {{--                                    Quarterly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="9">--}}
-                    {{--                                    Semiannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="10">--}}
-                    {{--                                    Semimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="11">--}}
-                    {{--                                    Triannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="12">--}}
-                    {{--                                    Weekly--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Fee Type</label>--}}
-                    {{--                            <select class="form-select" name="fee_type">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="free">--}}
-                    {{--                                    free--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="paid">--}}
-                    {{--                                    paid--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">
                             Search
