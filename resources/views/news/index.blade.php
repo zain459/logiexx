@@ -52,10 +52,11 @@
             @forelse($news as $item)
                 <tr>
                     <td>{{ $item->title }}</td>
-                    <td>{{ $item->short_description }}</td>
-                    <td>{!! html_entity_decode($item->long_description) !!}</td>
+                    <td>{{strip_tags( $item->short_description )}}</td>
+                    <td>{{ strip_tags($item->long_description) }}</td>
+{{--                    <td>{!! html_entity_decode($item->long_description) !!}</td>--}}
                     <td>{{ $item->posted_date }}</td>
-                    <td><img src="{{ $item->image() }}" width="100"></td>
+                    <td><img src="{{ asset('storage/'. $item->image()) }}" width="100"></td>
 
                     <td class="table-action">
                         <a href="{{ route('news-edit', $item->id()) }}">

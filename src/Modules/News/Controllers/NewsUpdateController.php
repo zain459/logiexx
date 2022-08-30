@@ -5,6 +5,7 @@ namespace Logixs\Modules\News\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\News\Models\News;
+use Logixs\Services\SaveImage;
 
 class NewsUpdateController extends Controller
 {
@@ -17,7 +18,6 @@ class NewsUpdateController extends Controller
             'postedDate' => ['required', 'date'],
             'link' => ['nullable', 'url'],
             'image' => ['nullable'],
-            'status' => ['required', 'boolean'],
         ]);
         /** @var News $news */
         $news = News::query()->findOrFail($id);
@@ -25,13 +25,15 @@ class NewsUpdateController extends Controller
         $news->short_description = $data['shortDescription'];
         $news->long_description = $data['longDescription'];
         $news->posted_date = $data['postedDate'];
-        $news->status = $data['status'];
         $news->link = $data['link'];
         if (isset($data['image'])) {
-            $news->image = $data['image'];
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $news->image = $path;
         }
         $news->save();
-
-        return 'news updated';
+        flash('Successfully Update')->success()->important();
+        return redirect()->route('news-index');
     }
 }

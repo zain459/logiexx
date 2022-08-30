@@ -10,8 +10,8 @@ class NewsDeleteController
     {
         News::query()->findOrFail($id)->delete();
 
-        flash('News deleted')->success();
+        flash('News deleted')->success()->important();
 
-        return redirect()->back();
+        return redirect()->route('news-index');
     }
 }

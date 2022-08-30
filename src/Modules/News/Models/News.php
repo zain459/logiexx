@@ -29,6 +29,19 @@ class News extends Model
         return $this->title;
     }
 
+    public function shortDescription(): string
+    {
+        return $this->short_description;
+    }
+
+    public function longDescription(): string
+    {
+        return $this->long_description;
+    }
+    public function postedDate():string{
+        return $this->posted_date;
+    }
+
     public function link(): ?string
     {
         return $this->link;

@@ -11,8 +11,8 @@ use Logixs\Modules\News\Controllers\NewsUpdateController;
 Route::middleware(['auth'])->group(function () {
     Route::get('news', NewsIndexController::class)->name('news-index');
     Route::get('news/create', NewsCreateController::class)->name('news-create');
-    Route::post('news/store', NewsStoreController::class);
+    Route::post('news/store', NewsStoreController::class)->name('news-store');
     Route::post('news/{id}/delete', NewsDeleteController::class)->name('news-delete');
     Route::get('news/{id}/edit', NewsEditController::class)->name('news-edit');
-    Route::post('news/{id}/update', NewsUpdateController::class);
+    Route::post('news/{id}/update', NewsUpdateController::class)->name('news-update');
 });

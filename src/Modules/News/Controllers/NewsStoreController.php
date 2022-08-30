@@ -5,6 +5,7 @@ namespace Logixs\Modules\News\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Logixs\Modules\News\Models\News;
+use Logixs\Services\SaveImage;
 
 class NewsStoreController extends Controller
 {
@@ -27,9 +28,16 @@ class NewsStoreController extends Controller
         if (isset($data['link'])) {
             $news->link = $data['link'];
         }
-        $news->image = $data['image'];
+        if (isset($data['image'])) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $news->image = $path;
+        }
 
         $news->save();
-        return 'news Created';
+        flash('News Successfully Created')->success()->important();
+
+        return redirect()->route('news-index');
     }
 }
