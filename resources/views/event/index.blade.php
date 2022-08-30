@@ -17,12 +17,12 @@
                         <label class="form-label">Key Word</label>
                         <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
                     </div>
+
                     <div class="col-md-3 form-group">
                         <label class="form-label">Date</label>
                         <input type="text" name="date-filter" class="form-control" autocomplete="off"
                                value="{{request()->get('date-filter')}}"/>
                     </div>
-
 
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">

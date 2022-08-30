@@ -44,8 +44,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">Description<sup>*</sup></label>
-                            <textarea class="form-control"
-                                      name="description">{{ $testimonial->description() }}</textarea>
+                            <textarea class="ckeditor form-control"
+                                      name="description">{{$testimonial->description()}}</textarea>
                         </div>
 
                         <div class="mb-3">
@@ -76,8 +76,11 @@
 
     </div>
 
-    <script>
-        import {VueEditor} from "vue2-editor";
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
     </script>
 
 @endsection

@@ -9,12 +9,20 @@ class NewsIndexController
 {
     public function __invoke(Request $request)
     {
-        $new = News::query();
+        $query = News::query();
 
-        if (null !== $request->get('title')) {
-            $new->where('title', 'like', '%' . $request->get('title') . '%');
+        if (null !== $request->get('key')) {
+            $query->where(function ($q) use ($request) {
+                $q
+                    ->orWhere('title', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('short_description', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('long_description', 'like', '%' . $request->get('key') . '%');
+            });
         }
-        $news = $new->paginate(10);
+        if (null !== $request->get('date-filter')) {
+            $query->where('posted_date', 'like', '%' . $request->get('date') . '%');
+        }
+        $news = $query->paginate(10);
 
         return view('news.index', [
             'news' => $news,

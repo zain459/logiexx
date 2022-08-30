@@ -15,69 +15,15 @@
             <form method="GET" action="{{route('news-index')}}">
                 <div class="row g-3 align-items-end">
                     <div class="col-md-4 form-group">
-                        <label class="form-label">title</label>
-                        <input type="text" name="title" class="form-control" value="">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
                     </div>
 
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Publication Frequency</label>--}}
-                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="1">--}}
-                    {{--                                    Annual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="2">--}}
-                    {{--                                    Article-by-Article--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="3">--}}
-                    {{--                                    Bimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="4">--}}
-                    {{--                                    Continuous Publication--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="5">--}}
-                    {{--                                    Fortnightly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="6">--}}
-                    {{--                                    Irregular--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="7">--}}
-                    {{--                                    Monthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="8">--}}
-                    {{--                                    Quarterly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="9">--}}
-                    {{--                                    Semiannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="10">--}}
-                    {{--                                    Semimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="11">--}}
-                    {{--                                    Triannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="12">--}}
-                    {{--                                    Weekly--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Fee Type</label>--}}
-                    {{--                            <select class="form-select" name="fee_type">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="free">--}}
-                    {{--                                    free--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="paid">--}}
-                    {{--                                    paid--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                    <div class="col-md-3 form-group">
+                        <label class="form-label">Post Date</label>
+                        <input type="date" name="date" class="form-control" autocomplete="off"
+                               value="{{request()->get('date')}}"/>
+                    </div>
 
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">
