@@ -24,7 +24,7 @@ class FeedbackStoreController extends Controller
         $feedback->course_id = $data['courseId'];
         $feedback->save();
 
-        flash('feedback submitted')->success();
+        flash('feedback submitted')->success()->important();
 
         return redirect()->back();
     }

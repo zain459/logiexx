@@ -88,9 +88,9 @@
             @endforelse
             </tbody>
         </table>
-        @if($event != null)
+        @if($events != null)
             <div class="pagination d-flex justify-content-end align-items-center">
-                {!! $event->links() !!}
+                {!! $events->links() !!}
             </div>
         @endif
     </div>

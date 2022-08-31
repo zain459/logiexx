@@ -10,7 +10,7 @@ class FeedbackDeleteController
     {
         Feedback::query()->findOrFail($id)->delete();
 
-        flash('feedback deleted')->success();
+        flash('feedback deleted')->success()->important();
 
         return redirect()->back();
     }

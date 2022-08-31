@@ -26,7 +26,7 @@ class EventIndexController
             });
         }
 
-        $events = $query->paginate(10);
+        $events = $query->paginate(2);
 
         return view('event.index', [
             'events' => $events,

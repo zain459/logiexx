@@ -7,8 +7,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('course.other-info', $course->id()) }}">Other Details</a>
+                <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>
+            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" href="{{ route('course.other-info', $course->id()) }}">Other Details</a>--}}
+{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.partner-index', $course->id()) }}">Affiliated Partners</a>
@@ -18,12 +24,6 @@
                 <a class="nav-link" href="{{ route('course.feedback-index', $course->id()) }}">Learner Feedback</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.course-class.index', $course->id()) }}">Class</a>
             </li>

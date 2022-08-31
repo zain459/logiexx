@@ -62,20 +62,20 @@
                     {{--                        </div>--}}
                     {{--                    </div>--}}
 
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Fee Type</label>--}}
-                    {{--                            <select class="form-select" name="fee_type">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="free">--}}
-                    {{--                                    free--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="paid">--}}
-                    {{--                                    paid--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+{{--                                        <div class="col-md-2">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label class="form-label">Fee Type</label>--}}
+{{--                                                <select class="form-select" name="fee_type">--}}
+{{--                                                    <option></option>--}}
+{{--                                                    <option value="free">--}}
+{{--                                                        free--}}
+{{--                                                    </option>--}}
+{{--                                                    <option value="paid">--}}
+{{--                                                        paid--}}
+{{--                                                    </option>--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">

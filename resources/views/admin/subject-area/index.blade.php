@@ -10,7 +10,6 @@
         </button>
     </div>
 
-
     <div class="card mb-3">
         <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
             <div class="title">Filters</div>
@@ -22,67 +21,6 @@
                         <label class="form-label">Name</label>
                         <input type="text" name="name" class="form-control" value="">
                     </div>
-
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Publication Frequency</label>--}}
-                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="1">--}}
-                    {{--                                    Annual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="2">--}}
-                    {{--                                    Article-by-Article--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="3">--}}
-                    {{--                                    Bimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="4">--}}
-                    {{--                                    Continuous Publication--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="5">--}}
-                    {{--                                    Fortnightly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="6">--}}
-                    {{--                                    Irregular--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="7">--}}
-                    {{--                                    Monthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="8">--}}
-                    {{--                                    Quarterly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="9">--}}
-                    {{--                                    Semiannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="10">--}}
-                    {{--                                    Semimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="11">--}}
-                    {{--                                    Triannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="12">--}}
-                    {{--                                    Weekly--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">State</label>--}}
-                    {{--                            <select class="form-select" name="journal_state_id">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="2">--}}
-                    {{--                                    Published--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="1">--}}
-                    {{--                                    Draft--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">
                             Search
@@ -93,6 +31,7 @@
             </form>
         </div>
     </div>
+
     <div class="card">
         <table class="table table-hover">
             <thead>

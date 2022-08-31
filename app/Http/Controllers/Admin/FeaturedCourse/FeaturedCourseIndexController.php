@@ -10,10 +10,18 @@ class FeaturedCourseIndexController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $featuredCourses = FeaturedCourse::with('course')->orderBy('id', 'DESC')->get();
+        $query = FeaturedCourse::query()->with('course')->orderBy('id', 'DESC');
+        if (null !== $request->get('key')) {
+            $query->whereHas('course', function ($q) use ($request) {
+                $q
+                    ->where('title', 'like', '%' . $request->get('key') . '%');
+            });
+        }
+
+        $featuredCourses = $query->paginate(10);
 
         return view('admin.feature-course.index', [
-            'featuredCourses' => $featuredCourses
+            'featuredCourses' => $featuredCourses,
         ]);
     }
 }

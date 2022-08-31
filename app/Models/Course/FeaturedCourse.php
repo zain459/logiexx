@@ -19,6 +19,11 @@ class FeaturedCourse extends Model
 
     protected $table = 'featured_courses';
 
+    public function id(): int
+    {
+        return $this->id;
+    }
+
     public function type(): string
     {
         if ($this->type_id === self::TRENDING) {

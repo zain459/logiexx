@@ -23,7 +23,7 @@ class CourseClassEnrollmentStoreController extends Controller
             'last_name' => ['required', 'string'],
             'middle_name' => ['string'],
             'degree' => ['required', 'string'],
-            'code' => ['required', 'int'],
+            'code' => ['required', 'string'],
             'telephone' => ['required', 'string'],
             'email' => ['required', 'string'],
             'personal_address' => ['required', 'string'],
@@ -88,13 +88,14 @@ class CourseClassEnrollmentStoreController extends Controller
         $enrollment->file_size = $fileSize;
         $enrollment->class_id = $data['classId'];
         $enrollment->save();
-        $certificate = new CertificateAuthentication();
-        $certificate->name = $enrollment->first_name;
-        $certificate->certificate =  Str::random(8);;
-        $certificate->enrollment_id = $enrollment->id();
-        $certificate->issue_date = Carbon::now()->addDays(5);
-        $certificate->save();
-
+        if ($enrollment->verifiable_certificate === 0) {
+            $certificate = new CertificateAuthentication();
+            $certificate->name = $enrollment->first_name;
+            $certificate->certificate = Str::random(8);;
+            $certificate->enrollment_id = $enrollment->id();
+            $certificate->issue_date = Carbon::now()->addDays(5);
+            $certificate->save();
+        }
 //        $enrollmentEmail = new EnrollmentEmail($enrollment);
 //        $mail = Mail::to($enrollment->email());
 //        $mail->send($enrollmentEmail);

@@ -24,7 +24,7 @@ class FeedbackUpdateController extends Controller
         $feedback->rating = $data['rating'];
         $feedback->save();
 
-        flash('feedback Updated')->success();
+        flash('feedback Updated')->success()->important();
 
         return redirect()->back();
     }

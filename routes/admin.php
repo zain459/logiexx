@@ -1,45 +1,54 @@
 <?php
 
-use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsDeleteController;
-use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use Logixs\Modules\Course\Controllers\CourseEditController;
+use Logixs\Modules\Course\Controllers\CourseIndexController;
+use Logixs\Modules\Course\Controllers\CourseStoreController;
+use Logixs\Modules\Course\Controllers\CourseCreateController;
+use Logixs\Modules\Course\Controllers\CourseUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
 use App\Http\Controllers\Admin\Partner\PartnerStoreController;
+use Logixs\Modules\Course\Controllers\FeedbackIndexController;
+use Logixs\Modules\Course\Controllers\FeedbackStoreController;
+use Logixs\Modules\Course\Controllers\FeedbackUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerUpdateController;
 use App\Http\Controllers\Admin\CourseClass\ClassEditController;
+use Logixs\Modules\Course\Controllers\EnrollmentViewController;
+use Logixs\Modules\Course\Controllers\FeedbackDeleteController;
 use App\Http\Controllers\Admin\Category\CategoryIndexController;
 use App\Http\Controllers\Admin\Category\CategoryStoreController;
+use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
 use App\Http\Controllers\Admin\CourseClass\ClassIndexController;
 use App\Http\Controllers\Admin\CourseClass\ClassStoreController;
 use App\Http\Controllers\Admin\Category\CategoryUpdateController;
 use App\Http\Controllers\Admin\CourseClass\ClassCreateController;
 use App\Http\Controllers\Admin\CourseClass\ClassDeleteController;
 use App\Http\Controllers\Admin\CourseClass\ClassUpdateController;
+use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
 use App\Http\Controllers\Admin\Setting\SettingDashboardController;
-use App\Http\Controllers\Admin\SubjectArea\SubjectAreaIndexController;
-use App\Http\Controllers\Admin\SubjectArea\SubjectAreaStoreController;
-use App\Http\Controllers\Admin\SubjectArea\SubjectAreaUpdateController;
-use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
-use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
-use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsUpdateController;
-use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsStoreController;
-use Logixs\Modules\Course\Controllers\CourseCreateController;
-use Logixs\Modules\Course\Controllers\CourseEditController;
-use Logixs\Modules\Course\Controllers\CourseIndexController;
-use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
-use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
+use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
+use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
+use Logixs\Modules\Course\Controllers\CoursePartnerDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
+use Logixs\Modules\Course\Controllers\CourseInstructorIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
-use Logixs\Modules\Course\Controllers\CourseStoreController;
-use Logixs\Modules\Course\Controllers\CourseUpdateController;
-use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
-use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
-use Logixs\Modules\Course\Controllers\EnrollmentViewController;
-use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
+use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
+use App\Http\Controllers\Admin\SubjectArea\SubjectAreaIndexController;
+use App\Http\Controllers\Admin\SubjectArea\SubjectAreaStoreController;
+use App\Http\Controllers\Admin\SubjectArea\SubjectAreaUpdateController;
+use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
+use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
+use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateEditController;
+use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveEditController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsStoreController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateStoreController;
@@ -47,6 +56,12 @@ use App\Http\Controllers\Admin\Certificate\VerifyCertificateCreateController;
 use App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateUpdateController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveStoreController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsUpdateController;
+use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsDeleteController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveUpdateController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
+use Logixs\Modules\Course\Controllers\CourseLearningObjectiveDeleteController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorIndexController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationViewController;
@@ -57,6 +72,7 @@ use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipViewCont
 use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsStoreController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipIndexController;
 use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsIndexController;
+use App\Http\Controllers\Admin\CourseFeedBackParams\CourseFeedBackParamsDeleteController;
 use App\Http\Controllers\Admin\CorporatePartnership\CorporatePartnershipDeleteController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationStatusStoreController;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
@@ -155,4 +171,30 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('class/verify-certificate/{id}/update', VerifyCertificateUpdateController::class)->name('admin.verify-certificate.update');
     Route::post('class/verify-certificate/{id}/Delete', VerifyCertificateDeleteController::class)->name('admin.verify-certificate.delete');
 
+    //course learning objective
+    Route::get('course/{id}/learning-objective', CourseLearningObjectiveController::class)->name('course.learning-objective-index');
+    Route::get('course/{id}/learning-objective-create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
+    Route::get('learning-objective/{id}/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
+    Route::post('learning-objective/store', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
+    Route::post('learning-objective{id}/update', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
+    Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
+
+    //assign instructors
+    Route::get('course/{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');
+    Route::post('instructors/assign', CourseInstructorAssignController::class)->name('course.instructors-assign');
+    Route::post('instructors/{id}/delete', CourseInstructorDeleteController::class)->name('course.instructors-delete');
+
+    Route::get('course/{id}/partners', CoursePartnerIndexController::class)->name('course.partner-index');
+    Route::post('partner/assign', CoursePartnerStoreController::class)->name('course.partner.assign-course');
+    Route::post('partner/assign/{id}/delete', CoursePartnerDeleteController::class)->name('course.partner-delete');
+
+    //feedback
+    Route::get('course{id}/feedback', FeedbackIndexController::class)->name('course.feedback-index');
+    Route::post('feedback-store', FeedbackStoreController::class)->name('course.feedback-store');
+    Route::post('feedback-update', FeedbackUpdateController::class)->name('course.feedback-update');
+    Route::post('feedback/{id}/delete', FeedbackDeleteController::class)->name('course.feedback-delete');
+
+    //course featured
+    Route::get('featured-courses', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController::class)->name('admin.featured-course.index');
+    Route::post('featured-courses/store', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController::class)->name('admin.featured-course.store');
 });

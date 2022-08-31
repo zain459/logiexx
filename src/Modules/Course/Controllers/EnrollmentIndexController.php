@@ -2,17 +2,36 @@
 
 namespace Logixs\Modules\Course\Controllers;
 
+use Illuminate\Http\Request;
 use Logixs\Modules\Course\Models\Course;
 use Logixs\Modules\Course\Models\CourseClass;
 use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
 class EnrollmentIndexController
 {
-    public function __invoke(int $id)
+    public function __invoke(int $id, Request $request)
     {
+
         /** @var Course $course */
         $course = Course::query()->findOrFail($id);
-        $enrollments = Enrollment::with('class')->where('class_id', $id)->get();
+        $query = Enrollment::query()->with('class')->where('class_id', $id);
+        if (null !== $request->get('key')) {
+            $query->where(function ($q) use ($request) {
+                $q
+                    ->orWhere('title', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('first_name', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('middle_name', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('last_name', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('degree', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('telephone', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('email', 'like', '%' . $request->get('key') . '%')
+                    ->orWhere('position', 'like', '%' . $request->get('key') . '%');
+            });
+        }
+        if (null !== $request->get('status')) {
+            $query->where('status', 'like', '%' . $request->get('status') . '%');
+        }
+        $enrollments = $query->paginate(10);
 
         return view('course.enrollment-index', [
             'enrollments' => $enrollments,

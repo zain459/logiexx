@@ -12,7 +12,27 @@
             Add Feedback
         </button>
     </div>
-
+    <div class="card mb-3">
+        <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
+            <div class="title">Filters</div>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('course.feedback-index', $course->id())}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4 form-group">
+                        <label class="form-label">Key Word</label>
+                        <input type="text" name="key" class="form-control" value="{{request()->get('key')}}">
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                        <a href="{{route('course.feedback-index', $course->id())}}" class="btn btn-outline-primary">Clear</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-hover">
             <thead>

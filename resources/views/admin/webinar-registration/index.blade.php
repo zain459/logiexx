@@ -20,9 +20,9 @@
                         <div class="form-group">
                             <label class="form-label" for="title">Status</label>
                             <select class="form-select" name="status">
-                                <option>Select</option>
-                                <option value="1" @selected(1 == request()->get('status'))>Approved</option>
-                                <option value="0" @selected(0 == request()->get('status'))>Un Approved</option>
+                                <option></option>
+                                <option value="1" @selected('1' == request()->get('status'))>Approved</option>
+                                <option value="0" @selected('0' == request()->get('status'))>Un Approved</option>
                             </select>
                         </div>
                     </div>
