@@ -28,13 +28,13 @@ class HomeIndexController
         $subjectFields = SubjectArea::all();
         $totalEnrollments = Enrollment::count();
         $totalInstructors = Instructor::count();
-        $testimonials = Testimonial::limit(3)->orderBy('id','desc')->get();
+        $testimonials = Testimonial::limit(3)->orderBy('id', 'desc')->get();
         $featuredPopularCourses = GetFeaturedCourses::popular();
         $featuredTrendingCourses = GetFeaturedCourses::trending();
         $courses = Course::with(['category'])->get();
         $featuresEditorPickCourses = GetFeaturedCourses::editorPick();
         $webinarRegistration = WebinarRegistrationForm::where('status', 1)->count();
-        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->orderBy('id', 'desc')->first();
+        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->where('end_date', '>=', Carbon::now()->format('Y-m-d'))->orderBy('id', 'desc')->first();
         $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
 
         return view('site.index', [

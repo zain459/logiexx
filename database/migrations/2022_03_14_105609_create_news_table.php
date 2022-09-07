@@ -15,7 +15,7 @@ return new class() extends Migration {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('short_description');
+            $table->longText('short_description');
             $table->longText('long_description');
             $table->date('posted_date');
             $table->string('link')->nullable();

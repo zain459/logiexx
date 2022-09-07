@@ -16,134 +16,139 @@
         <div class="card-body">
             <form action="{{ route('course-store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="row">
+                <div class="row twocolumns-form">
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" required/>
+                        <label class="form-label" for="title">Title<sup>*</sup></label>
+                        <input type="text" class="form-control" name="title" value="{{old('title')}}" id="title"
+                               required/>
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="title">Category</label>
+                        <label class="form-label" for="title">Category<sup>*</sup></label>
                         <select class="form-select" name="categoryId" required>
                             <option></option>
                             @foreach($category as $cat)
-                                <option value="{{ $cat->id() }}">{{ $cat->name() }}</option>
+                                <option
+                                    value="{{ $cat->id() }}" @selected(old('categoryId') == $cat->id())>{{ $cat->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="title">Subject Area</label>
+                        <label class="form-label" for="title">Subject Area<sup>*</sup></label>
                         <select class="form-select" name="subjectArea" required>
                             <option></option>
                             @foreach($areas as $area)
-                                <option value="{{ $area->id() }}">{{ $area->name() }}</option>
+                                <option
+                                    value="{{ $area->id() }}" @selected(old('subjectArea') == $area->id())>{{ $area->name() }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row twocolumns-form">
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="language">Language</label>
+                        <label class="form-label" for="language">Language<sup>*</sup></label>
                         <select class="form-select" name="language" id="language" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\Language::all() as $language)
-                                <option value="{{ $language->id() }}">{{ $language->name() }}</option>
+                                <option
+                                    value="{{ $language->id() }}" @selected(old('language') == $language->id())>{{ $language->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="difficultyLevel">Difficulty Level</label>
+                        <label class="form-label" for="difficultyLevel">Difficulty Level<sup>*</sup></label>
                         <select class="form-select" name="difficultyLevel" id="difficultyLevel" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\DifficultyLevel::all() as $difficultyLevel)
-                                <option value="{{ $difficultyLevel->id() }}">{{ $difficultyLevel->name() }}</option>
+                                <option
+                                    value="{{ $difficultyLevel->id() }}" @selected(old('difficultyLevel') == $difficultyLevel->id())>{{ $difficultyLevel->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="dateStatus">Start Date Status</label>
+                        <label class="form-label" for="dateStatus">Start Date Status<sup>*</sup></label>
                         <select class="form-select" name="dateStatus" id="dateStatus" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $dateStatus)
-                                <option value="{{ $dateStatus->id() }}">{{ $dateStatus->name() }}</option>
+                                <option value="{{ $dateStatus->id() }}"  @selected(old('dateStatus') == $dateStatus->id())>{{ $dateStatus->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="durationInterval">Duration Interval</label>
+                        <label class="form-label" for="durationInterval">Duration Interval<sup>*</sup></label>
                         <select class="form-select" name="durationInterval" id="durationInterval" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\DurationInterval::all() as $durationInterval)
-                                <option value="{{ $durationInterval->id() }}">{{ $durationInterval->name() }}</option>
+                                <option value="{{ $durationInterval->id() }}" @selected(old('durationInterval') == $durationInterval->id())>{{ $durationInterval->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="modality">Modality</label>
+                        <label class="form-label" for="modality">Modality<sup>*</sup></label>
                         <select class="form-select" name="modality" id="modality" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\Modality::all() as $modality)
-                                <option value="{{ $modality->id() }}">{{ $modality->name() }}</option>
+                                <option
+                                    value="{{ $modality->id() }}" @selected(old('modality') == $modality->id())>{{ $modality->name() }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3 col-md-3">
-                        <label class="form-label" for="pace">Pace</label>
+                        <label class="form-label" for="pace">Pace<sup>*</sup></label>
                         <select class="form-select" name="pace" id="pace" required>
                             <option></option>
                             @foreach(\Logixs\Modules\Course\Models\Pace::all() as $pace)
-                                <option value="{{ $pace->id() }}">{{ $pace->name() }}</option>
+                                <option value="{{ $pace->id() }}"  @selected(old('pace') == $pace->id())>{{ $pace->name() }}</option>
                             @endforeach
                         </select>
                     </div>
-
                 </div>
 
-                <div class="row">
+                <div class="row twocolumns-form">
                     <div class="mb-3 col-md-2">
-                        <label class="form-label" for="overview">Class Size</label>
-                        <input type="number" class="form-control" name="classSize" min="0" id="overview"/>
+                        <label class="form-label" for="overview">Class Size<sup>*</sup></label>
+                        <input type="number" class="form-control" name="classSize" value="{{old('classSize')}}" min="0" id="overview" required/>
                     </div>
                     <div class="mb-3 col-md-2">
-                        <label class="form-label" for="timeCommitment">Time Commitment</label>
-                        <input type="text" class="form-control" name="timeCommitment" id="timeCommitment"/>
-                    </div>
-
-                    <div class="mb-3 col-md-2">
-                        <label class="form-label" for="courseCode">Course Code</label>
-                        <input type="text" class="form-control" name="courseCode" id="courseCode"/>
+                        <label class="form-label" for="timeCommitment">Time Commitment<sup>*</sup></label>
+                        <input type="text" class="form-control" name="timeCommitment" value="{{old('timeCommitment')}}" id="timeCommitment" required/>
                     </div>
 
                     <div class="mb-3 col-md-2">
-                        <label class="form-label" for="duration">Duration</label>
-                        <input type="text" class="form-control" name="duration" id="duration" required/>
+                        <label class="form-label" for="courseCode">Course Code<sup>*</sup></label>
+                        <input type="text" class="form-control" name="courseCode" value="{{old('courseCode')}}" id="courseCode" required/>
+                    </div>
+
+                    <div class="mb-3 col-md-2">
+                        <label class="form-label" for="duration">Duration<sup>*</sup></label>
+                        <input type="text" class="form-control" name="duration" value="{{old('duration')}}" id="duration" required/>
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="courseStartDate">Course Start Date</label>
-                        <input type="date" class="form-control" name="courseStartDate" id="courseStartDate"/>
+                        <label class="form-label" for="courseStartDate">Course Start Date<sup>*</sup></label>
+                        <input type="date" class="form-control" name="courseStartDate" value="{{old('courseStartDate')}}" id="courseStartDate" required/>
                     </div>
 
                     <div class="mb-3 col-md-2">
-                        <label class="form-label" for="venue">Venue</label>
-                        <input type="text" class="form-control" name="venue" id="venue" required/>
+                        <label class="form-label" for="venue">Venue<sup>*</sup></label>
+                        <input type="text" class="form-control" name="venue" id="venue" value="{{old('venue')}}" required/>
                     </div>
 
                     <div class="mb-3 col-md-2">
-                        <label class="form-label" for="platform">Platform</label>
-                        <input type="text" class="form-control" name="platform" id="platform" required/>
+                        <label class="form-label" for="platform">Platform<sup>*</sup></label>
+                        <input type="text" class="form-control" name="platform" id="platform" value="{{old('platform')}}" required/>
                     </div>
 
                     <div class="mb-3 col-md-12">
-                        <label class="form-label" for="overview">Overview</label>
-                        <textarea name="overview" class="form-control"></textarea>
+                        <label class="form-label" for="overview">Overview<sup>*</sup></label>
+                        <textarea name="overview" class="form-control" required>{{old('overview')}}</textarea>
                     </div>
                     {{--                    <div class="mb-3 col-md-12">--}}
                     {{--                        <label class="form-label" for="description">Description</label>--}}
@@ -153,44 +158,44 @@
                     <div class="mb-3 col-md-12">
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="feeType"
-                                       onclick="javascript:check();" id="paid" value="paid"/>
+                                <input class="form-check-input" type="radio" name="feeType" @checked("feeType")
+                                       onclick="javascript:check();"  id="paid" value="paid" />
                                 <label class="form-check-label" for="paid">Paid</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="feeType"
+                                <input class="form-check-input" type="radio" name="feeType" @checked('feeType')
                                        onclick="javascript:check();" id="free" value="free"/>
                                 <label class="form-check-label" for="free">Free</label>
                             </div>
                         </div>
 
                         <div class="col-md-2" id="show" style="visibility:hidden">
-                            <input type="number" class="form-control" min="0" name="feeAmount"
+                            <input type="number" class="form-control" min="0" name="feeAmount" value="{{old('feeAmount')}}"
                                    placeholder="enter amount"/>
                         </div>
                     </div>
 
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="platform">Link</label>
-                        <input type="text" class="form-control" name="link" id="link" required/>
+                        <label class="form-label" for="platform">Link<sup>*</sup></label>
+                        <input type="text" class="form-control" name="link" value="{{old('link')}}" id="link" required/>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="image">Licensing Information Image</label>
-                        <input type="file" class="form-control" name="licensing_information_image" id="image"/>
+                        <label class="form-label" for="image">Licensing Information Image<sup>*</sup></label>
+                        <input type="file" class="form-control" name="licensing_information_image" id="image" required/>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="image">Image</label>
-                        <input type="file" class="form-control" name="image" id="image"/>
+                        <label class="form-label" for="image">Image<sup>*</sup></label>
+                        <input type="file" class="form-control" name="image" id="image" required/>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="file">PDF File</label>
-                        <input type="file" class="form-control" name="file" id="file"/>
+                        <label class="form-label" for="file">PDF File<sup>*</sup></label>
+                        <input type="file" class="form-control" name="file" id="file" required/>
                     </div>
 
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="description">Description</label>
-                        <textarea class="ckeditor form-control" name="description"></textarea>
+                        <label class="form-label" for="description">Description<sup>*</sup></label>
+                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

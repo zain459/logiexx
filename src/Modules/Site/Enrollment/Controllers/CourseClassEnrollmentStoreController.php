@@ -17,6 +17,7 @@ class CourseClassEnrollmentStoreController extends Controller
 {
     public function __invoke(Request $request)
     {
+//        dd($request->all());
         $data = $this->validate($request, [
             'title' => ['required', 'string'],
             'first_name' => ['required', 'string'],
@@ -25,7 +26,7 @@ class CourseClassEnrollmentStoreController extends Controller
             'degree' => ['required', 'string'],
             'code' => ['required', 'string'],
             'telephone' => ['required', 'string'],
-            'email' => ['required', 'string'],
+            'email' => ['required', 'string', 'unique:enrollments,email'],
             'personal_address' => ['required', 'string'],
             'personal_city' => ['required', 'string'],
             'personal_post_code' => ['required', 'string'],
@@ -40,8 +41,8 @@ class CourseClassEnrollmentStoreController extends Controller
             'institution_post_code' => ['required', 'string'],
             'institution_country' => ['required', 'string'],
             'institution_province_state' => ['required', 'string'],
-            'verifiable' => ['required', 'boolean'],
-            'description' => ['required'],
+            'verifiable' => ['nullable', 'boolean'],
+            'description' => ['nullable', 'string'],
             'file' => ['required', 'mimes:jpeg,png,jpg', 'max:2048'],
             'classId' => ['required', 'int', 'exists:classes,id'],
         ]);
@@ -72,7 +73,9 @@ class CourseClassEnrollmentStoreController extends Controller
         if (isset($data['verifiable'])) {
             $enrollment->verifiable_certificate = $data['verifiable'];
         }
-        $enrollment->description = $data['description'];
+        if (isset($data['description'])) {
+            $enrollment->description = $data['description'];
+        }
 
         /** @var \Illuminate\Http\UploadedFile * */
         $file = $request->file('file');

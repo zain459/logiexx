@@ -28,23 +28,23 @@
                                required/>
                     </div>
 
-                    <label class="col-form-label col-sm-2 text-sm-end">link<sup></sup></label>
+                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
                     <div class="col-md-4">
-                        <input type="url" class="form-control" name="link" value="{{old('link')}}" required/>
+                        <input type="url" class="form-control" name="link" value="{{old('link')}}"/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Short Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="shortDescription" required></textarea>
+                        <textarea class="ckeditor form-control" name="shortDescription" required>{{old('shortDescription')}}</textarea>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Long Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="longDescription"></textarea>
+                        <textarea class="ckeditor form-control" name="longDescription">{{old('longDescription')}}</textarea>
                         {{--                        <vue-editor v-model="formData.longDescription" required></vue-editor>--}}
                     </div>
                 </div>

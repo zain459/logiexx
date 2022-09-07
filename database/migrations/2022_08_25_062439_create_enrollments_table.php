@@ -36,8 +36,8 @@ return new class extends Migration
             $table->string('institution_post_code');
             $table->string('institution_province_state');
             $table->string('institution_country');
-            $table->boolean('verifiable_certificate');
-            $table->text('description');
+            $table->boolean('verifiable_certificate')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('status')->default(false);
             $table->string('file')->nullable();
             $table->string('file_type')->nullable();

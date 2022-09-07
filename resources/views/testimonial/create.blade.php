@@ -20,27 +20,27 @@
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Name<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Name"  />
+                        <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Name" required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Company<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" value="{{old('company')}}" name="company" placeholder="Company"  />
+                        <input type="text" class="form-control" value="{{old('company')}}" name="company" placeholder="Company"  required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Designation<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" value="{{old('designation')}}" name="designation" placeholder="Designation"  />
+                        <input type="text" class="form-control" value="{{old('designation')}}" name="designation" placeholder="Designation"  required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-md-10">
-                        <textarea class="ckeditor form-control" name="description" required>{{ old('description') }}    </textarea>
+                        <textarea class="ckeditor form-control" name="description" required>{{ old('description') }} </textarea>
                     </div>
                 </div>
                 <div class="mb-3 row">

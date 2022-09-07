@@ -81,11 +81,11 @@
                         <h5>Assign Instructor</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body twocolumns-form">
                         <form action="{{ route('course.instructors-assign') }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label" for="title">Instructors</label>
+                                <label class="form-label" for="title">Instructors<sup>*</sup></label>
                                 <select class="form-select" name="instructor" required>
                                     <option></option>
                                     @foreach($instructors as $item)

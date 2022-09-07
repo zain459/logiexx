@@ -10,12 +10,18 @@ use Logixs\Modules\Course\Controllers\CourseUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
 use App\Http\Controllers\Admin\Partner\PartnerStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackIndexController;
+use Logixs\Modules\Webinar\Controllers\WebinarEditController;
+use Logixs\Modules\Webinar\Controllers\WebinarIndexController;
+use Logixs\Modules\Webinar\Controllers\WebinarStoreController;
+use Logixs\Modules\Course\Controllers\FeedbackDeleteController;
+use Logixs\Modules\Webinar\Controllers\WebinarUpdateController;
+use Logixs\Modules\Webinar\Controllers\WebniarCreateController;
 use Logixs\Modules\Course\Controllers\FeedbackStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerUpdateController;
 use App\Http\Controllers\Admin\CourseClass\ClassEditController;
 use Logixs\Modules\Course\Controllers\EnrollmentViewController;
-use Logixs\Modules\Course\Controllers\FeedbackDeleteController;
+use Logixs\Modules\Webinar\Controllers\WebinarDeleteController;
 use App\Http\Controllers\Admin\Category\CategoryIndexController;
 use App\Http\Controllers\Admin\Category\CategoryStoreController;
 use Logixs\Modules\Course\Controllers\EnrollmentIndexController;
@@ -197,4 +203,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     //course featured
     Route::get('featured-courses', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseIndexController::class)->name('admin.featured-course.index');
     Route::post('featured-courses/store', \App\Http\Controllers\Admin\FeaturedCourse\FeaturedCourseStoreController::class)->name('admin.featured-course.store');
+
+    //Webinar
+    Route::get('webinars', WebinarIndexController::class)->name('webinar-index');
+    Route::get('webinars/create', WebniarCreateController::class)->name('webinar-create');
+    Route::post('webinars/store', WebinarStoreController::class)->name('webinar-store');
+    Route::get('webinars/{id}/edit', WebinarEditController::class)->name('webinar-edit');
+    Route::post('webinars/{id}/update', WebinarUpdateController::class)->name('webinar-update');
+    Route::post('webinars/{id}/delete', WebinarDeleteController::class)->name('webinar-delete');
 });

@@ -6,10 +6,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-5 xs-margin-30px-bottom">
                     <div class="team-single-img">
-                        <img src="{{asset('storage/'.$enrollment->file())}}" alt="">
-                    </div>
-                    <div>
-                        <p>{{$enrollment->fileName()}}</p>
+                        <img class="enrollment-image" src="{{asset('storage/'.$enrollment->file())}}" alt="">
                     </div>
                 </div>
 
@@ -29,6 +26,17 @@
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->class->course->title()}}</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-5">
+                                                        <i class="fas fa-graduation-cap text-orange"></i>
+                                                        <strong class="margin-10px-left text-orange">Class Name:</strong>
+                                                    </div>
+                                                    <div class="col-md-7 col-7">
+                                                        <p>{{$enrollment->class->title()}}</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -349,8 +357,7 @@
                                             </div>
 
                                             <div class="mb-3 row">
-                                                <label for="recipient-name" class="col-form-label">Certificate
-                                                    Serial Number:</label>
+                                                <label for="recipient-name" class="col-form-label">Issue Date:</label>
                                                 <input type="date" class="form-control" name="issue_date"
                                                        id="issue_date">
                                             </div>
@@ -369,7 +376,7 @@
         </div>
 
     </div>
-        @if($enrollment->status() == 1 && $verifyCertification == 0)
+        @if($enrollment->status() == 1)
             <hr>
             <div class="mb-3 d-flex justify-content-between align-items-center">
                 <h4>Certificate</h4>

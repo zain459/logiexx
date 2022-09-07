@@ -22,18 +22,20 @@
             <h1>Course Enrollment</h1>
         </div>
     </div>
-    @if ($errors->any())
-        <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @include('flash::message')
+    <div class="container">
+        @if ($errors->any())
+            <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @include('flash::message')
 
-    @yield('content')
+        @yield('content')
+    </div>
     <main id="main">
         <section class="block apply-block">
             <div class="container">
@@ -54,34 +56,35 @@
                 <p>Please submit this form after providing mandatory information and you will receive your
                     enrollment
                     confirmation shortly by our support team through email or telephone. </p>
-                <form action="{{route('site.course-class-enrollment-store')}}" method="post"
-                      enctype="multipart/form-data">
+                <form action="{{route('site.course-class-enrollment-store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="personal-information">
                         <strong class="overlap-text">Personal Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Title <span class="mark">*</span></label>
                             <input type="text" name="title" id="my" value="{{old('title')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                             <span class="note">(Prof., Mr., Ms., Mrs., etc.)</span>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Given/First Name <span class="mark">*</span></label>
                             <input type="text" name="first_name" value="{{old('first_name')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Middle Name</label>
                             <input type="text" name="middle_name" value="{{old('middle_name')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Family/Last Name <span class="mark">*</span></label>
-                            <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control field">
+                            <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Degree <span class="mark">*</span></label>
-                            <input type="text" name="degree" value="{{old('degree')}}" class="form-control field">
+                            <input type="text" name="degree" value="{{old('degree')}}" class="form-control field"
+                                   required>
                             <span class="note">(MS, MD, PhD etc.)</span>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
@@ -92,43 +95,44 @@
                                         <option>(Pakistan)+92</option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryTelephoneCode)
                                             <option
-                                                value="{{$countryTelephoneCode->id()}}">{{$countryTelephoneCode->code()}}</option>
+                                                value="{{$countryTelephoneCode->id()}}" @selected(old('code') == $countryTelephoneCode->id())>{{$countryTelephoneCode->code()}}</option>
                                         @endforeach
 
                                     </select>
                                 </div>
                                 <input type="text" name="telephone" value="{{old('telephone')}}"
-                                       class="form-control small">
+                                       class="form-control small" required>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Email <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="email" value="{{old('email')}}" class="form-control field">
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Address</label>
                             <input type="text" name="personal_address" value="{{old('personal_address')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">City <span class="mark">*</span></label>
                             <input type="text" name="personal_city" value="{{old('personal_city')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Post Code <span class="mark">*</span></label>
                             <input type="text" name="personal_post_code" value="{{old('personal_post_code')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Province/State <span class="mark">*</span></label>
                             <input type="text" name="personal_province" value="{{old('personal_province')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Country <span class="mark">*</span></label>
                             <input type="text" name="personal_country" value="{{old('personal_country')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                     </div>
                     <div class="personal-information">
@@ -136,54 +140,54 @@
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Employment Status <span class="mark">*</span></label>
                             <div class="cu_select me-2">
-                                <select class="form-select" name="employment_status" id="employment_status">
-                                    <option value="9200">Select</option>
+                                <select class="form-select" name="employment_status" id="employment_status" required>
+                                    <option value="" class="d-none">None</option>
                                     @foreach(\Logixs\Modules\Site\Enrollment\Models\EmploymentStatus::all() as $employmentStatus)
                                         <option
-                                            value="{{$employmentStatus->id()}}">{{$employmentStatus->name()}}</option>
+                                            value="{{$employmentStatus->id()}}" @selected(old('employment_status') == $employmentStatus->id())>{{$employmentStatus->name()}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Position <span class="mark">*</span></label>
-                            <input type="text" name="position" value="{{old('position')}}" class="form-control field">
+                            <input type="text" name="position" value="{{old('position')}}" class="form-control field"
+                                   required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Department<span class="mark">*</span></label>
                             <input type="text" name="department" value="{{old('department')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Institution<span class="mark">*</span></label>
                             <input type="text" name="institution" value="{{old('institution')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Address<span class="mark">*</span></label>
                             <input type="text" name="institution_address" value="{{old('institution_address')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">City <span class="mark">*</span></label>
                             <input type="text" name="institution_city" value="{{old('institution_city')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Post Code <span class="mark"> <span class="mark">*</span></span></label>
                             <input type="text" name="institution_post_code" value="{{old('institution_post_code')}}"
-                                   class="form-control field">
+                                   class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Province/State<span class="mark">*</span></label>
                             <input type="text" name="institution_province_state"
-                                   value="{{old('institution_province_state')}}" class="form-control field">
+                                   value="{{old('institution_province_state')}}" class="form-control field" required>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Country <span class="mark">*</span></label>
                             <input type="text" name="institution_country" value="{{old('institution_country')}}"
-                                   class="form-control field">
-
+                                   class="form-control field" required>
                         </div>
                     </div>
                     <div class="fieldgroup">
@@ -192,15 +196,15 @@
                         <ul class="list-unstyled d-flex justify-content-start row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 flex-wrap">
                             <li>
                                 <label>
-                                    <input type="checkbox" class="custom-checkbox" value="1" name="verifiable">
-                                    <span class="check"></span>
+                                    <input type="radio" class="custom-checkbox" value="1" name="verifiable" required>
+{{--                                    <span class="check"></span>--}}
                                     <span class="label">Yes</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="checkbox" value="0" name="verifiable">
-                                    <span class="check"></span>
+                                    <input type="radio" value="0" name="verifiable" required>
+{{--                                    <span class="check"></span>--}}
                                     <span class="label">No</span>
                                 </label>
                             </li>
@@ -216,35 +220,38 @@
                         <label class="label">What else would you like us to know?</label>
                         <textarea class="form-control" name="description" style="width: 760px"></textarea>
                     </div>
-                    <div class="fieldgroup">
-                        <h3>Accepted Payment Methods</h3>
-                        <p>You can make payments on Logixs Academy using the Visa Debit/Credit Card.</p>
-                        <p><img src="images/visa.jpg" class="me-3" alt="">Debit/Credit Card + 3% transaction fees</p>
-                        <a href="#" class="btn btn-secondary mt-4">Pay Here</a>
-                        <p class="my-4">or</p>
-                    </div>
-                    <div class="fieldgroup">
-                        <h3>Bank Transfer</h3>
-                        <div class="d-sm-flex bank-information">
-                            <div class="bank-img"><img src="images/bank.png" class="me-sm-5 mb-5" alt=""></div>
-                            <div class="text">
-                                <dl>
-                                    <dt>Bank</dt>
-                                    <dd>Meezan Bank Limited</dd>
-                                    <dt>Account Title</dt>
-                                    <dd>Logixs International (Private) Limited</dd>
-                                    <dt>Bank Account No.</dt>
-                                    <dd>000158745232</dd>
-                                    <dt>IBAN No.</dt>
-                                    <dd>PK1452ABP5885425</dd>
-                                    <dt>Branch Code</dt>
-                                    <dd>0477</dd>
-                                    <dt>Branch Address</dt>
-                                    <dd>Kheyaban-e-Jinnah Road, Lahore, Punjab, Pakistan</dd>
-                                </dl>
+                    @if($class->course->feeType() == 'paid')
+                        <div class="fieldgroup">
+                            <h3>Accepted Payment Methods</h3>
+                            <p>You can make payments on Logixs Academy using the Visa Debit/Credit Card.</p>
+                            <p><img src="images/visa.jpg" class="me-3" alt="">Debit/Credit Card + 3% transaction fees
+                            </p>
+                            <a href="#" class="btn btn-secondary mt-4">Pay Here</a>
+                            <p class="my-4">or</p>
+                        </div>
+                        <div class="fieldgroup">
+                            <h3>Bank Transfer</h3>
+                            <div class="d-sm-flex bank-information">
+                                <div class="bank-img"><img src="images/bank.png" class="me-sm-5 mb-5" alt=""></div>
+                                <div class="text">
+                                    <dl>
+                                        <dt>Bank</dt>
+                                        <dd>Meezan Bank Limited</dd>
+                                        <dt>Account Title</dt>
+                                        <dd>Logixs International (Private) Limited</dd>
+                                        <dt>Bank Account No.</dt>
+                                        <dd>000158745232</dd>
+                                        <dt>IBAN No.</dt>
+                                        <dd>PK1452ABP5885425</dd>
+                                        <dt>Branch Code</dt>
+                                        <dd>0477</dd>
+                                        <dt>Branch Address</dt>
+                                        <dd>Kheyaban-e-Jinnah Road, Lahore, Punjab, Pakistan</dd>
+                                    </dl>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <h3 class="subheading">Upload Deposit Slip<span class="mark">*</span></h3>
                     <p class="fz18">Files required for submission include your fee deposit slip or certificate
                         acquisition
@@ -254,7 +261,7 @@
                         formats: JPEG and PNG).</p>
                     <div class="field">
                         <div class="attachment">
-                            <input type="file" name="file" id="file">
+                            <input type="file" name="file" id="file" required>
                             <div class="inner">
                                 <i class="fa fa-upload"></i>
                                 <span class="d-flex mb-2">Drag and drop your file here</span>

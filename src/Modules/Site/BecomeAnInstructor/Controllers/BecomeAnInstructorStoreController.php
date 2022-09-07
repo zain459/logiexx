@@ -29,7 +29,7 @@ class BecomeAnInstructorStoreController extends Controller
             'tentative_course_title' => ['nullable','string'],
             'available_to_start_work' => ['required', 'string'],
             'date' => ['required', 'string'],
-            'file' => ['required', 'mimes:pdf,doc', 'max:2048'],
+            'file' => ['required', 'mimes:pdf,doc,docx', 'max:2048'],
         ]);
 
         $becomeAnInstructor = new BecomeAnInstructor();

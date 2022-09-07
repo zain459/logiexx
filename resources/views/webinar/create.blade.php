@@ -19,7 +19,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('title')}}" name="title"
-                               placeholder="Title"/>
+                               placeholder="Title" required/>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Speaker<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('speaker')}}" name="speaker"
-                               placeholder="Speaker"/>
+                               placeholder="Speaker" required/>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Moderator<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('moderator')}}" name="moderator"
-                               placeholder="Moderator"/>
+                               placeholder="Moderator" required/>
                     </div>
                 </div>
 
@@ -43,14 +43,14 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Organization<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('organization')}}" name="organization"
-                               placeholder="Organization"/>
+                               placeholder="Organization" required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Sponsor<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('sponsor')}}" name="sponsor"
-                               placeholder="sponsor"/>
+                               placeholder="S   ponsor" required/>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person')}}" name="focal_person"
-                               placeholder="Focal Person"/>
+                               placeholder="Focal Person" required/>
                     </div>
                 </div>
 
@@ -66,21 +66,21 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Telephone<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person_telephone')}}" name="focal_person_telephone"
-                               placeholder="Focal Person Telephone"/>
+                               placeholder="Focal Person Telephone" required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Focal Person Email<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('focal_person_email')}}" name="focal_person_email"
-                               placeholder="Focal Person Email"/>
+                               placeholder="Focal Person Email" required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link<sup>*</sup></label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" value="{{old('link')}}" name="link" placeholder="Link"/>
+                        <input type="text" class="form-control" value="{{old('link')}}" name="link" placeholder="Link" required/>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Meeting Id<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('meeting_id')}}" name="meeting_id"
-                               placeholder="Meeting Id"/>
+                               placeholder="Meeting Id" required/>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end" for="start_date">Webinar Start
                         Date<sup>*</sup></label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control" name="start_date" id="start_date"/>
+                        <input type="date" class="form-control" name="start_date" value="{{old('start_date')}}" id="start_date" required/>
                     </div>
                 </div>
 
@@ -104,14 +104,14 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end" for="end_date">Webinar End
                         Date<sup>*</sup></label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control" name="end_date" id="end_date"/>
+                        <input type="date" class="form-control" name="end_date" value="{{old('end_date')}}" id="end_date" required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Passcode<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('passcode')}}" name="passcode"
-                               placeholder="Passcode"/>
+                               placeholder="Passcode" required/>
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link Image<sup>*</sup></label>
+                    <label class="col-form-label fw-bold col-sm-2 text-sm-end">Link Image</label>
                     <div class="col-sm-6">
                         <input type="file" class="form-control" name="link_image"/>
                     </div>

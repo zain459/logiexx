@@ -111,13 +111,13 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label">Address<sup>*</sup></label>
+                                <label class="form-label">Address</label>
                                <textarea name="address" class="form-control">{{ old('address') }}</textarea>
                             </div>
 
                             <div class="mb-3 col-md-12">
                                 <label class="form-label" for="bio">Brief Bio<sup>*</sup></label>
-                                <textarea name="bio" class="form-control" ></textarea>
+                                <textarea name="bio" class="form-control" required>{{old('bio')}}</textarea>
                             </div>
 
                             <div class="mb-3 col-md-6">

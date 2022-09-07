@@ -24,7 +24,7 @@ class CourseStoreController extends Controller
             'pace' => ['required', 'int'],
             'classSize' => ['required', 'int'],
             'timeCommitment' => ['required', 'string'],
-            'courseCode' => ['required', 'string'],
+            'courseCode' => ['unique:courses,course_code', 'required', 'string'],
             'courseStartDate' => ['required', 'date'],
             'overview' => ['required'],
             'feeType' => ['required', 'string'],
@@ -51,7 +51,7 @@ class CourseStoreController extends Controller
 
         $course = GetCourse::store($data, $path, $filePath, $licensingInformationImagePath);
 
-        flash('Course added')->success()->important();
+        flash('Course Added')->success()->important();
 
         return redirect()->route('course-edit', $course->id());
     }

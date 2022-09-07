@@ -183,7 +183,6 @@
                                 <div class="cu_select me-2">
                                     <select required>
                                         <option value="9200">Pk(+92)</option>
-                                        <option value="9200">Pk(+52)</option>
                                     </select>
                                 </div>
                                 <input type="text" name="telephone" value="{{old('telephone')}}"
@@ -223,152 +222,135 @@
                         <label class="label">What kind of teaching you are interested in? <span
                                 class="mark">*</span></label>
                         <ul class="list-unstyled d-flex justify-content-between row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 flex-wrap">
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="custom-checkbox" name="teaching_interest[]"
-                                           value="{{'In-Person'}}">
-                                    <span class="check"></span>
-                                    <span class="label">In-Person</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="teaching_interest[]" value="{{'online'}}">
-                                    <span class="check"></span>
-                                    <span class="label">Online</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="teaching_interest[]" value="{{'online live'}}">
-                                    <span class="check"></span>
-                                    <span class="label">Online Live</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="teaching_interest[]" value="{{'blended'}}">
-                                    <span class="check"></span>
-                                    <span class="label">Blended</span>
-                                </label>
-                            </li>
+                            @foreach($modalities as $key => $modality)
+                                <li>
+                                    <label>
+                                        <input type="checkbox" class="custom-checkbox" name="teaching_interest[]"
+                                               value="{{$modality->name()}}" @checked(old('teaching_interest.' . $key) == $modality->name())>
+                                        <span class="check"></span>
+                                        <span class="label">{{$modality->name()}}</span>
+                                    </label>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="fieldgroup">
                         <label class="label">What are your subject area(s)? <span class="mark">*</span></label>
                         <ul class="list-unstyled d-flex justify-content-between row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 flex-wrap">
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Creative Arts & Media')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Creative Arts & Media</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Business & Management')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Business & Management</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('IT & Computer Science')}}">
-                                    <span class="check"></span>
-                                    <span class="label">IT & Computer Science</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Accounting & Finance')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Accounting & Finance</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Education & Teaching')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Education & Teaching</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Health & Medicine')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Health & Medicine</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Humanities')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Humanities</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Design Courses')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Design Courses</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Mathematics')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Mathematics</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Programming')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Programming</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Professional Development')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Professional Development</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]"
-                                           value="{{old('Other (please specify)')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Other (please specify) </span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Social Sciences')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Social Sciences </span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Sales & Marketing')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Sales & Marketing</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="subject_areas[]" value="{{old('Statistics')}}">
-                                    <span class="check"></span>
-                                    <span class="label">Statistics</span>
-                                </label>
-                            </li>
+                            @foreach($subjectFields as $key => $subjectField)
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="subject_areas[]"
+                                               value="{{$subjectField->name()}}" @checked(old('subject_areas.' . $key) == $subjectField->name())>
+                                        <span class="check"></span>
+                                        <span class="label">{{$subjectField->name()}}</span>
+                                    </label>
+                                </li>
+                            @endforeach
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('Business & Management')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Business & Management</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('IT & Computer Science')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">IT & Computer Science</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('Accounting & Finance')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Accounting & Finance</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('Education & Teaching')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Education & Teaching</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Health & Medicine')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Health & Medicine</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Humanities')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Humanities</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Design Courses')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Design Courses</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Mathematics')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Mathematics</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Programming')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Programming</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('Professional Development')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Professional Development</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]"--}}
+                            {{--                                           value="{{old('Other (please specify)')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Other (please specify) </span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Social Sciences')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Social Sciences </span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Sales & Marketing')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Sales & Marketing</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
+                            {{--                            <li>--}}
+                            {{--                                <label>--}}
+                            {{--                                    <input type="checkbox" name="subject_areas[]" value="{{old('Statistics')}}">--}}
+                            {{--                                    <span class="check"></span>--}}
+                            {{--                                    <span class="label">Statistics</span>--}}
+                            {{--                                </label>--}}
+                            {{--                            </li>--}}
                             <li>
                                 <input type="text" class="form-control" name="subject_areas[]">
                             </li>
@@ -385,10 +367,16 @@
                         <label class="label">When are you available to start work? <span class="mark">*</span></label>
                         <div class="d-flex">
                             <div class="cu_select cu_select2">
-                                <select name="available_to_start_work">
+                                <select name="available_to_start_work" required>
                                     <option></option>
-                                    <option value="{{'After 15 Days'}}">After 15 Days</option>
-                                    <option value="{{'After 1 Month'}}">After 1 Month</option>
+                                    <option
+                                        value="{{'After 15 Days'}}" @selected(old('available_to_start_work') == 'After 15 Days')>
+                                        After 15 Days
+                                    </option>
+                                    <option
+                                        value="{{'After 1 Month'}}" @selected(old('available_to_start_work') == 'After 1 Month')>
+                                        After 1 Month
+                                    </option>
                                 </select>
                             </div>
                             <label class="calendar">

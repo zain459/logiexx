@@ -45,12 +45,12 @@
                     <td>{{ $testimonial->name() }}</td>
                     <td>{{ $testimonial->company() }}</td>
                     <td>{{ $testimonial->designation() }}</td>
-                    <td class="text-truncate">{{ $testimonial->description() }}</td>
+                    <td class="text-truncate">{!! html_entity_decode($testimonial->description()) !!}</td>
                     @if($testimonial->image())
                         <td class="text-center"><img src="{{ asset('storage/'. $testimonial->image()) }}" width="70"
                                                      class="rounded"></td>
                     @else
-                        <td class="text-center"><img src="{{asset('images/f-logo.png')}}" width="70" class="rounded">
+                        <td class="text-center"><img src="{{asset('images/no.png')}}" width="70" class="rounded">
                         </td>
                     @endif
                     <td class="text-center">

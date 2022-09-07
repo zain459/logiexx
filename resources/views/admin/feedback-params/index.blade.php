@@ -17,66 +17,6 @@
                         <input type="text" name="title" class="form-control" value="">
                     </div>
 
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <label class="form-label">Publication Frequency</label>--}}
-                    {{--                            <select class="form-select" name="publication_frequency_id">--}}
-                    {{--                                <option></option>--}}
-                    {{--                                <option value="1">--}}
-                    {{--                                    Annual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="2">--}}
-                    {{--                                    Article-by-Article--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="3">--}}
-                    {{--                                    Bimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="4">--}}
-                    {{--                                    Continuous Publication--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="5">--}}
-                    {{--                                    Fortnightly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="6">--}}
-                    {{--                                    Irregular--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="7">--}}
-                    {{--                                    Monthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="8">--}}
-                    {{--                                    Quarterly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="9">--}}
-                    {{--                                    Semiannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="10">--}}
-                    {{--                                    Semimonthly--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="11">--}}
-                    {{--                                    Triannual--}}
-                    {{--                                </option>--}}
-                    {{--                                <option value="12">--}}
-                    {{--                                    Weekly--}}
-                    {{--                                </option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-{{--                                        <div class="col-md-2">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label class="form-label">Fee Type</label>--}}
-{{--                                                <select class="form-select" name="fee_type">--}}
-{{--                                                    <option></option>--}}
-{{--                                                    <option value="free">--}}
-{{--                                                        free--}}
-{{--                                                    </option>--}}
-{{--                                                    <option value="paid">--}}
-{{--                                                        paid--}}
-{{--                                                    </option>--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">
                             Search
@@ -145,18 +85,18 @@
                         <h5>New FeedBack</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body twocolumns-form">
                         <form method="POST" action="{{route('admin.feed-back.store')}}">
                             @csrf
                             <div class="form-group mb-3">
-                                <label class="form-label">Category</label>
+                                <label class="form-label">Category<sup>*</sup></label>
                                 <input type="text" name="category" class="form-control" value="{{ old('category') }}"
                                        required autofocus/>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label class="form-label">Title</label>
-                                <textarea name="title" class="form-control">{{ old('title') }}</textarea>
+                                <label class="form-label">Title<sup>*</sup></label>
+                                <textarea name="title" class="form-control" required>{{ old('title') }}</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>

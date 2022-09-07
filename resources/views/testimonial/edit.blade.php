@@ -48,17 +48,13 @@
                                       name="description">{{$testimonial->description()}}</textarea>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Other<sup>*</sup></label>
-                            <input type="text" class="form-control" name="other" value="{{ $testimonial->other() }}">
-                        </div>
                         @if($testimonial->image())
                             <div class="mb-3">
                                 <img src="{{ asset('storage/'. $testimonial->image()) }}" width="150" class="rounded">
                             </div>
                         @else
                             <div class="mb-3">
-                                <img src="{{asset('images/f-logo.png')}}" width="150" class="rounded">
+                                <img src="{{asset('images/no.png')}}" width="150" class="rounded">
                             </div>
                         @endif
                         <div class="mb-3">

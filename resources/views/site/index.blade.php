@@ -26,7 +26,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('site.index')}}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Logixs Academy</li>
                 </ol>
             </nav>
@@ -176,7 +176,7 @@
                         </div>
                         <div class="col-md-8">
                             <h3>{{$webinar->title()}}</h3>
-                            <p>{{$webinar->shortDescription()}}</p>
+                            <p>{!! html_entity_decode($webinar->shortDescription()) !!}}</p>
                             <dl>
                                 <dt>Speakers</dt>
                                 <dd>{{$webinar->speaker()}}</dd>
@@ -353,7 +353,7 @@
                                     <div class="photo"><img src="{{'storage/'.$testimonial->image()}}" class="img-fluid"
                                                             alt=""></div>
                                 @else
-                                    <div class="photo"><img src="{{asset('images/f-logo.png')}}" class="img-fluid"
+                                    <div class="photo"><img src="{{asset('images/no.png')}}" class="img-fluid"
                                                             alt=""></div>
                                 @endif
                                 <strong class="name" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -361,7 +361,7 @@
                                 <span
                                     class="post">{{$testimonial->designation(). ','.$testimonial->company().'.'}}</span>
                                 <blockquote>
-                                    <q>{{$testimonial->description()}}</q>
+                                    <q>{!! html_entity_decode($testimonial->description()) !!}</q>
                                 </blockquote>
                             </div>
                         @endif

@@ -35,9 +35,9 @@ use phpDocumentor\Reflection\Types\Boolean;
  * @property string $institution_post_code
  * @property string $institution_province_state
  * @property string $institution_country
- * @property bool $verifiable_certificate
+ * @property : ?bool $verifiable_certificate
  * @property string $file
- * @property string $description
+ * @property : ?string $description
  * @property string $file_type
  * @property string $file_name
  * @property float $file_size
@@ -167,12 +167,14 @@ class Enrollment extends Model
         return $this->institution_country;
     }
 
-    public function verifiableCertificate(): bool
+    public function verifiableCertificate(): ?bool
     {
         return $this->verifiable_certificate;
 
     }
-    public function status():bool{
+
+    public function status(): bool
+    {
         return $this->status;
     }
 
@@ -181,7 +183,7 @@ class Enrollment extends Model
         return $this->file;
     }
 
-    public function description(): string
+    public function description(): ?string
     {
         return $this->description;
     }

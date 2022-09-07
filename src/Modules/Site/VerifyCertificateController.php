@@ -36,7 +36,7 @@ class VerifyCertificateController extends Controller
 
         $verified = CertificateAuthentication::query()
             ->where('name', (string)$data['name'])
-            ->where('verify_certificate', (string)$data['certificate_serial_number'])
+            ->where('certificate', (string)$data['certificate_serial_number'])
             ->first();
 
         $courseLearnerFeedBackCheck = CourseLearnerFeedBack::query()

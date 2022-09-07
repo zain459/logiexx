@@ -26,3 +26,6 @@
     display: inline-block;
     padding: 0 15px;
 }
+.enrollment-image{
+    max-width: 12rem;
+}

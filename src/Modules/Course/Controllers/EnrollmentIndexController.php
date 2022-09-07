@@ -12,9 +12,8 @@ class EnrollmentIndexController
     public function __invoke(int $id, Request $request)
     {
 
-        /** @var Course $course */
-        $course = Course::query()->findOrFail($id);
-        $query = Enrollment::query()->with('class')->where('class_id', $id);
+        $class = CourseClass::query()->findOrFail($id);
+        $query = Enrollment::query()->with('class')->where('class_id', $class->id());
         if (null !== $request->get('key')) {
             $query->where(function ($q) use ($request) {
                 $q
@@ -32,10 +31,13 @@ class EnrollmentIndexController
             $query->where('status', 'like', '%' . $request->get('status') . '%');
         }
         $enrollments = $query->paginate(10);
+        $course = $class->course;
 
         return view('course.enrollment-index', [
             'enrollments' => $enrollments,
             'course' => $course
         ]);
+
+
     }
 }

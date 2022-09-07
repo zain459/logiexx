@@ -1,4 +1,5 @@
-<button data-bs-toggle="modal" data-bs-target="#editCertificate-{{$verifyCertification->id()}}" class="btn btn-sm btn-link">
+<button data-bs-toggle="modal" data-bs-target="#editCertificate-{{$verifyCertification->id()}}"
+        class="btn btn-sm btn-link">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
          stroke-linejoin="round" class="feather feather-edit-2 align-middle me-2">
@@ -24,22 +25,22 @@
                         <div class="mb-3 row">
                             <label for="recipient-name"
                                    class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" name="name" id="name"  value="{{$verifyCertification->name()}}">
+                            <input type="text" class="form-control" name="name" id="name"
+                                   value="{{$verifyCertification->name()}}">
                         </div>
 
                         <div class="mb-3 row">
                             <label for="recipient-name" class="col-form-label">Certificate
                                 Serial Number:</label>
                             <input type="text" class="form-control" name="certificate"
-                                   id="certificate"  value="{{$verifyCertification->verifyCertificate()}}"
+                                   id="certificate" value="{{$verifyCertification->verifyCertificate()}}"
                                    name="certificate">
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="recipient-name" class="col-form-label">Certificate
-                                Serial Number:</label>
+                            <label for="recipient-name" class="col-form-label">Issue Date</label>
                             <input type="date" class="form-control" name="issue_date"
-                                   id="issue_date"  value="{{$verifyCertification->issueDate()->toDateString()}}">
+                                   id="issue_date" value="{{$verifyCertification->issueDate()->toDateString()}}">
                         </div>
                         <input type="hidden" value="{{ $enrollment->id() }}"
                                name="enrollment_id"
@@ -51,7 +52,6 @@
         </div>
     </div>
 </div>
-
 
 
 {{--<div class="modal fade" id="editSubjectArea-{{$verifyCertification->id()}}" tabindex="-1" role="dialog"--}}

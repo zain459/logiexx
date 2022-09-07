@@ -21,8 +21,9 @@
                             <label class="form-label" for="status">Status</label>
                             <select class="form-select" name="status">
                                 <option></option>
-                                    <option value="{{1}}" @selected('1' === request()->get('status'))>{{'Active'}}</option>
-                                    <option value="{{0}}" @selected('0' === request()->get('status'))>{{'In Active'}}</option>
+                                <option value="{{1}}" @selected('1' === request()->get('status'))>{{'Active'}}</option>
+                                <option
+                                    value="{{0}}" @selected('0' === request()->get('status'))>{{'In Active'}}</option>
                             </select>
                         </div>
                     </div>
@@ -49,52 +50,53 @@
             </tr>
             </thead>
             <tbody>
-            @forelse($enrollments as $enrollment)
-                <tr>
-                    <td>{{ $enrollment->title() }}</td>
-                    <td>{{ $enrollment->firstName() }}</td>
-                    <td>{{ $enrollment->lastName() }}</td>
-                    <td>{{ $enrollment->degree() }}</td>
-                    <td>{{ $enrollment->position() }}</td>
-                    @if($enrollment->status() == 1)
-                        <td><span class="btn btn-success">Active</span></td>
-                    @else
-                        <td><span class="btn btn-danger">In Active</span></td>
-                    @endif
+                @forelse($enrollments as $enrollment)
+                    <tr>
+                        <td>{{ $enrollment->title() }}</td>
+                        <td>{{ $enrollment->firstName() }}</td>
+                        <td>{{ $enrollment->lastName() }}</td>
+                        <td>{{ $enrollment->degree() }}</td>
+                        <td>{{ $enrollment->position() }}</td>
+                        @if($enrollment->status() == 1)
+                            <td><span class="btn btn-success">Active</span></td>
+                        @else
+                            <td><span class="btn btn-danger">In Active</span></td>
+                        @endif
 
-                    <td class="table-action">
-{{--                        <a href="{{ route('admin.verify-certificate.index', $enrollment->id()) }}">--}}
-{{--                            View Certificate--}}
-{{--                        </a>--}}
-                        <a href="{{route('course.enrollment-view', $enrollment->id())}}">
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path fill="none" d="M0 0h24v24H0z"/>
-                                    <path
-                                        d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                                </g>
-                            </svg>
-                        </a>
-                        <form method="post" action="{{route('course.enrollment-delete', $enrollment->id())}}">
-                            @csrf
-                            <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path
-                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        <td class="table-action">
+                            {{--                        <a href="{{ route('admin.verify-certificate.index', $enrollment->id()) }}">--}}
+                            {{--                            View Certificate--}}
+                            {{--                        </a>--}}
+                            <a href="{{route('course.enrollment-view', $enrollment->id())}}">
+                                <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path fill="none" d="M0 0h24v24H0z"/>
+                                        <path
+                                            d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                    </g>
                                 </svg>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="5" class="text-center"> No record found</td>
-                </tr>
+                            </a>
+                            <form method="post" action="{{route('course.enrollment-delete', $enrollment->id())}}">
+                                @csrf
+                                <button type="submit" class="btn text-danger p-0"
+                                        onclick="return confirm('Are you sure?')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center"> No record found</td>
+                    </tr>
 
-            @endforelse
+                @endforelse
             </tbody>
         </table>
         @if($enrollments != null)

@@ -19,7 +19,7 @@
                 <div class="row g-3 align-items-end">
                     <div class="col-md-4 form-group">
                         <label class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" value="">
+                        <input type="text" name="name" class="form-control" value="{{request()->get('name')}}">
                     </div>
                     <div class="col-md-4 form-group">
                         <button class="btn btn-primary" type="submit">
@@ -73,17 +73,17 @@
                         <h5>New Subject Area</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body twocolumns-form">
                         <form method="POST" action="{{ route('admin.subject-area.store') }}"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Name<sup>*</sup></label>
                                 <input name="name" class="form-control" value="{{ old('name') }}" required autofocus/>
                             </div>
                             <div class="mb-3 col-md-6">
-                                <label class="form-label" for="image">Image</label>
-                                <input type="file" class="form-control" name="image" id="image"/>
+                                <label class="form-label" for="image">Image<sup>*</sup></label>
+                                <input type="file" class="form-control" name="image" id="image" required/>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>

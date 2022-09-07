@@ -7,22 +7,22 @@
 
     <div class="card">
         <div class="card-header fw-bold">Create</div>
-        <div class="card-body">
+        <div class="card-body twocolumns-form">
 
             <form method="post" action="{{route('course.learning-objective-store')}}">
                 @csrf
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Title</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title"
-                               placeholder="Title"/>
+                        <input type="text" class="form-control" name="title" value="{{old('title')}}"
+                               placeholder="Title" required/>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">Description</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="description"></textarea>
+                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>
 {{--                        <vue-editor v-model="formData.description" required></vue-editor>--}}
                     </div>
                 </div>

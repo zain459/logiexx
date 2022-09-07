@@ -16,7 +16,7 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Title<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="Title"/>
+                        <input type="text" name="title" value="{{old('title')}}" class="form-control" placeholder="Title" required/>
                     </div>
                 </div>
 
@@ -24,18 +24,18 @@
 
                     <label class="col-form-label col-sm-2 text-sm-end">Start Date<sup>*</sup></label>
                     <div class="col-sm-4">
-                        <input type="date" name="startDate" value="{{old('startDate')}}" class="form-control"/>
+                        <input type="date" name="startDate" value="{{old('startDate')}}" class="form-control" required/>
                     </div>
 
                     <label class="col-form-label col-sm-2 text-sm-end">End Date<sup>*</sup></label>
                     <div class="col-sm-4">
-                        <input type="date" name="endDate" value="{{old('endDate')}}" class="form-control"/>
+                        <input type="date" name="endDate" value="{{old('endDate')}}" class="form-control" required/>
                     </div>
 
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">link<sup>*</sup></label>
+                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
                     <div class="col-md-4">
                         <input type="url" name="link" value="{{old('link')}}" class="form-control"/>
                     </div>
@@ -44,7 +44,7 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-md-10">
-                        <textarea class="ckeditor form-control" name="description"></textarea>
+                        <textarea class="ckeditor form-control" name="description" required>{{old('description')}}</textarea>
 {{--                        <vue-editor v-model="formData.description" required></vue-editor>--}}
                     </div>
                 </div>

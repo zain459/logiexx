@@ -15,7 +15,7 @@ class TestimonialUpdateController extends Controller
             'name' => ['required', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:100'],
             'designation' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:100'],
+            'description' => ['required', 'string'],
             'other' => ['nullable', 'string', 'max:100'],
             'testimonialId' => ['required', 'int', 'exists:testimonials,id'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],

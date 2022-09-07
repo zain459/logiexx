@@ -17,7 +17,7 @@ return new class() extends Migration {
             $table->string('name');
             $table->string('company');
             $table->string('designation');
-            $table->string('description');
+            $table->text('description');
             $table->string('other')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

@@ -56,7 +56,7 @@
                         <img src="{{ asset('storage/'. $news->image()) }}" class="rounded" width="150">
                     </div>
                 @else
-                    <img src="{{asset('images/f-logo.png')}}" class="rounded" width="150">
+                    <img src="{{asset('images/no.png')}}" class="rounded" width="150">
                 @endif
                 <div class="mb-3 row">
                     <div class="mb-3 row">

@@ -53,11 +53,11 @@
                         <h5>Assign Partner</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body twocolumns-form">
                         <form action="{{ route('course.partner.assign-course') }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label" for="title">Partners</label>
+                                <label class="form-label" for="title">Partners<sup>*</sup></label>
                                 <select class="form-select" name="partner" required>
                                     <option></option>
                                     @foreach($partners as $item)

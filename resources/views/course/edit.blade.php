@@ -127,6 +127,13 @@
                                     <input type="file" name="image" class="form-control">
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    {{--                                    <embed src="{{ route('course-edit', $course->id()) }}" type="text/pdf" >--}}
+                                    {{--                                    <a href="{{asset('storage/'.$course->file())}}"></a>--}}
+                                    <img src="{{ asset('storage/'.$course->file()) }}" class="rounded" width="150">
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="mb-3 col">
@@ -253,7 +260,8 @@
                 document.getElementById('show').style.visibility = 'visible';
             } else document.getElementById('show').style.visibility = 'hidden';
         }
-        $(document).ready(function() {
+
+        $(document).ready(function () {
             $('.ckeditor').ckeditor();
         });
     </script>

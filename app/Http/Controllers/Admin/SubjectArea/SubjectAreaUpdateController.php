@@ -23,15 +23,19 @@ class SubjectAreaUpdateController extends Controller
             'name' => ['required', Rule::unique('subject_areas')->ignore($area->id())],
             'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
-        /** @var \Illuminate\Http\UploadedFile * */
-        $file = $request->file('image');
-        $path = SaveImage::save($file);
-        $area->name = $data['name'];
-        $area->image = $path;
+        if ($request->file('image')) {
+            /** @var \Illuminate\Http\UploadedFile * */
+            $file = $request->file('image');
+            $path = SaveImage::save($file);
+            $area->name = $data['name'];
+            $area->image = $path;
 
+        } else {
+            $area->name = $data['name'];
+        }
         $area->save();
 
-        flash('category updated')->success()->important();
+        flash('Subject Area updated')->success()->important();
 
         return redirect()->route('admin.subject-area.index');
     }

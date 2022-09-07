@@ -20,6 +20,7 @@ class CourseIndexController
         if (null !== $request->get('key')) {
             $query->where(function ($q) use ($request) {
                 $q
+                    ->orWhere('course_code', 'like', '%' . $request->get('key') . '%')
                     ->orWhere('title', 'like', '%' . $request->get('key') . '%')
                     ->orWhere('overview', 'like', '%' . $request->get('key') . '%')
                     ->orWhere('description', 'like', '%' . $request->get('key') . '%');
