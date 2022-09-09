@@ -17,7 +17,6 @@ class CourseClassEnrollmentStoreController extends Controller
 {
     public function __invoke(Request $request)
     {
-//        dd($request->all());
         $data = $this->validate($request, [
             'title' => ['required', 'string'],
             'first_name' => ['required', 'string'],
@@ -45,6 +44,7 @@ class CourseClassEnrollmentStoreController extends Controller
             'description' => ['nullable', 'string'],
             'file' => ['required', 'mimes:jpeg,png,jpg', 'max:2048'],
             'classId' => ['required', 'int', 'exists:classes,id'],
+            'status' => ['boll'],
         ]);
 
         $enrollment = new Enrollment();
@@ -91,6 +91,7 @@ class CourseClassEnrollmentStoreController extends Controller
         $enrollment->file_size = $fileSize;
         $enrollment->class_id = $data['classId'];
         $enrollment->save();
+
         if ($enrollment->verifiableCertificate() == 1) {
             $certificate = new CertificateAuthentication();
             $certificate->name = $enrollment->firstName();
@@ -98,20 +99,15 @@ class CourseClassEnrollmentStoreController extends Controller
             $certificate->enrollment_id = $enrollment->id();
             $certificate->course_id = $enrollment->class->courseId();
             $certificate->issue_date = Carbon::now()->addDays(5);
+
             $certificate->save();
+
+            Enrollment::where('id', $certificate->enrollment_id)->update(['status' => 1]);
         }
-//        $enrollmentEmail = new EnrollmentEmail($enrollment);
-//        $mail = Mail::to($enrollment->email());
-//        $mail->send($enrollmentEmail);
+
 
         flash('Enrollment submitted')->success()->important();
 
         return redirect()->back();
     }
-
-//    private function str_random(int $int)
-//    {
-//        $certificate = new CertificateAuthentication();
-//        $certificate->certificate = $int;
-//    }
 }
