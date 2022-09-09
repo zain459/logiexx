@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('issue_date');
             $table->string('certificate');
             $table->unsignedBigInteger('enrollment_id')->index();
+            $table->unsignedBigInteger('course_id')->index();
             $table->timestamps();
 
             $table->foreign('enrollment_id')->references('id')->on('enrollments')

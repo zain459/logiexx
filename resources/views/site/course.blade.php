@@ -168,7 +168,7 @@
 
                         <span class="btn-remove"><a href="{{route('site.course-index')}}">Remove all filters</a></span>
                     </div>
-                    <span class="align-self-center">3 results on Logixs Academy</span>
+                    <span class="align-self-center">{{$count}} results on Logixs Academy</span>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts">
                     @foreach($courses as $course)

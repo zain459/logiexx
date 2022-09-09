@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">link</label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Link</label>
                     <div class="col-md-4">
                         <input type="url" name="link" value="{{old('link')}}" class="form-control"/>
                     </div>

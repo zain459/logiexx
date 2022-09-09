@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-2 text-sm-end">link<sup>*</sup></label>
+                    <label class="col-form-label col-sm-2 text-sm-end">Link<sup>*</sup></label>
                     <div class="col-md-4">
                         <input type="url" name="link" value="{{$event->link()}}" class="form-control"/>
                     </div>

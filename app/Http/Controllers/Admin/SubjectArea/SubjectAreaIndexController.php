@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\SubjectArea;
 
 use App\Models\SubjectArea\SubjectArea;
 use Illuminate\Http\Request;
+use function Amp\Promise\all;
 
 class SubjectAreaIndexController
 {

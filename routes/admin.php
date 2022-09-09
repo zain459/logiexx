@@ -1,7 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Logixs\Modules\News\Controllers\NewsEditController;
+use Logixs\Modules\News\Controllers\NewsIndexController;
+use Logixs\Modules\News\Controllers\NewsStoreController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use Logixs\Modules\News\Controllers\NewsCreateController;
+use Logixs\Modules\News\Controllers\NewsDeleteController;
+use Logixs\Modules\News\Controllers\NewsUpdateController;
+use Logixs\Modules\Event\Controllers\EventEditController;
+use Logixs\Modules\Event\Controllers\EventIndexController;
+use Logixs\Modules\Event\Controllers\EventStoreController;
+use Logixs\Modules\Event\Controllers\EventUpdateController;
+use Logixs\Modules\Event\Controllers\EventCreateController;
+use Logixs\Modules\Event\Controllers\EventDeleteController;
 use Logixs\Modules\Course\Controllers\CourseEditController;
 use Logixs\Modules\Course\Controllers\CourseIndexController;
 use Logixs\Modules\Course\Controllers\CourseStoreController;
@@ -9,6 +21,7 @@ use Logixs\Modules\Course\Controllers\CourseCreateController;
 use Logixs\Modules\Course\Controllers\CourseUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerIndexController;
 use App\Http\Controllers\Admin\Partner\PartnerStoreController;
+use Logixs\Modules\Course\Controllers\FeedbackStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackIndexController;
 use Logixs\Modules\Webinar\Controllers\WebinarEditController;
 use Logixs\Modules\Webinar\Controllers\WebinarIndexController;
@@ -16,7 +29,6 @@ use Logixs\Modules\Webinar\Controllers\WebinarStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackDeleteController;
 use Logixs\Modules\Webinar\Controllers\WebinarUpdateController;
 use Logixs\Modules\Webinar\Controllers\WebniarCreateController;
-use Logixs\Modules\Course\Controllers\FeedbackStoreController;
 use Logixs\Modules\Course\Controllers\FeedbackUpdateController;
 use App\Http\Controllers\Admin\Partner\PartnerUpdateController;
 use App\Http\Controllers\Admin\CourseClass\ClassEditController;
@@ -35,16 +47,26 @@ use Logixs\Modules\Course\Controllers\EnrollmentDeleteController;
 use App\Http\Controllers\Admin\Setting\SettingDashboardController;
 use Logixs\Modules\Course\Controllers\CoursePartnerIndexController;
 use Logixs\Modules\Course\Controllers\CoursePartnerStoreController;
+use Logixs\Modules\Instructor\Controllers\InstructorStoreController;
+use Logixs\Modules\Instructor\Controllers\InstructorIndexController;
 use Logixs\Modules\Course\Controllers\CoursePartnerDeleteController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoEditController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoStoreController;
+use Logixs\Modules\Instructor\Controllers\InstructorDeleteController;
+use Logixs\Modules\Instructor\Controllers\InstructorUpdateController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialEditController;
 use Logixs\Modules\Course\Controllers\CourseInstructorIndexController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoUpdateController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoCreateController;
 use Logixs\Modules\Course\Controllers\CourseOtherInfoDeleteController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaIndexController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaStoreController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialIndexController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialStoreController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialUpdateController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialCreateController;
+use Logixs\Modules\Testimonial\Controllers\TestimonialDeleteController;
 use App\Http\Controllers\Admin\SubjectArea\SubjectAreaUpdateController;
 use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
 use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
@@ -211,4 +233,34 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('webinars/{id}/edit', WebinarEditController::class)->name('webinar-edit');
     Route::post('webinars/{id}/update', WebinarUpdateController::class)->name('webinar-update');
     Route::post('webinars/{id}/delete', WebinarDeleteController::class)->name('webinar-delete');
+
+    // Events
+    Route::get('events', EventIndexController::class)->name('event-index');
+    Route::get('event/create', EventCreateController::class)->name('event-create');
+    Route::post('event/store', EventStoreController::class)->name('event-store');
+    Route::get('event/{id}/edit', EventEditController::class)->name('event-edit');
+    Route::post('event/{id}/update', EventUpdateController::class)->name('event-update');
+    Route::post('event/{id}/delete', EventDeleteController::class)->name('event-delete');
+
+    //News
+    Route::get('news', NewsIndexController::class)->name('news-index');
+    Route::get('news/create', NewsCreateController::class)->name('news-create');
+    Route::post('news/store', NewsStoreController::class)->name('news-store');
+    Route::post('news/{id}/delete', NewsDeleteController::class)->name('news-delete');
+    Route::get('news/{id}/edit', NewsEditController::class)->name('news-edit');
+    Route::post('news/{id}/update', NewsUpdateController::class)->name('news-update');
+
+    //Testimonials
+    Route::get('testimonials', TestimonialIndexController::class)->name('testimonial-index');
+    Route::get('testimonial/create', TestimonialCreateController::class)->name('testimonial-create');
+    Route::post('testimonial/store', TestimonialStoreController::class)->name('testimonial-store');
+    Route::get('testimonial/{id}/edit', TestimonialEditController::class)->name('testimonial-edit');
+    Route::post('testimonial/{id}/delete', TestimonialDeleteController::class)->name('testimonial.delete');
+    Route::post('testimonial/update', TestimonialUpdateController::class)->name('testimonial-update');
+
+    //Instructors
+    Route::get('instructors', InstructorIndexController::class)->name('instructor.index');
+    Route::post('instructor/store', InstructorStoreController::class)->name('instructor.store');
+    Route::post('instructor/{id}/delete', InstructorDeleteController::class)->name('instructor.delete');
+    Route::post('instructor/{id}/update', InstructorUpdateController::class)->name('instructor.update');
 });

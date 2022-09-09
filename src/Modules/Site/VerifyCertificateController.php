@@ -37,6 +37,7 @@ class VerifyCertificateController extends Controller
         $verified = CertificateAuthentication::query()
             ->where('name', (string)$data['name'])
             ->where('certificate', (string)$data['certificate_serial_number'])
+            ->where('course_id', $course)
             ->first();
 
         $courseLearnerFeedBackCheck = CourseLearnerFeedBack::query()
@@ -47,14 +48,14 @@ class VerifyCertificateController extends Controller
 
         if (null !== $courseLearnerFeedBackCheck && null !== $instructorLearnerFeedBackCheck) {
             flash('Already submitted FeedBack')->error()->important();
-//            return view('site.learner-feedback');
+
             return redirect()->back();
         } elseif (null !== $verified) {
             flash('Your Certificate has been verified. Please add your feedback')->success()->important();
             return redirect()->route('site.learner-feedback.form', ['id' => $course->id(), 'verified' => $verified->id()]);
         } else {
-            flash('Your Certificate has not been verified')->error()->important();
-//            return view('site.learner-feedback');
+            flash('Your certificate has not been verified or you have not been enrolled in this class')->error()->important();
+
             return redirect()->back();
         }
     }

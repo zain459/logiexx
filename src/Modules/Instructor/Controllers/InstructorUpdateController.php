@@ -41,7 +41,7 @@ class InstructorUpdateController extends Controller
         }
         $instructor->save();
 
-        flash('instructor updated')->success();
+        flash('instructor updated')->success()->important();
 
         return redirect()->back();
     }

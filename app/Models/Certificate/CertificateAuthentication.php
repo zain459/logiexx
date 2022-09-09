@@ -10,6 +10,7 @@ use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 /**
  * @property int $id
  * @property int $enrollment_id
+ * @property int $course_id
  * @property string $name
  * @property Carbon $issue_date
  * @property string $certificate
@@ -27,6 +28,11 @@ class CertificateAuthentication extends Model
     public function enrollmentId(): int
     {
         return $this->enrollment_id;
+    }
+
+    public function courseId(): int
+    {
+        return $this->course_id;
     }
 
     public function name(): string

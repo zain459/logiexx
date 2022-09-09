@@ -50,7 +50,7 @@
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Sponsor<sup>*</sup></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" value="{{old('sponsor')}}" name="sponsor"
-                               placeholder="S   ponsor" required/>
+                               placeholder="Sponsor" required/>
                     </div>
                 </div>
 

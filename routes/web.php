@@ -79,14 +79,7 @@ Route::post('site/webinar-registration-form-store', WebinarRegistrationFormStore
 Route::post('site/mailing-list', MailingListStoreController::class)->name('site.mailing-list.store');
 
 
-require __DIR__ . '/inventory.php';
-require __DIR__ . '/course.php';
-require __DIR__ . '/instructor.php';
-require __DIR__ . '/testimonial.php';
-require __DIR__ . '/event.php';
-require __DIR__ . '/news.php';
 require __DIR__ . '/pages.php';
-require __DIR__ . '/webinars.php';
 require __DIR__ . '/admin.php';
 
 

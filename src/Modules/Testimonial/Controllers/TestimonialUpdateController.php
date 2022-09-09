@@ -39,6 +39,6 @@ class TestimonialUpdateController extends Controller
 
         flash('Record updated')->success()->important();
 
-        return redirect()->back();
+        return redirect()->route('testimonial-index');
     }
 }

@@ -38,7 +38,7 @@
                             <a class="nav-link" aria-current="page" href="http://logixs.org/">About Logixs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Search</a>
+                            <a class="nav-link" href="{{route('site.course-index')}}" >Search</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('site.certificate-authentication.index')}}"> Verify
@@ -147,6 +147,8 @@
     AOS.init({once: true});
 </script>
 <script type='text/javascript'>
+    // import {preventOverflow} from "@popperjs/core";
+
     $(document).ready(function () {
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -160,6 +162,7 @@
         $(this).parents(".alertbar").hide();
         // e.preventDefault();
     });
+
     $('.btncls').on('click', function (e) {
         $('#myModal').modal('hide');
         e.preventDefault();
@@ -169,7 +172,6 @@
     //     $('#myModal').modal('show');
     //     e.preventDefault();
     // });
-
 
 </script>
 </body>

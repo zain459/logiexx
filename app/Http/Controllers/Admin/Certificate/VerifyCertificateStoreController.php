@@ -17,6 +17,7 @@ class VerifyCertificateStoreController extends Controller
             'certificate' => ['required', 'string'],
             'issue_date' => ['required', 'date'],
             'enrollment_id' => ['required', 'int', 'exists:enrollments,id'],
+            'course_id' => ['required', 'int', 'exists:classes,course_id']
         ]);
 
         $certificateAuthentication = new CertificateAuthentication();
@@ -24,8 +25,11 @@ class VerifyCertificateStoreController extends Controller
         $certificateAuthentication->certificate = $data['certificate'];
         $certificateAuthentication->issue_date = $data['issue_date'];
         $certificateAuthentication->enrollment_id = $data['enrollment_id'];
+        $certificateAuthentication->course_id = $data['course_id'];
 
         $certificateAuthentication->save();
+        Enrollment::where('id', $certificateAuthentication->enrollment_id)->update(['verifiable_certificate' => 1]);
+
         flash('Certificate Submitted Successfully')->success()->important();
 
         return redirect()->route('course.enrollment-view', $enrollment->id());

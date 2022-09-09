@@ -56,7 +56,8 @@
             </tbody>
         </table>
         @if($subjectAreas != null)
-            <div class="pagination d-flex justify-content-end align-items-center">
+            <div class="pagination d-
+             justify-content-end align-items-center">
                 {!! $subjectAreas->links() !!}
             </div>
         @endif
@@ -93,5 +94,5 @@
             </div>
         </div>
     </div>
-
 @endsection
+

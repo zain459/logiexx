@@ -61,6 +61,6 @@ class WebinarUpdateController extends Controller
 
         flash('Record updated')->success()->important();
 
-        return redirect()->back();
+        return redirect()->route('webinar-index');
     }
 }

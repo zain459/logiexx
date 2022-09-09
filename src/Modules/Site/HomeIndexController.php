@@ -34,7 +34,7 @@ class HomeIndexController
         $courses = Course::with(['category'])->get();
         $featuresEditorPickCourses = GetFeaturedCourses::editorPick();
         $webinarRegistration = WebinarRegistrationForm::where('status', 1)->count();
-        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->where('end_date', '>=', Carbon::now()->format('Y-m-d'))->orderBy('id', 'desc')->first();
+        $webinar = Webinar::where('start_date', '>=', Carbon::now()->format('Y-m-d'))->orWhere('end_date', '>=', Carbon::now()->format('Y-m-d'))->orderBy('id', 'desc')->first();
         $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
 
         return view('site.index', [

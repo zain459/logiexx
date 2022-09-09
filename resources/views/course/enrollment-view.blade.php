@@ -16,7 +16,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="box">
-                                        <h4 class="font-size38 sm-font-size32 xs-font-size30"><span>Personal Information</span></h4>
+                                        <h4 class="font-size38 sm-font-size32 xs-font-size30">
+                                            <span>Personal Information</span></h4>
                                         <ul class="list-style9 no-margin list-unstyled">
                                             <li>
                                                 <div class="row">
@@ -33,7 +34,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">Class Name:</strong>
+                                                        <strong class="margin-10px-left text-orange">Class
+                                                            Name:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->class->title()}}</p>
@@ -55,7 +57,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">First Name:</strong>
+                                                        <strong class="margin-10px-left text-orange">First
+                                                            Name:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->firstName()}}</p>
@@ -77,7 +80,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">middle Name:</strong>
+                                                        <strong class="margin-10px-left text-orange">middle
+                                                            Name:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->middleName()}}</p>
@@ -189,13 +193,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box">
-                                        <h4 class="font-size38 sm-font-size32 xs-font-size30"><span>Institution Related Information</span></h4>
+                                        <h4 class="font-size38 sm-font-size32 xs-font-size30"><span>Institution Related Information</span>
+                                        </h4>
                                         <ul class="list-unstyled">
                                             <li>
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">Employment Status:</strong>
+                                                        <strong class="margin-10px-left text-orange">Employment
+                                                            Status:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->employmentStatus()->name()}}</p>
@@ -217,7 +223,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">Department:</strong>
+                                                        <strong
+                                                            class="margin-10px-left text-orange">Department:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->department()}}</p>
@@ -228,7 +235,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">Institution:</strong>
+                                                        <strong
+                                                            class="margin-10px-left text-orange">Institution:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->institution()}}</p>
@@ -272,7 +280,8 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-5">
                                                         <i class="fas fa-graduation-cap text-orange"></i>
-                                                        <strong class="margin-10px-left text-orange">Province/State:</strong>
+                                                        <strong
+                                                            class="margin-10px-left text-orange">Province/State:</strong>
                                                     </div>
                                                     <div class="col-md-7 col-7">
                                                         <p>{{$enrollment->provinceState()}}</p>
@@ -305,23 +314,25 @@
                                         </ul>
                                     </div>
                                     <div class="box">
-                                        <h4 class="font-size38 sm-font-size32 xs-font-size30"><span>Description</span></h4>
+                                        <h4 class="font-size38 sm-font-size32 xs-font-size30"><span>Description</span>
+                                        </h4>
                                         <p class="no-margin-bottom">
                                             {{$enrollment->description()}}.</p>
                                     </div>
                                     <div class="mt-4">
-                                        <form action="{{route('course.enrollment-status-store',$enrollment->id())}}" method="post">
+                                        <form action="{{route('course.enrollment-status-store',$enrollment->id())}}"
+                                              method="post">
                                             @csrf
                                             <div class="d-flex justify-content-between align-items-center">
-                                            <label class="switch">
-                                                <span>status</span>
-                                                <input type="checkbox" name="status"
-                                                       value="1" {{$enrollment->status() == 1 ? 'checked': ''}}>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
+                                                <label class="switch">
+                                                    <span>status</span>
+                                                    <input type="checkbox" name="status"
+                                                           value="1" {{$enrollment->status() == 1 ? 'checked': ''}}>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -364,6 +375,9 @@
                                             <input type="hidden" value="{{ $enrollment->id() }}"
                                                    name="enrollment_id"
                                                    required/>
+                                            <input type="hidden" value="{{ $enrollment->class   ->courseId() }}"
+                                                   name="course_id"
+                                                   required/>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
@@ -374,61 +388,152 @@
                 </div>
             </div>
         </div>
-
     </div>
-        @if($enrollment->status() == 1)
-            <hr>
-            <div class="mb-3 d-flex justify-content-between align-items-center">
-                <h4>Certificate</h4>
+    @if($enrollment->status() == 1 && $enrollment->verifiableCertificate() != 1)
+        <hr>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <h4>Certificate</h4>
 
-                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#createSubjectAreaModal">
-                    Add Certificate
-                </button>
-            </div>
-        @endif
-    <div class="card mt-4">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Certificate</th>
-                <th>Issue Date</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($verifyCertifications as $verifyCertification)
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#createSubjectAreaModal">
+                Add Certificate
+            </button>
+        </div>
+        <div class="card mt-4">
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <td>{{ $verifyCertification->name() }}</td>
-                    <td>{{ $verifyCertification->verifyCertificate() }}</td>
-                    <td>{{ $verifyCertification->issueDate() }}</td>
-                    <td width="100">
-                        <div class="d-flex">
-                        <div class='d-flex align-items-center'>
-                            @include('admin.verify-certificate.edit', [
-                                'verifyCertification' => $verifyCertification
-                            ])
-                        </div>
-                        <form method="post"
-                              action="{{route('admin.verify-certificate.delete', $verifyCertification->id())}}">
-                            @csrf
-                            <button type="submit" class="btn text-danger"
-                                    onclick="return confirm('Are you sure?')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path
-                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg>
-                            </button>
-                        </form>
-                        </div>
-                    </td>
+                    <th>Name</th>
+                    <th>Certificate</th>
+                    <th>Issue Date</th>
+                    <th></th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                @foreach($verifyCertifications as $verifyCertification)
+                    <tr>
+                        <td>{{ $verifyCertification->name()}}</td>
+                        <td>{{ $verifyCertification->verifyCertificate() }}</td>
+                        <td>{{ $verifyCertification->issueDate() }}</td>
+                        <td width="100">
+                            <div class="d-flex">
+                                <div class='d-flex align-items-center'>
+                                    @include('admin.verify-certificate.edit', [
+                                        'verifyCertification' => $verifyCertification
+                                    ])
+                                </div>
+                                <form method="post"
+                                      action="{{route('admin.verify-certificate.delete', $verifyCertification->id())}}">
+                                    @csrf
+                                    <button type="submit" class="btn text-danger"
+                                            onclick="return confirm('Are you sure?')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    @else
+        <div class="card mt-4">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Certificate</th>
+                    <th>Issue Date</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($verifyCertifications as $verifyCertification)
+                    <tr>
+                        <td>{{ $verifyCertification->name() }}</td>
+                        <td>{{ $verifyCertification->verifyCertificate() }}</td>
+                        <td>{{ $verifyCertification->issueDate() }}</td>
+                        <td width="100">
+                            <div class="d-flex">
+                                <div class='d-flex align-items-center'>
+                                    @include('admin.verify-certificate.edit', [
+                                        'verifyCertification' => $verifyCertification
+                                    ])
+                                </div>
+                                <form method="post"
+                                      action="{{route('admin.verify-certificate.delete', $verifyCertification->id())}}">
+                                    @csrf
+                                    <button type="submit" class="btn text-danger"
+                                            onclick="return confirm('Are you sure?')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
+
+{{--    @if($enrollment->verifiableCertificate() == 1)--}}
+{{--        <div class="card mt-4">--}}
+{{--            <table class="table table-hover">--}}
+{{--                <thead>--}}
+{{--                <tr>--}}
+{{--                    <th>Name</th>--}}
+{{--                    <th>Certificate</th>--}}
+{{--                    <th>Issue Date</th>--}}
+{{--                    <th></th>--}}
+{{--                </tr>--}}
+{{--                </thead>--}}
+{{--                <tbody>--}}
+{{--                @foreach($verifyCertifications as $verifyCertification)--}}
+{{--                    <tr>--}}
+{{--                        <td>{{ $verifyCertification->name() }}</td>--}}
+{{--                        <td>{{ $verifyCertification->verifyCertificate() }}</td>--}}
+{{--                        <td>{{ $verifyCertification->issueDate() }}</td>--}}
+{{--                        <td width="100">--}}
+{{--                            <div class="d-flex">--}}
+{{--                                <div class='d-flex align-items-center'>--}}
+{{--                                    @include('admin.verify-certificate.edit', [--}}
+{{--                                        'verifyCertification' => $verifyCertification--}}
+{{--                                    ])--}}
+{{--                                </div>--}}
+{{--                                <form method="post"--}}
+{{--                                      action="{{route('admin.verify-certificate.delete', $verifyCertification->id())}}">--}}
+{{--                                    @csrf--}}
+{{--                                    <button type="submit" class="btn text-danger"--}}
+{{--                                            onclick="return confirm('Are you sure?')">--}}
+{{--                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"--}}
+{{--                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"--}}
+{{--                                             stroke-linejoin="round" class="feather feather-trash align-middle text-danger">--}}
+{{--                                            <polyline points="3 6 5 6 21 6"></polyline>--}}
+{{--                                            <path--}}
+{{--                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>--}}
+{{--                                        </svg>--}}
+{{--                                    </button>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                @endforeach--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 @endsection

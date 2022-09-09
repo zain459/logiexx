@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-md-8">
                             <h3>{{$upComingWebinar->title()}}</h3>
-                            <p>{{$upComingWebinar->shortDescription()}}</p>
+                            <p>{!! html_entity_decode($upComingWebinar->shortDescription())!!}</p>
                             <dl>
                                 <dt>Speakers</dt>
                                 <dd>{{$upComingWebinar->speaker()}}</dd>
@@ -109,12 +109,13 @@
                             <div class="d-flex justify-content-between py-2">
                                 <a href="{{route('site.webinar-pdf-download', $pastWebinar->id())}}" class="btnlink">Download
                                     PDF Flyer</a>
-                                <a href="{{$pastWebinar->link()}}" class="btnlink">Click here to watch <i class="icon-i"></i></a>
+                                <a href="{{$pastWebinar->link()}}" class="btnlink">Click here to watch <i
+                                        class="icon-i"></i></a>
                             </div>
                         </div>
                         <div class="col-md-8">
                             <h3>{{$pastWebinar->title()}}</h3>
-                            <p>{{$pastWebinar->shortDescription()}}</p>
+                            <p>{!! html_entity_decode($pastWebinar->shortDescription())!!}</p>
                             <dl>
                                 <dt>Speakers</dt>
                                 <dd>{{$pastWebinar->speaker()}}</dd>

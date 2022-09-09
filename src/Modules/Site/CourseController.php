@@ -14,6 +14,7 @@ class CourseController
         $filters = $request->all();
 
         $query = Course::with(['category']);
+        $count = $query->count();
 
         if (isset($filters['subject_areas'])) {
             $query->whereIn('subject_area_id', $filters['subject_areas']);
@@ -43,8 +44,9 @@ class CourseController
 
         return view('site.course', [
             'filters' => $filters,
+            'count' => $count,
             'courses' => $courses,
-            'subjectAreas' => $subjectAreas
+            'subjectAreas' => $subjectAreas,
         ]);
     }
 }

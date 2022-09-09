@@ -9,7 +9,7 @@ class InstructorDeleteController
     public function __invoke(int $id)
     {
         Instructor::query()->findOrFail($id)->delete();
-        flash('Deleted Successfully')->error();
+        flash('Deleted Successfully')->error()->important();
 
         return redirect(route('instructor.index'));
     }

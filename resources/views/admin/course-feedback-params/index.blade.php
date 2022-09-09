@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="type">type<sup>*</sup></label>
+                        <label class="form-label" for="type">Type<sup>*</sup></label>
                         <select class="form-select" name="type" id="type" required>
                             <option></option>
                             <option value="{{'Instructor'}}">{{ 'Instructor' }}</option>

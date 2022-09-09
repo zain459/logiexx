@@ -91,11 +91,12 @@ class CourseClassEnrollmentStoreController extends Controller
         $enrollment->file_size = $fileSize;
         $enrollment->class_id = $data['classId'];
         $enrollment->save();
-        if ($enrollment->verifiable_certificate === 0) {
+        if ($enrollment->verifiableCertificate() == 1) {
             $certificate = new CertificateAuthentication();
-            $certificate->name = $enrollment->first_name;
+            $certificate->name = $enrollment->firstName();
             $certificate->certificate = Str::random(8);;
             $certificate->enrollment_id = $enrollment->id();
+            $certificate->course_id = $enrollment->class->courseId();
             $certificate->issue_date = Carbon::now()->addDays(5);
             $certificate->save();
         }

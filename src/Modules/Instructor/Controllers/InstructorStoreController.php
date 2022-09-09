@@ -34,7 +34,7 @@ class InstructorStoreController extends Controller
         }
         $instructor->save();
 
-        flash('instructor added')->success();
+        flash('instructor added')->success()->important();
 
         return redirect()->back();
     }
