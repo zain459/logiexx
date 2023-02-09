@@ -32,7 +32,7 @@ class CourseLearnerFeedBackStoreController extends Controller
             'instructors.*.like_most_about_course' => ['required', 'string'],
             'instructors.*.like_us_know_about_course' => ['required', 'string'],
             'instructors.*.studentId' => ['required', 'int'],
-            'instructors.*.instructor_quality_of_course' => ['r equired', 'int'],
+            'instructors.*.instructor_quality_of_course' => ['required', 'int'],
         ]);
 
         $courseFeedbackData = $data['course'];
