@@ -12,7 +12,7 @@ class SubjectAreaUpdateController extends Controller
 {
     public function __invoke(Request $request, int $id)
     {
-        /** @var SubjectArea $area */
+            /** @var SubjectArea $area */
         $area = SubjectArea::query()->findOrFail($id);
 
         if (null === $area) {

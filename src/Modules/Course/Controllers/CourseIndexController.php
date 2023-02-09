@@ -13,8 +13,6 @@ class CourseIndexController
 {
     public function __invoke(Request $request)
     {
-//        dd($request->all());
-//        $course = GetCourse::get();
         $query = Course::with(['category', 'subjectArea']);
 
         if (null !== $request->get('key')) {

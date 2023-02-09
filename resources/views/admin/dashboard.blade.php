@@ -1,13 +1,10 @@
 @extends('layout')
 @section('title', 'Dashboard')
 @section('content')
-
     <div class="row">
         <div class="col-md-12 mb-3">
-
 {{--          <example-component></example-component>--}}
         </div>
-
         <div class="col-md-12">
             <div class="mb-3">
                 <h3>Dashboard</h3>

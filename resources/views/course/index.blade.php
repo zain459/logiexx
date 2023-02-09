@@ -92,7 +92,7 @@
             </tbody>
         </table>
         @if($courses != null)
-            <div class="pagination d-flex justify-content-end align-items-center">
+            <div class="pagination d-flex justify-content-end align-items-center mt-2">
                 {!! $courses->links() !!}
             </div>
         @endif

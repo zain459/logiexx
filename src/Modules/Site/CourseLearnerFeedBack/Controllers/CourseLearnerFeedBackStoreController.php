@@ -32,7 +32,7 @@ class CourseLearnerFeedBackStoreController extends Controller
             'instructors.*.like_most_about_course' => ['required', 'string'],
             'instructors.*.like_us_know_about_course' => ['required', 'string'],
             'instructors.*.studentId' => ['required', 'int'],
-            'instructors.*.instructor_quality_of_course' => ['required', 'int'],
+            'instructors.*.instructor_quality_of_course' => ['r equired', 'int'],
         ]);
 
         $courseFeedbackData = $data['course'];
@@ -63,7 +63,7 @@ class CourseLearnerFeedBackStoreController extends Controller
             $instructorFeedback->instructor_like_us_know_about_course = $item['like_us_know_about_course'];
             $instructorFeedback->instructor_quality_of_course = $item['instructor_quality_of_course'];
             $instructorFeedback->course_id = $course->id();
-            $instructorFeedback->student_id = $item['studentId'];
+                $instructorFeedback->student_id = $item['studentId'];
             $instructorFeedback->instructor_id = $key;
             $instructorFeedback->save();
             foreach ($item['feedback_params'] as $paramKey => $value) {

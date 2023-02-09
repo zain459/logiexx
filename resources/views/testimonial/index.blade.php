@@ -50,7 +50,7 @@
                         <td class="text-center"><img src="{{ asset('storage/'. $testimonial->image()) }}" width="70"
                                                      class="rounded"></td>
                     @else
-                        <td class="text-center"><img src="{{asset('images/no.png')}}" width="70" class="rounded">
+                        <td class="text-center"><img src="{{asset('imag   es/no.png')}}" width="70" class="rounded">
                         </td>
                     @endif
                     <td class="text-center">

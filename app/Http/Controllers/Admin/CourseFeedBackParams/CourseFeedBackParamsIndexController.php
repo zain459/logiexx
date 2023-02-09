@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\CourseFeedBackParams;
 
-
 use Illuminate\Http\Request;
 use Logixs\Modules\Course\Models\Course;
 use App\Models\FeedBackParams\FeedBackParams;

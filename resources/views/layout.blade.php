@@ -9,16 +9,15 @@
     <link rel="stylesheet" href="https://unpkg.com/@adminkit/core@latest/dist/css/app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
+    <script src="http   s://unpkg.com/@adminkit/core@latest/dist/js/app.js"></script>
     <script type="text/javascript" src="{{ mix('js/admin.js') }}" defer></script>
     <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     @include('sidebar')
-
     <main class="content">
-        <div class="container-fluid p-0">
+        <div class="coantiner-fluid p-0">
             @if ($errors->any())
                 <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">
                     <ul class="mb-0">

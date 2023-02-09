@@ -8,10 +8,10 @@ use Logixs\Modules\Webinar\Models\Webinar;
 
 class ViewAllPastWebinarController
 {
-    public function __invoke()
+    public function __invoke(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         // TODO: Implement __invoke() method.
-        $pastWebinars = Webinar::where('start_date', '<', Carbon::now()->format('Y-m-d'))->paginate(2);
+        $pastWebinars = Webinar::query()->where('start_date', '<', Carbon::now()->format('Y-m-d'))->paginate(2);
         $subjectFields = SubjectArea::all();
 
         return view('site.past-webinar-series', [
