@@ -44,8 +44,8 @@
                             <div class="col-md-4">
                                 <div class="video-box">
                                     <h3>Video</h3>
-                                    <div class="video"><a href="{{$pastWebinar->link()}}"><img
-                                                src="{{'/storage/'.$pastWebinar->image()}}" alt=""></a></div>
+{{--                                    <div class="video"><a href="{{$pastWebinar->link()}}"><img--}}
+{{--                                                src="{{'/storage/'.$pastWebinar->image()}}" alt=""></a></div>--}}
                                 </div>
                                 <div class="d-flex justify-content-between py-2">
                                     <a href="{{route('site.webinar-pdf-download', $pastWebinar->id())}}"

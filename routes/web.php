@@ -6,7 +6,7 @@ use Logixs\Modules\Site\HomeIndexController;
 use Logixs\Modules\Site\WebinarPdfController;
 use Logixs\Modules\Site\TestimonialController;
 use Logixs\Modules\Site\CourseDetailController;
-use Logixs\Modules\Site\viewAllPastWebinarController;
+use Logixs\Modules\Site\ViewAllPastWebinarController;
 use Logixs\Modules\Site\ViewAllWebinarSeriesController;
 use Logixs\Modules\User\Controllers\Auth\LoginController;
 use Logixs\Modules\Site\ViewAllUpcomingWebinarController;

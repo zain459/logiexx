@@ -97,7 +97,7 @@
                                         class="icon-students ms-0 me-1"></i> {{$specific->classSize()}} Students</span>
                             @endif
                         </div>
-                        <a href="/storage/{{$specific->file()}}" download="" class="view-all"><i class="icon-arrow"></i>
+                        <a href="/storage/{{ $specific->file() }}" download="" class="view-all"><i class="icon-arrow"></i>
                             Download Course Catalogue (PDF)</a>
                     </div>
                 </div>

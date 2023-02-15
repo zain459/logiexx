@@ -264,3 +264,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('instructor/{id}/delete', InstructorDeleteController::class)->name('instructor.delete');
     Route::post('instructor/{id}/update', InstructorUpdateController::class)->name('instructor.update');
 });
+
+
