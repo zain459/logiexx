@@ -14,7 +14,6 @@ use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\MailingList\Controllers\MailingListStoreController;
-//use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackIndexController;
 use Logixs\Modules\Site\CorporatePartnership\CorporatePartnershipIndexController;
 use Logixs\Modules\site\CorporatePartnership\CorporatePartnershipStoreController;
 use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackVerificationController;
@@ -25,7 +24,6 @@ use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexCo
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
-//use Logixs\Modules\Site\CorporatePartnership\CorporatePartnershipStoreController;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
