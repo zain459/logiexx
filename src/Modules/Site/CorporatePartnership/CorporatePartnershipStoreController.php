@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\site\CorporatePartnership\Controllers;
+namespace Logixs\Modules\site\CorporatePartnership;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,7 +25,7 @@ class CorporatePartnershipStoreController extends Controller
             'teaching_interest' => ['required', 'array'],
             'description' => ['nullable', 'string'],
         ]);
-       
+
         $corporatePartnership = new  CorporatePartnership();
         $corporatePartnership->first_name = $data['first_name'];
         $corporatePartnership->last_name = $data['last_name'];
