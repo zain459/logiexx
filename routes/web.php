@@ -18,13 +18,13 @@ use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackVerificationControll
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
-use App\Http\Controllers\Site\CorporatePartnership\CorporatePartnershipStoreController;
 use App\Http\Controllers\Site\CorporatePartnership\CorporatePartnershipIndexController;
+use App\Http\Controllers\Site\CorporatePartnership\CorporatePartnershipStoreController;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
-use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
-use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
+use App\Http\Controllers\Site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
+use App\Http\Controllers\Site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');

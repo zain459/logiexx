@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\BecomeAnInstructor;
 
+use App\Models\BecomeAnInstructor;
 use Illuminate\Http\Request;
-use Logixs\Modules\Site\BecomeAnInstructor\Models\BecomeAnInstructor;
 
 class BecomeAnInstructorIndexController
 {

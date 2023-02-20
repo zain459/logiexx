@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\BecomeAnInstructor;
 
-use Logixs\Modules\Site\BecomeAnInstructor\Models\BecomeAnInstructor;
+use App\Models\BecomeAnInstructor;
 
 class BecomeAnInstructorDeleteController
 {

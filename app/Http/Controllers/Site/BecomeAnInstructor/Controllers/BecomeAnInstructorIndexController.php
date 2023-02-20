@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\site\BecomeAnInstructor\Controllers;
+namespace App\Http\Controllers\Site\BecomeAnInstructor\Controllers;
 
 use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Course\Models\Modality;

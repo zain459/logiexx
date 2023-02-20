@@ -1,10 +1,10 @@
 <?php
 
-namespace Logixs\Modules\site\BecomeAnInstructor\Controllers;
+namespace App\Http\Controllers\Site\BecomeAnInstructor\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Logixs\Modules\Site\BecomeAnInstructor\Models\BecomeAnInstructor;
+use App\Models\BecomeAnInstructor;
+use Illuminate\Http\Request;
 use Logixs\Services\SaveImage;
 
 class BecomeAnInstructorStoreController extends Controller

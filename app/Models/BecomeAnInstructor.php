@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\Site\BecomeAnInstructor\Models;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
