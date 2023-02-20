@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\CorporatePartnership;
 
-use Logixs\Modules\Site\CorporatePartnership\Models\CorporatePartnership;
+use App\Models\CorporatePartnership;
 
 class CorporatePartnershipDeleteController
 {
@@ -12,7 +12,7 @@ class CorporatePartnershipDeleteController
 
         $corporatePartnership->delete();
         flash('Delete')->success()->important();
-        
+
         return redirect()->route('admin.corporate-partnership.index');
     }
 }

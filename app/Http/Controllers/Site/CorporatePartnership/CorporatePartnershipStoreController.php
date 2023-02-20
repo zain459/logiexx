@@ -1,10 +1,10 @@
 <?php
 
-namespace Logixs\Modules\site\CorporatePartnership;
+namespace App\Http\Controllers\Site\CorporatePartnership ;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Logixs\Modules\Site\CorporatePartnership\Models\CorporatePartnership;
+use App\Models\CorporatePartnership;
+use Illuminate\Http\Request;
 
 class CorporatePartnershipStoreController extends Controller
 {

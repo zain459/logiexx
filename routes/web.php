@@ -14,15 +14,15 @@ use Logixs\Modules\Site\Calendar\ClassCalendarIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationIndexController;
 use Logixs\Modules\Site\CertificateAuthenticationverificationController;
 use Logixs\Modules\Site\MailingList\Controllers\MailingListStoreController;
-use Logixs\Modules\Site\CorporatePartnership\CorporatePartnershipIndexController;
-use Logixs\Modules\site\CorporatePartnership\CorporatePartnershipStoreController;
 use Logixs\Modules\Site\FeedBack\Controllers\LearnerFeedBackVerificationController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentIndexController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentStoreController;
 use Logixs\Modules\Site\Enrollment\Controllers\CourseClassEnrollmentCreateController;
-use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
+use App\Http\Controllers\Site\CorporatePartnership\CorporatePartnershipStoreController;
+use App\Http\Controllers\Site\CorporatePartnership\CorporatePartnershipIndexController;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormIndex;
 use Logixs\Modules\Site\WebinarRegistrationForm\Controllers\WebinarRegistrationFormStore;
+use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
 use Logixs\Modules\site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackStoreController;
 

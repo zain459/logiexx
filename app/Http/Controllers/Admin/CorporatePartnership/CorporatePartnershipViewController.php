@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\CorporatePartnership;
 
-use Logixs\Modules\Site\CorporatePartnership\Models\CorporatePartnership;
+use App\Models\CorporatePartnership;
 
 class CorporatePartnershipViewController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Logixs\Modules\site\CorporatePartnership;
+namespace App\Http\Controllers\Site\CorporatePartnership;
 
 use App\Models\SubjectArea\SubjectArea;
 

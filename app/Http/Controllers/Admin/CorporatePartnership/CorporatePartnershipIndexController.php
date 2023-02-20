@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\CorporatePartnership;
 
+use App\Models\CorporatePartnership;
 use Illuminate\Http\Request;
-use Logixs\Modules\Site\CorporatePartnership\Models\CorporatePartnership;
 
 class CorporatePartnershipIndexController
 {
