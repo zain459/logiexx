@@ -21,7 +21,10 @@ class CourseDetailController
     public function __invoke(int $id)
     {
         $courseEnrollment = Course::findOrFail($id);
-        $pages = Pages::first();
+        $pages = Pages::query()->first();
+        if (null === $pages) {
+            abort(404, 'Pages not found');
+        }
         $instructors = Instructor::all();
         $totalPartners = Partner::count();
         $subjectFields = SubjectArea::all();
