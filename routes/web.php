@@ -55,12 +55,12 @@ Route::post('site/certificate-authentication-verification', CertificateAuthentic
 Route::get('site/course/{id}/class-calendar', ClassCalendarIndexController::class)->name('site.class-calendar.index');
 
 //Corporate Partnership
-//Route::get('site/corporate-partnership', CorporatePartnershipIndexController::class)->name('site.corporate-partnership');
-//Route::post('site/corporate-partnership-store', CorporatePartnershipStoreController::class)->name('corporate-partnership.store');
+Route::get('site/corporate-partnership', CorporatePartnershipIndexController::class)->name('site.corporate-partnership');
+Route::post('site/corporate-partnership-store', CorporatePartnershipStoreController::class)->name('corporate-partnership.store');
 
 //become-an-instructor
-//Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class)->name('site.become-an-instructor.index');
-//Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
+Route::get('site/become-an-instructor', BecomeAnInstructorIndexController::class)->name('site.become-an-instructor.index');
+Route::post('site/become-an-instructor-store', BecomeAnInstructorStoreController::class)->name('site.become-an-instructor.store');
 
 //learner-feedback
 Route::get('site/course/{id}/verify-certificate', [\Logixs\Modules\Site\VerifyCertificateController::class, 'form'])->name('site.verify-certificate.form');
