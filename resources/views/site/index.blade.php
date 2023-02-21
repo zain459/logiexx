@@ -124,8 +124,8 @@
                                 {{--                                </object>--}}
 
                                 {{--                                <svg width="100%" src="{{'storage/'.$subjectField->image()}}" height="100%" viewBox="0 0 167 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"></svg>--}}
-                                <i class=""><img src="{{'storage/'.$subjectField->image()}}"
-                                                 class="custom-svg-icon w-10"
+                                <i class=""><img width="40" src="{{'storage/'.$subjectField->image()}}"
+                                                 class="custom-svg-icon"
                                                  alt=""></i>
                                 <h3>
                                     <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
