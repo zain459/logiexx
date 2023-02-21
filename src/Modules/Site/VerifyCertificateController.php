@@ -39,7 +39,7 @@ class VerifyCertificateController extends Controller
             ->where('certificate', (string)$data['certificate_serial_number'])
             ->where('course_id', $course->id())
             ->first();
-        
+
         $courseLearnerFeedBackCheck = CourseLearnerFeedBack::query()
             ->where('student_id', (int)$verified?->id())->first();
 

@@ -22,7 +22,6 @@
                         <label class="form-label" for="title">Type</label>
                         <select class="form-select" name="type_id" required>
                             <option></option>
-                            <option value=""></option>
                             <option value="1">Trending</option>
                             <option value="2">Popular</option>
                             <option value="3">Editor Pick</option>
