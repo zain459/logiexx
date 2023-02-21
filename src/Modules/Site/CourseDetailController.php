@@ -22,9 +22,6 @@ class CourseDetailController
     {
         $courseEnrollment = Course::findOrFail($id);
         $pages = Pages::query()->first();
-        if (null === $pages) {
-            abort(404, 'Pages not found');
-        }
         $instructors = Instructor::all();
         $totalPartners = Partner::count();
         $subjectFields = SubjectArea::all();
