@@ -5,6 +5,8 @@
         <div class="card-header">
             <h5 class="card-title">Course Feature</h5>
         </div>
+
+        
         <div class="card-body">
             <form action="{{route('admin.featured-course.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
