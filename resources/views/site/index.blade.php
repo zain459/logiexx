@@ -124,7 +124,7 @@
                                 {{--                                </object>--}}
 
                                 {{--                                <svg width="100%" src="{{'storage/'.$subjectField->image()}}" height="100%" viewBox="0 0 167 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"></svg>--}}
-                                <i class=""><img width="40" src="{{'storage/'.$subjectField->image()}}"
+                                <i class=""><img width="40" src="{{'storage/public/'.$subjectField->image()}}"
                                                  class="custom-svg-icon"
                                                  alt=""></i>
                                 <h3>
@@ -143,7 +143,7 @@
                     <div class="row">
                         <div class="col-md-4 pb-3 pb-lg-0">
                             @if($webinar->image())
-                                <img src="{{'storage/'.$webinar->image()}}" class="img-fluid w-100" alt="">
+                                <img src="{{'storage/public/'.$webinar->image()}}" class="img-fluid w-100" alt="">
                             @else
                                 <img src="{{asset('images/f-logo.png')}}" class="img-fluid w-100" alt="">
                             @endif
