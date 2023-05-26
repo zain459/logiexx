@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="title">Subject Area<sup>*</sup></label>
+                        <label class="form-label" for="title">Subject Fields<sup>*</sup></label>
                         <select class="form-select" name="subjectArea" required>
                             <option></option>
                             @foreach($areas as $area)

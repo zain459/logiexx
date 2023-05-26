@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label class="form-label" for="title">Subject Area</label>
+                            <label class="form-label" for="title">Subject Fields</label>
                             <select class="form-select" name="subjectArea">
                                 <option></option>
                                 @foreach($subjectAreas as $subjectArea)
@@ -70,7 +70,7 @@
                 <th>#Code</th>
                 <th>Title</th>
                 <th>Category</th>
-                <th>Subject Area</th>
+                <th>Subject Fields</th>
                 <th>Fee Type</th>
             </tr>
             </thead>

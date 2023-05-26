@@ -8,7 +8,7 @@
                     Configurations
                 </div>
                 <a href="{{ route('admin.category.index') }}" class="list-group-item list-group-item-action">Categories</a>
-                <a href="{{ route('admin.subject-area.index') }}" class="list-group-item list-group-item-action">Subject Area </a>
+                <a href="{{ route('admin.subject-area.index') }}" class="list-group-item list-group-item-action">Subject Fields</a>
             </div>
         </div>
 

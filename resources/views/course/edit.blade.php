@@ -182,7 +182,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="title">Subject Area</label>
+                            <label class="form-label" for="title">Subject Fields</label>
                             <select class="form-select" name="subjectArea" required>
                                 <option></option>
                                 @foreach($subjectArea as $area)

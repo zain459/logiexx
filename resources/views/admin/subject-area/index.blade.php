@@ -2,11 +2,11 @@
 @section('title', 'Subject Area')
 @section('content')
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h3>Subject Area</h3>
+        <h3>Subject Fields</h3>
 
         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                 data-bs-target="#createSubjectAreaModal">
-            New Area
+            New Subject Fields
         </button>
     </div>
 
@@ -71,7 +71,7 @@
             <div class="modal-content">
                 <div class="card">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5>New Subject Area</h5>
+                        <h5>New Subject Fields</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="card-body twocolumns-form">
