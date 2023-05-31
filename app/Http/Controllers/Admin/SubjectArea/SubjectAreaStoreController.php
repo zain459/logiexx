@@ -13,7 +13,7 @@ class SubjectAreaStoreController extends Controller
     {
         $data = $this->validate($request, [
             'name' => ['required', 'string', 'unique:subject_areas,name'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:svg', 'max:2048'],
         ]);
 
         /** @var \Illuminate\Http\UploadedFile * */

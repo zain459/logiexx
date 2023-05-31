@@ -1,7 +1,7 @@
 <div class="col post">
     <div class="inner">
         <div class="img"><a href="{{ route('site.course-detail', $course->id()) }}"> <img
-                    src="{{ 'storage/public/'.$course->image() }}"
+                    src="{{ 'storage/'.$course->image() }}"
                     class="img-fluid" alt="">
             </a>
         </div>

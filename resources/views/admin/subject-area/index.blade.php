@@ -49,6 +49,18 @@
                             @include('admin.subject-area.edit', [
                                 'area' => $area
                             ])
+                            <form method="post" action="{{ route('admin.subject-area.delete', $area->id()) }}">
+                                @csrf
+                                <button type="submit" class="btn text-danger p-0" onclick="return confirm('Are you sure?')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="feather feather-trash align-middle text-danger">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </td>
                 </tr>
@@ -82,8 +94,8 @@
                                 <label class="form-label">Name<sup>*</sup></label>
                                 <input name="name" class="form-control" value="{{ old('name') }}" required autofocus/>
                             </div>
-                            <div class="mb-3 col-md-6">
-                                <label class="form-label" for="image">Image<sup>*</sup></label>
+                            <div class="mb-3 form-group mb-3">
+                                <label class="form-label d-flex justify-content-between" for="image"><span>Image<sup>*</sup></span><span style="font-size: 14px"><small>40 X 40</small></span></label>
                                 <input type="file" class="form-control" name="image" id="image" required/>
                             </div>
 

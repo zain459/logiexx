@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SubjectArea\SubjectAreaDeleteController;
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\News\Controllers\NewsEditController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
@@ -139,6 +140,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('subject-areas', SubjectAreaIndexController::class)->name('admin.subject-area.index');
     Route::post('subject-areas/store', SubjectAreaStoreController::class)->name('admin.subject-area.store');
     Route::post('subject-areas/{id}/update', SubjectAreaUpdateController::class)->name('admin.subject-area.update');
+    Route::post('subject-areas/{id}/delete', SubjectAreaDeleteController::class)->name('admin.subject-area.delete');
 
     //partners
     Route::get('partners', PartnerIndexController::class)->name('admin.partner.index');

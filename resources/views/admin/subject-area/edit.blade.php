@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col">
-                            <label class="form-label" for="overview">Image</label>
+                            <label class="form-label d-flex justify-content-between" for="image"><span>Image<sup>*</sup></span><span style="font-size: 14px"><small>40 X 40</small></span></label>
                             <input type="file" name="image"  class="form-control">
                         </div>
                     </div>

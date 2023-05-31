@@ -21,7 +21,7 @@ class SubjectAreaUpdateController extends Controller
 
         $data = $this->validate($request, [
             'name' => ['required', Rule::unique('subject_areas')->ignore($area->id())],
-            'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'mimes:svg', 'max:2048'],
         ]);
         if ($request->file('image')) {
             /** @var \Illuminate\Http\UploadedFile * */

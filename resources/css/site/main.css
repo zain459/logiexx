@@ -502,11 +502,14 @@ td {
 
 .subject-fields .col h3,
 .subject-fields .col h3 a {
-    color: #920000;
     text-decoration: none;
     font-size: 20px;
     font-weight: 400;
 }
+.subject-fields .col h3 a:hover{
+    color: black;
+}
+
 
 .subject-fields .col:hover h3,
 .subject-fields .col:hover h3 a {
