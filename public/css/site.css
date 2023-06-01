@@ -255,9 +255,9 @@ input:focus, textarea:focus {
     background: #f2f2f2 !important;
 }
 
-.container {
-    max-width: 1170px;
-}
+/*.container {*/
+/*    max-width: 1170px;*/
+/*}*/
 
 .bdb .container {
     border-bottom: 1px solid #dfdfdf;
@@ -929,9 +929,9 @@ input:focus, textarea:focus {
     background: #f2f2f2 !important;
 }
 
-.container {
-    max-width: 1170px;
-}
+/*.container {*/
+/*    max-width: 1170px;*/
+/*}*/
 
 .bdb .container {
     border-bottom: 1px solid #dfdfdf;
@@ -4275,6 +4275,26 @@ h2.subheading {
     .view-all {
         font-size: 16px;
     }
+
+}
+.news-cards {
+    font-size:16px;
+    line-height:1.3
+}
+.news-cards:hover {
+    box-shadow:0 0 7px #0000004d
+}
+.news-cards .news-holder {
+    min-width:245px;
+    max-width:245px
+}
+.news-cards h5,
+.news-cards .h5 {
+    font-size:18px
+}
+.news-cards .news-img {
+    -o-object-fit:cover;
+       object-fit:cover
 }
 
 @media screen and (max-width: 767px) {
@@ -4286,4 +4306,12 @@ h2.subheading {
         min-width: 100%;
     }
 }
+
+@media screen and (max-width: 1199px) {
+    .news-cards .news-holder {
+        min-width:100%;
+        max-width:100%
+    }
+}
+
 

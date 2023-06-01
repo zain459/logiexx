@@ -13,7 +13,7 @@ class EventUpdateController extends Controller
     {
         $data = $this->validate($request, [
             'title' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:191'],
+            'description' => ['required', 'string'],
             'startDate' => ['required', 'date'],
             'endDate' => ['required', 'date'],
             'link' => ['nullable', 'url'],

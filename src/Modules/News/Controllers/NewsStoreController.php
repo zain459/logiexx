@@ -13,7 +13,7 @@ class NewsStoreController extends Controller
     {
         $data = $this->validate($request, [
             'title' => ['required', 'string', 'max:100'],
-            'shortDescription' => ['required', 'string', 'max:191'],
+            'shortDescription' => ['required', 'string'],
             'longDescription' => ['required', 'string'],
             'postedDate' => ['required', 'date'],
             'link' => ['nullable', 'url'],

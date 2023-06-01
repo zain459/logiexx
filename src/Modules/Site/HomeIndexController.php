@@ -22,9 +22,9 @@ class HomeIndexController
     public function __invoke()
     {
         $organizationTrusts = OrganizationTrust::all();
-        $new = News::latest()->first();
+        $news = News::orderBy('posted_date', 'desc')->limit('2')->get();
         $totalCourses = Course::count();
-        $event = Event::latest()->first();
+        $events = Event::orderBy('start_date', 'desc')->limit('2')->get();
         $totalPartners = Partner::count();
         $subjectFields = SubjectArea::all();
         $totalEnrollments = Enrollment::count();
@@ -39,8 +39,8 @@ class HomeIndexController
         $startingSoon = Course::with(['category'])->where('course_start_date', '>', Carbon::now())->get();
 
         return view('site.index', [
-            'new' => $new,
-            'event' => $event,
+            'news' => $news,
+            'events' => $events,
             'webinar' => $webinar,
             'courses' => $courses,
             'organizationTrusts' => $organizationTrusts,

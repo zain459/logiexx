@@ -390,21 +390,79 @@
                         </li>
                     </ul>
                     <div class="tab-content tab-data" id="myTabContent">
-                        @if($event)
+                        <div class="tab-pane fade show active" id="upcomingevents" role="tabpanel"
+                             aria-labelledby="upcomingevents">
+                            <h3>Event Details</h3>
+                            <div class="row">
+                                @forelse($events as $event)
+                                    <div class="col-md-6 mb-4 mb-lg-3">
+                                        <div class="card news-cards h-100 ">
+                                            <div class="row g-0 h-100 ">
+                                                <div class="col news-holder">
+                                                    <a href="" >
+                                                        <img src="" class="img-fluid rounded-start h-100 news-img"
+                                                             alt="...">
+                                                    </a>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="card-body">
+                                                        <a href="" class="text-primary">
+                                                            <h5 class="card-title">{{ $event->title() }}</h5>
+                                                        </a>
+                                                        <p class="card-text">{{ strip_tags(Illuminate\Support\Str::limit($event->description(), 210)) }}</p>
+                                                        <p class="card-text"><span
+                                                                class="text-muted">{{ 'From: ' . $event->startDate()->format('F d, Y') . ' To: '. $event->endDate()->format('F d, Y') }}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p class="mb-3">No events available.</p>
+                                @endforelse
+                                    <a href="#" class="view-all"><i class="icon-arrow"></i> View all upcoming events & latest news</a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="latestnews" role="tabpanel" aria-labelledby="tab2">
                             <div class="tab-pane fade show active" id="upcomingevents" role="tabpanel"
                                  aria-labelledby="upcomingevents">
-                                <h3>Event Details</h3>
-                                <p>Posted Date: {{\Carbon\Carbon::parse($event->startDate())->format('j F, Y')}}</p>
-                            </div>
-                        @endif
-                        @if($new)
-                            <div class="tab-pane fade" id="latestnews" role="tabpanel" aria-labelledby="tab2">
                                 <h3>News Details</h3>
-                                <p>Posted Date:{{\Carbon\Carbon::parse($new->posted_date)->format('j F, Y')}}</p>
+                                <div class="row">
+                                    @forelse($news as $new)
+                                        <div class="col-md-6 mb-4 mb-lg-3">
+                                            <div class="card news-cards h-100 ">
+                                                <div class="row g-0 h-100 ">
+                                                    <div class="col news-holder">
+                                                        <a href="">
+                                                            <img src="" class="img-fluid rounded-start h-100 news-img"
+                                                                 alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="card-body">
+                                                            <a href="" class="text-primary">
+                                                                <h5 class="card-title">{{ $new->title() }}</h5>
+                                                            </a>
+                                                            <p class="card-text">{{ strip_tags(Illuminate\Support\Str::limit($new->shortDescription(), 210)) }}</p>
+                                                            <p class="card-text">
+                                                                <span class="text-muted">
+                                                                    {{ 'From: ' . DateTime::createFromFormat('Y-m-d', $new->postedDate())->format('F d, Y') }}
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @empty
+                                        <p class="mb-3">No news available.</p>
+                                    @endforelse
+                                </div>
+                                <a href="#" class="view-all"><i class="icon-arrow"></i> View all upcoming events & latest news</a>
                             </div>
-                        @endif
+                        </div>
                     </div>
-                    <a href="#" class="view-all"><i class="icon-arrow"></i> View all upcoming events & latest news</a>
                 </div>
             </div>
         </section>

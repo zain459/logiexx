@@ -38,7 +38,9 @@ class News extends Model
     {
         return $this->long_description;
     }
-    public function postedDate():string{
+
+    public function postedDate(): string
+    {
         return $this->posted_date;
     }
 
