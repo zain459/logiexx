@@ -284,9 +284,9 @@
             <div class="logos">
                 <div class="container">
                     <div class="slick-slider">
-                        @foreach($partners as $partner)
-                            @if($partner != null)
-                                <div class="slide"><img src="{{'storage/'. $partner->image()}}"
+                        @foreach($organizationTrusts as $organizationTrust)
+                            @if($organizationTrust != null)
+                                <div class="slide"><img src="{{'storage/'. $organizationTrust->image()}}"
                                                         class="img-fluid mx-auto d-block" alt=""></div>
                             @endif
                         @endforeach

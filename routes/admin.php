@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\SubjectArea\SubjectAreaDeleteController;
+use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustDeleteController;
+use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustUpdateController;
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\News\Controllers\NewsEditController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
@@ -73,6 +74,7 @@ use Logixs\Modules\Course\Controllers\CourseInstructorAssignController;
 use Logixs\Modules\Course\Controllers\CourseInstructorDeleteController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateController;
 use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsController;
+use App\Http\Controllers\Admin\SubjectArea\SubjectAreaDeleteController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveController;
 use App\Http\Controllers\Admin\Certificate\VerifyCertificateEditController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationIndex;
@@ -91,6 +93,8 @@ use App\Http\Controllers\Admin\FeedBackParams\FeedBackParamsDeleteController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveUpdateController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveCreateController;
 use Logixs\Modules\Course\Controllers\CourseLearningObjectiveDeleteController;
+use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustStoreController;
+use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustIndexController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorViewController;
 use App\Http\Controllers\Admin\BecomeAnInstructor\BecomeAnInstructorIndexController;
 use Logixs\Modules\WebinarRegistration\Controllers\WebinarRegistrationViewController;
@@ -265,6 +269,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('instructor/store', InstructorStoreController::class)->name('instructor.store');
     Route::post('instructor/{id}/delete', InstructorDeleteController::class)->name('instructor.delete');
     Route::post('instructor/{id}/update', InstructorUpdateController::class)->name('instructor.update');
+
+    //organization trust
+    Route::get('organization-trust', OrganizationTrustIndexController::class)->name('organization-trust.index');
+    Route::post('organization-trust/store', OrganizationTrustStoreController::class)->name('organization-trust.store');
+    Route::post('organization-trust/update', OrganizationTrustUpdateController::class)->name('organization-trust.update');
+    Route::post('organization-trust/{id}/delete', OrganizationTrustDeleteController::class)->name('organization-trust.delete');
 });
 
 

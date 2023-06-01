@@ -2,6 +2,7 @@
 
 namespace Logixs\Modules\Site;
 
+use App\Models\OrganizationTrust\OrganizationTrust;
 use App\Models\SubjectArea\Partner\Partner;
 use App\Models\SubjectArea\SubjectArea;
 use App\Query\Course\GetFeaturedCourses;
@@ -20,7 +21,7 @@ class HomeIndexController
 {
     public function __invoke()
     {
-        $partners = Partner::all();
+        $organizationTrusts = OrganizationTrust::all();
         $new = News::latest()->first();
         $totalCourses = Course::count();
         $event = Event::latest()->first();
@@ -42,7 +43,7 @@ class HomeIndexController
             'event' => $event,
             'webinar' => $webinar,
             'courses' => $courses,
-            'partners' => $partners,
+            'organizationTrusts' => $organizationTrusts,
             'startingSoon' => $startingSoon,
             'testimonials' => $testimonials,
             'totalCourses' => $totalCourses,
