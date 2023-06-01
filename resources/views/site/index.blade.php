@@ -400,7 +400,7 @@
                                             <div class="row g-0 h-100 ">
                                                 <div class="col news-holder">
                                                     <a href="" >
-                                                        <img src="" class="img-fluid rounded-start h-100 news-img"
+                                                        <img src="{{'storage/'.$event->image()}}" class="img-fluid rounded-start h-100 news-img"
                                                              alt="...">
                                                     </a>
                                                 </div>
@@ -434,7 +434,7 @@
                                             <div class="card news-cards h-100 ">
                                                 <div class="row g-0 h-100 ">
                                                     <div class="col news-holder">
-                                                        <a href="">
+                                                        <a href="{{'storage/'.$new->image()}}">
                                                             <img src="" class="img-fluid rounded-start h-100 news-img"
                                                                  alt="...">
                                                         </a>
