@@ -392,21 +392,20 @@
                     <div class="tab-content tab-data" id="myTabContent">
                         <div class="tab-pane fade show active" id="upcomingevents" role="tabpanel"
                              aria-labelledby="upcomingevents">
-                            <h3>Event Details</h3>
                             <div class="row">
                                 @forelse($events as $event)
                                     <div class="col-md-6 mb-4 mb-lg-3">
                                         <div class="card news-cards h-100 ">
                                             <div class="row g-0 h-100 ">
                                                 <div class="col news-holder">
-                                                    <a href="" >
+                                                    <a href="{{ $event->link() ?? route('site.event-detail', $event->id()) }}">
                                                         <img src="{{'storage/'.$event->image()}}" class="img-fluid rounded-start h-100 news-img"
                                                              alt="...">
                                                     </a>
                                                 </div>
                                                 <div class="col">
                                                     <div class="card-body">
-                                                        <a href="" class="text-primary">
+                                                        <a href="{{ $event->link() ?? route('site.event-detail', $event->id()) }}" class="text-primary">
                                                             <h5 class="card-title">{{ $event->title() }}</h5>
                                                         </a>
                                                         <p class="card-text">{{ strip_tags(Illuminate\Support\Str::limit($event->description(), 210)) }}</p>
@@ -421,33 +420,32 @@
                                 @empty
                                     <p class="mb-3">No events available.</p>
                                 @endforelse
-                                    <a href="#" class="view-all"><i class="icon-arrow"></i> View all upcoming events & latest news</a>
+                                    <a href="{{ route('site.event-show') }}" class="view-all"><i class="icon-arrow"></i> View all upcoming events</a>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="latestnews" role="tabpanel" aria-labelledby="tab2">
                             <div class="tab-pane fade show active" id="upcomingevents" role="tabpanel"
                                  aria-labelledby="upcomingevents">
-                                <h3>News Details</h3>
                                 <div class="row">
-                                    @forelse($news as $new)
+                                    @forelse($news as $item)
                                         <div class="col-md-6 mb-4 mb-lg-3">
                                             <div class="card news-cards h-100 ">
                                                 <div class="row g-0 h-100 ">
                                                     <div class="col news-holder">
-                                                        <a href="">
-                                                            <img src="{{'storage/'.$new->image()}}" class="img-fluid rounded-start h-100 news-img"
+                                                        <a href="{{ $item->link() ?? route('site.news-detail', $item->id()) }}">
+                                                            <img src="{{'storage/'.$item->image()}}" class="img-fluid rounded-start h-100 news-img"
                                                                  alt="...">
                                                         </a>
                                                     </div>
                                                     <div class="col">
                                                         <div class="card-body">
-                                                            <a href="" class="text-primary">
-                                                                <h5 class="card-title">{{ $new->title() }}</h5>
+                                                            <a href="{{ $item->link() ?? route('site.news-detail', $item->id()) }}" class="text-primary">
+                                                                <h5 class="card-title">{{ $item->title() }}</h5>
                                                             </a>
-                                                            <p class="card-text">{{ strip_tags(Illuminate\Support\Str::limit($new->shortDescription(), 210)) }}</p>
+                                                            <p class="card-text">{{ strip_tags(Illuminate\Support\Str::limit($item->shortDescription(), 210)) }}</p>
                                                             <p class="card-text">
                                                                 <span class="text-muted">
-                                                                    {{ 'From: ' . DateTime::createFromFormat('Y-m-d', $new->postedDate())->format('F d, Y') }}
+                                                                    {{ 'Date: ' . DateTime::createFromFormat('Y-m-d', $item->postedDate())->format('F d, Y') }}
                                                                 </span>
                                                             </p>
                                                         </div>
@@ -459,7 +457,7 @@
                                         <p class="mb-3">No news available.</p>
                                     @endforelse
                                 </div>
-                                <a href="#" class="view-all"><i class="icon-arrow"></i> View all upcoming events & latest news</a>
+                                <a href="{{ route('site.news-show') }}" class="view-all"><i class="icon-arrow"></i> View all latest news</a>
                             </div>
                         </div>
                     </div>

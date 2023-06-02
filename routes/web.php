@@ -77,6 +77,12 @@ Route::post('site/webinar-registration-form-store', WebinarRegistrationFormStore
 //Get updates on new courses.
 Route::post('site/mailing-list', MailingListStoreController::class)->name('site.mailing-list.store');
 
+Route::get('site/event-show', \App\Http\Controllers\Site\Event\EventShowController::class)->name('site.event-show');
+Route::get('site/event/{id}/detail', \App\Http\Controllers\Site\Event\EventDetailController::class)->name('site.event-detail');
+
+Route::get('site/news-show', \App\Http\Controllers\Site\News\NewsShowController::class)->name('site.news-show');
+Route::get('site/news/{id}/detail', \App\Http\Controllers\Site\News\NewsDetailController::class)->name('site.news-detail');
+
 
 require __DIR__ . '/pages.php';
 require __DIR__ . '/admin.php';

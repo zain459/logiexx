@@ -31,7 +31,7 @@
 
                     <label class="col-form-label col-sm-2 text-sm-end">link<sup></sup></label>
                     <div class="col-md-4">
-                        <input type="url" class="form-control" name="link" value="{{$news->link()}}" required/>
+                        <input type="url" class="form-control" name="link" value="{{$news->link()}}"/>
                     </div>
                 </div>
 
