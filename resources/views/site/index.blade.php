@@ -399,7 +399,7 @@
                                             <div class="row g-0 h-100 ">
                                                 <div class="col news-holder">
                                                     <a href="{{ $event->link() ?? route('site.event-detail', $event->id()) }}">
-                                                        <img src="{{ asset('storage/'.$event->image()}}" class="img-fluid rounded-start h-100 news-img"
+                                                        <img src="{{ asset('storage/'.$event->image())}}" class="img-fluid rounded-start h-100 news-img"
                                                              alt="...">
                                                     </a>
                                                 </div>
@@ -433,7 +433,7 @@
                                                 <div class="row g-0 h-100 ">
                                                     <div class="col news-holder">
                                                         <a href="{{ $item->link() ?? route('site.news-detail', $item->id()) }}">
-                                                            <img src="{{ asset('storage/'.$item->image()}}" class="img-fluid rounded-start h-100 news-img"
+                                                            <img src="{{ asset('storage/'.$item->image())}}" class="img-fluid rounded-start h-100 news-img"
                                                                  alt="...">
                                                         </a>
                                                     </div>
