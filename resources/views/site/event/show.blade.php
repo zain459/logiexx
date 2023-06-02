@@ -27,7 +27,7 @@
                                             <div
                                                 class="news-featured-image-holder d-flex justify-content-center align-items-center mb-3 mb-lg-0">
                                                 @if (null !== $event->image())
-                                                    <img src="{{'storage/'. $event->image() }}" class="figure-img img-fluid"
+                                                    <img src="{{ asset('storage/'. $event->image() }}" class="figure-img img-fluid"
                                                          width="160" height="114" />
                                                 @endif
                                             </div>

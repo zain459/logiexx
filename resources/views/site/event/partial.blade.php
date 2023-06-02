@@ -3,7 +3,7 @@
         <div class="col-md-12">
             @if (null !== $event->image())
                 <div class="mb-4 news-featured-image-holder-show-page">
-                    <img src="{{ $event->image() }}" class="figure-img img-fluid" />
+                    <img src="{{ asset('storage/'. $event->image() }}" class="figure-img img-fluid" />
                 </div>
             @endif
             <h2 class="dashed-title">{{ $event->title() }}</h2>
