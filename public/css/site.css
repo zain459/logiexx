@@ -152,7 +152,7 @@
 }
 
 body {
-    font: 20px/22px Garamond, serif;
+    font: 20px/1.4 Garamond, serif;
     min-width: 320px;
     color: var(--dark);
 }
@@ -826,7 +826,7 @@ a {
 }
 
 body {
-    font: 20px/22px Garamond, serif;
+    font: 20px/1.4 Garamond, serif;
     min-width: 320px;
     color: var(--dark);
 }
