@@ -6,7 +6,7 @@
 
     <div class="mb-3 d-flex justify-content-between align-items-center">
         <h3>Why Logixs Academy Section</h3>
-        <a href="" class="btn btn-sm btn-primary">New Section</a>
+        <a href="{{ route('core-feature-section.create', $course->id()) }}" class="btn btn-sm btn-primary">New Section</a>
     </div>
     <div class="card mb-3">
         <div class="card-header d-flex flex-column flex-md-row md-align-items-center justify-content-between">
@@ -40,10 +40,10 @@
             </tr>
             </thead>
             <tbody>
-{{--            @forelse($courseLearningObjectives as $courseLearningObjective)--}}
+            @forelse($codeFeatureSections as $codeFeatureSection)
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $codeFeatureSection->subHeading() }}</td>
+                    <td>{{ strip_tags($codeFeatureSection->description()) }}</td>
                     <td class="table-action d-flex justify-content-end gap-2">
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -66,12 +66,12 @@
                         </form>
                     </td>
                 </tr>
-{{--            @empty--}}
+            @empty
                 <tr>
                     <td colspan="5" class="text-center"> No record found</td>
                 </tr>
 
-{{--            @endforelse--}}
+            @endforelse
             </tbody>
         </table>
     </div>

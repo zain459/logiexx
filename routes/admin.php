@@ -3,7 +3,9 @@
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustDeleteController;
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustUpdateController;
 use Illuminate\Support\Facades\Route;
-use Logixs\Modules\Course\Controllers\CourseLogixsAcademy;
+use Logixs\Modules\Course\Controllers\CoreFeatureSectionController;
+use Logixs\Modules\Course\Controllers\CoreFeatureSectionCreateController;
+use Logixs\Modules\Course\Controllers\CoreFeatureSectionStoreController;
 use Logixs\Modules\News\Controllers\NewsEditController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
 use Logixs\Modules\News\Controllers\NewsStoreController;
@@ -215,7 +217,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
 
     //course W-L-A
-    Route::get('course/{id}/w-l-a', CourseLogixsAcademy::class)->name('w-l-a.index');
+    Route::get('course/{id}/core-feature-section', CoreFeatureSectionController::class)->name('core-feature-section.index');
+    Route::get('course/{id}/core-feature-section-create', CoreFeatureSectionCreateController::class)->name('core-feature-section.create');
+    Route::post('core-feature-section/store', CoreFeatureSectionStoreController::class)->name('core-feature-section.store');
 
     //assign instructors
     Route::get('course/{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');

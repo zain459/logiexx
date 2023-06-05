@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $course_id
- * @property string $main_heading
  * @property string $sub_heading
  * @property string $description
  * @property ?string $image
  */
-class WhyLogixsSection extends Model
+class CoreFeatureSection extends Model
 {
     protected $table = 'why_logixs_section';
 
@@ -26,14 +25,14 @@ class WhyLogixsSection extends Model
         return $this->course_id;
     }
 
-    public function mainHeading(): string
-    {
-        return $this->main_heading;
-    }
-
     public function subHeading(): string
     {
         return $this->sub_heading;
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function image(): ?string

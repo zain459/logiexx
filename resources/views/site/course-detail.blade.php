@@ -113,6 +113,22 @@
                 </section>
             @endif
         @endforeach
+        @if(null !== $coreFeatures)
+        <section class="block academy-block">
+            <div class="container">
+                <h2>Why Logixs Academy</h2>
+                <div class="row row-cols-md-3 row-cols-1 text-center mb-4">
+                    @foreach($coreFeatures as $coreFeature)
+                    <div class="col aos-init aos-animate" data-aos-delay="100" data-aos="fade-left" data-aos-duration="1000">
+                        <img src="{{ '/storage/'.$coreFeature->image() }}" alt="">
+                        <h3>{{ $coreFeature->subHeading() }}</h3>
+                        <p> {!! html_entity_decode($coreFeature->description()) !!}</p>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+            @endif
         @if($pages != null)
             <section class="block academy-block">
                 <div class="container">

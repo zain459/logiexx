@@ -10,7 +10,7 @@
                 <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('w-l-a.index', $course->id()) }}">W-L-A</a>
+                <a class="nav-link" href="{{ route('core-feature-section.index', $course->id()) }}">Core Feature Section</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>

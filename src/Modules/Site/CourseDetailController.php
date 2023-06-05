@@ -4,6 +4,7 @@ namespace Logixs\Modules\Site;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Logixs\Modules\Course\Models\CoreFeatureSection;
 use Logixs\Modules\Pages\Models\Pages;
 use App\Models\SubjectArea\SubjectArea;
 use Logixs\Modules\Course\Models\Course;
@@ -56,12 +57,14 @@ class CourseDetailController
                 return [$item->instructor_id => $item->totalStudent];
             });
         $totalCourseFeedback = CourseLearnerFeedBack::where('course_id', $specific->id())->count('student_id');
+        $coreFeatures = CoreFeatureSection::query()->where('course_id', $id)->get();
 
         return view('site.course-detail', [
             'pages' => $pages,
             'courses' => $courses,
             'specific' => $specific,
             'instructors' => $instructors,
+            'coreFeatures' => $coreFeatures,
             'otherCourses' => $otherCourses,
             'subjectFields' => $subjectFields,
             'totalPartners' => $totalPartners,

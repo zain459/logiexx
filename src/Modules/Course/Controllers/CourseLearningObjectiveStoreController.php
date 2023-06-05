@@ -23,7 +23,7 @@ class CourseLearningObjectiveStoreController extends Controller
         $courseLearningObjective->course_id = $data['courseId'];
         $courseLearningObjective->save();
 
-        flash('Learning Objective submitted')->success()->important();
+        flash('Learning Objective Added')->success()->important();
 
         return redirect(route('course.learning-objective-index', $courseLearningObjective->courseId()));
     }
