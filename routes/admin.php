@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustDeleteController;
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustUpdateController;
 use Illuminate\Support\Facades\Route;
+use Logixs\Modules\Course\Controllers\CourseLogixsAcademy;
 use Logixs\Modules\News\Controllers\NewsEditController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
 use Logixs\Modules\News\Controllers\NewsStoreController;
@@ -212,6 +213,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('learning-objective/store', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
     Route::post('learning-objective{id}/update', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
     Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
+
+    //course W-L-A
+    Route::get('course/{id}/w-l-a', CourseLogixsAcademy::class)->name('w-l-a.index');
 
     //assign instructors
     Route::get('course/{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');

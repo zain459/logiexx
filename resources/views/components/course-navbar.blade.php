@@ -10,11 +10,11 @@
                 <a class="nav-link" href="{{ route('course.learning-objective-index', $course->id()) }}">Course Units</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('w-l-a.index', $course->id()) }}">W-L-A</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.instructors-index', $course->id()) }}">Instructors</a>
             </li>
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="{{ route('course.other-info', $course->id()) }}">Other Details</a>--}}
-{{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('course.partner-index', $course->id()) }}">Affiliated Partners</a>
