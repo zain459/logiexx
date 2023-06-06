@@ -3,6 +3,7 @@
 namespace Logixs\Modules\Course\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $id
@@ -38,6 +39,11 @@ class CoreFeatureSection extends Model
     public function image(): ?string
     {
         return $this->image;
+    }
+
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class, 'course_id');
     }
 
 }

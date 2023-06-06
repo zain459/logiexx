@@ -60,8 +60,8 @@
                                 <dd>{{Carbon\Carbon::parse($specific->courseStartDate())->format('F j, Y')}}</dd>
                                 <dt>Course Code</dt>
                                 <dd>{{$specific->courseCode()}}</dd>
-                                <dt>Venue</dt>
-                                <dd>{{$specific->venue()}}</dd>
+{{--                                <dt>Venue</dt>--}}
+{{--                                <dd>{{$specific->venue()}}</dd>--}}
                             </dl>
                         @endif
                     </div>

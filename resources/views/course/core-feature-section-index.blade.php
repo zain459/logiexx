@@ -5,7 +5,7 @@
     <x-course-navbar :course="$course"/>
 
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h3>Why Logixs Academy Section</h3>
+        <h3>Core Feature Section</h3>
         <a href="{{ route('core-feature-section.create', $course->id()) }}" class="btn btn-sm btn-primary">New Section</a>
     </div>
     <div class="card mb-3">
@@ -45,7 +45,7 @@
                     <td>{{ $codeFeatureSection->subHeading() }}</td>
                     <td>{{ strip_tags($codeFeatureSection->description()) }}</td>
                     <td class="table-action d-flex justify-content-end gap-2">
-                        <a href="">
+                        <a href="{{ route('core-feature-section-edit', $codeFeatureSection->id()) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-edit-2 align-middle me-2">
@@ -70,7 +70,6 @@
                 <tr>
                     <td colspan="5" class="text-center"> No record found</td>
                 </tr>
-
             @endforelse
             </tbody>
         </table>

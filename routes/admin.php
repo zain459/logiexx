@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionController;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionCreateController;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionDeleteController;
+use Logixs\Modules\Course\Controllers\CoreFeatureSectionEditController;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionStoreController;
+use Logixs\Modules\Course\Controllers\CoreFeatureSectionUpdateController;
 use Logixs\Modules\News\Controllers\NewsEditController;
 use Logixs\Modules\News\Controllers\NewsIndexController;
 use Logixs\Modules\News\Controllers\NewsStoreController;
@@ -214,7 +216,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('course/{id}/learning-objective-create', CourseLearningObjectiveCreateController::class)->name('course.learning-objective-create');
     Route::get('learning-objective/{id}/edit', CourseLearningObjectiveEditController::class)->name('course.learning-objective-edit');
     Route::post('learning-objective/store', CourseLearningObjectiveStoreController::class)->name('course.learning-objective-store');
-    Route::post('learning-objective{id}/update', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
+    Route::post('learning-objective/{id}/update', CourseLearningObjectiveUpdateController::class)->name('course.learning-objective-update');
     Route::post('learning-objective/{id}/delete', CourseLearningObjectiveDeleteController::class)->name('course.learning-objective-delete');
 
     //course W-L-A
@@ -222,6 +224,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('course/{id}/core-feature-section-create', CoreFeatureSectionCreateController::class)->name('core-feature-section.create');
     Route::post('core-feature-section/store', CoreFeatureSectionStoreController::class)->name('core-feature-section.store');
     Route::post('core-feature-section/{id}/delete', CoreFeatureSectionDeleteController::class)->name('core-feature-section.delete');
+    Route::get('core-feature-section/{id}/edit', CoreFeatureSectionEditController::class)->name('core-feature-section-edit');
+    Route::post('core-feature-section/{id}/update', CoreFeatureSectionUpdateController::class)->name('core-feature-section-update');
 
     //assign instructors
     Route::get('course/{id}/instructors', CourseInstructorIndexController::class)->name('course.instructors-index');
