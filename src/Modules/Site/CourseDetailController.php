@@ -16,12 +16,13 @@ use Logixs\Modules\Course\Models\CourseInstructor;
 use Logixs\Modules\Course\Models\CourseLearningObjective;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\CourseLearnerFeedBack;
 use Logixs\Modules\Site\CourseLearnerFeedBack\Models\InstructorLearnerFeedBack;
+use Logixs\Modules\Site\Enrollment\Models\Enrollment;
 
 class CourseDetailController
 {
     public function __invoke(int $id)
     {
-        $courseEnrollment = Course::findOrFail($id);
+        $course = Course::findOrFail($id);
         $pages = Pages::query()->first();
         $instructors = Instructor::all();
         $totalPartners = Partner::count();
@@ -59,6 +60,12 @@ class CourseDetailController
         $totalCourseFeedback = CourseLearnerFeedBack::where('course_id', $specific->id())->count('student_id');
         $coreFeatures = CoreFeatureSection::query()->where('course_id', $id)->get();
 
+
+        $enrollmentCount = Enrollment::query()
+            ->leftJoin('classes', 'classes.id', 'enrollments.class_id')
+            ->where('classes.course_id', $course->id())
+            ->count();
+
         return view('site.course-detail', [
             'pages' => $pages,
             'courses' => $courses,
@@ -70,7 +77,7 @@ class CourseDetailController
             'totalPartners' => $totalPartners,
             'coursePartners' => $coursePartners,
             'courseFeedbacks' => $courseFeedbacks,
-            'courseEnrollment' => $courseEnrollment,
+            'enrollmentCount' => $enrollmentCount,
             'courseInstructors' => $courseInstructors,
             'instructorsReview' => $instructorsReview,
             'instructorsStudent' => $instructorsStudent,

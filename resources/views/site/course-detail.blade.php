@@ -92,9 +92,9 @@
                             @endforeach
                         </div>
                         <div class="d-flex justify-content-start record-data py-4">
-                            @if($specific != null)
+                            @if($enrollmentCount != null)
                                 <span> <i
-                                        class="icon-students ms-0 me-1"></i> {{$specific->classSize()}} Students</span>
+                                        class="icon-students ms-0 me-1"></i> {{ $enrollmentCount }} Students</span>
                             @endif
                         </div>
                         <a href="/storage/{{ $specific->file() }}" download="" class="view-all"><i class="icon-arrow"></i>
