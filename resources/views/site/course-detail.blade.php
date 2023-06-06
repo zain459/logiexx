@@ -55,7 +55,11 @@
                                 <dt>Time Commitment</dt>
                                 <dd>{{$specific->timeCommitment()}}</dd>
                                 <dt>Course Fee</dt>
-                                <dd>{{$specific->feeAmount()}}</dd>
+                                @if( $specific->feeType() === 'paid')
+                                <td>{{$specific->feeAmount()}}</td>
+                                @else
+                                    <td>{{$specific->feeType()}}</td>
+                                @endif
                                 <dt>Course Start Date</dt>
                                 <dd>{{Carbon\Carbon::parse($specific->courseStartDate())->format('F j, Y')}}</dd>
                                 <dt>Course Code</dt>

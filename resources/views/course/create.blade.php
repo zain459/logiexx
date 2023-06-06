@@ -195,30 +195,35 @@
 
                     <div class="mb-3 col-md-6">
                         <label class="form-label" for="description">Description<sup>*</sup></label>
-                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>
+{{--                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>--}}
+                        <textarea id="my-editor"></textarea>
+
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script>
-        function check() {
-            if (document.getElementById('paid').checked) {
-                document.getElementById('show').style.visibility = 'visible';
-            } else document.getElementById('show').style.visibility = 'hidden';
+{{--    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>--}}
+{{--    <script src="https://cdn.tiny.cloud/1/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>--}}
+{{--    <script>--}}
+{{--        function check() {--}}
+{{--            if (document.getElementById('paid').checked) {--}}
+{{--                document.getElementById('show').style.visibility = 'visible';--}}
+{{--            } else document.getElementById('show').style.visibility = 'hidden';--}}
 
-        }
+{{--        }--}}
 
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
+{{--        $(document).ready(function () {--}}
+{{--            $('.ckeditor').ckeditor();--}}
+{{--        });--}}
+{{--    </script>--}}
+
     {{--    <script type="text/javascript">--}}
     {{--        $(document).ready(function() {--}}
     {{--            $('.ckeditor').ckeditor();--}}
     {{--        });--}}
     {{--    </script>--}}
 @endsection
+
 

@@ -186,5 +186,5 @@ class Course extends Model
     {
         return $this->file;
     }
-    
+
 }
