@@ -38,17 +38,18 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Short Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="shortDescription"
-                                  required>{{$news->shortDescription()}}</textarea>
+{{--                        <textarea class="ckeditor form-control" name="shortDescription"--}}
+{{--                                  required>{{$news->shortDescription()}}</textarea>--}}
+                        <textarea id="my-editor" name="shortDescription">{{ $news->shortDescription() }}</textarea>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Long Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control"
-                                  name="longDescription">{{$news->longDescription()}}</textarea>
-                        {{--                        <vue-editor v-model="formData.longDescription" required></vue-editor>--}}
+{{--                        <textarea class="ckeditor form-control"--}}
+{{--                                  name="longDescription">{{$news->longDescription()}}</textarea>--}}
+                        <textarea id="my-editor1" name="longDescription">{{ $news->longDescription() }}</textarea>
                     </div>
                 </div>
                 @if($news->image())
@@ -76,14 +77,26 @@
             </form>
         </div>
     </div>
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
+
+        tinymce.init({
+
+            selector: '#my-editor1',
+
+            height: 300,
+
+            menubar: false,
+
+            plugins: [
+                "a11ychecker advcode advlist advtable anchor autocorrect autolink autoresize autosave casechange charmap checklist code codesample directionality editimage emoticons export footnotes formatpainter fullscreen help image importcss inlinecss insertdatetime link linkchecker lists media mediaembed mentions mergetags nonbreaking pagebreak pageembed permanentpen powerpaste preview quickbars save searchreplace table tableofcontents template tinycomments tinydrive tinymcespellchecker typography visualblocks visualchars wordcount",
+            ],
+
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help | blocks | bold italic',
         });
+
     </script>
-
-    {{--    <news-edit :news="{{ $news }} "></news-edit>--}}
-
 @endsection
 

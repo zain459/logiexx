@@ -20,7 +20,7 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="description">{{ $coreFeatureSection->description() }}</textarea>
+                        <textarea id="my-editor" name="description">{{ $coreFeatureSection->description() }}</textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -44,12 +44,4 @@
 
         </div>
     </div>
-
-    {{--    <course-unit-create-component :course="{{ $course->id() }}"></course-unit-create-component>--}}
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
 @endsection

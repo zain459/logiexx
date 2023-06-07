@@ -157,8 +157,9 @@
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label class="form-label" for="description">Description</label>
-                                    <textarea class="ckeditor form-control"
-                                              name="description">{{ $course->Description() }}</textarea>
+{{--                                    <textarea class="ckeditor form-control"--}}
+{{--                                              name="description">{{ $course->Description() }}</textarea>--}}
+                                    <textarea id="my-editor" name="short_description">{{ $course->Description() }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -264,17 +265,4 @@
             </div>
         </div>
     </form>
-
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script>
-        function check() {
-            if (document.getElementById('paid').checked) {
-                document.getElementById('show').style.visibility = 'visible';
-            } else document.getElementById('show').style.visibility = 'hidden';
-        }
-
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
 @endsection

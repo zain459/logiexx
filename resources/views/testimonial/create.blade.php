@@ -40,7 +40,7 @@
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-md-10">
-                        <textarea class="ckeditor form-control" name="description" required>{{ old('description') }} </textarea>
+                        <textarea id="my-editor" name="description">{{old('description')}}</textarea>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -60,11 +60,5 @@
 
         </div>
     </div>
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
 @endsection
 

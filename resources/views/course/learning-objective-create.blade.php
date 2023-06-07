@@ -22,8 +22,8 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>
-{{--                        <vue-editor v-model="formData.description" required></vue-editor>--}}
+{{--                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>--}}
+                        <textarea id="my-editor" name="description">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <input type="hidden" value="{{ $course->id() }}" name="courseId" required/>
@@ -36,12 +36,4 @@
 
         </div>
     </div>
-
-{{--    <course-unit-create-component :course="{{ $course->id() }}"></course-unit-create-component>--}}
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
 @endsection

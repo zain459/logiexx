@@ -44,8 +44,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">Description<sup>*</sup></label>
-                            <textarea class="ckeditor form-control"
-                                      name="description">{{$testimonial->description()}}</textarea>
+                            <textarea id="my-editor" name="description">{{ $testimonial->description() }}</textarea>
                         </div>
 
                         @if($testimonial->image())

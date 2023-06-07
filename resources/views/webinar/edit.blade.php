@@ -136,7 +136,9 @@
 
                         <div class="mb-3">
                             <label class="form-label">Short Description<sup>*</sup></label>
-                                <textarea class="ckeditor form-control" name="short_description">{{$webinar->shortDescription()}}</textarea>
+{{--                                <textarea class="ckeditor form-control" name="short_description">{{$webinar->shortDescription()}}</textarea>--}}
+                            <textarea id="my-editor" name="short_description">{{ $webinar->shortDescription() }}</textarea>
+
                         </div>
                         {{--                        <input type="hidden" name="webinarId" value="{{$webinar->id()}}" required />--}}
 

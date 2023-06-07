@@ -48,8 +48,8 @@
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-2 text-sm-end">Description<sup>*</sup></label>
                     <div class="col-md-10">
-                        <textarea class="ckeditor form-control" name="description">{{$event->description()}}</textarea>
-                        {{--                        <vue-editor v-model="formData.description" required></vue-editor>--}}
+{{--                        <textarea class="ckeditor form-control" name="description">{{$event->description()}}</textarea>--}}
+                        <textarea id="my-editor" name="description">{{$event->description()}}</textarea>
                     </div>
                 </div>
                 @if($event->image())
@@ -78,14 +78,5 @@
             </form>
         </div>
     </div>
-    {{--    <event-create-component></event-create-component>--}}
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-    {{--    <event-edit-component :event="{{ $event }} "></event-edit-component>--}}
-
 @endsection
 

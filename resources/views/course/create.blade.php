@@ -193,11 +193,10 @@
                         <input type="file" class="form-control" name="file" id="file" required/>
                     </div>
 
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-12">
                         <label class="form-label" for="description">Description<sup>*</sup></label>
 {{--                        <textarea class="ckeditor form-control" name="description">{{old('description')}}</textarea>--}}
-                        <textarea id="my-editor"></textarea>
-
+                        <textarea id="my-editor" name="description">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

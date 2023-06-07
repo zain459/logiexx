@@ -131,7 +131,8 @@
                 <div class="mb-3 row">
                     <label class="col-form-label fw-bold col-sm-2 text-sm-end">Short Description<sup>*</sup></label>
                     <div class="col-sm-10">
-                        <textarea class="ckeditor form-control" rows="3" name="short_description" required>{{ old('short_description') }}    </textarea>
+{{--                        <textarea class="ckeditor form-control" rows="3" name="short_description" required>{{ old('short_description') }}    </textarea>--}}
+                        <textarea id="my-editor" name="short_description">{{old('short_description')}}</textarea>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -142,11 +143,5 @@
             </form>
         </div>
     </div>
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
 @endsection
 
