@@ -16,7 +16,8 @@ class ClassCalendarIndexController
         if ($request->ajax()) {
             $class = CourseClass::with('course')->where('course_id', $id)->get()->map(function ($c) {
                 return [
-                    'url' => route('site.course-class-enrollment-create', $c->id()),
+//                    'url' => route('site.course-class-enrollment-create', $c->id()),
+                    'url' => route('site.registration', $c->id()),
                     'date' => $c->date()->toDateString(),
                     'title' => $c->title() . 'available seats: ' . $c->class_seat,
                 ];

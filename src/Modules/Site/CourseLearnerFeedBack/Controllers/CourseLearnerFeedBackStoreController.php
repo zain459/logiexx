@@ -13,7 +13,6 @@ class CourseLearnerFeedBackStoreController extends Controller
 {
     public function __invoke(Request $request, int $id)
     {
-
         $course = Course::query()->findOrFail($id);
 //        $verified = CertificateAuthentication::query()->findOrFail($id);
         $data = $this->validate($request, [

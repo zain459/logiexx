@@ -490,10 +490,9 @@ td {
     width: 40px;
 }
 
-.subject-fields .col svg path{
-    fill:#666 !important;
+.subject-fields .col svg path {
+    fill: #666 !important;
 }
-
 
 
 .subject-fields .col:hover i {
@@ -506,7 +505,8 @@ td {
     font-size: 20px;
     font-weight: 400;
 }
-.subject-fields .col h3 a:hover{
+
+.subject-fields .col h3 a:hover {
     color: black;
 }
 
@@ -2709,23 +2709,39 @@ h2.subheading {
     }
 
 }
+
 .news-cards {
-    font-size:16px;
-    line-height:1.3
+    font-size: 16px;
+    line-height: 1.3
 }
+
 .news-cards:hover {
-    box-shadow:0 0 7px #0000004d
+    box-shadow: 0 0 7px #0000004d
 }
+
 .news-cards .news-holder {
-    min-width:245px;
-    max-width:245px
+    min-width: 245px;
+    max-width: 245px
 }
+
 .news-cards h5,
 .news-cards .h5 {
-    font-size:18px
+    font-size: 18px
 }
+
 .news-cards .news-img {
-    object-fit:cover
+    object-fit: cover
+}
+
+.helper-text {
+    color: #958391;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.example-text {
+    color: #958391;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {
@@ -2740,8 +2756,8 @@ h2.subheading {
 
 @media screen and (max-width: 1199px) {
     .news-cards .news-holder {
-        min-width:100%;
-        max-width:100%
+        min-width: 100%;
+        max-width: 100%
     }
 }
 
