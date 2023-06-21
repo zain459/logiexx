@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Site\RegistrationForm\RegistrationFormController;
+use App\Http\Controllers\Site\RegistrationForm\RegistrationStoreController;
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Site\CourseController;
 use Logixs\Modules\Site\HomeIndexController;
@@ -85,6 +86,7 @@ Route::get('site/news-show', \App\Http\Controllers\Site\News\NewsShowController:
 Route::get('site/news/{id}/detail', \App\Http\Controllers\Site\News\NewsDetailController::class)->name('site.news-detail');
 
 Route::get('site/class/{id}/registration', RegistrationFormController::class)->name('site.registration');
+Route::post('site/registration-store', RegistrationStoreController::class)->name('site.registration-store');
 
 
 require __DIR__ . '/pages.php';

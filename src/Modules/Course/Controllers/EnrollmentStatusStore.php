@@ -16,7 +16,7 @@ class EnrollmentStatusStore extends Controller
             $enrollment->status = $request->has('status');
             $enrollment->save();
 
-            flash('Status Active Please Add Certificate')->success()->important();;
+            flash('Status Active Please Add Certificate')->success()->important();
             return redirect()->route('course.enrollment-view', $enrollment->id());
         }
         if ($request->has('status') == 0) {

@@ -95,7 +95,7 @@ class CourseClassEnrollmentStoreController extends Controller
         if ($enrollment->verifiableCertificate() == 1) {
             $certificate = new CertificateAuthentication();
             $certificate->name = $enrollment->firstName();
-            $certificate->certificate = Str::random(8);;
+            $certificate->certificate = Str::random(8);
             $certificate->enrollment_id = $enrollment->id();
             $certificate->course_id = $enrollment->class->courseId();
             $certificate->issue_date = Carbon::now()->addDays(5);
@@ -104,7 +104,6 @@ class CourseClassEnrollmentStoreController extends Controller
 
             Enrollment::where('id', $certificate->enrollment_id)->update(['status' => 1]);
         }
-
 
         flash('Enrollment submitted')->success()->important();
 

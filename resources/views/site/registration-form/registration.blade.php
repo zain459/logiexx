@@ -56,118 +56,168 @@
                 <p>Please submit this form after providing mandatory information and you will receive your
                     enrollment
                     confirmation shortly by our support team through email or telephone. </p>
-                <form action="{{route('site.course-class-enrollment-store')}}" method="post"
+                <form action="{{route('site.registration-store')}}" method="post"
                       enctype="multipart/form-data">
                     @csrf
+
                     <div class="personal-information">
-{{--                         1. Personal Information--}}
-                        <strong class="overlap-text">1. Personal Information</strong>
+                        <strong class="overlap-text">Registration Form</strong>
+                        <p>Have you previously registered with A.A.S.E.R.? If so please provide your registration number
+                            below. if not please select "No".</p>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Full Name <span class="mark">*</span></label>
-                            <input type="text" name="full_name" id="my" value=""
-                                   class="form-control field" required>
+                            <label for="">Registration No
+                            </label>
+                            <div>
+                                <input type="text" class="form-control" name="registration_no"
+                                       value="{{ old('registration_no') }}" id="">
+                            </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Father/Husband Name <span class="mark">*</span></label>
-                            <input type="text" name="father_husband_name" value=""
-                                   class="form-control field" required>
+                            <label for="">No
+                            </label>
+                            <div>
+                                <input type="checkbox" name="is_registered"
+                                       value="1" {{ old('is_registered') ? 'checked' : '' }}>
+                            </div>
+                        </div>
+                        <p>Please complete the following registration form. If you are already registered, please fill
+                            out sections 4 to 8. </p>
+                    </div>
+
+                    {{--1. Personal Information--}}
+                    <div class="personal-information">
+                        <strong class="overlap-text">1. Personal Information</strong>
+                        <div class="fieldrow d-md-flex align-items-center">
+                            <label for="">Full Name </label>
+                            <input type="text" name="full_name" id="my" value="{{ old('full_name') }}"
+                                   class="form-control field">
+                        </div>
+                        <div class="fieldrow d-md-flex align-items-center">
+                            <label for="">Father/Husband Name </label>
+                            <input type="text" name="father_husband_name" value="{{ old('father_husband_name') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Date of Birth</label>
-                            <input type="date" name="date_of_birth" value=""
-                                   class="form-control field" required>
+                            <input type="date" name="date_of_birth" value="{{ old('date_of_birth') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Gender <span class="mark">*</span></label>
+                            <label for="">Gender </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="gender" required>
+                                <select class="form-select" id="" name="gender">
                                     <option value=""></option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
+                                    <option value="{{ 'Male' }}" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male
+                                    </option>
+                                    <option value="{{ 'Female' }}" {{ old('gender') == 'Female' ? 'selected' : '' }}>
+                                        Female
+                                    </option>
+                                    <option value="{{ 'Other' }}" {{ old('Other') == 'Other' ? 'selected' : '' }}>
+                                        Other
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Marital Status <span class="mark">*</span></label>
+                            <label for="">Marital Status </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="gender" required>
+                                <select class="form-select" id="" name="marital_status">
                                     <option value=""></option>
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Other">Other</option>
+                                    <option
+                                        value="{{ 'Single' }}" {{ old('marital_status') == 'Single' ? 'selected' : '' }} >
+                                        Single
+                                    </option>
+                                    <option
+                                        value="{{ 'Married' }}" {{ old('marital_status') == 'Married' ? 'selected' : '' }}>
+                                        Married
+                                    </option>
+                                    <option
+                                        value="{{ 'Other' }}" {{ old('marital_status') == 'Other' ? 'selected' : '' }}>
+                                        Other
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">National Identity Card No. <span class="mark">*</span></label>
-                            <input type="text" name="c_n_i_c" value="" class="form-control field" required>
+                            <label for="">National Identity Card No. </label>
+                            <input type="text" name="c_n_i_c" value="{{ old('c_n_i_c') }}" class="form-control field"
+                                   id="cnic"
+                                   placeholder="National Id Card #-(xxxxx-xxxxxxx-x)" oninput="formatCNIC(this)">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Passport No <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="passport_no" value="" class="form-control field"
-                                   required>
+                            <label for="">Passport No <span class="mark"> </span></label>
+                            <input type="text" name="passport_no" value="{{ old('passport_no') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Religion <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="religion" value="" class="form-control field"
-                                   required>
+                            <label for="">Religion <span class="mark"> </span></label>
+                            <input type="text" name="religion" value="{{ old('religion') }}" class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Nationality <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="nationality" value="" class="form-control field"
-                                   required>
+                            <label for="">Nationality <span class="mark"> </span></label>
+                            <input type="text" name="nationality" value="{{ old('nationality') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Blood Group <span class="mark"> <span class="mark">*</span></span></label>
-                            <input type="text" name="blood_group" value="" class="form-control field"
-                                   required>
+                            <label for="">Blood Group <span class="mark"> </span></label>
+                            <input type="text" name="blood_group" value="{{ old('blood_group') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Preferred Learning Method <span class="mark">*</span></label>
+                            <label for="">Preferred Learning Method </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="preferred_learning_method" required>
+                                <select class="form-select" id="" name="preferred_learning_method">
                                     <option value=""></option>
-                                    <option value="Online">Online</option>
-                                    <option value="On-Site">On-Site</option>
-                                    <option value="Blended">Blended</option>
+                                    <option
+                                        value="{{ 'Online' }}"{{ old('preferred_learning_method') == 'Online' ? 'selected' : ''}}>
+                                        Online
+                                    </option>
+                                    <option
+                                        value="{{ 'On-Site' }}" {{ old('preferred_learning_method') == 'On-Site' ? 'selected' : '' }}>
+                                        On-Site
+                                    </option>
+                                    <option
+                                        value="{{ 'Blended' }}" {{ old('preferred_learning_method') == 'Blended' ? 'selected' : '' }}>
+                                        Blended
+                                    </option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-{{--                     2. Correspondence Information--}}
+                    {{--2. Correspondence Information--}}
                     <div class="personal-information">
                         <strong class="overlap-text">2. Correspondence Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Residential Address <span class="mark">*</span></label>
-                            <textarea class="form-control" name="residential_address" id="" required></textarea>
+                            <label for="">Residential Address </label>
+                            <textarea class="form-control" name="residential_address"
+                                      id="">{{ old('residential_address') }}</textarea>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Postal Code <span class="mark">*</span></label>
-                            <input type="" name="postal_code" value="" class="form-control field"
-                                   required>
+                            <label for="">Postal Code </label>
+                            <input type="" name="postal_code" value="{{ old('postal_code') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">City <span class="mark">*</span></label>
-                            <input type="text" name="institution_city" value=""
-                                   class="form-control field" required>
+                            <label for="">City </label>
+                            <input type="text" name="city" value="{{ old('city') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Country <span class="mark">*</span></label>
-                            <input type="text" name="institution_country" value=""
-                                   class="form-control field" required>
+                            <label for="">Country </label>
+                            <input type="text" name="country" value="{{ old('country') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Telephone <span class="mark">*</span></label>
-                            <input type="text" name="telephone" value=""
-                                   class="form-control field" required>
+                            <label for="">Telephone </label>
+                            <input type="text" name="telephone" value="{{ old('telephone') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Phone <span class="mark">*</span></label>
+                            <label for="">Phone </label>
                             <div class="d-flex field">
                                 <div class="cu_select me-2">
-                                    <select class="form-select" name="code" id="code" required>
+                                    <select class="form-select" name="code" id="code">
                                         <option></option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryPhoneCode)
                                             <option
@@ -176,228 +226,282 @@
 
                                     </select>
                                 </div>
-                                <input type="text" name="phone" value=""
-                                       class="form-control small" required>
+                                <input type="text" name="phone" value="{{ old('phone') }}"
+                                       class="form-control small">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Personal Email <span class="mark">*</span></label>
-                            <input type="email" name="personal_email" value=""
-                                   class="form-control field" required>
+                            <label for="">Personal Email </label>
+                            <input type="email" name="personal_email" value="{{ old('personal_email') }}"
+                                   class="form-control field">
                         </div>
                     </div>
 
-{{--                     3. Education and Employment Information--}}
+                    {{--3. Education and Employment Information--}}
                     <div class="personal-information">
                         <strong class="overlap-text">3. Education and Employment Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Educational Qualification <span class="example-text">(e.g., BS, MBBS, BDS, etc.):</span>
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="educational_qualification" id=""
-                                        required>
+                                <input type="text" class="form-control" name="educational_qualification"
+                                       value="{{ old('educational_qualification') }}" id="">
                                 <span class="helper-text">Mention (S) along with the degree name in case the degree is in progress</span>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Employment Status <span class="mark">*</span></label>
+                            <label for="">Employment Status </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="employment_status" required>
+                                <select class="form-select" id="" name="employment_status">
                                     <option value=""></option>
-                                    <option value="Unemployed">Unemployed</option>
-                                    <option value="Self-employed">Self-employed</option>
-                                    <option value="Employed">Employed</option>
-                                    <option value="Student">Student</option>
-                                    <option value="Employment-Type">Employment Type</option>
-                                    <option value="Private">Private</option>
-                                    <option value="Public">Public</option>
+                                    <option
+                                        value="{{ 'Unemployed' }}" {{ old('employment_status') == 'Unemployed' ? 'selected' : ''}}>
+                                        Unemployed
+                                    </option>
+                                    <option
+                                        value="{{ 'Self-employed' }}" {{ old('employment_status') == 'Self-employed' ? 'selected' : ''}}>
+                                        Self-employed
+                                    </option>
+                                    <option
+                                        value="{{ 'Employed' }}" {{ old('employment_status') == 'Employed' ? 'selected' : ''}}>
+                                        Employed
+                                    </option>
+                                    <option
+                                        value="{{ 'Student' }}" {{ old('employment_status') == 'Student' ? 'selected' : ''}}>
+                                        Student
+                                    </option>
+                                    <option
+                                        value="{{ 'Employment-Type' }}" {{ old('employment_status') == 'Employment-Type' ? 'selected' : ''}}>
+                                        Employment Type
+                                    </option>
+                                    <option
+                                        value="{{ 'Private' }}" {{ old('employment_status') == 'Private' ? 'selected' : ''}}>
+                                        Private
+                                    </option>
+                                    <option
+                                        value="{{ 'Public' }}" {{ old('employment_status') == 'Public' ? 'selected' : ''}}>
+                                        Public
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Business Type/Designation <span class="example-text">if self-employed/employed:</span>
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="business_type_designation" id=""
-                                        required>
+                                <input type="text" class="form-control" name="business_type_designation"
+                                       value="{{ old('business_type_designation') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Business Name
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="business_name" id=""
-                                        required>
+                                <input type="text" class="form-control" name="business_name"
+                                       value="{{ old('business_name') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Official Address <span class="mark">*</span></label>
-                            <textarea class="form-control" name="official_address" id="" required></textarea>
+                            <label for="">Official Address </label>
+                            <textarea class="form-control" name="official_address"
+                                      id="">{{ old('official_address') }}</textarea>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Official Telephone <span class="mark">*</span></label>
-                            <input type="text" name="official_telephone" value="" class="form-control field"
-                                   required>
+                            <label for="">Official Telephone </label>
+                            <input type="text" name="official_telephone" value="{{ old('official_telephone') }}"
+                                   class="form-control field">
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Institutional Email <span class="mark">*</span></label>
-                            <input type="email" name="institutional_email" value="" class="form-control field"
-                                   required>
+                            <label for="">Institutional Email </label>
+                            <input type="email" name="institutional_email" value="{{ old('institutional_email') }}"
+                                   class="form-control field">
                         </div>
                     </div>
 
-{{--                     4. Type of Activity--}}
+                    {{--4. Type of Activity--}}
                     <div class="personal-information">
                         <strong class="overlap-text">4. Type of Activity</strong>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Type <span class="mark">*</span></label>
+                            <label for="">Type </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="type" required>
+                                <select class="form-select" id="" name="activity_type">
                                     <option value=""></option>
-                                    <option value="Workshop">Workshop</option>
-                                    <option value="Short-course">Short-course</option>
-                                    <option value="Training">Training</option>
-                                    <option value="Seminar">Seminar</option>
-                                    <option value="Symposium">Symposium</option>
-                                    <option value="Other">Other</option>
+                                    <option
+                                        value="{{ 'Workshop' }}" {{ old('activity_type') == 'Workshop' ? 'selected' : '' }}>
+                                        Workshop
+                                    </option>
+                                    <option
+                                        value="{{ 'Short-course' }}" {{ old('activity_type') == 'Short-course' ? 'selected' : '' }}>
+                                        Short-course
+                                    </option>
+                                    <option
+                                        value="{{ 'Training' }}" {{ old('activity_type') == 'Training' ? 'selected' : '' }}>
+                                        Training
+                                    </option>
+                                    <option
+                                        value="{{ 'Seminar' }}" {{ old('activity_type') == 'Seminar' ? 'selected' : '' }}>
+                                        Seminar
+                                    </option>
+                                    <option
+                                        value="{{ 'Symposium' }}" {{ old('activity_type') == 'Symposium' ? 'selected' : '' }}>
+                                        Symposium
+                                    </option>
+                                    <option
+                                        value="{{ 'Other' }}" {{ old('activity_type') == 'Other' ? 'selected' : '' }}>
+                                        Other
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Activity Title
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="activity_title" id=""
-                                        required>
+                                <input type="text" class="form-control" name="activity_title"
+                                       value="{{ old('activity_title') }}" id="">
                             </div>
                         </div>
                     </div>
 
-{{--                     5. Fee Information--}}
+                    {{--5. Fee Information--}}
                     <div class="personal-information">
                         <strong class="overlap-text">5. Fee Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">Is this a paid course <span class="mark">*</span></label>
+                            <label for="">Is this a paid course </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="course_type" required>
+                                <select class="form-select" id="" name="is_paid">
                                     <option value=""></option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="{{ 1 }}">Yes</option>
+                                    <option value="{{ 0 }}" {{ old('is_paid') == 0 ? 'selected' : ''  }}>No</option>
                                 </select>
                             </div>
                             <span class="helper-text">if "No" move to Section 7</span>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Course Fee (PKR)
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="number" class="form-control" name="course_fee" id=""
-                                        required>
+                                <input type="number" class="form-control" name="course_fee"
+                                       value="{{ old('course_fee') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Taxes (if applicable):
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="number" class="form-control" name="tax" id=""
-                                       required>
+                                <input type="number" class="form-control" name="course_tax"
+                                       value="{{ old('course_tax') }}" id="">
                             </div>
                         </div>
                     </div>
 
-{{--                     6. Sponsor Information--}}
+                    {{--6. Sponsor Information--}}
                     <div class="personal-information">
-                        <strong class="overlap-text">6. Sponsor Information <small> (Leave blank if the course is free)</small></strong>
-                        <p>if you are being sponsored by a company or organization, please provide the following details</p>
+                        <strong class="overlap-text">6. Sponsor Information <small> (Leave blank if the course is
+                                free)</small></strong>
+                        <p>if you are being sponsored by a company or organization, please provide the following
+                            details</p>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Sponsor Name
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="sponsor_name" id="">
+                                <input type="text" class="form-control" name="sponsor_name"
+                                       value="{{ old('sponsor_name') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Contact Person
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="contact_person" id=""
-                                       required>
+                                <input type="text" class="form-control" name="contact_person"
+                                       value="{{ old('contact_person') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Mobile No
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="mobile" id=""
-                                       required>
+                                <input type="text" class="form-control" name="sponsor_mobile"
+                                       value="{{ old('sponsor_mobile') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Email
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="email" class="form-control" name="email" id=""
-                                       required>
+                                <input type="email" class="form-control" name="sponsor_email"
+                                       value="{{ old('sponsor_email') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Address
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <textarea class="form-control" name="address" id="" required></textarea>
+                                <textarea class="form-control" name="sponsor_address"
+                                          id="">{{ old('sponsor_address') }}</textarea>
                             </div>
                         </div>
                     </div>
 
-{{--                     7. Certificate Information--}}
+                    {{--7. Certificate Information--}}
                     <div class="personal-information">
                         <strong class="overlap-text">7. Certificate Information <small> (for free courses only)</small></strong>
                         <div class="fieldrow d-md-flex align-items-center">
-                            <label for="">if you are attend a free course and would like to obtain a verifiable certificate, a nominal fee will be charged. <span class="mark">*</span></label>
+                            <label for="">if you are attend a free course and would like to obtain a verifiable
+                                certificate, a nominal fee will be charged. </label>
                             <div class="cu_select me-2">
-                                <select class="form-select" id="" name="nominal_fee" required>
+                                <select class="form-select" id="" name="certificate_nominal_fee">
                                     <option value=""></option>
-                                    <option value="Unemployed">Yes, I am interested</option>
-                                    <option value="Self-employed">No, I am not interested</option>
-                                    <option value="Employed">Not applicable</option>
+                                    <option
+                                        value="{{ 'Unemployed' }}" {{ old('certificate_nominal_fee') == 'Unemployed' ? 'selected' : '' }}>
+                                        Yes, I am interested
+                                    </option>
+                                    <option
+                                        value="{{ 'Self-employed' }}" {{ old('certificate_nominal_fee') == 'Self-employed' ? 'selected' : '' }}>
+                                        No, I am not interested
+                                    </option>
+                                    <option
+                                        value="{{ 'Employed' }}" {{ old('certificate_nominal_fee') == 'Employed' ? 'selected' : '' }}>
+                                        Not applicable
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Certificate Charges (PKR)
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="number" class="form-control" name="certificate_charge" id=""
-                                       required>
+                                <input type="number" class="form-control" name="certificate_charge"
+                                       value="{{ old('certificate_charge') }}" id="">
                             </div>
                         </div>
                     </div>
 
-{{--                     8. Emergency Contact Information--}}
+                    {{--8. Emergency Contact Information--}}
                     <div class="personal-information">
                         <strong class="overlap-text">8. Emergency Contact Information</strong>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Name
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="emergency_name" id=""
-                                       required>
+                                <input type="text" class="form-control" name="emergency_name"
+                                       value="{{ old('emergency_name') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Relationship
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="emergency_relationship" id=""
-                                       required>
+                                <input type="text" class="form-control" name="emergency_relationship"
+                                       value="{{ old('emergency_relationship') }}" id="">
                             </div>
                         </div>
                         <div class="fieldrow d-md-flex align-items-center">
                             <label for="">Mobile No
-                                <span class="mark">*</span></label>
+                            </label>
                             <div>
-                                <input type="text" class="form-control" name="emergency_mobile_no" id=""
-                                       required>
+                                <input type="text" class="form-control" name="emergency_mobile_no"
+                                       value="{{ old('emergency_mobile_no') }}" id="">
                             </div>
                         </div>
                     </div>
@@ -433,7 +537,7 @@
                             </div>
                         </div>
                     @endif
-                    <h3 class="subheading">Upload Deposit Slip<span class="mark">*</span></h3>
+                    <h3 class="subheading">Upload Deposit Slip</h3>
                     <p class="fz18">Files required for submission include your fee deposit slip or certificate
                         acquisition
                         fee for free courses only (optional). Please note that Larger file take longer to upload. Please
@@ -442,7 +546,7 @@
                         formats: JPEG and PNG).</p>
                     <div class="field">
                         <div class="attachment">
-                            <input type="file" name="file" id="file" required>
+                            <input type="file" name="file" id="file">
                             <div class="inner">
                                 <i class="fa fa-upload"></i>
                                 <span class="d-flex mb-2">Drag and drop your file here</span>
@@ -521,5 +625,30 @@
         $(document).ready(function () {
             $('#code').select2({});
         });
+
+        function formatCNIC(cnicInput) {
+            var cnic = cnicInput.value;
+
+            // Remove any non-digit characters from the input
+            cnic = cnic.replace(/\D/g, '');
+
+            // Truncate the input value if it exceeds the desired format length
+            if (cnic.length > 13) {
+                cnic = cnic.substring(0, 13);
+            }
+
+            // Remove dashes from the input
+            cnic = cnic.replace(/([^0-9])-+/g, '$1');
+
+            if (cnic.length >= 6) {
+                cnic = cnic.substring(0, 5) + "-" + cnic.substring(5);
+            }
+            if (cnic.length >= 14) {
+                cnic = cnic.substring(0, 13) + "-" + cnic.substring(13);
+            }
+
+            cnicInput.value = cnic;
+        }
+
     </script>
 @endsection
