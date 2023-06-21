@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('class_id')->index();
             $table->string('registration_no')->unique()->nullable();
-            $table->boolean('is_registered')->default(1);
+            $table->boolean('is_registered')->default(0);
 
 //            1. Personal Information
             $table->string('full_name')->nullable();
