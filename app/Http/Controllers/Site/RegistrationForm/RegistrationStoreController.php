@@ -62,10 +62,10 @@ class RegistrationStoreController extends Controller
 
         $registration = new Registration();
         $registration->registration_no = $data['registration_no'] ?? null;
-//        $registration->is_registered = $data['is_registered'];
         if (isset($data['is_registered'])) {
             $registration->is_registered = $data['is_registered'];
         }
+        $formNo = Registration::formNo();
         $registration->full_name = $data['full_name'] ?? null;
         $registration->father_husband_name = $data['father_husband_name'] ?? null;
         $registration->date_of_birth = $data['date_of_birth'] ?? null;
@@ -118,6 +118,11 @@ class RegistrationStoreController extends Controller
 
         $registration->save();
 
+        if ($registration) {
+            $registration->form_no = $registration->id + $formNo;
+            $registration->save();
+        }
+        
         flash('Registration submitted')->success()->important();
 
         return redirect()->back();

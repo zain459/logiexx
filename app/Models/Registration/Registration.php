@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $class_id
  * @property string|null $registration_no
+ * @property int|null $form_no
  * @property boolean|null $is_registered
  * @property string|null $full_name
  * @property string|null $father_husband_name
@@ -60,6 +61,11 @@ class Registration extends Model
     public function id(): int
     {
         return $this->id;
+    }
+
+    public static function formNo(): int
+    {
+        return '10000';
     }
 
     public function classId(): int
