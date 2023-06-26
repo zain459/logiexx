@@ -1,28 +1,7 @@
 @extends('site.master')
-
+@section('banner-title', 'Webinar Series')
 @section('title', 'Webinar Series')
 @section('content')
-    <div class="title-section">
-        <div class="container">
-            <div class="inner-menu">
-                <a href="courses.php" class="btn-link"><span class="button">Browse Our Courses</span></a>
-                <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
-            </div>
-            <div class="fields-menu">
-                <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    @foreach($subjectFields as $subjectField)
-                        @if($subjectField != null)
-                            <li>
-                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-            <h1>Webinar Series</h1>
-        </div>
-    </div>
     <main id="main">
         <section class="block bdb">
             <div class="container pb-4 mb-5">

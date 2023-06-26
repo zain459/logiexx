@@ -1,28 +1,7 @@
 @extends('site.master')
+@section('banner-title', 'Learner Feedback')
 @section('title', 'feedback-varification')
 @section('content')
-    <div class="title-section">
-        <div class="container">
-            <div class="inner-menu">
-                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
-                <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
-            </div>
-            <div class="fields-menu">
-                <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    @foreach($subjectFields as $subjectField)
-                        @if($subjectField != null)
-                            <li>
-                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-            <h1>Learner Feedback</h1>
-        </div>
-    </div>
-
     <main id="main">
         <div class="feedback-block">
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">

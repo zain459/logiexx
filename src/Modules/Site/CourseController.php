@@ -40,13 +40,13 @@ class CourseController
             $query->whereIn('modality', $filters['modality']);
         }
         $courses = $query->paginate(6);
-        $subjectAreas = SubjectArea::all();
+        $subjectFields  = SubjectArea::all();
 
         return view('site.course', [
             'filters' => $filters,
             'count' => $count,
             'courses' => $courses,
-            'subjectAreas' => $subjectAreas,
+            'subjectFields' => $subjectFields,
         ]);
     }
 }

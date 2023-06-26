@@ -10,7 +10,7 @@
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #283250;
-    --navlink: #3b3838;
+    --navlink: #fff;
     --navlinkhover: #0094d4;
     --navcollapse: var(--primary);
     --navtitle: #fff;
@@ -160,11 +160,17 @@ a {
     padding-left: 15px;
 }
 
+.wrap{
+    background: url(../../../public/images/bgwrap.webp) 0 69%;
+    background-size: cover;
+    overflow: hidden;
+}
+
 /*--Header--*/
 #header {
     position: relative;
     z-index: 1022;
-    background: rgba(255, 255, 255, 0.5);
+    /*background: rgba(255, 255, 255, 0.5);*/
     min-width: 320px;
 }
 

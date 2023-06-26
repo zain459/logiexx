@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Site\RegistrationForm;
+namespace App\Http\Controllers\Admin\RegistrationForm;
 
-use Illuminate\Http\Request;
-use Logixs\Services\SaveImage;
 use App\Http\Controllers\Controller;
 use App\Models\Registration\Registration;
+use Illuminate\Http\Request;
+use Logixs\Services\SaveImage;
 
 class RegistrationStoreController extends Controller
 {
@@ -126,4 +126,5 @@ class RegistrationStoreController extends Controller
 
         return redirect()->back();
     }
+
 }

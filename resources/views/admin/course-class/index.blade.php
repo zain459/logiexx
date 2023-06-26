@@ -68,8 +68,11 @@
                     <td>{{$class->date()->toDateString()}}</td>
                     <td>{{$class->classSeat()}}</td>
                     <td class="d-flex flex-column align-items-center">
-                        <a href="{{route('course.enrollment-index', $class->id())}}">
-                            View Enrollment
+{{--                        <a href="{{route('course.enrollment-index', $class->id())}}">--}}
+{{--                            View Enrollment--}}
+{{--                        </a>--}}
+                        <a href="{{route('course-class.registration.index', $class->id())}}">
+                            View Registration
                         </a>
 {{--                        <a href="{{ route('admin.verify-certificate.index', $class->id()) }}">--}}
 {{--                           View Certificate--}}

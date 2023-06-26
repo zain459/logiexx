@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustDeleteController;
 use App\Http\Controllers\Admin\OrganizationTrust\OrganizationTrustUpdateController;
+use App\Http\Controllers\Admin\RegistrationForm\RegistrationCreateController;
+use App\Http\Controllers\Admin\RegistrationForm\RegistrationIndexController;
+use App\Http\Controllers\Admin\RegistrationForm\RegistrationStoreController;
 use Illuminate\Support\Facades\Route;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionController;
 use Logixs\Modules\Course\Controllers\CoreFeatureSectionCreateController;
@@ -200,6 +203,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('class/{id}/enrollment', EnrollmentIndexController::class)->name('course.enrollment-index');
     Route::post('enrollment/{id}/delete', EnrollmentDeleteController::class)->name('course.enrollment-delete');
     Route::get('enrollment/{id}/view', EnrollmentViewController::class)->name('course.enrollment-view');
+
+    Route::get('class/{id}/registration', RegistrationIndexController::class)->name('course-class.registration.index');
+    Route::get('class/{id}/registration-create', RegistrationCreateController::class)->name('course-class.registration.create');
+    Route::post('registration-store', RegistrationStoreController::class)->name('course-class.registration.store');
 
     //enrollment status
     Route::post('enrollment-status/{id}/store', \Logixs\Modules\Course\Controllers\EnrollmentStatusStore::class)->name('course.enrollment-status-store');

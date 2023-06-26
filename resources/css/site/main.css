@@ -56,9 +56,8 @@ table {
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     line-height: 24px;
 }
-
 .select2-container--default .select2-selection--single {
-    background-color: none !important;
+    background-color: transparent !important;
     border: none !important;
     border-radius: 0 !important;
 }
@@ -81,7 +80,7 @@ td {
 }
 
 .title-section {
-    background: #283250;
+    /*background: #283250;*/
     position: relative;
 }
 
@@ -128,7 +127,7 @@ td {
 .title-section .inner-menu {
     position: absolute;
     right: 12px;
-    top: 48px;
+    top: 27px;
 }
 
 .title-section .inner-menu .btn-link {
@@ -210,21 +209,23 @@ td {
     top: -11px;
 }
 
-.fields-menu {
+.fields-menu{
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: var(--dark);
+    /*background: var(--dark);*/
+    background: rgba(0,0,0,0.9);
     color: #fff;
-    padding: 32px 8px 15px;
-    padding-right: 80px;
+    padding: 32px 9999px 15px;
+    margin: 0 -9971px 0 -9991px;
     max-height: 0;
     visibility: hidden;
     opacity: 0;
     z-index: 99;
 }
+
 
 .open .fields-menu {
     max-height: 800px;
@@ -1316,7 +1317,7 @@ h2.subheading {
     border-radius: 0;
     padding: 3px 10px;
     font-size: 14px;
-    list-style: 20px;
+    line-height: 20px;
     width: 264px;
 }
 

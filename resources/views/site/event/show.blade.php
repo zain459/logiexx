@@ -1,11 +1,7 @@
 @extends('site.master')
 @section('title', 'Events')
 @section('content')
-    <div class="title-section">
-        <div class="container">
-            <h1>Events</h1>
-        </div>
-    </div>
+
 
     <div class="border-dark border-top mb-4">
         <div class="container">

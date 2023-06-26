@@ -4,6 +4,8 @@ namespace App\Models\Registration;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Logixs\Modules\Course\Models\CourseClass;
 
 /**
  * @property int $id
@@ -291,5 +293,10 @@ class Registration extends Model
     public function file(): ?string
     {
         return $this->file;
+    }
+
+    public function class(): BelongsTo
+    {
+        return $this->belongsTo(CourseClass::class, 'class_id', 'id');
     }
 }

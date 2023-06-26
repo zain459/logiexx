@@ -25,6 +25,7 @@
                 <h1>Learner Feedback</h1>
             </div>
         </div>
+        </div>
         <div class="container p-0">
             @if ($errors->any())
                 <div class="my-3 d-flex align-items-center text-uppercase alert alert-danger alert-message">

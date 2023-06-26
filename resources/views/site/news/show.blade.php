@@ -1,12 +1,6 @@
 @extends('site.master')
 @section('title', 'News')
 @section('content')
-    <div class="title-section">
-        <div class="container">
-            <h1>News</h1>
-        </div>
-    </div>
-
     <div class="border-dark border-top mb-4">
         <div class="container">
             <nav class="pt-4 mb-4 pb-2" aria-label="breadcrumb">

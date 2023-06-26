@@ -6,6 +6,7 @@
             <h1>News</h1>
         </div>
     </div>
+    </div>
 
     <div class="border-dark border-top mb-4">
         <div class="container">

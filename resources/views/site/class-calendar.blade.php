@@ -1,4 +1,5 @@
 @extends('site.master')
+@section('banner-title', $specific['title']?? '')
 @section('title', 'Course Detail')
 @section('content')
     <html>
@@ -21,32 +22,6 @@
         </style>
     </head>
     <body>
-    <div class="title-section coursesdetail-title">
-        <div class="container">
-            <div class="inner-menu">
-                {{--                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>--}}
-                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
-                <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
-            </div>
-            {{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
-            {{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
-            <div class="fields-menu">
-                <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    @foreach($subjectFields as $subjectField)
-                        @if($subjectField != null)
-                            <li>
-                                <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-            @if($specific != null)
-                <h1>{{$specific->title()}}</h1>
-            @endif
-        </div>
-    </div>
     <div class="container">
         <h1></h1>
         <div id='calendar'></div>

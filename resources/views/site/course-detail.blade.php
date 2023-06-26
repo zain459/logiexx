@@ -1,34 +1,7 @@
 @extends('site.master')
 @section('title', 'Course Detail')
+@section('banner-title', $specific['title']?? '')
 @section('content')
-
-    <div class="title-section coursesdetail-title">
-        <div class="container">
-            <div class="inner-menu">
-                {{--                <a href="#subjectArea" class="btn-link"><span class="button">Browse Our Courses</span></a>--}}
-                <a href="{{route('site.course-index')}}" class="btn-link"><span class="button">Browse Our Courses</span></a>
-                <a href="#" class="btn-link btn-opener open"><span class="opener"><span>&nbsp;</span></span></a>
-            </div>
-            {{--                        <a href="{{route('site.course-class-enrollment', $class->id())}}" class="btn btn-primary btn-enroll">Enroll--}}
-            {{--                            Now <i class="icon-link ms-3 align-items-center"></i></a>--}}
-            <a href="{{route('site.class-calendar.index', $specific->id())}}" class="btn btn-primary btn-enroll">Class
-                Calendar
-                <i class="icon-link ms-3 align-items-center"></i></a>
-            <div class="fields-menu">
-                <h2>Browse Our Subject Fields</h2>
-                <ul>
-                    @foreach($subjectFields as $subjectField)
-                        <li>
-                            <a href="{{ route('site.course-index', ['subject_areas' => [$subjectField->id()]]) }}">{{$subjectField->name()}}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            @if($specific != null)
-                <h1>{{$specific->title()}}</h1>
-            @endif
-        </div>
-    </div>
     <main id="main" class="p-0">
         <section class="block bg-light detail-block">
             <div class="container">
@@ -56,7 +29,7 @@
                                 <dd>{{$specific->timeCommitment()}}</dd>
                                 <dt>Course Fee</dt>
                                 @if( $specific->feeType() === 'paid')
-                                <td>{{$specific->feeAmount()}}</td>
+                                    <td>{{$specific->feeAmount()}}</td>
                                 @else
                                     <td>{{$specific->feeType()}}</td>
                                 @endif
@@ -64,8 +37,8 @@
                                 <dd>{{Carbon\Carbon::parse($specific->courseStartDate())->format('F j, Y')}}</dd>
                                 <dt>Course Code</dt>
                                 <dd>{{$specific->courseCode()}}</dd>
-{{--                                <dt>Venue</dt>--}}
-{{--                                <dd>{{$specific->venue()}}</dd>--}}
+                                {{--                                <dt>Venue</dt>--}}
+                                {{--                                <dd>{{$specific->venue()}}</dd>--}}
                             </dl>
                         @endif
                     </div>
@@ -101,7 +74,8 @@
                                         class="icon-students ms-0 me-1"></i> {{ $enrollmentCount }} Students</span>
                             @endif
                         </div>
-                        <a href="/storage/{{ $specific->file() }}" download="" class="view-all"><i class="icon-arrow"></i>
+                        <a href="/storage/{{ $specific->file() }}" download="" class="view-all"><i
+                                class="icon-arrow"></i>
                             Download Course Catalogue (PDF)</a>
                     </div>
                 </div>
@@ -118,21 +92,22 @@
             @endif
         @endforeach
         @if(null !== $coreFeatures)
-        <section class="block academy-block">
-            <div class="container">
-                <h2>Why Logixs Academy</h2>
-                <div class="row row-cols-md-3 row-cols-1 text-center mb-4">
-                    @foreach($coreFeatures as $coreFeature)
-                    <div class="col aos-init aos-animate" data-aos-delay="100" data-aos="fade-left" data-aos-duration="1000">
-                        <img src="{{ '/storage/'.$coreFeature->image() }}" alt="">
-                        <h3>{{ $coreFeature->subHeading() }}</h3>
-                        <p> {!! html_entity_decode($coreFeature->description()) !!}</p>
+            <section class="block academy-block">
+                <div class="container">
+                    <h2>Why Logixs Academy</h2>
+                    <div class="row row-cols-md-3 row-cols-1 text-center mb-4">
+                        @foreach($coreFeatures as $coreFeature)
+                            <div class="col aos-init aos-animate" data-aos-delay="100" data-aos="fade-left"
+                                 data-aos-duration="1000">
+                                <img src="{{ '/storage/'.$coreFeature->image() }}" alt="">
+                                <h3>{{ $coreFeature->subHeading() }}</h3>
+                                <p> {!! html_entity_decode($coreFeature->description()) !!}</p>
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-            </div>
-        </section>
-            @endif
+            </section>
+        @endif
         @if($pages != null)
             <section class="block academy-block">
                 <div class="container">
