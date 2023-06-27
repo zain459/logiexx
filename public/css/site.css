@@ -296,7 +296,9 @@ a {
 .wrap{
     background: url(/images/bgwrap.webp?52bdef9393664aafc9cda194edcf37b8) 0 69%;
     background-size: cover;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    position: relative;
+    z-index: 9999;
 }
 
 /*--Header--*/
@@ -976,7 +978,9 @@ a {
 .wrap{
     background: url(/images/bgwrap.webp?52bdef9393664aafc9cda194edcf37b8) 0 69%;
     background-size: cover;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    position: relative;
+    z-index: 9999;
 }
 
 /*--Header--*/
@@ -1791,8 +1795,8 @@ td {
     /*background: var(--dark);*/
     background: rgba(0,0,0,0.9);
     color: #fff;
-    padding: 32px 9999px 15px;
-    margin: 0 -9971px 0 -9991px;
+    padding: 32px 300px 15px;
+    margin: 0 -272px 0 -292px;
     max-height: 0;
     visibility: hidden;
     opacity: 0;

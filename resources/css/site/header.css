@@ -163,7 +163,9 @@ a {
 .wrap{
     background: url(../../../public/images/bgwrap.webp) 0 69%;
     background-size: cover;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    position: relative;
+    z-index: 9999;
 }
 
 /*--Header--*/

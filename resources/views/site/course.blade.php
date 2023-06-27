@@ -140,7 +140,7 @@
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\CourseFee::all() as $courseFee)
-                            @if(isset($filters['fee_type']) && in_array($courseFee->id(), $filters['fee_type']))
+                            @if(isset($filters['fee_type']) && in_array($courseFee->name(), $filters['fee_type']))
                                 <span class="tag"><a
                                         href="{{ request()->fullUrlWithQuery(['fee_type' => null]) }}">{{$courseFee->name()}}</a></span>
                             @endif
@@ -152,7 +152,7 @@
                             @endif
                         @endforeach
                         @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $startDateStatus)
-                            @if(isset($filters['start_date_status']) && in_array($startDateStatus->id(), $filters['start_date_status']))
+                            @if(isset($filters['course_start_date']) && in_array($startDateStatus->id(), $filters['course_start_date']))
                                 <span class="tag"><a
                                         href="{{ request()->fullUrlWithQuery(['start_date_status' => null]) }}">{{$startDateStatus->name()}} </a></span>
                             @endif

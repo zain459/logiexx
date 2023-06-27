@@ -119,7 +119,7 @@
                                             <li>
                                                 <label>
                                                     <input
-                                                        {{isset($filters['fee_type']) && in_array($courseFee->id(), $filters['fee_type']) ? "checked": ""}}
+                                                        {{isset($filters['fee_type']) && in_array($courseFee->name(), $filters['fee_type']) ? "checked": ""}}
                                                         type="checkbox" name="fee_type[]" class="filters"
                                                         value="{{$courseFee->name()}}">{{$courseFee->name()}}
                                                 </label>
@@ -147,9 +147,9 @@
                                             <li>
                                                 <label>
                                                     <input
-                                                        {{isset($filters['course_start_date']) && in_array($dateStatus->name(), $filters['course_start_date']) ? "checked": ""}}
+                                                        {{isset($filters['course_start_date']) && in_array($dateStatus->id(), $filters['course_start_date']) ? "checked": ""}}
                                                         type="checkbox" name="course_start_date[]" class="filters"
-                                                        value="{{$dateStatus->name()}}">{{$dateStatus->name()}}
+                                                        value="{{$dateStatus->id()}}">{{$dateStatus->name()}}
                                                 </label>
                                             </li>
                                         @endforeach
@@ -176,7 +176,7 @@
                                                 <label>
                                                     <input
                                                         {{isset($filters['modality']) && in_array($modality->id(), $filters['modality']) ? "checked": ""}}
-                                                        type="checkbox" name="modality[]" class="   filters"
+                                                        type="checkbox" name="modality[]" class="filters"
                                                         value="{{$modality->id()}}">{{$modality->name()}}
                                                 </label>
                                             </li>
@@ -310,6 +310,21 @@
     //     $('#myModal').modal('show');
     //     e.preventDefault();
     // });
+
+    $(document).ready(function () {
+        $(".filters").on('change', function () {
+            $('#filtersForm').submit();
+            // var url = window.location.href;
+            // console.log(url, 'hello')
+            // if (url.indexOf('?') > -1) {
+            //     url += '&' + this.name + "=" + this.value;
+            // } else {
+            //     url += '?' + this.name + "=" + this.value;
+            // }
+            // window.location = url;
+        })
+    })
+    // window.location.reload(false);
 
 </script>
 </body>

@@ -12,7 +12,7 @@ class CourseController
     public function __invoke(Request $request)
     {
         $filters = $request->all();
-
+//        dd($filters);
         $query = Course::with(['category']);
         $count = $query->count();
 
@@ -40,7 +40,7 @@ class CourseController
             $query->whereIn('modality', $filters['modality']);
         }
         $courses = $query->paginate(6);
-        $subjectFields  = SubjectArea::all();
+        $subjectFields = SubjectArea::all();
 
         return view('site.course', [
             'filters' => $filters,

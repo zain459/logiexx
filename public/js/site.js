@@ -101,7 +101,7 @@ function initMobileNav() {
         menuDrop: '.data'
     });
     jQuery('.filter-menu li').mobileNav({
-        hideOnClickOutside: true,
+        hideOnClickOutside: false,
         menuActiveClass: 'open',
         menuOpener: '>a',
         menuDrop: 'ul'
