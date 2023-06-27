@@ -154,7 +154,7 @@
                         @foreach(\Logixs\Modules\Course\Models\StartDateStatus::all() as $startDateStatus)
                             @if(isset($filters['course_start_date']) && in_array($startDateStatus->id(), $filters['course_start_date']))
                                 <span class="tag"><a
-                                        href="{{ request()->fullUrlWithQuery(['start_date_status' => null]) }}">{{$startDateStatus->name()}} </a></span>
+                                        href="{{ request()->fullUrlWithQuery(['course_start_date' => null]) }}">{{$startDateStatus->name()}} </a></span>
                             @endif
                         @endforeach
 
