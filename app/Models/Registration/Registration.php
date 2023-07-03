@@ -130,7 +130,7 @@ class Registration extends Model
         return $this->nationality;
     }
 
-    public function blood_group(): ?string
+    public function bloodGroup(): ?string
     {
         return $this->blood_group;
     }

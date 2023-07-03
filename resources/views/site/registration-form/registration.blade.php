@@ -201,7 +201,7 @@
                                         <option></option>
                                         @foreach(\Logixs\Modules\Site\Enrollment\Models\CountryTelephoneCode::all() as $countryPhoneCode)
                                             <option
-                                                value="{{$countryPhoneCode->id()}}" @selected(old('code') == $countryPhoneCode->id())>{{$countryPhoneCode->code()}}</option>
+                                                value="{{$countryPhoneCode->code()}}" @selected(old('code') == $countryPhoneCode->id())>{{$countryPhoneCode->code()}}</option>
                                         @endforeach
 
                                     </select>

@@ -23,8 +23,13 @@
     </head>
     <body>
     <div class="container">
-        <h1></h1>
-        <div id='calendar'></div>
+        <div class="d-flex justify-content-between">
+            <div>
+                <h1 class="mt-2">Heading</h1>
+            </div>
+            <div id='calendar' class="w-50 mt-2"></div>
+        </div>
+
     </div>
 
     <script>

@@ -12,7 +12,6 @@ class CourseController
     public function __invoke(Request $request)
     {
         $filters = $request->all();
-//        dd($filters);
         $query = Course::with(['category']);
         $count = $query->count();
 
