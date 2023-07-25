@@ -25,6 +25,7 @@ class HomeIndexController
         $news = News::orderBy('posted_date', 'desc')->limit('2')->get();
         $totalCourses = Course::count();
         $events = Event::orderBy('start_date', 'desc')->limit('2')->get();
+
         $totalPartners = Partner::count();
         $subjectFields = SubjectArea::all();
         $totalEnrollments = Enrollment::count();
