@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col-md-4 pb-3 pb-lg-0">
                             @if($webinar->image())
-                                <img src="{{'storage/public/'.$webinar->image()}}" class="img-fluid w-100" alt="">
+                                <img src="{{ asset('storage/'.$webinar->image())}}" class="img-fluid w-100" alt="">
                             @else
                                 <img src="{{asset('images/f-logo.png')}}" class="img-fluid w-100" alt="">
                             @endif
@@ -267,7 +267,7 @@
                     <div class="slick-slider">
                         @foreach($organizationTrusts as $organizationTrust)
                             @if($organizationTrust != null)
-                                <div class="slide"><img src="{{'storage/'. $organizationTrust->image()}}"
+                                <div class="slide"><img src="{{ asset('storage/'. $organizationTrust->image()) }}"
                                                         class="img-fluid mx-auto d-block" alt=""></div>
                             @endif
                         @endforeach
@@ -331,7 +331,7 @@
                         @if($testimonial)
                             <div class="col">
                                 @if($testimonial->image())
-                                    <div class="photo"><img src="{{'storage/'.$testimonial->image()}}" class="img-fluid"
+                                    <div class="photo"><img src="{{ asset('storage/'.$testimonial->image()) }}" class="img-fluid"
                                                             alt=""></div>
                                 @else
                                     <div class="photo"><img src="{{asset('images/no.png')}}" class="img-fluid"
