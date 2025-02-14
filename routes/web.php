@@ -28,14 +28,14 @@ use Logixs\Modules\Site\CourseLearnerFeedBack\Controllers\CourseLearnerFeedBackS
 use App\Http\Controllers\Site\BecomeAnInstructor\Controllers\BecomeAnInstructorIndexController;
 use App\Http\Controllers\Site\BecomeAnInstructor\Controllers\BecomeAnInstructorStoreController;
 
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login.show');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::get('site', HomeIndexController::class)->name('site.index');
+Route::get('/', HomeIndexController::class)->name('site.index');
 Route::get('site/courses', CourseController::class)->name('site.course-index');
 Route::get('site/course/{id}/detail', CourseDetailController::class)->name('site.course-detail');
 Route::get('site/testimonial', TestimonialController::class)->name('site.testimonial-index');
